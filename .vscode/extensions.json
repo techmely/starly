@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "arcanis.vscode-zipfs",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-vietnamese",
+    "alexkrechik.cucumberautocomplete",
+    "usernamehw.errorlens",
+    "siarheikuchuk.gherkin-beautifier-vs-code-plugin",
+    "esbenp.prettier-vscode",
+    "inlang.vs-code-extension"
+  ]
+}

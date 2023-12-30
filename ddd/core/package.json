@@ -1,0 +1,45 @@
+{
+  "name": "@techmely/ddd-core",
+  "description": "Share core modules of ddd",
+  "author": {
+    "name": "Harry Tran",
+    "email": "nhattq.coding@gmail.com",
+    "url": "https://github.com/harrytran998"
+  },
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "pkgroll --target=node20"
+  },
+  "optionalDependencies": {
+    "hono": "^3.11.11"
+  },
+  "peerDependencies": {
+    "@techmely/utils": "1.9.4",
+    "emittery": "^1.0.1",
+    "kysely": "0.26.3",
+    "nanoid": "^5.0.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20231218.0",
+    "@techmely/types": "1.5.2",
+    "@techmely/utils": "1.10.0",
+    "emittery": "^1.0.1",
+    "hono": "^3.11.10",
+    "kysely": "0.26.3",
+    "nanoid": "^5.0.4",
+    "pkgroll": "2.0.1"
+  }
+}

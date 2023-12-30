@@ -1,0 +1,9 @@
+#footer {
+  ul[data-footer-menus] {
+    li {
+      &:hover {
+        color: theme('colors.primary.500');
+      }
+    }
+  }
+}

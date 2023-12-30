@@ -1,0 +1,16 @@
+User-Agent: *
+Disallow: /m/
+Disallow: /me/
+Disallow: /@me$
+Disallow: /@me/
+Disallow: /*/edit$
+Disallow: /*/*/edit$
+Disallow: /media/
+Disallow: /p/*/share
+Disallow: /r/
+Disallow: /trending
+Disallow: /search?q$
+Disallow: /search?q=
+Disallow: /*/*source=
+
+Sitemap: https://dreamstree.com/sitemap/sitemap.xml

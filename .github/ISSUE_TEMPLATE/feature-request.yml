@@ -1,0 +1,37 @@
+name: 🦄 Feature Request
+description: Suggest an idea for a new feature or enhancement
+title: "[FEAT]: "
+labels: ["feature"]
+assignees: ["harrytran998"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to complete this feature!
+        Please carefully read the contribution guidelines before request a review from others.
+        https://team.techmely.com/docs/community/contribution#create-feature-request
+  - type: textarea
+    id: describe-feature
+    attributes:
+      label: What does this MR do and why?
+      description: What do you want to happen? What problem are you trying to solve?
+      placeholder: Describe the need for the feature.
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: The resources that you have researched
+      description: To solve this problem, what's resources we need to access?
+
+  - type: checkboxes
+    id: Acceptance-Criteria
+    attributes:
+      label: Acceptance Criteria Checklist
+      description: The standard criteria that a feature must satisfy to be accepted
+      options:
+        - label: Read the [contribution guide](https://team.techmely.com/docs/community/contribution)
+        - label: Check existing [discussions](https://github.com/harrytran998/techmely/discussions) and [issues](https://github.com/harrytran998/techmely/issues).
+          required: true
+        - label: The scope of the feature is clear and small enough to be implemented in a single MR - Not exceeding 500 lines of code and 40 files changed.
+          required: true

@@ -1,0 +1,29 @@
+{
+  "name": "@techmely/ui-relative-time",
+  "version": "0.0.0",
+  "homepage": "https://techmely.com/products/mely-ui/relative-time",
+  "bugs": {
+    "url": "https://github.com/techmely/techmely/issues"
+  },
+  "repository": "https://github.com/techmely/techmely/tree/dev/mely-communication/relative-time",
+  "funding": "https://github.com/sponsors/techmely",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "echo NOT IMPLEMENT YET",
+    "stub": "unbuild --stub"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

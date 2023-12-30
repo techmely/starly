@@ -1,0 +1,55 @@
+{
+  "name": "@techmely/ui-button",
+  "version": "0.0.1",
+  "homepage": "https://techmely.com/products/mely-ui/button",
+  "bugs": {
+    "url": "https://github.com/techmely/techmely/issues"
+  },
+  "repository": "https://github.com/techmely/techmely/tree/dev/mely-action/button",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "require": "./dist/react.cjs",
+      "import": "./dist/react.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup --entry src/index.ts --entry src/react.tsx --splitting --sourcemap --clean --dts --format esm,cjs --treeshake",
+    "publish": "node ../../../../../../scripts/publishPkg.mjs"
+  },
+  "peerDependencies": {
+    "lit": "^2.8.0",
+    "@techmely/ui-core": "workspace:*",
+    "@techmely/ui-icon": "workspace:*",
+    "@radix-ui/react-slot": "^1.0.2",
+    "react": "^18.2.0",
+    "clsx": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "tag": "latest"
+  },
+  "funding": [
+    {
+      "type": "ko-fi",
+      "url": "https://ko-fi.com/techmely"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/techmely"
+    }
+  ],
+  "keywords": ["techmely", "techmely-ui"]
+}

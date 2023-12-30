@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git"
+  },
+  "organizeImports": {
+    "enabled": true,
+    "ignore": ["coverage", "cache"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentWidth": 2,
+    "indentStyle": "space",
+    "lineWidth": 100,
+    "formatWithErrors": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "a11y": {
+        "recommended": true
+      },
+      "complexity": {
+        "recommended": true
+      },
+      "nursery": {
+        "recommended": true
+      },
+      "correctness": {
+        "recommended": true
+      },
+      "style": {
+        "recommended": true
+      },
+      "suspicious": {
+        "recommended": true,
+        "noEmptyInterface": "off",
+        "noExplicitAny": "off"
+      },
+      "performance": {
+        "recommended": true
+      }
+    }
+  },
+  "files": {
+    "ignore": [
+      "node_modules",
+      "coverage",
+      "public",
+      ".output",
+      ".vercel",
+      "dist",
+      "packages/**/**/*.d.ts",
+      "apps/web/modules/locales/paraglide",
+      "apps/web/typings"
+    ]
+  }
+}

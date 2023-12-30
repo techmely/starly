@@ -1,0 +1,37 @@
+{
+  "name": "@techmely/ui-directives",
+  "version": "0.0.0",
+  "homepage": "https://techmely.com/products/mely-ui/directivess",
+  "bugs": {
+    "url": "https://github.com/techmely/techmely/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techmely/directivess.git",
+    "directory": "hestia/mely-core/directives"
+  },
+  "funding": "https://github.com/sponsors/techmely",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "source": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup --dts"
+  },
+  "devDependencies": {
+    "tsup": "8.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

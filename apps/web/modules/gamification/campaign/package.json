@@ -1,0 +1,9 @@
+{
+  "name": "@techmely/gamification-campaigns",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo BUILD"
+  }
+}

@@ -1,0 +1,26 @@
+:root {
+  --post-small-fs: 1;
+  --post-medium-fs: 1.25;
+  --post-large-fs: 1.5;
+  --max-post-vw: 40;
+  --current-post-fs: 1.25;
+
+  --post-width: max(0px, 50% - (var(--max-post-vw) * 1rem / 2));
+
+  --post-fs: clamp(
+    var(--post-small-fs) * 1rem,
+    var(--current-post-fs) * 1rem,
+    var(--post-large-fs) * 1rem
+  );
+
+  --ON: initial;
+  --OFF: ;
+  --dark: var(--OFF);
+}
+
+.techmely-post {
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  font-size: var(--post-fs);
+  margin-inline: var(--post-width);
+}

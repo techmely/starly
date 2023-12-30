@@ -1,0 +1,7 @@
+packages:
+  - "apps/*"
+  - "ddd/*"
+  - "packages/*"
+  - "packages/hono-middleware/*"
+  - "packages/ui/**"
+  - "__test__/e2e/**"

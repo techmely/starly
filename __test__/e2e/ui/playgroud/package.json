@@ -1,0 +1,33 @@
+{
+  "name": "@techmely/e2e-ui-playground",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx ./h3-entry.ts",
+    "build": "vite build",
+    "preview": "NODE_ENV=production tsx ./h3-entry.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/serve-static": "^1.15.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.32",
+    "autoprefixer": "^10.4.16"
+  },
+  "dependencies": {
+    "h3": "^1.9.0",
+    "serve-static": "^1.15.0",
+    "tsx": "^4.7.0",
+    "vike": "^0.4.152",
+    "vite": "5.0.10",
+    "@vitejs/plugin-react": "4.2.1",
+    "react": "18.3.0-canary-c5b937576-20231219",
+    "react-dom": "18.3.0-canary-c5b937576-20231219",
+    "vike-react": "^0.3.8"
+  }
+}
