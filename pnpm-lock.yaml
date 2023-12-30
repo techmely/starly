@@ -182,12 +182,9 @@ importers:
       vike:
         specifier: ^0.4.152
         version: 0.4.152(vite@5.0.10)
-      vike-react:
-        specifier: ^0.3.8
-        version: 0.3.8(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.152)(vite@5.0.10)
       vite:
         specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.5)(sass@1.69.6)
+        version: 5.0.10(@types/node@20.10.6)(sass@1.69.6)
     devDependencies:
       '@types/react':
         specifier: ^18.2.45
@@ -314,7 +311,7 @@ importers:
         version: 1.0.3
       '@techmely/ui-button':
         specifier: workspace:*
-        version: link:../../packages/ui/action/button/dist
+        version: link:../../packages/vike/react/dist
       '@techmely/ui-core':
         specifier: workspace:*
         version: link:../../packages/ui/core/core
@@ -437,7 +434,7 @@ importers:
         version: 4.5.0
       telefunc:
         specifier: 0.1.67
-        version: 0.1.67(@babel/core@7.23.6)(react@18.3.0-canary-c5b937576-20231219)
+        version: 0.1.67(@babel/core@7.23.7)(react@18.3.0-canary-c5b937576-20231219)
       three:
         specifier: 0.160.0
         version: 0.160.0
@@ -749,6 +746,22 @@ importers:
 
   packages/ui/selection/select: {}
 
+  packages/vike/react:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-streaming:
+        specifier: 0.3.18
+        version: 0.3.18(react-dom@18.2.0)(react@18.2.0)
+      vike:
+        specifier: ^0.4.152
+        version: 0.4.152(react-streaming@0.3.18)(vite@5.0.10)
+    publishDirectory: dist
+
 packages:
 
   /@alloc/quick-lru@5.2.0:
@@ -873,7 +886,6 @@ packages:
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@babel/generator@7.23.6:
     resolution: {integrity: sha512-qrSfCYxYQB5owCmGLbl8XRpX1ytXlpueOb0N0UmQwA073KZxejgQTzAmJezxvpwQD9uGtK2shHdi55QT+MbjIw==}
@@ -1026,7 +1038,6 @@ packages:
       '@babel/helper-simple-access': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/helper-validator-identifier': 7.22.20
-    dev: true
 
   /@babel/helper-optimise-call-expression@7.22.5:
     resolution: {integrity: sha512-HBwaojN0xFRx4yIvpwGqxiV2tUfl7401jlok564NgB9EHS1y6QT17FmKWm4ztqjeVdXLuC4fSvHc5ePpQjoTbw==}
@@ -1134,7 +1145,6 @@ packages:
       '@babel/types': 7.23.6
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@babel/highlight@7.23.4:
     resolution: {integrity: sha512-acGdbYSfp2WheJoJm/EBBBLh/ID8KDc64ISZ9DYtBmC8/Q204PZJLHyzeB5qMzJ5trcOkybd78M4x2KWsUq++A==}
@@ -2135,7 +2145,6 @@ packages:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@babel/types@7.23.6:
     resolution: {integrity: sha512-+uarb83brBzPKN38NX1MkB6vb6+mwvR6amUulqAE7ccQw1pEl+bCia9TbdG1lsnFP7lZySvUn37CHyXQdfTwzg==}
@@ -14902,6 +14911,16 @@ packages:
       react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
     dev: false
 
+  /react-dom@18.2.0(react@18.2.0):
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      loose-envify: 1.4.0
+      react: 18.2.0
+      scheduler: 0.23.0
+    dev: false
+
   /react-dom@18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-MahkLDRcM+y8gNEgDHZOvfogjinhvwjjDhgNuTNHyqtC78Xz0iClZ7weD+Gdv9XL2R/AKV/EqYCpUzpey9mDLA==}
     peerDependencies:
@@ -14959,7 +14978,7 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.2.46)(react@18.3.0-canary-c5b937576-20231219)
     dev: false
 
-  /react-streaming@0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219):
+  /react-streaming@0.3.18(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-4qugTyVx0r1i/o+PzrcqwThqLgjNdqNgzCYnIFASImSB9yPkhUqFIKyLXm6sQIcZ8gu2E2xdSvCdikfmVYER5g==}
     peerDependencies:
       react: '>=18'
@@ -14968,8 +14987,8 @@ packages:
       '@brillout/import': 0.2.3
       '@brillout/json-serializer': 0.5.8
       isbot-fast: 1.2.0
-      react: 18.3.0-canary-c5b937576-20231219
-      react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-style-singleton@2.2.1(@types/react@18.2.46)(react@18.3.0-canary-c5b937576-20231219):
@@ -15571,6 +15590,12 @@ packages:
 
   /sax@1.3.0:
     resolution: {integrity: sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==}
+    dev: false
+
+  /scheduler@0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+    dependencies:
+      loose-envify: 1.4.0
     dev: false
 
   /scheduler@0.24.0-canary-c5b937576-20231219:
@@ -16432,7 +16457,7 @@ packages:
     resolution: {integrity: sha512-29aQwaHqm8RMX74u2o/h1KbMLP89FjNiMxD9wbF2BbWOnbM+q+d1sCEC+MqCc4QW3NJykn77OMpTFw/xTHIc0w==}
     dev: true
 
-  /telefunc@0.1.67(@babel/core@7.23.6)(react@18.3.0-canary-c5b937576-20231219):
+  /telefunc@0.1.67(@babel/core@7.23.7)(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-jowRBcTLXiYc2tjkCfqFeD+O6UZyb6/0Qw5Xi/9gvehCh2CPTd00kf90/Kpe4TgNR/vi4jPpqXedyoF1RnABEA==}
     engines: {node: '>=12.19.0'}
     peerDependencies:
@@ -16453,7 +16478,7 @@ packages:
       react-streaming:
         optional: true
     dependencies:
-      '@babel/core': 7.23.6
+      '@babel/core': 7.23.7
       '@brillout/import': 0.2.3
       '@brillout/json-serializer': 0.5.8
       '@brillout/vite-plugin-import-build': 0.3.1
@@ -17564,19 +17589,31 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vike-react@0.3.8(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.152)(vite@5.0.10):
-    resolution: {integrity: sha512-SZ5IlA2tVbxncDmsZ66TB6a1BTGcJ7DsP6mPNxmVpiy3xopVR+IcbaZCgeOxLM1/1lHlcD40cTVufZZUD/fLiA==}
+  /vike@0.4.152(react-streaming@0.3.18)(vite@5.0.10):
+    resolution: {integrity: sha512-KZ9hOp5eBt156klkK4pAjzkIS9eUIaJ+zy6Le8PUc7Jxqti6CIMFJZOX2RB2grn3u3PXbQdLZuEZWXc+tEaUaA==}
+    engines: {node: '>=16.0.0'}
+    hasBin: true
     peerDependencies:
-      react: 18.x.x
-      react-dom: 18.x.x
-      vike: ^0.4.151
-      vite: ^4.3.8
+      react-streaming: '>=0.3.5'
+      vite: '>=3.1.0'
+    peerDependenciesMeta:
+      react-streaming:
+        optional: true
     dependencies:
-      react: 18.3.0-canary-c5b937576-20231219
-      react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
-      react-streaming: 0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
-      vike: 0.4.152(vite@5.0.10)
-      vite: 5.0.10(@types/node@20.10.5)(sass@1.69.6)
+      '@brillout/import': 0.2.3
+      '@brillout/json-serializer': 0.5.8
+      '@brillout/picocolors': 1.0.10
+      '@brillout/require-shim': 0.1.2
+      '@brillout/vite-plugin-import-build': 0.3.2
+      acorn: 8.11.3
+      cac: 6.7.14
+      es-module-lexer: 1.4.1
+      esbuild: 0.19.11
+      fast-glob: 3.3.2
+      react-streaming: 0.3.18(react-dom@18.2.0)(react@18.2.0)
+      sirv: 2.0.4
+      source-map-support: 0.5.21
+      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.6)
     dev: false
 
   /vike@0.4.152(vite@5.0.10):
@@ -17675,43 +17712,6 @@ packages:
       vite: 5.0.10(@types/node@20.10.6)(sass@1.69.6)
       zod: 3.22.4
     dev: true
-
-  /vite@5.0.10(@types/node@20.10.5)(sass@1.69.6):
-    resolution: {integrity: sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || >=20.0.0
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      '@types/node': 20.10.5
-      esbuild: 0.19.10
-      postcss: 8.4.32
-      rollup: 4.9.1
-      sass: 1.69.6
-    optionalDependencies:
-      fsevents: 2.3.3
-    dev: false
 
   /vite@5.0.10(@types/node@20.10.6)(sass@1.69.6):
     resolution: {integrity: sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==}
