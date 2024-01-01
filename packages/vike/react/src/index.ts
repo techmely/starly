@@ -1,9 +1,9 @@
 import type { Config, ConfigEnv } from "vike/types";
 
-import onBeforeRoute from "./onBeforeRoute";
-import onHydrationEnd from "./onHydrationEnd";
-import onPageTransitionEnd from "./onPageTransitionEnd";
-import onPageTransitionStart from "./onPageTransitionStart";
+import onBeforeRoute from "./renderer/onBeforeRoute";
+import onHydrationEnd from "./renderer/onHydrationEnd";
+import onPageTransitionEnd from "./renderer/onPageTransitionEnd";
+import onPageTransitionStart from "./renderer/onPageTransitionStart";
 // import onPrerenderStart from "./+onPrerenderStart";
 
 const serverClient: ConfigEnv = {

@@ -7,6 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "snapshot": {},
-  "ignore": ["@techmely/ts-config", "@techmely/web", "@techmely/api"]
+  "snapshot": {}
 }

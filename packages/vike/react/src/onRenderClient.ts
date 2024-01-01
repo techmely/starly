@@ -1,6 +1,6 @@
 import { type Root, createRoot, hydrateRoot } from "react-dom/client";
 import type { OnRenderClientSync } from "vike/types";
-import { AppPage } from "./App";
+import { AppPage } from "./renderer/App";
 
 // function initActions() {
 //   inject();

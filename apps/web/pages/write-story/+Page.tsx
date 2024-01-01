@@ -1,3 +1,4 @@
+import { usePageContext } from "@techmely/vike-react/usePageContext";
 import React from "react";
 
 type Props = {
@@ -5,6 +6,7 @@ type Props = {
 };
 
 const WriteStory: React.FC<Props> = (props) => {
+  const pageContext = usePageContext();
   return <div>Index Page</div>;
 };
 
