@@ -12,7 +12,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
@@ -24,7 +26,7 @@
     "build": "pkgroll --target=node20"
   },
   "optionalDependencies": {
-    "hono": "^3.11.11"
+    "hono": "^3.11.12"
   },
   "peerDependencies": {
     "@techmely/utils": "1.9.4",
@@ -38,7 +40,7 @@
     "@techmely/utils": "1.10.0",
     "emittery": "^1.0.1",
     "hono": "^3.11.10",
-    "kysely": "0.26.3",
+    "kysely": "0.27.0",
     "nanoid": "^5.0.4",
     "pkgroll": "2.0.1"
   }
