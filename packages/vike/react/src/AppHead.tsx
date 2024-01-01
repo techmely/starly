@@ -1,5 +1,6 @@
 import type { TemplateWrapped } from "vike/dist/esm/node/runtime/html/renderHtml";
 import { escapeInject } from "vike/server";
+import type { PageContext } from "vike/types";
 
 const robotsMap = ({ follow, index }: HeadMetaRobots) => ({
   index: index ? "follow" : "noindex",
@@ -13,7 +14,7 @@ function generateAppHead(pageContext: PageContext): TemplateWrapped {
 
   const robots = Object.values(robotsMap(head?.robots || ({} as HeadMetaRobots))).join(",");
 
-  const canonical = head?.canonical || `${import.meta.env.VITE_HOST}`;
+  const canonical = head?.canonical;
   const thumbnail =
     head?.thumbnail ||
     "https://raw.githubusercontent.com/harrytran998/techmely/main/apps/public/thumbnail.web";
@@ -27,8 +28,7 @@ function generateAppHead(pageContext: PageContext): TemplateWrapped {
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta name="robots" content="${robots}" />
-    <link rel="canonical" href="${canonical}" />
-
+    ${canonical ? '<link rel="canonical" href="${canonical}" />' : ""}
     <meta http-equiv="Accept-CH" content="Accept, DPR, Viewport-Width, ECT, Width, Save-Data" />
     <meta name="supported-color-schemes" content="light dark" />
     <meta name="color-scheme" content="light" />
@@ -44,7 +44,7 @@ function generateAppHead(pageContext: PageContext): TemplateWrapped {
     <meta name="msapplication-config" content="favicons/browserconfig.xml" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="${canonical}" />
+    ${canonical ? `<meta property="og:url" content="${canonical}" />` : ""}
     <meta property="og:site_name" content="Techmely" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />

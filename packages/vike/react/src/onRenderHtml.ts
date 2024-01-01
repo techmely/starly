@@ -6,7 +6,9 @@ import { AppPage } from "./App";
 import generateAppHead from "./AppHead";
 import { AppScriptBody } from "./AppScriptBody";
 
-async function onRenderHtml(pageContext: PageContextServer): ReturnType<OnRenderHtmlAsync> {
+const viteEnv = process.env.VITE_ENV || "production";
+
+const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
   const appHead = generateAppHead(pageContext);
   const stream = pageContext.config.stream || false;
   const lang = pageContext?.metadata?.locale || pageContext?.locale || "en";
@@ -24,7 +26,7 @@ async function onRenderHtml(pageContext: PageContextServer): ReturnType<OnRender
   }
 
   const documentHtml = escapeInject`<!DOCTYPE html>
-    <html lang="${lang}" data-app-env=${import.meta.env.VITE_ENV}>
+    <html lang="${lang}" data-app-env=${viteEnv}>
       <head>${appHead}</head>
       <body id="root">${pageStream}${AppScriptBody}</body>
     </html>`;
@@ -36,6 +38,6 @@ async function onRenderHtml(pageContext: PageContextServer): ReturnType<OnRender
       // initStoreState: store.state.value,
     },
   };
-}
+};
 
 export default onRenderHtml;

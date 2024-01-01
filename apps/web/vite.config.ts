@@ -70,4 +70,7 @@ export default defineConfig({
       ],
     },
   },
+  optimizeDeps: {
+    include: ["@techmely/vike-react/onRenderClient"],
+  },
 });

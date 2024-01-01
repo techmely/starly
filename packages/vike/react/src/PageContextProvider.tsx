@@ -1,4 +1,5 @@
 import React from "react";
+import type { PageContext } from "vike/types";
 
 const { Context: VikePageContext } = getGlobalObject("PageContextProvider.ts", {
   Context: React.createContext<PageContext>(undefined as never),

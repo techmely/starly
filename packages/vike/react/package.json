@@ -1,5 +1,5 @@
 {
-  "name": "@techmely/ui-button",
+  "name": "@techmely/vike-react",
   "version": "0.0.1",
   "homepage": "https://techmely.com/products/mely-ui/button",
   "bugs": {
@@ -8,25 +8,13 @@
   "repository": "https://github.com/techmely/techmely/tree/dev/mely-action/button",
   "license": "MIT",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    },
-    "./react": {
-      "types": "./dist/react.d.ts",
-      "require": "./dist/react.cjs",
-      "import": "./dist/react.mjs"
-    }
-  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": ["dist"],
   "scripts": {
-    "build": "tsup --entry src/index.ts --entry src/react.tsx --splitting --sourcemap --clean --dts --format esm,cjs --treeshake",
-    "publish": "node ../../../../../../scripts/publishPkg.mjs"
+    "build": "tsup --entry src/index.ts --entry src/components/ClientOnly.tsx --entry src/composables/useData.ts --entry src/composables/usePageContext.ts --entry src/onRenderClient.ts --entry src/onRenderHtml.ts --sourcemap --clean --dts --format esm,cjs",
+    "publish": "npm publish"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -49,5 +37,47 @@
       "url": "https://www.patreon.com/techmely"
     }
   ],
-  "keywords": ["techmely", "techmely-react", "vike react"]
+  "keywords": ["techmely", "techmely-react", "vike react"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./usePageContext": {
+      "types": "./dist/composables/usePageContext.d.ts",
+      "require": "./dist/composables/usePageContext.cjs",
+      "import": "./dist/composables/usePageContext.js"
+    },
+    "./useData": {
+      "types": "./dist/composables/useData.d.ts",
+      "require": "./dist/composables/useData.cjs",
+      "import": "./dist/composables/useData.js"
+    },
+    "./ClientOnly": {
+      "types": "./dist/components/ClientOnly.d.ts",
+      "require": "./dist/components/ClientOnly.cjs",
+      "import": "./dist/components/ClientOnly.js"
+    },
+    "./onRenderClient": {
+      "types": "./dist/onRenderClient.d.ts",
+      "require": "./dist/onRenderClient.cjs",
+      "import": "./dist/onRenderClient.js"
+    },
+    "./onRenderHtml": {
+      "types": "./dist/onRenderHtml.d.ts",
+      "require": "./dist/onRenderHtml.cjs",
+      "import": "./dist/onRenderHtml.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": ["./dist/index.d.ts"],
+      "usePageContext": ["./dist/composables/usePageContext.d.ts"],
+      "useData": ["./dist/composables/useData.d.ts"],
+      "ClientOnly": ["./dist/components/ClientOnly.d.ts"],
+      "onRenderClient": ["./dist/onRenderClient.d.ts"],
+      "onRenderHtml": ["./dist/onRenderHtml.d.ts"]
+    }
+  }
 }

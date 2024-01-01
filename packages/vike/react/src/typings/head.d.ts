@@ -1,4 +1,3 @@
-export {};
 declare global {
   type HeadMetaAuthor = {
     name: string;
@@ -79,3 +78,5 @@ declare global {
     category?: string;
   }
 }
+
+export {};

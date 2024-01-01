@@ -24,10 +24,6 @@ declare global {
         };
       };
     };
-
-    isMobile: boolean;
-
-    __vike: undefined | Record<string, Record<string, unknown>>;
   }
   interface Navigator {
     userLanguage?: string;
