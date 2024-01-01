@@ -16,7 +16,7 @@ async function publishPkgNah() {
     await cpBasePkgJson();
     cd(buildPath);
     echo("Publishing...");
-    await $`npm publish`;
+    await $`npm publish --provenance --access public`;
     echo("Published!");
   } catch (error) {
     console.error(error);
