@@ -14,10 +14,9 @@ const buildPath = path.join(root, "./dist");
 async function publishPkgNah() {
   try {
     await cpBasePkgJson();
-    await Promise.all(["./CHANGELOG.md", "../../README.md"].map(cpBaseFiles));
     cd(buildPath);
     echo("Publishing...");
-    await $`npm publish`;
+    await $`npm publish --provenance`;
     echo("Published!");
   } catch (error) {
     console.error(error);

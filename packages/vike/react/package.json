@@ -1,6 +1,6 @@
 {
   "name": "@techmely/vike-react",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "homepage": "https://techmely.com/products/mely-ui/button",
   "bugs": {
     "url": "https://github.com/techmely/techmely/issues"
@@ -14,7 +14,7 @@
   "files": ["dist"],
   "scripts": {
     "build": "tsup --entry src/index.ts --entry src/ClientOnly.tsx --entry src/useData.ts --entry src/usePageContext.ts --entry src/onRenderClient.ts --entry src/onRenderHtml.ts --sourcemap --clean --dts --format esm,cjs",
-    "publish": "node ../../../../../../scripts/publishPkg.mjs"
+    "push": "node ../../../scripts/publishPkg.mjs"
   },
   "peerDependencies": {
     "react": "^18.2.0",
