@@ -3,7 +3,6 @@
   "sourceLanguageTag": "en",
   "languageTags": ["en", "vi"],
   "modules": [
-    "https://cdn.jsdelivr.net/npm/@inlang/plugin-json@4/dist/index.js",
     "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-empty-pattern@latest/dist/index.js",
     "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-identical-pattern@latest/dist/index.js",
     "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-missing-translation@latest/dist/index.js",
@@ -13,5 +12,9 @@
   ],
   "plugin.inlang.messageFormat": {
     "pathPattern": "./apps/web/locales/{languageTag}.locale.json"
+  },
+  "messageLintRuleLevels": {
+    "messageLintRule.inlang.missingTranslation": "error",
+    "messageLintRule.inlang.validJsIdentifier": "error"
   }
 }

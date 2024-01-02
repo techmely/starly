@@ -1,3 +1,5 @@
+import type { PageContext } from "vike/types";
+
 export const locales = ["en", "vi"] as const;
 export type Locale = (typeof locales)[number];
 
@@ -6,7 +8,7 @@ export const localeMaxAge = 31536000; // 365 days
 export const localeKey = "tmlLocale";
 
 export function getLocale(pageContext: PageContext): Locale {
-  return pageContext?.cookies?.[localeKey] ?? pageContext?.locale ?? baseLocale;
+  return pageContext?.metadata?.[localeKey] ?? pageContext?.locale ?? baseLocale;
 }
 
 export function extractLocale(url: string) {
