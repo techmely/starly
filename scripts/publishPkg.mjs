@@ -14,9 +14,9 @@ const buildPath = path.join(root, "./dist");
 async function publishPkgNah() {
   try {
     await cpBasePkgJson();
-    cd(buildPath);
+    cd(buildPath.replace("/dist", ""));
     echo("Publishing...");
-    await $`npm publish --provenance --access public`;
+    await $`pnpm publish`;
     echo("Published!");
   } catch (error) {
     console.error(error);

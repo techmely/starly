@@ -16,7 +16,7 @@
   "files": ["dist"],
   "scripts": {
     "build": "tsup --entry src/index.ts --entry src/ClientOnly.tsx --entry src/useData.ts --entry src/usePageContext.ts --entry src/onRenderClient.ts --entry src/onRenderHtml.ts --sourcemap --clean --dts --format esm,cjs",
-    "publish": "node ../../../scripts/publishPkg.mjs"
+    "pack": "node ../../../scripts/publishPkg.mjs"
   },
   "peerDependencies": {
     "react": "^18.2.0",
