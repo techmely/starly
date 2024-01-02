@@ -1,9 +1,6 @@
 import { createServer } from "node:http";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import installCrypto from "@hattip/polyfills/crypto";
-import installGetSetCookie from "@hattip/polyfills/get-set-cookie";
-import installWhatwgNodeFetch from "@hattip/polyfills/whatwg-node";
 import {
   createApp,
   createRouter,
@@ -15,10 +12,6 @@ import {
 } from "h3";
 import serveStatic from "serve-static";
 import { renderPage } from "vike/server";
-
-installWhatwgNodeFetch();
-installGetSetCookie();
-installCrypto();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -57,7 +50,7 @@ async function startServer() {
     "/**",
     eventHandler(async (event) => {
       const pageContextInit = {
-        urlOriginal: event.node.req.originalUrl || event.node.req.url!,
+        urlOriginal: event.node.req.originalUrl || event.node.req.url || "",
       };
       const pageContext = await renderPage(pageContextInit);
       const response = pageContext.httpResponse;
@@ -71,13 +64,9 @@ async function startServer() {
 
   app.use(router);
 
-  const server = createServer(toNodeListener(app)).listen(
-    process.env.PORT || 3000,
-  );
+  const server = createServer(toNodeListener(app)).listen(process.env.PORT || 3000);
 
   server.on("listening", () => {
-    console.log(
-      `Server listening on http://localhost:${process.env.PORT || 3000}`,
-    );
+    console.log(`Server listening on http://localhost:${process.env.PORT || 3000}`);
   });
 }

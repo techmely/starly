@@ -1,6 +1,6 @@
 import type { UserModel } from "@techmely/models";
 import type { User } from "firebase/auth";
-import type { Locale } from "#modules/locales/locales.utils";
+import type { Locale } from "../../locales/locales.utils";
 
 export type AuthState = {
   user?: UserModel;

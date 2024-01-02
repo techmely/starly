@@ -4,5 +4,4 @@ packages:
   - "packages/*"
   - "packages/hono-middleware/*"
   - "packages/ui/**"
-  - "packages/vike/**"
   - "__test__/e2e/**"

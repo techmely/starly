@@ -1,3 +1,5 @@
+import { useData } from "@techmely/vike-react/useData";
+import { usePageContext } from "@techmely/vike-react/usePageContext";
 import React from "react";
 
 type Props = {
@@ -5,7 +7,14 @@ type Props = {
 };
 
 const IndexPage: React.FC<Props> = (props) => {
-  return <div>Index Page</div>;
+  // const pageContext = usePageContext();
+  const data = useData();
+  return (
+    <div>
+      Index Page
+      {JSON.stringify(data)}
+    </div>
+  );
 };
 
 export default IndexPage;

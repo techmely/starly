@@ -16,7 +16,7 @@ export default defineConfig({
   plugins: [
     paraglide({
       project: "../../project.inlang",
-      outdir: "./modules/locales/paraglide",
+      outdir: "./locales/paraglide",
     }),
     ViteMillion.vite({ auto: true }),
     FontaineTransform.vite({

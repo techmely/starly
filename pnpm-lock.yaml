@@ -161,6 +161,9 @@ importers:
 
   __test__/e2e/ui/playgroud:
     dependencies:
+      '@techmely/vike-react':
+        specifier: 0.1.5
+        version: 0.1.5(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
       '@vitejs/plugin-react':
         specifier: 4.2.1
         version: 4.2.1(vite@5.0.10)
@@ -318,6 +321,9 @@ importers:
       '@techmely/utils':
         specifier: 1.10.0
         version: 1.10.0
+      '@techmely/vike-react':
+        specifier: 0.1.5
+        version: 0.1.5(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
       '@toeverything/y-indexeddb':
         specifier: 0.10.0-canary.9
         version: 0.10.0-canary.9(yjs@13.6.10)
@@ -411,6 +417,9 @@ importers:
       react-dom:
         specifier: 18.3.0-canary-c5b937576-20231219
         version: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
+      react-streaming:
+        specifier: 0.3.18
+        version: 0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
       react-use:
         specifier: 17.4.2
         version: 17.4.2(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
@@ -434,7 +443,7 @@ importers:
         version: 4.5.0
       telefunc:
         specifier: 0.1.68
-        version: 0.1.68(@babel/core@7.23.7)(react@18.3.0-canary-c5b937576-20231219)
+        version: 0.1.68(@babel/core@7.23.7)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)
       three:
         specifier: 0.160.0
         version: 0.160.0
@@ -460,9 +469,6 @@ importers:
       '@techmely/types':
         specifier: 1.5.2
         version: 1.5.2
-      '@techmely/vike-react':
-        specifier: workspace:*
-        version: link:../../packages/vike/react/dist
       '@types/react':
         specifier: ^18.2.45
         version: 18.2.46
@@ -748,38 +754,6 @@ importers:
   packages/ui/selection/radio-group: {}
 
   packages/ui/selection/select: {}
-
-  packages/vike/react:
-    dependencies:
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-streaming:
-        specifier: 0.3.18
-        version: 0.3.18(react-dom@18.2.0)(react@18.2.0)
-      vike:
-        specifier: ^0.4.152
-        version: 0.4.152(react-streaming@0.3.18)(vite@5.0.10)
-    publishDirectory: dist
-
-  packages/vike/react-query:
-    dependencies:
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-streaming:
-        specifier: 0.3.18
-        version: 0.3.18(react-dom@18.2.0)(react@18.2.0)
-      vike:
-        specifier: ^0.4.152
-        version: 0.4.153(react-streaming@0.3.18)(vite@5.0.10)
-    publishDirectory: dist
 
 packages:
 
@@ -6802,6 +6776,20 @@ packages:
     peerDependenciesMeta:
       dayjs:
         optional: true
+    dev: false
+
+  /@techmely/vike-react@0.1.5(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153):
+    resolution: {integrity: sha512-aGAfxZv6jKlftGzB6T31UZanU297oVt6xp6I8Upg6RRd+qPaoPR8APE+vm+tjAf2fWcFlf+ICfAeJLxGKjx6MA==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-streaming: 0.3.18
+      vike: ^0.4.152
+    dependencies:
+      react: 18.3.0-canary-c5b937576-20231219
+      react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
+      react-streaming: 0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
+      vike: 0.4.153(react-streaming@0.3.18)(vite@5.0.10)
     dev: false
 
   /@teppeis/multimaps@3.0.0:
@@ -14922,15 +14910,6 @@ packages:
       react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
     dev: false
 
-  /react-dom@18.2.0(react@18.2.0):
-    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      loose-envify: 1.4.0
-      react: 18.2.0
-      scheduler: 0.23.0
-
   /react-dom@18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-MahkLDRcM+y8gNEgDHZOvfogjinhvwjjDhgNuTNHyqtC78Xz0iClZ7weD+Gdv9XL2R/AKV/EqYCpUzpey9mDLA==}
     peerDependencies:
@@ -14939,7 +14918,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.3.0-canary-c5b937576-20231219
       scheduler: 0.24.0-canary-c5b937576-20231219
-    dev: false
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -14988,7 +14966,7 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.2.46)(react@18.3.0-canary-c5b937576-20231219)
     dev: false
 
-  /react-streaming@0.3.18(react-dom@18.2.0)(react@18.2.0):
+  /react-streaming@0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-4qugTyVx0r1i/o+PzrcqwThqLgjNdqNgzCYnIFASImSB9yPkhUqFIKyLXm6sQIcZ8gu2E2xdSvCdikfmVYER5g==}
     peerDependencies:
       react: '>=18'
@@ -14997,8 +14975,8 @@ packages:
       '@brillout/import': 0.2.3
       '@brillout/json-serializer': 0.5.8
       isbot-fast: 1.2.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 18.3.0-canary-c5b937576-20231219
+      react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
 
   /react-style-singleton@2.2.1(@types/react@18.2.46)(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
@@ -15056,13 +15034,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
 
   /react@18.3.0-canary-c5b937576-20231219:
     resolution: {integrity: sha512-gvMxGf2wlOMq387pdOypG4li5iuLdpu/wDRuyETZsdLFrDcCH4RuJCIcTWcLIlP/oG5uD5yXMi2hePYuB+toyw==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -15600,16 +15578,10 @@ packages:
     resolution: {integrity: sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==}
     dev: false
 
-  /scheduler@0.23.0:
-    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
-    dependencies:
-      loose-envify: 1.4.0
-
   /scheduler@0.24.0-canary-c5b937576-20231219:
     resolution: {integrity: sha512-eFiLsRse2DGq3davC8B6qmVlbdrikiHDcqeys+Dp7l5YQ+Jw9tPVQ5RZbEA0o7zO2rjyPFzxNOtE6fRMQcWrKQ==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /schema-utils@3.3.0:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
@@ -16464,7 +16436,7 @@ packages:
     resolution: {integrity: sha512-29aQwaHqm8RMX74u2o/h1KbMLP89FjNiMxD9wbF2BbWOnbM+q+d1sCEC+MqCc4QW3NJykn77OMpTFw/xTHIc0w==}
     dev: true
 
-  /telefunc@0.1.68(@babel/core@7.23.7)(react@18.3.0-canary-c5b937576-20231219):
+  /telefunc@0.1.68(@babel/core@7.23.7)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-HKDiY2tiO2+Qo8rsU5NV1a0v/kMfkiWGdZ+ZgmsUNNra28nXPa4UqnenJFe9fvo4t+a65ZTb/ZSj8X3kfJ1Jmg==}
     engines: {node: '>=12.19.0'}
     peerDependencies:
@@ -16493,6 +16465,7 @@ packages:
       es-module-lexer: 0.7.1
       picocolors: 1.0.0
       react: 18.3.0-canary-c5b937576-20231219
+      react-streaming: 0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
       ts-morph: 19.0.0
     dev: false
 
@@ -17597,33 +17570,6 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vike@0.4.152(react-streaming@0.3.18)(vite@5.0.10):
-    resolution: {integrity: sha512-KZ9hOp5eBt156klkK4pAjzkIS9eUIaJ+zy6Le8PUc7Jxqti6CIMFJZOX2RB2grn3u3PXbQdLZuEZWXc+tEaUaA==}
-    engines: {node: '>=16.0.0'}
-    hasBin: true
-    peerDependencies:
-      react-streaming: '>=0.3.5'
-      vite: '>=3.1.0'
-    peerDependenciesMeta:
-      react-streaming:
-        optional: true
-    dependencies:
-      '@brillout/import': 0.2.3
-      '@brillout/json-serializer': 0.5.8
-      '@brillout/picocolors': 1.0.10
-      '@brillout/require-shim': 0.1.2
-      '@brillout/vite-plugin-import-build': 0.3.2
-      acorn: 8.11.3
-      cac: 6.7.14
-      es-module-lexer: 1.4.1
-      esbuild: 0.19.11
-      fast-glob: 3.3.2
-      react-streaming: 0.3.18(react-dom@18.2.0)(react@18.2.0)
-      sirv: 2.0.4
-      source-map-support: 0.5.21
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.6)
-    dev: false
-
   /vike@0.4.153(react-streaming@0.3.18)(vite@5.0.10):
     resolution: {integrity: sha512-V7QGZJScVNw6zJxzH1LiXvCP1HlIl06BfuW3DrAD4AUfP+z1teoOEBn11E7jElF5FR6+i8cDmWAZstZdJag/vA==}
     engines: {node: '>=16.0.0'}
@@ -17645,7 +17591,7 @@ packages:
       es-module-lexer: 1.4.1
       esbuild: 0.19.11
       fast-glob: 3.3.2
-      react-streaming: 0.3.18(react-dom@18.2.0)(react@18.2.0)
+      react-streaming: 0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
       sirv: 2.0.4
       source-map-support: 0.5.21
       vite: 5.0.10(@types/node@20.10.6)(sass@1.69.6)

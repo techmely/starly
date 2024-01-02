@@ -7,7 +7,7 @@ import {
   setPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { type Locale, baseLocale } from "#modules/locales/locales.utils";
+import { type Locale, baseLocale } from "../../../locales/locales.utils";
 
 let cachedAuth: Auth | null = null;
 

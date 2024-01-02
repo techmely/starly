@@ -1,4 +1,4 @@
-import type { Locale } from "#modules/locales/locales.utils";
+import type { Locale } from "../../locales/locales.utils";
 
 export const AUTH_ACCESS_TOKEN = "accessToken";
 export const AUTH_REFRESH_TOKEN = "refreshToken";

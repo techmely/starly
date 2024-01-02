@@ -10,8 +10,8 @@ import {
 import { renderPage } from "vike/server";
 
 import { invariant } from "@techmely/utils";
-import { localeKey, localeMaxAge } from "#modules/locales/locales.utils";
 import { serverEnvs } from "#server/utils/server-envs";
+import { localeKey, localeMaxAge } from "../../locales/locales.utils";
 
 export default async function vikeMiddleware(event: H3Event) {
   const locale = getCookie(event, localeKey);
