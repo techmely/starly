@@ -1,6 +1,7 @@
 import {
   type H3Event,
   getCookie,
+  getHeader,
   getRequestURL,
   setResponseHeader,
   setResponseHeaders,
@@ -18,7 +19,10 @@ export default async function vikeMiddleware(event: H3Event) {
 
   const pageContextInit = {
     urlOriginal: getRequestURL(event).toString(),
-    cookies: { [localeKey]: locale },
+    metadata: {
+      userAgent: getHeader(event, "user-agent"),
+      [localeKey]: locale,
+    },
   };
 
   const pageContext = await renderPage(pageContextInit);

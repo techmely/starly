@@ -162,8 +162,8 @@ importers:
   __test__/e2e/ui/playgroud:
     dependencies:
       '@techmely/vike-react':
-        specifier: 0.1.5
-        version: 0.1.5(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
+        specifier: 0.1.8
+        version: 0.1.8(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
       '@vitejs/plugin-react':
         specifier: 4.2.1
         version: 4.2.1(vite@5.0.10)
@@ -187,7 +187,7 @@ importers:
         version: 0.4.153(react-streaming@0.3.18)(vite@5.0.10)
       vite:
         specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+        version: 5.0.10(@types/node@20.10.6)
     devDependencies:
       '@types/react':
         specifier: ^18.2.45
@@ -322,11 +322,11 @@ importers:
         specifier: 1.10.0
         version: 1.10.0
       '@techmely/vike-react':
-        specifier: 0.1.6
-        version: 0.1.6(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
+        specifier: 0.1.8
+        version: 0.1.8(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
       '@techmely/vike-react-query':
-        specifier: 0.1.0
-        version: 0.1.0(@tanstack/react-query@5.17.0)(@techmely/vike-react@0.1.6)(devalue@4.3.2)(react-dom@18.3.0-canary-c5b937576-20231219)(react-error-boundary@4.0.12)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
+        specifier: 0.1.7
+        version: 0.1.7(@tanstack/react-query@5.17.0)(@techmely/vike-react@0.1.8)(devalue@4.3.2)(react-dom@18.3.0-canary-c5b937576-20231219)(react-error-boundary@4.0.12)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
       '@toeverything/y-indexeddb':
         specifier: 0.10.0-canary.9
         version: 0.10.0-canary.9(yjs@13.6.10)
@@ -360,6 +360,9 @@ importers:
       clsx:
         specifier: 2.1.0
         version: 2.1.0
+      devalue:
+        specifier: 4.3.2
+        version: 4.3.2
       emittery:
         specifier: 1.0.1
         version: 1.0.1
@@ -388,8 +391,8 @@ importers:
         specifier: 1.4.0
         version: 1.4.0(@planetscale/database@1.13.0)(kysely@0.27.1)
       langchain:
-        specifier: 0.0.213
-        version: 0.0.213(@planetscale/database@1.13.0)(@upstash/redis@1.27.1)
+        specifier: 0.0.214
+        version: 0.0.214(@planetscale/database@1.13.0)(@upstash/redis@1.27.1)
       listhen:
         specifier: 1.5.5
         version: 1.5.5
@@ -537,7 +540,7 @@ importers:
         version: 0.4.153(react-streaming@0.3.18)(vite@5.0.10)
       vite:
         specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+        version: 5.0.10(@types/node@20.10.6)
       vite-plugin-compression2:
         specifier: 0.11.0
         version: 0.11.0(rollup@2.79.1)
@@ -854,7 +857,7 @@ packages:
       '@babel/traverse': 7.23.6
       '@babel/types': 7.23.6
       convert-source-map: 2.0.0
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -876,7 +879,7 @@ packages:
       '@babel/traverse': 7.23.7
       '@babel/types': 7.23.6
       convert-source-map: 2.0.0
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -954,7 +957,7 @@ packages:
       '@babel/core': 7.23.7
       '@babel/helper-compilation-targets': 7.23.6
       '@babel/helper-plugin-utils': 7.22.5
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       lodash.debounce: 4.0.8
       resolve: 1.22.8
     transitivePeerDependencies:
@@ -2099,7 +2102,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.6
       '@babel/types': 7.23.6
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -2116,7 +2119,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.6
       '@babel/types': 7.23.6
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -2388,7 +2391,7 @@ packages:
       react: 18.3.0-canary-c5b937576-20231219
       react-diff-viewer: 3.1.1(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
       react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
-      webpack: 5.89.0(esbuild@0.19.11)
+      webpack: 5.89.0
     dev: false
 
   /@bundled-es-modules/cookie@2.0.0:
@@ -4258,7 +4261,7 @@ packages:
       '@antfu/install-pkg': 0.1.1
       '@antfu/utils': 0.7.7
       '@iconify/types': 2.0.0
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       kolorist: 1.8.0
       local-pkg: 0.4.3
     transitivePeerDependencies:
@@ -4501,8 +4504,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@langchain/community@0.0.12(@planetscale/database@1.13.0)(@upstash/redis@1.27.1):
-    resolution: {integrity: sha512-mcm6FxxnLxSx9PiYvehGGwvcHjsVR5WXfYOwymojf/6d0apyewjOLzKsR3xx0HJVtCs8pff7NZSdDoE+jj8OcA==}
+  /@langchain/community@0.0.13(@planetscale/database@1.13.0)(@upstash/redis@1.27.1):
+    resolution: {integrity: sha512-Dh7ri1ZySfX5t6Zz7+jR0kHp769j1+S4IHNyoDnzWlHfPFA5hfF9+zrRRmxV17KVCUawQNoOxgNmZnUjNMm5qg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@aws-crypto/sha256-js': ^5.0.0
@@ -4741,7 +4744,7 @@ packages:
       ws:
         optional: true
     dependencies:
-      '@langchain/core': 0.1.5
+      '@langchain/core': 0.1.7
       '@langchain/openai': 0.0.9
       '@planetscale/database': 1.13.0
       '@upstash/redis': 1.27.1
@@ -4753,8 +4756,8 @@ packages:
       - encoding
     dev: false
 
-  /@langchain/core@0.1.5:
-    resolution: {integrity: sha512-5RdZpbadMYXTKdZrWZ6JeYT09BZssprg+komE+FbXxW+kbGE0QJJaj8dnzPNdzVCAhDLQQTOV2CAM+vOLsaxzQ==}
+  /@langchain/core@0.1.7:
+    resolution: {integrity: sha512-IjA2N6ZaO67rIWMnBBjYHeFp7ByAoNO7xlz65kLUJCYznY9j+A+7M4tKm76EArnsgDv42UIJ4+t4zfKmf4qNqw==}
     engines: {node: '>=18'}
     dependencies:
       ansi-styles: 5.2.0
@@ -4773,7 +4776,7 @@ packages:
     resolution: {integrity: sha512-Py7rJijOjNtb9pj5He+E9uAj9d8PCX+8Ix4LvY7cUTMCDlfkhngw2DhJ8wlk23u1IvunakdnnN74pfbO2JJBrw==}
     engines: {node: '>=18'}
     dependencies:
-      '@langchain/core': 0.1.5
+      '@langchain/core': 0.1.7
       js-tiktoken: 1.0.8
       openai: 4.24.1
       zod: 3.22.4
@@ -6760,8 +6763,8 @@ packages:
         optional: true
     dev: false
 
-  /@techmely/vike-react-query@0.1.0(@tanstack/react-query@5.17.0)(@techmely/vike-react@0.1.6)(devalue@4.3.2)(react-dom@18.3.0-canary-c5b937576-20231219)(react-error-boundary@4.0.12)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153):
-    resolution: {integrity: sha512-a5kRctFajd2iWL3yiI0diXPDL3WCUl+2z88XwI2qkQsL9cnZ8Ebq10bf3kQjJtByu7Ds4MT27OGkE3ksfeiH9g==}
+  /@techmely/vike-react-query@0.1.7(@tanstack/react-query@5.17.0)(@techmely/vike-react@0.1.8)(devalue@4.3.2)(react-dom@18.3.0-canary-c5b937576-20231219)(react-error-boundary@4.0.12)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153):
+    resolution: {integrity: sha512-2jXlKT7Tp/rjPLDVv/2VyEJpGPHlLITbr7Ntcnba6tddmW4mjx5H0xm01JDgr5S5uJs+Dp7uugKlfrFzU1WNjw==}
     peerDependencies:
       '@tanstack/react-query': ^5.17.0
       '@techmely/vike-react': workspace:*
@@ -6773,7 +6776,7 @@ packages:
       vike: ^0.4.152
     dependencies:
       '@tanstack/react-query': 5.17.0(react@18.3.0-canary-c5b937576-20231219)
-      '@techmely/vike-react': 0.1.6(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
+      '@techmely/vike-react': 0.1.8(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153)
       devalue: 4.3.2
       react: 18.3.0-canary-c5b937576-20231219
       react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
@@ -6782,22 +6785,8 @@ packages:
       vike: 0.4.153(react-streaming@0.3.18)(vite@5.0.10)
     dev: false
 
-  /@techmely/vike-react@0.1.5(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153):
-    resolution: {integrity: sha512-aGAfxZv6jKlftGzB6T31UZanU297oVt6xp6I8Upg6RRd+qPaoPR8APE+vm+tjAf2fWcFlf+ICfAeJLxGKjx6MA==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      react-streaming: 0.3.18
-      vike: ^0.4.152
-    dependencies:
-      react: 18.3.0-canary-c5b937576-20231219
-      react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
-      react-streaming: 0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
-      vike: 0.4.153(react-streaming@0.3.18)(vite@5.0.10)
-    dev: false
-
-  /@techmely/vike-react@0.1.6(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153):
-    resolution: {integrity: sha512-TlqVNjKhgoT8xiIhwUUb+l+Yz3rWyF/YzfG9TVLiTJxnPDfboFgz0iwvMIBdr7VeoHKc+b2pErTbL4h1G2NX7w==}
+  /@techmely/vike-react@0.1.8(react-dom@18.3.0-canary-c5b937576-20231219)(react-streaming@0.3.18)(react@18.3.0-canary-c5b937576-20231219)(vike@0.4.153):
+    resolution: {integrity: sha512-tnhMAlqDggcVhTU/iG6jjw8STHnz7ZCpF7lLN/MNHVDFQaJ8lbufgV3x84OhhsMU2cUPq5PnDgbHQz08qSklyQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -7241,7 +7230,7 @@ packages:
       '@unocss/core': 0.58.3
       '@unocss/reset': 0.58.3
       '@unocss/vite': 0.58.3(rollup@2.79.1)(vite@5.0.10)
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+      vite: 5.0.10(@types/node@20.10.6)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -7464,7 +7453,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.2
       magic-string: 0.30.5
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+      vite: 5.0.10(@types/node@20.10.6)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -7526,7 +7515,7 @@ packages:
       '@brillout/libassert': 0.5.8
       nanoid: 4.0.2
       vike: 0.4.153(react-streaming@0.3.18)(vite@5.0.10)
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+      vite: 5.0.10(@types/node@20.10.6)
       vite-plugin-vercel: 2.0.0(@vite-plugin-vercel/vike@2.0.0)(vike@0.4.153)(vite@5.0.10)
     dev: true
 
@@ -7541,7 +7530,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.6)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+      vite: 5.0.10(@types/node@20.10.6)
     transitivePeerDependencies:
       - supports-color
 
@@ -9230,6 +9219,17 @@ packages:
       ms: 2.0.0
     dev: false
 
+  /debug@4.3.4:
+    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
+
   /debug@4.3.4(supports-color@8.1.1):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
@@ -9241,6 +9241,7 @@ packages:
     dependencies:
       ms: 2.1.2
       supports-color: 8.1.1
+    dev: true
 
   /decamelize-keys@1.1.1:
     resolution: {integrity: sha512-WiPxgEirIV0/eIOMcnFBA3/IJZAZqKnwAwWyvvdi4lsr1WCN22nhdf/3db3DoZcUjTV2SqfzIwNyp6y2xs3nmg==}
@@ -11187,6 +11188,7 @@ packages:
 
   /immutable@4.3.4:
     resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
+    dev: true
 
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -11913,8 +11915,8 @@ packages:
     resolution: {integrity: sha512-X8IRdOYstCH0JmZVq9yk48QtmM5HULWQ3O6zy+G6olEUniV26voSGiZ+L4sJvNGQPiy/I9svSHEeaJcUyZamxw==}
     engines: {node: '>=14.0.0'}
 
-  /langchain@0.0.213(@planetscale/database@1.13.0)(@upstash/redis@1.27.1):
-    resolution: {integrity: sha512-nQDOJXvtIAIuUzamCiF1AWyi2GH9FSDPR+3XulJUEpdU60aSFPZ9GBiWdu+dVHXeAmm8C0iCVi0+3GWLJrUoXA==}
+  /langchain@0.0.214(@planetscale/database@1.13.0)(@upstash/redis@1.27.1):
+    resolution: {integrity: sha512-HWdgjuqsir7MYSX3OcKW+XUFZyqhma8yfn4NU/7K5MuIz649g0SejVjuHr3rexmsOvZyHeR3XlwIsqxEtOsF7A==}
     engines: {node: '>=18'}
     peerDependencies:
       '@aws-sdk/client-s3': ^3.310.0
@@ -12073,8 +12075,8 @@ packages:
         optional: true
     dependencies:
       '@anthropic-ai/sdk': 0.9.1
-      '@langchain/community': 0.0.12(@planetscale/database@1.13.0)(@upstash/redis@1.27.1)
-      '@langchain/core': 0.1.5
+      '@langchain/community': 0.0.13(@planetscale/database@1.13.0)(@upstash/redis@1.27.1)
+      '@langchain/core': 0.1.7
       '@langchain/openai': 0.0.9
       binary-extensions: 2.2.0
       expr-eval: 2.0.2
@@ -13005,7 +13007,7 @@ packages:
     resolution: {integrity: sha512-o/sd0nMof8kYff+TqcDx3VSrgBTcZpSvYcAHIfHhv5VAuNmisCxjhx6YmxS8PFEpb9z5WKWKPdzf0jM23ro3RQ==}
     dependencies:
       '@types/debug': 4.1.12
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       decode-named-character-reference: 1.0.2
       devlop: 1.1.0
       micromark-core-commonmark: 2.0.0
@@ -15604,6 +15606,7 @@ packages:
       chokidar: 3.5.3
       immutable: 4.3.4
       source-map-js: 1.0.2
+    dev: true
 
   /sax@1.3.0:
     resolution: {integrity: sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==}
@@ -16520,7 +16523,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /terser-webpack-plugin@5.3.10(esbuild@0.19.11)(webpack@5.89.0):
+  /terser-webpack-plugin@5.3.10(webpack@5.89.0):
     resolution: {integrity: sha512-BKFPWlPDndPs+NGGCr1U59t0XScL5317Y0UReNrHaw9/FwhPENlq6bfgs+4yPfyP51vqC1bQ4rp1EfXW5ZSH9w==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -16537,12 +16540,11 @@ packages:
         optional: true
     dependencies:
       '@jridgewell/trace-mapping': 0.3.20
-      esbuild: 0.19.11
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.1
       terser: 5.26.0
-      webpack: 5.89.0(esbuild@0.19.11)
+      webpack: 5.89.0
     dev: false
 
   /terser@5.26.0:
@@ -17360,7 +17362,7 @@ packages:
       '@unocss/transformer-directives': 0.58.3
       '@unocss/transformer-variant-group': 0.58.3
       '@unocss/vite': 0.58.3(rollup@2.79.1)(vite@5.0.10)
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+      vite: 5.0.10(@types/node@20.10.6)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -17625,7 +17627,7 @@ packages:
       react-streaming: 0.3.18(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
       sirv: 2.0.4
       source-map-support: 0.5.21
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+      vite: 5.0.10(@types/node@20.10.6)
 
   /vite-node@1.1.1(@types/node@20.10.6)(sass@1.69.7):
     resolution: {integrity: sha512-2bGE5w4jvym5v8llF6Gu1oBrmImoNSs4WmRVcavnG2me6+8UQntTqLiAMFyiAobp+ZXhj5ZFhI7SmLiFr/jrow==}
@@ -17664,10 +17666,10 @@ packages:
       workbox-build: ^7.0.0
       workbox-window: ^7.0.0
     dependencies:
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       fast-glob: 3.3.2
       pretty-bytes: 6.1.1
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+      vite: 5.0.10(@types/node@20.10.6)
       workbox-build: 7.0.0
       workbox-window: 7.0.0
     transitivePeerDependencies:
@@ -17695,9 +17697,44 @@ packages:
       fast-glob: 3.3.2
       magicast: 0.3.2
       vike: 0.4.153(react-streaming@0.3.18)(vite@5.0.10)
-      vite: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
+      vite: 5.0.10(@types/node@20.10.6)
       zod: 3.22.4
     dev: true
+
+  /vite@5.0.10(@types/node@20.10.6):
+    resolution: {integrity: sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 20.10.6
+      esbuild: 0.19.10
+      postcss: 8.4.32
+      rollup: 4.9.1
+    optionalDependencies:
+      fsevents: 2.3.3
 
   /vite@5.0.10(@types/node@20.10.6)(sass@1.69.7):
     resolution: {integrity: sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==}
@@ -17734,6 +17771,7 @@ packages:
       sass: 1.69.7
     optionalDependencies:
       fsevents: 2.3.3
+    dev: true
 
   /vitest-axe@1.0.0-pre.3(vitest@1.1.1):
     resolution: {integrity: sha512-vrsyixV225vMe0vGZV0aZjOYez2Pan5MxIx2RqnYnpbbRrUN2lJpQS9ong6dfF5a7BfQenR0LOD6hei3IQIPSw==}
@@ -17959,7 +17997,7 @@ packages:
   /webpack-virtual-modules@0.6.1:
     resolution: {integrity: sha512-poXpCylU7ExuvZK8z+On3kX+S8o/2dQ/SVYueKA0D4WEMXROXgY8Ez50/bQEUmvoSMMrWcrJqCHuhAbsiwg7Dg==}
 
-  /webpack@5.89.0(esbuild@0.19.11):
+  /webpack@5.89.0:
     resolution: {integrity: sha512-qyfIC10pOr70V+jkmud8tMfajraGCZMBWJtrmuBymQKCrLTRejBI8STDp1MCyZu/QTdZSeacCQYpYNQVOzX5kw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
@@ -17990,7 +18028,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(esbuild@0.19.11)(webpack@5.89.0)
+      terser-webpack-plugin: 5.3.10(webpack@5.89.0)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:

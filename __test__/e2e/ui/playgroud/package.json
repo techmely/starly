@@ -20,6 +20,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@techmely/vike-react": "0.1.8",
     "@vitejs/plugin-react": "4.2.1",
     "h3": "^1.9.0",
     "react": "18.3.0-canary-c5b937576-20231219",
@@ -27,7 +28,6 @@
     "serve-static": "^1.15.0",
     "tsx": "^4.7.0",
     "vike": "^0.4.153",
-    "@techmely/vike-react": "0.1.5",
     "vite": "5.0.10"
   }
 }

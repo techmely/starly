@@ -26,13 +26,9 @@ export default defineConfig({
     }),
     viteAutoImport,
     ViteReact(),
-    Vike({
-      prerender: {
-        partial: true,
-      },
-    }),
+    Vike({ prerender: { partial: true } }),
     ViteTelefunc(),
-    ViteVercel(),
+    // ViteVercel(),
     isProd &&
       ViteCompress({
         algorithm: "brotliCompress",

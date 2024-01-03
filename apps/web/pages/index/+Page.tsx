@@ -7,7 +7,7 @@ type Props = {
 };
 
 const IndexPage: React.FC<Props> = (props) => {
-  // const pageContext = usePageContext();
+  const pageContext = usePageContext();
   const data = useData();
   return (
     <div>
