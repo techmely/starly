@@ -1,0 +1,35 @@
+{
+  "name": "@techmely/ui-form",
+  "version": "0.0.0",
+  "homepage": "https://techmely.com/products/mely-ui/form",
+  "bugs": {
+    "url": "https://github.com/techmely/techmely/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techmely/form.git",
+    "directory": "hestia/mely-form/form"
+  },
+  "funding": "https://github.com/sponsors/techmely",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "echo NOT IMPLEMENT YET",
+    "stub": "unbuild --stub"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
