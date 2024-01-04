@@ -1,5 +1,5 @@
+import { type Mapper, UniqueEntityID } from "@techmely/ddd-core";
 import { parse } from "valibot";
-import { type Mapper, UniqueEntityID } from "../../../../ddd/core/dist";
 import { UserEntity } from "../../domain/entities/user.entity";
 import { type UserModel, userSchema } from "../../domain/repo/user.model";
 import { UserMetadata } from "../../domain/value-objects/user-metadata.value-object";

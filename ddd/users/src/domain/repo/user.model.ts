@@ -1,19 +1,8 @@
-import {
-  type Output,
-  boolean,
-  date,
-  email,
-  enum_,
-  minLength,
-  object,
-  optional,
-  string,
-} from "valibot";
-import { DEFAULT_ENTITY_ID_LENGTH } from "../../../../ddd/core/dist";
+import { type Output, boolean, date, email, enum_, object, optional, string } from "valibot";
 import { UserRoles, UserStatus } from "../entities/user.types";
 
 export const userSchema = object({
-  id: string([minLength(DEFAULT_ENTITY_ID_LENGTH)]),
+  id: string(),
   email: string([email()]),
   unverifiedEmail: string([email()]),
   isEmailVerified: boolean(),

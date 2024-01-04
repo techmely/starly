@@ -1,9 +1,9 @@
-import { invariant } from "@techmely/utils";
 import {
   ArgumentInvalidException,
   ArgumentNotProvidedException,
   ValueObject,
-} from "../../../../ddd/core/dist";
+} from "@techmely/ddd-core";
+import { invariant } from "@techmely/utils";
 
 export interface IUserMetadata {
   openPlatform: string;

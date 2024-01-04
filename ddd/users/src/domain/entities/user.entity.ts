@@ -1,4 +1,4 @@
-import { AggregateRoot, UniqueEntityID } from "../../../../ddd/core/dist";
+import { AggregateRoot, UniqueEntityID } from "@techmely/ddd-core";
 import { UserCreatedDomainEvent } from "../events/user-created.event";
 import { type CreateUserProps, type UserProps, UserRoles, UserStatus } from "./user.types";
 

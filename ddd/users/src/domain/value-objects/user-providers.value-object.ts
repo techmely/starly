@@ -1,4 +1,4 @@
-import { ValueObject } from "../../../../ddd/core/dist";
+import { ValueObject } from "@techmely/ddd-core";
 
 export interface IUserProvider {
   githubId?: string;

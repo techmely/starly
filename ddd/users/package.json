@@ -6,45 +6,31 @@
     "email": "nhattq.coding@gmail.com",
     "url": "https://github.com/harrytran998"
   },
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "scripts": {
-    "build": "pkgroll --target=node20"
+    "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
   },
   "peerDependencies": {
     "@techmely/ddd-core": "workspace:*",
-    "@techmely/utils": "1.9.4",
+    "@techmely/utils": "^1.10.0",
     "consola": "^3.2.3",
     "emittery": "^1.0.1",
-    "kysely": "0.26.3",
+    "kysely": "^0.26.3",
     "nanoid": "^5.0.4",
+    "openapi-typescript": "^6.7.3",
     "valibot": "^0.24.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20231218.0",
     "@techmely/types": "1.5.2",
-    "@techmely/utils": "1.10.0",
-    "consola": "^3.2.3",
-    "emittery": "^1.0.1",
-    "kysely": "0.27.1",
-    "nanoid": "^5.0.4",
-    "openapi-typescript": "6.7.3",
-    "pkgroll": "2.0.1",
-    "valibot": "^0.25.0",
+    "tsup": "8.0.1",
     "wrangler": "3.22.2"
   }
 }

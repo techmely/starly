@@ -1,4 +1,4 @@
-import { DomainEvent, type IDomainEvent } from "../../../../ddd/core/dist";
+import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
 import { type IUserCreatedDE, UserRoles, UserStatus } from "../entities/user.types";
 import { UserMetadata } from "../value-objects/user-metadata.value-object";
 import { UserProvider } from "../value-objects/user-providers.value-object";

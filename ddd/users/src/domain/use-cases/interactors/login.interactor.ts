@@ -1,4 +1,3 @@
-import { UserEntity } from "../../entities/user.entity";
 import type {
   LoginEmailPasswordCommand,
   LoginEmailPasswordInPort,

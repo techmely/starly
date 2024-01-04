@@ -1,4 +1,4 @@
-import { DomainEvent, type IDomainEvent } from "../../../../ddd/core/dist";
+import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
 import type { IUserUpdatedDE } from "../entities/user.types";
 
 export class UserUpdatedDomainEvent extends DomainEvent implements IUserUpdatedDE {

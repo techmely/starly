@@ -1,10 +1,10 @@
+import type { EmitDomainEvents } from "@techmely/ddd-core";
 import Emittery from "emittery";
-import type { EmitDomainEvents } from "../../../../../../ddd/core/dist";
 import { UserController } from "../../../../application/controllers/user.controller";
 import { CreateUserInteractor } from "../../../../domain/use-cases/interactors/create-user.interactor";
 import { LoginEmailPasswordInteractor } from "../../../../domain/use-cases/interactors/login.interactor";
 import { UserMapper } from "../../../mappers/user.mapper";
-import { UserPlanetScaleRepository } from "../../../persistence/planet-scale/user.impl.reposity";
+import { UserPlanetScaleRepository } from "../../../persistence/planet-scale/user.impl.repository";
 
 const userMapper = new UserMapper();
 const emitter = new Emittery<EmitDomainEvents>();

@@ -1,4 +1,4 @@
-import { ExceptionBase } from "../../../ddd/core/dist";
+import { ExceptionBase } from "@techmely/ddd-core";
 
 const EMAIL_NOT_FOUND = "USER.EMAIL_NOT_FOUND";
 const USERNAME_NOT_FOUND = "USER.USERNAME_NOT_FOUND";

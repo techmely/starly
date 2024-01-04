@@ -9,39 +9,27 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "scripts": {
-    "build": "pkgroll --target=node20"
+    "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
   },
   "optionalDependencies": {
     "hono": "^3.11.12"
   },
   "peerDependencies": {
-    "@techmely/utils": "1.9.4",
+    "@techmely/utils": "^1.10.0",
     "emittery": "^1.0.1",
-    "kysely": "0.26.3",
+    "kysely": "^0.26.3",
     "nanoid": "^5.0.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20231218.0",
     "@techmely/types": "1.5.2",
-    "@techmely/utils": "1.10.0",
-    "emittery": "^1.0.1",
-    "hono": "^3.11.10",
-    "kysely": "0.27.1",
-    "nanoid": "^5.0.4",
-    "pkgroll": "2.0.1"
+    "hono": "^3.11.12",
+    "tsup": "8.0.1"
   }
 }

@@ -1,10 +1,10 @@
 import { consola } from "consola";
 import type Emittery from "emittery";
-import { type EmitDomainEvents, MySQLRepositoryBase } from "../../../../../ddd/core/dist";
-import type { UserEntity } from "../../../domain/entities/user.entity";
-import type { UserModel } from "../../../domain/repo/user.model";
-import type { IUserRepository } from "../../../domain/repo/user.repository";
-import type { UserMapper } from "../../mappers/user.mapper";
+import type { UserEntity } from "../../../domain/entities/tenant.entity";
+import type { UserModel } from "../../../domain/repo/tenant.model";
+import type { IUserRepository } from "../../../domain/repo/tenant.repository";
+import type { UserMapper } from "../../mappers/tenant.mapper";
+import { type EmitDomainEvents, MySQLRepositoryBase } from "../@techmely/ddd-core";
 import { getDBClient } from "./planet-scale.config";
 
 export class UserPlanetScaleRepository
