@@ -3,25 +3,19 @@
   "private": true,
   "license": "AGPLv3",
   "workspaces": [
+    "apps/*",
+    "ddd/*",
     "packages/*",
-    "apps/*"
+    "ui/actions/*",
+    "ui/communication/*",
+    "ui/containment/*",
+    "ui/core/*",
+    "ui/form/*",
+    "ui/navigation/*",
+    "ui/selection/*"
   ],
   "scripts": {
-    "build": "nx run-many -t build --parallel 5",
-    "build.deps": "nx run-many -t build --parallel 5 --exclude @techmely/web --exclude techmely-monorepo",
-    "stub": "nx run-many -t stub",
-    "dev": "nx run-many -t dev",
-    "prepare": "husky install",
-    "lint.format": "biome check . --apply",
-    "lint.circular": "madge --extensions ts --exclude '.d.ts$' --circular .",
-    "test.unit": "vitest --passWithNoTests",
-    "test.unit.coverage": "vitest --coverage.all",
-    "test.unit.run": "vitest run --passWithNoTests",
-    "migration.add": "node scripts/generateMigrateFileApi.mjs",
-    "migration.run": "tsx scripts/migrate-db.ts",
-    "docker.build": "nx run-many -t docker.build",
-    "docker.storage": "nx run-many -t docker.storage",
-    "docker.up": "nx run-many -t docker.up"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
@@ -33,10 +27,8 @@
     "@techmely/types": "1.5.2",
     "@total-typescript/ts-reset": "0.5.1",
     "@types/fs-extra": "11.0.4",
-    "@types/mixpanel-browser": "2.48.1",
     "@types/node": "20.10.6",
-    "@types/nprogress": "0.2.3",
-    "@types/react": "^18.2.45",
+    "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "@types/ua-parser-js": "0.7.39",
     "@vitest/coverage-v8": "1.1.1",
@@ -72,7 +64,7 @@
     "typescript": "5.3.3",
     "vite": "5.0.10",
     "vitest": "1.1.1",
-    "vitest-axe": "v1.0.0-pre.3",
+    "vitest-axe": "^1.0.0-pre.3",
     "zx": "7.2.3"
   },
   "engines": {
@@ -80,8 +72,9 @@
   },
   "nano-staged": {
     "*.{mjs,js,ts,tsx}": [
-      "pnpm lint.format",
-      "pnpm lint.circular"
+      "make lint.format",
+      "make lint.circular"
     ]
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }

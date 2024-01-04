@@ -5,7 +5,7 @@
   "schedule": ["before 6am on the first day of the month"],
   "baseBranches": ["dev"],
   "rangeStrategy": "bump",
-  "ignoreDeps": ["node", "pnpm"],
+  "ignoreDeps": ["node", "yarn"],
   "packageRules": [
     {
       "matchDepTypes": ["peerDependencies"],

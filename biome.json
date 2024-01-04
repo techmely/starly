@@ -52,7 +52,7 @@
       ".vercel",
       "dist",
       "packages/**/**/*.d.ts",
-      "apps/web/modules/locales/paraglide",
+      "apps/web/locales/paraglide",
       "apps/web/typings"
     ]
   }

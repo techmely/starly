@@ -1,4 +1,4 @@
 #!/bin/bash -e
 
 echo -e "\nStart run units test\n"
-pnpm test.unit.run
+yarn test.unit.run

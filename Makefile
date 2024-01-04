@@ -1,13 +1,38 @@
-build.ui:
-	pnpm run build "mely-core/*"
+build.ddd:
+	yarn nx run-many -t build -p @techmely/ddd-core @techmely/ddd-users
 
-build.nocache:
-	pnpm parcel build "mely-core/*" --no-cache
+build: 
+	yarn nx run-many -t build -p --parallel=10
 
-.PHONY: e2e.headless
-e2e.headless:
-	pnpm playwright test --headed
+dev: 
+	yarn workspaces foreach -Rpt run dev
 
-.PHONY: e2e.open
-e2e.open:
-	pnpm playwright test --project=chromium --ui
+lint.format: 
+	yarn biome check . --apply
+
+lint.circular: 
+	yarn madge --extensions ts --exclude '.d.ts$' --circular .
+
+test.unit: 
+	yarn vitest --passWithNoTests
+
+test.unit.coverage: 
+	yarn vitest --coverage.all
+
+test.unit.run: 
+	yarn vitest run --passWithNoTests
+
+migration.add: 
+	node scripts/generateMigrateFileApi.mjs
+
+migration.run: 
+	yarn tsx scripts/migrate-db.ts
+
+docker.build: 
+	yarn workspaces foreach -Rpt run docker.build
+
+docker.storage: 
+	yarn workspaces foreach -Rpt run docker.storage
+
+docker.up: 
+	yarn workspaces foreach -Rpt run docker.up
