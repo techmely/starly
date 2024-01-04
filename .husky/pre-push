@@ -1,4 +1,4 @@
 #!/bin/bash -e
 
 echo -e "\nStart run units test\n"
-yarn test.unit.run
+make test.unit.run
