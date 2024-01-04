@@ -1,5 +1,4 @@
-import { type CreateUserModel, UserStatus } from "@techmely/models";
-import { getNicknameFromEmail } from "../user/user.utils";
+import { UserStatus } from "@techmely/ddd-users";
 import { authUtmParams } from "./auth.const";
 import type { AuthState, SignInOptions, SignInOutput } from "./auth.types";
 import { signInWithFacebook, signInWithGithub, signInWithGoogle } from "./auth.utils";
@@ -39,15 +38,15 @@ async function signInWithProvider(options: SignInOptions) {
     // set({ providerErrorMsg: output, isLoading: false });
   } else {
     const user = output.user;
-    const newUser: CreateUserModel = {
+    const newUser = {
       avatarUrl: user?.photoURL || "",
       email: user?.email || "",
       gender: "UNKNOWN",
       locale: options.locale,
-      status: UserStatus.NEWBIE,
+      status: UserStatus.ACTIVE,
       name: user?.displayName || "",
       isEmailVerified: user?.emailVerified,
-      nickname: getNicknameFromEmail(user?.email),
+      nickname: user?.email,
       openPlatform: `${parser?.getOS().name} ${agentBrowser?.name} ${agentBrowser?.version}`,
       firebaseUserId: user?.uid,
       googleId: user.providerData[0]?.providerId.includes("google")

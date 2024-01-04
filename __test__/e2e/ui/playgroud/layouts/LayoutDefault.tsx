@@ -1,9 +1,9 @@
 import "./style.css";
 
-import "./tailwind.css";
 import React from "react";
 import logoUrl from "../assets/logo.svg";
 import { Link } from "../components/Link";
+import "./tailwind.css";
 
 export default function LayoutDefault({
   children,
@@ -25,10 +25,7 @@ export default function LayoutDefault({
 
 function Sidebar({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      id="sidebar"
-      className="p-5 flex flex-col shrink-0 border-r-2 border-r-gray-200"
-    >
+    <div id="sidebar" className="p-5 flex flex-col shrink-0 border-r-2 border-r-gray-200">
       {children}
     </div>
   );
