@@ -28,7 +28,7 @@ export default defineConfig({
     ViteReact(),
     Vike({ prerender: { partial: true } }),
     ViteTelefunc(),
-    // ViteVercel(),
+    ViteVercel(),
     isProd &&
       ViteCompress({
         algorithm: "brotliCompress",
@@ -36,12 +36,6 @@ export default defineConfig({
         exclude: [/\.(png|avif|webp|jpe?g|gif)$/i, /\.map$/, /\.br$/],
       }),
   ].filter(Boolean),
-  build: {
-    // target is es2022 to support top level await
-    // https://caniuse.com/?search=top%20level%20await
-    target: "es2022",
-    minify: isProd,
-  },
   resolve: {
     alias: {
       "#assets": path.join(__dirname, "/assets"),

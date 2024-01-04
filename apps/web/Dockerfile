@@ -13,10 +13,10 @@ COPY ../patches ./patches
 COPY . ./
 
 # Run full install with every postinstall script ( This needs project file )
-RUN pnpm i --frozen-lockfile
+RUN yarn i --frozen-lockfile
 
 # Build
-RUN pnpm build
+RUN yarn build
 
 FROM gcr.io/distroless/nodejs:18 AS runner
 

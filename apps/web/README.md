@@ -16,7 +16,7 @@
 ```sh
 git clone https://github.com/harrytran998/techmely.git
 cd techmely
-pnpm docker.build # build Docker image for all app
-pnpm docker.storage # create local storage directory + adjust permissions of storage dir
-pnpm docker.up # Start container - Enjoy
+yarn docker.build # build Docker image for all app
+yarn docker.storage # create local storage directory + adjust permissions of storage dir
+yarn docker.up # Start container - Enjoy
 ```

@@ -2,12 +2,7 @@ const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./pages/**/*.vue",
-    "./renderer/**/*.vue",
-    "./shared/components/**/*.vue",
-    "./shared/layouts/**/*.vue",
-  ],
+  content: ["./pages/**/*.tsx", "./shared/layouts/**/*.tsx"],
   theme: {
     extend: {
       colors: {

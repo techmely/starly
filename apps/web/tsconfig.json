@@ -21,7 +21,6 @@
 		"verbatimModuleSyntax": true,
     "resolveJsonModule": true,
     "paths": {
-      "@techmely/models": ["../../packages/models/src/index.ts"],
       "#assets/*": ["./assets/*"],
       "#modules/*": ["./modules/*"],
       "#pages/*": ["./pages/*"],

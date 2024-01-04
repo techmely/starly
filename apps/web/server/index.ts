@@ -1,10 +1,7 @@
 import { createServer } from "node:http";
 import { createApp, createRouter, toNodeListener } from "h3";
 import { useDependenciesInjection } from "#modules/_internal/di/di.middleware";
-import useAuthRouter from "#modules/auth/auth.route";
 import { useTelefuncRouter } from "#modules/telefunc/telefunc.router";
-import useTenantRouter from "#modules/tenant/tenant.router";
-import useUserRouter from "#modules/user/user.router";
 import { useVikeRouter } from "#modules/vike/vike.router";
 import useViteMiddleware from "#modules/vite/vite.middleware";
 import { compressMiddleware } from "../modules/compression/compress.middleware";
@@ -31,9 +28,6 @@ async function letGo() {
 
   useVikeRouter(router);
   useTelefuncRouter(router);
-  useAuthRouter(router);
-  useUserRouter(router);
-  useTenantRouter(router);
 
   app.use(router);
   const server = createServer(toNodeListener(app)).listen(envs.PORT);

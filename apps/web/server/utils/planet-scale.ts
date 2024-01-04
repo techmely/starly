@@ -1,16 +1,15 @@
 import { CamelCasePlugin, Kysely } from "kysely";
 import { PlanetScaleDialect } from "kysely-planetscale";
 
-import type { MenuModel, RoleModel, TenantModel, UserModel } from "@techmely/models";
 import { serverEnvs } from "./server-envs";
 
 let dbClient: Kysely<AppDatabase>;
 
 export type AppDatabase = {
-  users: UserModel;
-  menus: MenuModel;
-  tenant: TenantModel;
-  role: RoleModel;
+  users: any;
+  menus: any;
+  tenant: any;
+  role: any;
 };
 
 export const getDBClient = (): Kysely<AppDatabase> => {
