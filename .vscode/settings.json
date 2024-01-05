@@ -38,6 +38,7 @@
     "fiboup",
     "firebaseui",
     "fontaine",
+    "Freemium",
     "geolocation",
     "graphiql",
     "gsap",
@@ -142,7 +143,8 @@
     "vitest",
     "wasmer",
     "webapi",
-    "webp"
+    "webp",
+    "Zustand"
   ],
   "editor.rulers": [100],
   "html.format.wrapLineLength": 100,
