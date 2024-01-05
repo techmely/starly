@@ -19,7 +19,7 @@
     "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
   },
   "dependencies": {
-    "@techmely/utils": "1.10.0",
+    "@techmely/utils": "1.10.1",
     "lit": "^3.1.0"
   },
   "devDependencies": {

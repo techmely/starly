@@ -69,3 +69,4 @@ Infras: Deploy to Cloudflare Pages/Worker or AWS Startup
   - Automate run jobs to
     - Upgrade deps (1 month)
     - Run e2e test (2 days)
+  - All the error will be captured & handled
