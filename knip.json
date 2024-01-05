@@ -1,11 +1,17 @@
 {
-  "$schema": "https://unpkg.com/knip@2/schema.json",
+  "$schema": "https://unpkg.com/knip@3/schema.json",
   "workspaces": {
-    "the-moon/*": {
-      "entry": ["src/index.ts"]
+    "packages/*": {
+      "entry": "index.ts",
+      "project": "**/*.ts"
     },
-    "apps/web": {
-      "entry": ["use-cases/**/*.ts"]
+    "ddd/*": {
+      "entry": "index.ts",
+      "project": "**/*.ts"
+    },
+    "ui/*": {
+      "entry": "index.ts",
+      "project": "**/*.ts"
     }
   }
 }

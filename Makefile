@@ -13,6 +13,9 @@ lint.format:
 lint.circular: 
 	yarn madge --extensions ts --exclude '.d.ts$' --circular .
 
+lint.useless: 
+	yarn knip
+
 test.unit: 
 	yarn vitest --passWithNoTests
 
