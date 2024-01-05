@@ -16,7 +16,6 @@ export * from "./exceptions/exception.base";
 export * from "./exceptions/exception.codes";
 export * from "./exceptions/exceptions";
 
-export * from "./infra/logger/logger.port";
 export * from "./infra/persistence/migrations/planet-scale.utils.migration";
 export * from "./infra/persistence/repo/repository.mysql.base";
 export * from "./infra/persistence/repo/repository.query.base";
