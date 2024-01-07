@@ -1,0 +1,58 @@
+name = "user-aggregate"
+main = "src/worker.ts"
+compatibility_date = "2023-11-06"
+
+## these are in local dev
+[durable_objects]
+bindings = [
+  {name = "DO_RATELIMIT", class_name = "DurableObjectRatelimiter"  },
+  {name = "DO_USAGELIMIT", class_name = "DurableObjectUsagelimiter"  }
+]
+
+[env.development]
+route = { pattern = "development-api.techmely.dev", custom_domain = true }
+vars = {ENVIRONMENT = "development"}
+
+
+[env.development.durable_objects]
+ bindings = [
+ {name = "DO_RATELIMIT", class_name = "DurableObjectRatelimiter"  },
+  {name = "DO_USAGELIMIT", class_name = "DurableObjectUsagelimiter"  }
+]
+
+[env.preview]
+vars = {  ENVIRONMENT = "preview" }
+route = { pattern = "preview-api.techmely.dev", custom_domain = true }
+
+
+[env.preview.durable_objects]
+ bindings = [
+  {name = "DO_RATELIMIT", class_name = "DurableObjectRatelimiter"},
+  {name = "DO_USAGELIMIT", class_name = "DurableObjectUsagelimiter"  }
+
+]
+
+# canary is a special environment that is used to test new code by a small percentage of users before it is rolled out to the rest of the world.
+# all settings must be the same as production, except for the route pattern
+[env.canary]
+vars = {  ENVIRONMENT = "production"}
+route = { pattern = "canary.techmely.dev", custom_domain = true}
+logpush = true
+
+[env.canary.durable_objects]
+ bindings = [
+  {name = "DO_RATELIMIT", class_name = "DurableObjectRatelimiter"  },
+  {name = "DO_USAGELIMIT", class_name = "DurableObjectUsagelimiter"  }
+]
+
+[env.production]
+vars = {  ENVIRONMENT = "production"}
+route = { pattern = "user.api.techmely.dev", custom_domain = true}
+logpush = true
+
+
+[env.production.durable_objects]
+ bindings = [
+  {name = "DO_RATELIMIT", class_name = "DurableObjectRatelimiter"  },
+  {name = "DO_USAGELIMIT", class_name = "DurableObjectUsagelimiter"  }
+]

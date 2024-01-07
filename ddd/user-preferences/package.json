@@ -1,12 +1,12 @@
 {
-  "name": "@techmely/ddd-users",
-  "description": "User aggregate",
+  "name": "@techmely/ddd-user-preferences",
+  "description": "User preferences aggregate",
   "author": {
     "name": "Harry Tran",
     "email": "nhattq.coding@gmail.com",
     "url": "https://github.com/harrytran998"
   },
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
   "main": "./dist/index.js",
@@ -17,18 +17,15 @@
   "scripts": {
     "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
   },
-  "dependencies": {
-    "@techmely/cache": "1.0.0",
+  "peerDependencies": {
     "@techmely/ddd-core": "workspace:*",
-    "@techmely/logger": "1.0.2",
-    "@techmely/metrics": "1.0.1",
-    "@techmely/rate-limit": "1.1.2",
-    "@techmely/utils": "^1.10.1",
+    "@techmely/utils": "^1.10.0",
+    "consola": "^3.2.3",
     "emittery": "^1.0.1",
-    "kysely": "^0.27.2",
+    "kysely": "^0.26.3",
     "nanoid": "^5.0.4",
     "openapi-typescript": "^6.7.3",
-    "valibot": "^0.25.0"
+    "valibot": "^0.24.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20231218.0",

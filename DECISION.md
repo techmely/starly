@@ -43,8 +43,9 @@
 - User
   - CRUD an user
   - CRUD a cluster user
-- User Settings
-  - I18n
+- User Preferences
+  - Locale
+  - IP
 - Multi-tenant
 - Articles
   - Read/Write/Update/Draft/Delete
