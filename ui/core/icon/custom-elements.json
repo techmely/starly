@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/icon.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TIcon",
+          "cssParts": [
+            {
+              "description": "The svg element",
+              "name": "svg"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "#initRender",
+              "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "default": "css`\n    :host {\n      display: inline-block;\n    }`"
+            },
+            {
+              "kind": "field",
+              "name": "_svg",
+              "type": {
+                "text": "SVGElement | HTMLTemplateResult | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the icon to display."
+            },
+            {
+              "kind": "field",
+              "name": "src",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "External URL of an SVG file.\nNote: You should be sure you trust the content you're including, as unsanitized content can lead to XSS attacks."
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "description": "An label to use for accessibility(assistive devices). If omitted, the name or src will be used to generate it."
+            },
+            {
+              "kind": "field",
+              "name": "library",
+              "type": {
+                "text": "string | undefined"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleLabelChange"
+            },
+            {
+              "kind": "method",
+              "name": "setIcon"
+            },
+            {
+              "kind": "method",
+              "name": "#resolveIcon",
+              "parameters": [
+                {
+                  "name": "url",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "library",
+                  "optional": true,
+                  "type": {
+                    "text": "IconLibrary"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#getLibUrl"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the icon to display.",
+              "name": "name"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "External URL of an SVG file.",
+              "name": "src"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "An label to use for accessibility(assistive devices). If omitted, the name or src will be used to generate it.",
+              "name": "label"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the icon library to use. The name should be registered using the `registerIconLibrary` function.",
+              "name": "library"
+            }
+          ],
+          "superclass": {
+            "name": "MelyElement",
+            "package": "@techmely/ui-core"
+          },
+          "tagName": "t-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TIcon",
+          "declaration": {
+            "name": "TIcon",
+            "module": "src/icon.component.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
