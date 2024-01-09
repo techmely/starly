@@ -50,6 +50,9 @@
 - Articles
   - Read/Write/Update/Draft/Delete
   - Share
+  - Realtime Collaboration Writing - Local First
+  - Reaction/Comment Collaboration
+  - Draw in articles
 - Courses
 - Series
 - Organization
