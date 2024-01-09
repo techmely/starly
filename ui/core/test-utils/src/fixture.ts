@@ -1,7 +1,7 @@
-import { LitElement } from "lit";
+import type { LitElement } from "lit";
 import { isTemplateResult } from "lit/directive-helpers.js";
 import { render as defaultRender } from "lit/html.js";
-import { FixtureOptions, LitHTMLRenderable } from "./types";
+import type { FixtureOptions, LitHTMLRenderable } from "./types";
 
 export const cachedWrappers: Element[] = [];
 export const NODE_TYPES = Object.freeze({
@@ -29,11 +29,11 @@ function fixtureWrapper(parentNode: HTMLElement = document.createElement("div"))
 }
 
 export function fixtureCleanup() {
-  cachedWrappers.forEach((wrapper) => {
+  for (const wrapper of cachedWrappers) {
     if (document.body.contains(wrapper)) {
       document.body.removeChild(wrapper);
     }
-  });
+  }
   cachedWrappers.length = 0;
 }
 

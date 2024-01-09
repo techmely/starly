@@ -63,7 +63,7 @@ export type ElementSize = "small" | "medium" | "large" | "free";
  * Low - For optional or supplementary actions with the least amount of prominence: Text, Icon, Segmented Button
  */
 export type ElementEmphasis = "low" | "medium" | "high";
-export type ElementVariant = "outlined" | "filled" | "text" | "circle" | "ghost" | "elevated";
+export type ElementVariant = "outlined" | "filled" | "text" | "ghost" | "elevated";
 export type ElementColor = "primary" | "secondary" | "destructive" | "warning" | "info" | "success";
 export type LinkTarget = "_blank" | "_self" | "_parent" | "_top";
 export type LinkRel =

@@ -13,19 +13,30 @@
   "funding": "https://github.com/sponsors/techmely",
   "license": "MIT",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    }
-  },
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "echo NOT IMPLEMENT YET",
     "stub": "unbuild --stub"
+  },
+  "peerDependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "@techmely/ui-core": "workspace:*",
+    "@techmely/ui-icon": "workspace:*",
+    "clsx": "^2.0.0",
+    "lit": "^2.8.0",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "@techmely/ui-core": "workspace:*",
+    "@techmely/ui-icon": "workspace:*",
+    "clsx": "^2.1.0",
+    "lit": "^3.1.0",
+    "react": "^18.2.0"
   },
   "publishConfig": {
     "access": "public"
