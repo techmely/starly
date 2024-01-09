@@ -23,18 +23,28 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsup --entry src/index.ts --entry src/react.tsx --splitting --sourcemap --clean --dts --format esm --treeshake",
+    "build": "tsup --entry src/index.ts --entry src/button.lit.tsx --entry src/button.react.tsx --splitting --sourcemap --clean --dts --format esm --treeshake",
     "publish": "node ../../../../../../scripts/publishPkg.mjs"
   },
-  "peerDependencies": {
-    "lit": "^2.8.0",
+  "optionalDependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "@techmely/ui-core": "workspace:*",
     "@techmely/ui-icon": "workspace:*",
+    "clsx": "^2.1.0",
+    "lit": "^3.1.0",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
     "@radix-ui/react-slot": "^1.0.2",
-    "react": "^18.2.0",
-    "clsx": "^2.0.0"
+    "@techmely/ui-core": "workspace:*",
+    "@techmely/ui-icon": "workspace:*",
+    "clsx": "^2.1.0",
+    "lit": "^3.1.0",
+    "react": "^18.2.0"
   },
   "publishConfig": {
     "access": "public",
@@ -51,5 +61,8 @@
       "url": "https://www.patreon.com/techmely"
     }
   ],
-  "keywords": ["techmely", "techmely-ui"]
+  "keywords": [
+    "techmely",
+    "techmely-ui"
+  ]
 }

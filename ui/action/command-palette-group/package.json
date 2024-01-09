@@ -22,7 +22,9 @@
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "echo NOT IMPLEMENT YET",
     "stub": "unbuild --stub"
