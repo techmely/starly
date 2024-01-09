@@ -7,7 +7,7 @@ import {
 } from "@techmely/ui-core";
 import TIcon from "@techmely/ui-icon";
 import { property, query, state } from "lit/decorators.js";
-export class TButton extends MelyElement implements MelyFormControl {
+class TButton extends MelyElement implements MelyFormControl {
   defaultValue?: unknown;
   defaultChecked?: boolean | undefined;
   pattern?: string | undefined;
@@ -17,9 +17,9 @@ export class TButton extends MelyElement implements MelyFormControl {
   required?: boolean | undefined;
   minlength?: number | undefined;
   maxlength?: number | undefined;
-  checkValidity: () => boolean;
-  getForm: () => HTMLFormElement | undefined;
-  reportValidity: () => boolean;
+  checkValidity!: () => boolean;
+  getForm!: () => HTMLFormElement | undefined;
+  reportValidity!: () => boolean;
   static override dependencies = {
     "t-icon": TIcon,
   };
@@ -109,7 +109,7 @@ export class TButton extends MelyElement implements MelyFormControl {
    * */
   @property({ attribute: "formtarget" }) formTarget?: LinkTarget | (string & Record<never, never>);
 
-  @query(".button") button: HTMLButtonElement | HTMLLinkElement;
+  @query(".button") button: HTMLButtonElement | HTMLLinkElement | undefined;
 
   #isButton() {
     return !!this.href;
@@ -155,3 +155,5 @@ export class TButton extends MelyElement implements MelyFormControl {
     (this.button as HTMLButtonElement).setCustomValidity(message);
   }
 }
+
+export default TButton;

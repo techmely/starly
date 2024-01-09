@@ -8,35 +8,38 @@
   "repository": "https://github.com/techmely/techmely/tree/dev/mely-action/button",
   "license": "MIT",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    },
-    "./react": {
-      "types": "./dist/react.d.ts",
-      "require": "./dist/react.cjs",
-      "import": "./dist/react.mjs"
-    }
-  },
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "build": "tsup --entry src/index.ts --entry src/button.lit.tsx --entry src/button.react.tsx --splitting --sourcemap --clean --dts --format esm --treeshake",
+    "build": "tsup --entry src/index.ts --entry src/button.lit.ts --entry src/button.react.tsx --splitting --sourcemap --clean --dts --format esm --treeshake && yarn build.fix",
+    "build.fix": "sed '2d' dist/index.js > temp; mv temp dist/index.js",
     "publish": "node ../../../../../../scripts/publishPkg.mjs"
   },
-  "optionalDependencies": {
+  "peerDependencies": {
     "@radix-ui/react-slot": "^1.0.2",
     "@techmely/ui-core": "workspace:*",
     "@techmely/ui-icon": "workspace:*",
     "clsx": "^2.1.0",
     "lit": "^3.1.0",
     "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@techmely/ui-icon": {
+      "optional": true
+    },
+    "@radix-ui/react-slot": {
+      "optional": true
+    },
+    "lit": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "clsx": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@radix-ui/react-slot": "^1.0.2",
@@ -44,7 +47,8 @@
     "@techmely/ui-icon": "workspace:*",
     "clsx": "^2.1.0",
     "lit": "^3.1.0",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "tsup": "8.0.1"
   },
   "publishConfig": {
     "access": "public",
@@ -61,8 +65,5 @@
       "url": "https://www.patreon.com/techmely"
     }
   ],
-  "keywords": [
-    "techmely",
-    "techmely-ui"
-  ]
+  "keywords": ["techmely", "techmely-ui"]
 }

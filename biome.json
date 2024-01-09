@@ -51,7 +51,11 @@
       ".output",
       ".vercel",
       "dist",
+      "packages/**/dist/*",
       "packages/**/**/*.d.ts",
+      "ui/**/**/dist/*",
+      "text-editor/**/dist/*",
+      "apps/**/dist/*",
       "apps/web/locales/paraglide",
       "apps/web/typings"
     ]

@@ -16,7 +16,6 @@ const buttonClasses = {
     filled: "bg-primary text-primary-foreground hover:bg-primary/90",
     outlined: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
     ghost: "hover:bg-accent hover:text-accent-foreground",
-    circle: "",
     text: "",
     elevated: "",
     link: "text-primary underline-offset-4 hover:underline",
@@ -39,12 +38,15 @@ const buttonClasses = {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, 
-      variant = "filled", 
-      emphasis = "medium", 
-      size = "medium", 
-      color = 'primary', 
-      asChild = false, ...props },
+    {
+      className,
+      variant = "filled",
+      emphasis = "medium",
+      size = "medium",
+      color = "primary",
+      asChild = false,
+      ...props
+    },
     ref,
   ) => {
     const Comp = asChild ? Slot : "button";
@@ -52,10 +54,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         className={clsx(
-          buttonClasses.variant[variant], 
-          buttonClasses.size[size], 
-          buttonClasses.color[color], 
-          className)}
+          buttonClasses.variant[variant],
+          buttonClasses.size[size],
+          buttonClasses.color[color],
+          className,
+        )}
         {...props}
       />
     );
