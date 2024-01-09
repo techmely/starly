@@ -6,6 +6,7 @@
     "apps/*",
     "ddd/*",
     "packages/*",
+    "text-editor/*",
     "ui/action/*",
     "ui/communication/*",
     "ui/containment/*",

@@ -5468,10 +5468,16 @@ __metadata:
     clsx: "npm:^2.1.0"
     lit: "npm:^3.1.0"
     react: "npm:^18.2.0"
-  dependenciesMeta:
+    tsup: "npm:8.0.1"
+  peerDependencies:
+    "@radix-ui/react-slot": ^1.0.2
+    "@techmely/ui-core": "workspace:*"
+    "@techmely/ui-icon": "workspace:*"
+    clsx: ^2.1.0
+    lit: ^3.1.0
+    react: ^18.2.0
+  peerDependenciesMeta:
     "@radix-ui/react-slot":
-      optional: true
-    "@techmely/ui-core":
       optional: true
     "@techmely/ui-icon":
       optional: true

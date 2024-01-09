@@ -10,7 +10,9 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup --entry src/index.ts --entry src/button.lit.ts --entry src/button.react.tsx --splitting --sourcemap --clean --dts --format esm --treeshake && yarn build.fix",
     "build.fix": "sed '2d' dist/index.js > temp; mv temp dist/index.js",
@@ -25,19 +27,19 @@
     "react": "^18.2.0"
   },
   "peerDependenciesMeta": {
+    "@radix-ui/react-slot": {
+      "optional": true
+    },
     "@techmely/ui-icon": {
       "optional": true
     },
-    "@radix-ui/react-slot": {
+    "clsx": {
       "optional": true
     },
     "lit": {
       "optional": true
     },
     "react": {
-      "optional": true
-    },
-    "clsx": {
       "optional": true
     }
   },
@@ -65,5 +67,8 @@
       "url": "https://www.patreon.com/techmely"
     }
   ],
-  "keywords": ["techmely", "techmely-ui"]
+  "keywords": [
+    "techmely",
+    "techmely-ui"
+  ]
 }
