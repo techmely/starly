@@ -35,7 +35,7 @@
     "@techmely/ui-core": "workspace:*",
     "@techmely/ui-icon": "workspace:*",
     "clsx": "^2.1.0",
-    "lit": "^3.1.0",
+    "lit": "^3.1.1",
     "react": "^18.2.0"
   },
   "publishConfig": {
