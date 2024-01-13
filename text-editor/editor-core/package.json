@@ -1,0 +1,38 @@
+{
+  "name": "@techmely/editor-core",
+  "version": "0.0.0",
+  "homepage": "https://techmely.com/products/mely-ui/collapsibles",
+  "bugs": {
+    "url": "https://github.com/techmely/techmely/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techmely/collapsibles.git",
+    "directory": "hestia/mely-actions/collapsible"
+  },
+  "funding": "https://github.com/sponsors/techmely",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "echo NOT IMPLEMENT YET"
+  },
+  "peerDependencies": {
+    "orderedmap": "^2.1.1"
+  },
+  "peerDependenciesMeta": {
+    "orderedmap": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "orderedmap": "^2.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
