@@ -31,12 +31,14 @@
         "recommended": true
       },
       "style": {
-        "recommended": true
+        "recommended": true,
+        "noParameterAssign": "warn"
       },
       "suspicious": {
         "recommended": true,
         "noEmptyInterface": "off",
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noImplicitAnyLet": "off"
       },
       "performance": {
         "recommended": true
@@ -54,7 +56,6 @@
       "packages/**/dist/*",
       "packages/**/**/*.d.ts",
       "ui/**/**/dist/*",
-      "text-editor/**/dist/*",
       "apps/**/dist/*",
       "apps/web/locales/paraglide",
       "apps/web/typings"
