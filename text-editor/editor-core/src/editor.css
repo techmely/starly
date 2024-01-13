@@ -1,0 +1,54 @@
+.techmely-editor {
+  position: relative;
+}
+
+.techmely-editor {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  white-space: break-spaces;
+  -webkit-font-variant-ligatures: none;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0; /* the above doesn't seem to work in Edge */
+}
+
+.techmely-editor pre {
+  white-space: pre-wrap;
+}
+
+.techmely-editor li {
+  position: relative;
+}
+
+.techmely-editor-hideselection *::selection { background: transparent; }
+.techmely-editor-hideselection *::-moz-selection { background: transparent; }
+.techmely-editor-hideselection { caret-color: transparent; }
+
+/* See https://github.com/techmely-editor/techmely-editor/issues/1421#issuecomment-1759320191 */
+.techmely-editor [draggable][contenteditable=false] { user-select: text }
+
+.techmely-editor-selectednode {
+  outline: 2px solid #8cf;
+}
+
+/* Make sure li selections wrap around markers */
+
+li.techmely-editor-selectednode {
+  outline: none;
+}
+
+li.techmely-editor-selectednode:after {
+  content: "";
+  position: absolute;
+  left: -32px;
+  right: -2px; top: -2px; bottom: -2px;
+  border: 2px solid #8cf;
+  pointer-events: none;
+}
+
+/* Protect against generic img rules */
+
+img.techmely-editor-separator {
+  display: inline !important;
+  border: none !important;
+  margin: 0 !important;
+}
