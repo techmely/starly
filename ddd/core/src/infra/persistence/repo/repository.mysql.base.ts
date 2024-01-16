@@ -8,7 +8,7 @@ import type {
   PaginatedQueryParams,
   RepositoryPort,
 } from "../../../domain/repo/repository.port";
-import type { LoggerPort } from "../../logger/logger.port";
+import type { LoggerPort } from "@techmely/types";
 import type { Mapper } from "../../mapper.base";
 
 export abstract class MySQLRepositoryBase<

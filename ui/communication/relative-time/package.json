@@ -22,8 +22,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "echo NOT IMPLEMENT YET",
-    "stub": "unbuild --stub"
+    "build": "echo NOT IMPLEMENT YET"
   },
   "publishConfig": {
     "access": "public"

@@ -5340,6 +5340,7 @@ __metadata:
   resolution: "@techmely/ddd-core@workspace:ddd/core"
   dependencies:
     "@cloudflare/workers-types": "npm:4.20231218.0"
+    "@techmely/logger": "npm:1.0.2"
     "@techmely/types": "npm:1.6.0"
     hono: "npm:^3.12.3"
     tsup: "npm:8.0.1"
@@ -5733,6 +5734,8 @@ __metadata:
 "@techmely/ui-toast@workspace:ui/communication/toast":
   version: 0.0.0-use.local
   resolution: "@techmely/ui-toast@workspace:ui/communication/toast"
+  dependencies:
+    react-hot-toast: "npm:2.4.1"
   languageName: unknown
   linkType: soft
 
@@ -10964,6 +10967,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"goober@npm:^2.1.10":
+  version: 2.1.14
+  resolution: "goober@npm:2.1.14"
+  peerDependencies:
+    csstype: ^3.0.10
+  checksum: 184eda787a9a14cffbaa8284e98dc127095e538b4acab2a84b81babca84253bb883e16208822e02584f27c7a69f3ec47341e5060dfa40a0e07c32ac1f79b2714
+  languageName: node
+  linkType: hard
+
 "gopd@npm:^1.0.1":
   version: 1.0.1
   resolution: "gopd@npm:1.0.1"
@@ -15625,6 +15637,18 @@ __metadata:
   peerDependencies:
     react: ">=16.13.1"
   checksum: de599799efab78929447e11f4cfb3779e99ca87a8af1b3c56ab49ecb0bcc44fe924cfad4d2f3cc77c6cc8d992e3c47e356c70edebb825ae867aa621438035209
+  languageName: node
+  linkType: hard
+
+"react-hot-toast@npm:2.4.1":
+  version: 2.4.1
+  resolution: "react-hot-toast@npm:2.4.1"
+  dependencies:
+    goober: "npm:^2.1.10"
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 591ecec3c6adc1cdb70f00165a57baa3d7f75d0d30fa767213c36496bdcc6be2b2e6a3edbf7c04f7d726a1b17dcfb5e7feb2136b04b17c9ccb769894b970f365
   languageName: node
   linkType: hard
 

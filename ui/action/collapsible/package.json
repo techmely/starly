@@ -19,8 +19,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "echo NOT IMPLEMENT YET",
-    "stub": "unbuild --stub"
+    "build": "echo NOT IMPLEMENT YET"
   },
   "peerDependencies": {
     "@radix-ui/react-slot": "^1.0.2",
