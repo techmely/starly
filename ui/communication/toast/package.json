@@ -22,8 +22,12 @@
   "scripts": {
     "build": "echo NOT IMPLEMENT YET"
   },
-  "dependencies": {
-    "react-hot-toast": "2.4.1"
+  "peerDependencies": {
+    "@techmely/utils": "^2.0.0",
+    "react": "^18.x"
+  },
+  "devDependencies": {
+    "@techmely/utils": "^2.0.0"
   },
   "publishConfig": {
     "access": "public",

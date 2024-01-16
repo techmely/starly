@@ -5735,7 +5735,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@techmely/ui-toast@workspace:ui/communication/toast"
   dependencies:
-    react-hot-toast: "npm:2.4.1"
+    "@techmely/utils": "npm:^2.0.0"
+  peerDependencies:
+    "@techmely/utils": ^2.0.0
+    react: ^18.x
   languageName: unknown
   linkType: soft
 
@@ -5765,6 +5768,23 @@ __metadata:
     dayjs:
       optional: true
   checksum: 6fd32febb08fa9c27210aabdf6df2ccdab6ed6449059e679a4a77895f98c2bc6138b8898f1d7ee0e8a9be178b74e929ad5253d08dccfca5c33eccf0d3013259e
+  languageName: node
+  linkType: hard
+
+"@techmely/utils@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@techmely/utils@npm:2.0.0"
+  dependencies:
+    nanoid: "npm:^5.0.4"
+  peerDependencies:
+    dayjs: ^1.11.6
+  dependenciesMeta:
+    nanoid:
+      optional: true
+  peerDependenciesMeta:
+    dayjs:
+      optional: true
+  checksum: 1783219f8fb8433de0aa6f68ef9bb6e2bdf378266abbb90388bb6a1202b8bf760f50094acda04f9ab02ece0e7055e5cffa6873cba9993a6f81a8e907ca65f535
   languageName: node
   linkType: hard
 
@@ -10967,15 +10987,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"goober@npm:^2.1.10":
-  version: 2.1.14
-  resolution: "goober@npm:2.1.14"
-  peerDependencies:
-    csstype: ^3.0.10
-  checksum: 184eda787a9a14cffbaa8284e98dc127095e538b4acab2a84b81babca84253bb883e16208822e02584f27c7a69f3ec47341e5060dfa40a0e07c32ac1f79b2714
-  languageName: node
-  linkType: hard
-
 "gopd@npm:^1.0.1":
   version: 1.0.1
   resolution: "gopd@npm:1.0.1"
@@ -15637,18 +15648,6 @@ __metadata:
   peerDependencies:
     react: ">=16.13.1"
   checksum: de599799efab78929447e11f4cfb3779e99ca87a8af1b3c56ab49ecb0bcc44fe924cfad4d2f3cc77c6cc8d992e3c47e356c70edebb825ae867aa621438035209
-  languageName: node
-  linkType: hard
-
-"react-hot-toast@npm:2.4.1":
-  version: 2.4.1
-  resolution: "react-hot-toast@npm:2.4.1"
-  dependencies:
-    goober: "npm:^2.1.10"
-  peerDependencies:
-    react: ">=16"
-    react-dom: ">=16"
-  checksum: 591ecec3c6adc1cdb70f00165a57baa3d7f75d0d30fa767213c36496bdcc6be2b2e6a3edbf7c04f7d726a1b17dcfb5e7feb2136b04b17c9ccb769894b970f365
   languageName: node
   linkType: hard
 
