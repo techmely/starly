@@ -2,7 +2,7 @@ build.ddd:
 	yarn nx run-many -t build -p @techmely/ddd-core @techmely/ddd-users
 
 build: 
-	yarn nx run-many -t build -p --parallel=10
+	yarn nx run-many -t build -p
 
 dev: 
 	yarn workspaces foreach -Rpt run dev

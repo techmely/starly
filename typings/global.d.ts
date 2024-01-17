@@ -75,4 +75,4 @@ interface NavigatorUAData extends UALowEntropyJSON {
   toJSON(): UALowEntropyJSON;
 }
 
-export {};
+export type {};
