@@ -1,7 +1,7 @@
 import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
-import type { IUserUpdatedDE } from "../entities/tenant.types";
+import type { ITenantUpdatedDE } from "../entities/tenant.types";
 
-export class UserUpdatedDomainEvent extends DomainEvent implements IUserUpdatedDE {
+export class UserUpdatedDomainEvent extends DomainEvent implements ITenantUpdatedDE {
   email?: string;
   unverifiedEmail?: string;
   isEmailVerified?: boolean;

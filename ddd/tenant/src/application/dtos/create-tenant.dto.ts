@@ -1,3 +1,3 @@
-import type { UserProps } from "../../domain/entities/tenant.types";
+import type { TenantProps } from "../../domain/entities/tenant.types";
 
-export interface CreateUserDto extends UserProps {}
+export interface CreateUserDto extends TenantProps {}

@@ -1,3 +1,1 @@
-export abstract class BaseHonoController {
-  constructor(parameters) {}
-}
+export abstract class BaseHonoController {}

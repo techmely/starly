@@ -5,7 +5,7 @@ import {
   ArgumentNotProvidedException,
   ArgumentOutOfRangeException,
 } from "../../exceptions/exceptions";
-import { UniqueEntityID } from "./unique-entity";
+import type { UniqueEntityID } from "./unique-entity";
 
 export interface BaseEntityProps {
   id: UniqueEntityID;

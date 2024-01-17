@@ -1,5 +1,5 @@
 import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
-import { UserRoles } from "../entities/user.types";
+import type { UserRoles } from "../entities/user.types";
 
 export class UserRoleChangedDomainEvent extends DomainEvent {
   readonly oldRole: UserRoles;

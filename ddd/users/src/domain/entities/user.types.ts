@@ -1,6 +1,6 @@
 import type { MarkOptional, OmitProperties } from "ts-essentials";
 import type { UserMetadata } from "../value-objects/user-metadata.value-object";
-import { UserProvider } from "../value-objects/user-providers.value-object";
+import type { UserProvider } from "../value-objects/user-providers.value-object";
 
 export interface UserProps {
   email: string;

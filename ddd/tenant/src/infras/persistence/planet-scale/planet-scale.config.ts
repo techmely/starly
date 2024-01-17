@@ -1,11 +1,11 @@
 import { CamelCasePlugin, Kysely } from "kysely";
 import { PlanetScaleDialect } from "kysely-planetscale";
-import type { UserModel } from "modules/user/user/domain/repo/user.model";
+import type { TenantModel } from "../../../domain/repo/tenant.model";
 
 let dbClient: Kysely<AppDatabase>;
 
 export type AppDatabase = {
-  users: UserModel;
+  tenants: TenantModel;
 };
 
 export const getDBClient = (): Kysely<AppDatabase> => {

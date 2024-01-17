@@ -1,6 +1,6 @@
+import type { UseCase } from "@techmely/ddd-core";
 import type { UserEntity } from "../../entities/user.entity";
 import type { CreateUserProps } from "../../entities/user.types";
-import type { UseCase } from "../@techmely/ddd-core";
 
 export interface CreateUserCommand extends CreateUserProps {}
 

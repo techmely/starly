@@ -1,7 +1,7 @@
 import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
-import { type IUserCreatedDE, UserRoles, UserStatus } from "../entities/user.types";
-import { UserMetadata } from "../value-objects/user-metadata.value-object";
-import { UserProvider } from "../value-objects/user-providers.value-object";
+import type { IUserCreatedDE, UserRoles, UserStatus } from "../entities/user.types";
+import type { UserMetadata } from "../value-objects/user-metadata.value-object";
+import type { UserProvider } from "../value-objects/user-providers.value-object";
 
 export class UserCreatedDomainEvent extends DomainEvent implements IUserCreatedDE {
   email: string;

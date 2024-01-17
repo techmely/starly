@@ -26,7 +26,10 @@ export abstract class ExceptionBase extends Error {
    * in application's log files. Only include non-sensitive
    * info that may help with debugging.
    */
-  constructor(readonly message: string, readonly metadata?: Record<string, any>) {
+  constructor(
+    readonly message: string,
+    readonly metadata?: Record<string, any>,
+  ) {
     super(message);
     this.correlationId = metadata?.requestId;
   }

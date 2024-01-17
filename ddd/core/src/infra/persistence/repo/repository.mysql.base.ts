@@ -1,14 +1,14 @@
 import type { StringEnum } from "@techmely/types";
+import type { LoggerPort } from "@techmely/types";
 import type Emittery from "emittery";
 import type { Kysely } from "kysely";
-import { AggregateRoot } from "../../../domain/entities/aggregate.base";
+import type { AggregateRoot } from "../../../domain/entities/aggregate.base";
 import type { EmitDomainEvents } from "../../../domain/events/domain-event.types";
 import type {
   Paginated,
   PaginatedQueryParams,
   RepositoryPort,
 } from "../../../domain/repo/repository.port";
-import type { LoggerPort } from "@techmely/types";
 import type { Mapper } from "../../mapper.base";
 
 export abstract class MySQLRepositoryBase<

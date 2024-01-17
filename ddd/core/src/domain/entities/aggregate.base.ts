@@ -1,6 +1,6 @@
+import type { LoggerPort } from "@techmely/types";
 import type Emittery from "emittery";
-import type { LoggerPort  } from "@techmely/types";
-import { DomainEvent } from "../events/domain-event.base";
+import type { DomainEvent } from "../events/domain-event.base";
 import type { EmitDomainEvents } from "../events/domain-event.types";
 import { Entity } from "./entity.base";
 

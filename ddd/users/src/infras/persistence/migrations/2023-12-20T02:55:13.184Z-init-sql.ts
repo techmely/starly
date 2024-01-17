@@ -1,5 +1,5 @@
 import { psEnumSql, psMySqlUuid, psWithMySqlV8, psWithTimestamps } from "@techmely/ddd-core";
-import { Kysely } from "kysely";
+import type { Kysely } from "kysely";
 import type { UserModel } from "../../../domain/repo/user.model";
 
 type DatabaseTables = {

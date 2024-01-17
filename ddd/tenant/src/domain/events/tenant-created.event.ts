@@ -1,39 +1,13 @@
 import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
-import { type IUserCreatedDE, UserRoles, UserStatus } from "../entities/tenant.types";
-import { UserMetadata } from "../value-objects/user-metadata.value-object";
-import { UserProvider } from "../value-objects/user-providers.value-object";
+import type { ITenantCreatedDE } from "../entities/tenant.types";
 
-export class UserCreatedDomainEvent extends DomainEvent implements IUserCreatedDE {
-  email: string;
-  unverifiedEmail: string;
-  isEmailVerified: boolean;
-  nickname: string;
-  mobile: string;
-  birthday: string;
-  name: string;
-  avatarUrl: string;
-  role: UserRoles;
-  status: UserStatus;
-  locale?: string;
-  gender?: string;
-  provider?: UserProvider;
-  metadata?: UserMetadata;
+export class TenantCreatedDomainEvent extends DomainEvent implements ITenantCreatedDE {
+  title: string;
+  slug: string;
 
-  constructor(props: IDomainEvent<UserCreatedDomainEvent>) {
+  constructor(props: IDomainEvent<TenantCreatedDomainEvent>) {
     super(props);
-    this.email = props.email;
-    this.unverifiedEmail = props.unverifiedEmail;
-    this.isEmailVerified = props.isEmailVerified;
-    this.nickname = props.nickname;
-    this.mobile = props.mobile;
-    this.birthday = props.birthday;
-    this.name = props.name;
-    this.locale = props.locale;
-    this.avatarUrl = props.avatarUrl;
-    this.gender = props.gender;
-    this.provider = props.provider;
-    this.role = props.role;
-    this.status = props.status;
-    this.metadata = props.metadata;
+    this.title = props.title;
+    this.slug = props.slug;
   }
 }

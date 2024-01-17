@@ -11,14 +11,12 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
   },
   "optionalDependencies": {
-    "hono": "^3.12.3"
+    "hono": "^3.12.5"
   },
   "peerDependencies": {
     "@techmely/utils": "^1.10.0",
@@ -28,8 +26,8 @@
   "devDependencies": {
     "@cloudflare/workers-types": "4.20231218.0",
     "@techmely/logger": "1.0.2",
-    "@techmely/types": "1.6.0",
-    "hono": "^3.12.3",
+    "@techmely/types": "1.6.1",
+    "hono": "^3.12.5",
     "tsup": "8.0.1"
   }
 }
