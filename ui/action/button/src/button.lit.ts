@@ -6,7 +6,7 @@ import {
   validValidityState,
 } from "@techmely/ui-core";
 import TIcon from "@techmely/ui-icon";
-import { property, query, state } from "lit/decorators.js";
+import { property, query, state } from "lit/decorators";
 class TButton extends MelyElement implements MelyFormControl {
   defaultValue?: unknown;
   defaultChecked?: boolean | undefined;

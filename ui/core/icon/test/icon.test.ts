@@ -1,7 +1,7 @@
 import { fixture, oneEvent, updateElementCompleted } from "@techmely/ui-test-utils";
 import { html } from "lit";
 import { beforeEach, describe, expect, it } from "vitest";
-import { TIcon } from "../src";
+import type { TIcon } from "../src";
 import { registerIconLib } from "../src/icon.utils";
 
 import { EVENT_ERROR, EVENT_LOAD } from "@techmely/ui-core";

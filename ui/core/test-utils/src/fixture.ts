@@ -1,6 +1,6 @@
 import type { LitElement } from "lit";
-import { isTemplateResult } from "lit/directive-helpers.js";
-import { render as defaultRender } from "lit/html.js";
+import { isTemplateResult } from "lit/directive-helpers";
+import { render as defaultRender } from "lit/html";
 import type { FixtureOptions, LitHTMLRenderable } from "./types";
 
 export const cachedWrappers: Element[] = [];

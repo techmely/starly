@@ -1,4 +1,4 @@
-import { TIcon } from "./icon.component";
+import type { TIcon } from "./icon.component";
 import { techmelySystemIcons } from "./icon.const";
 import type { IconLibrary } from "./icon.types";
 

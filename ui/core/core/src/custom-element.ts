@@ -1,5 +1,5 @@
 import { type CSSResultGroup, LitElement } from "lit";
-import { property } from "lit/decorators.js";
+import { property } from "lit/decorators";
 
 export class MelyElement extends LitElement {
   static elementName = "";

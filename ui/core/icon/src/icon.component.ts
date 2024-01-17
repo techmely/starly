@@ -1,8 +1,8 @@
 import { EVENT_ERROR, EVENT_LOAD, MelyElement, watch } from "@techmely/ui-core";
 import { isEmpty } from "@techmely/utils";
 import { type HTMLTemplateResult, css, html } from "lit";
-import { property, state } from "lit/decorators.js";
-import { isTemplateResult } from "lit/directive-helpers.js";
+import { property, state } from "lit/decorators";
+import { isTemplateResult } from "lit/directive-helpers";
 import type { IconLibrary } from "./icon.types";
 import { addWatchedIconLib, getIconLib, removeWatchedIconLib } from "./icon.utils";
 
