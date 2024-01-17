@@ -20,7 +20,7 @@ import {
 import { createBroadcastChannelProvider } from "@blocksuite/store/providers/broadcast-channel";
 import { EDITOR_INDEXED_DB_NAME } from "./editor.const";
 import { EditorIndexedDBProvider } from "./editor.indexed-db";
-import { InitFn } from "./presets/utils";
+import type { InitFn } from "./presets/utils";
 
 const params = new URLSearchParams(location.search);
 const room = params.get("room") ?? Math.random().toString(16).slice(2, 8);

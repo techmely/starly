@@ -1,5 +1,5 @@
 import { CompressionStream } from "node:stream/web";
-import { H3Event, getRequestHeader, send, setResponseHeader } from "h3";
+import { type H3Event, getRequestHeader, send, setResponseHeader } from "h3";
 
 export function compressMiddleware(
   event: H3Event,

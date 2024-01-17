@@ -1,6 +1,6 @@
 import { validateFirebaseAuth } from "@fiboup/h3-firebase-auth";
 import { HTTP_BAD_REQUEST, HTTP_UNAUTHORIZED } from "@techmely/utils";
-import { H3Event, createError } from "h3";
+import { type H3Event, createError } from "h3";
 import { serverEnvs } from "./server-envs";
 
 export async function firebaseAuth(event: H3Event) {

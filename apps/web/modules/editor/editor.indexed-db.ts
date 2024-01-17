@@ -1,5 +1,5 @@
 import type { Y } from "@blocksuite/store";
-import { PassiveDocProvider } from "@blocksuite/store";
+import type { PassiveDocProvider } from "@blocksuite/store";
 import { type IndexedDBProvider, createIndexedDBProvider } from "@toeverything/y-indexeddb";
 import { EDITOR_INDEXED_DB_NAME } from "./editor.const";
 

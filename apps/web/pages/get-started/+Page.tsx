@@ -20,7 +20,7 @@ import GetStartedForm from './components/GetStartedForm.vue';
 </script> */
 }
 
-import React from "react";
+import type React from "react";
 
 type Props = {
   locale: string;

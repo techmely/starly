@@ -5,7 +5,7 @@ const envsSchema = object({
   DB_USERNAME: string(),
   DB_PASSWORD: string(),
   DB_HOST: string(),
-  VITE_NODE_ENV: picklist(["development", "production", "test"]),
+  VITE_NODE_ENV: picklexpect(["development", "production", "test"]),
   PORT: string(),
   VITE_COOKIE_DOMAIN: string(),
   VITE_FIREBASE_PROJECT_ID: string(),

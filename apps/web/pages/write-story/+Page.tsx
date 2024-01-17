@@ -1,5 +1,5 @@
 import { usePageContext } from "@techmely/vike-react/usePageContext";
-import React from "react";
+import type React from "react";
 
 type Props = {
   locale: string;

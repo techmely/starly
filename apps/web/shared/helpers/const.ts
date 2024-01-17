@@ -19,7 +19,7 @@ export const appConfig = {
     mixpanel: {
       token: "4c2147ccd874cfe8a00f3d9fe96162e2",
       host: "https://api-eu.mixpanel.com",
-      proxyDomain: "https://dreamstree.net/static/mixpanel.js",
+      proxyDomain: "https://dreamstree.net/static/mixpanel",
     },
   },
 };

@@ -25,7 +25,7 @@ if (!abortReason) {
 </script>#modules/providers/vike.provider */
 }
 
-import React from "react";
+import type React from "react";
 
 type Props = {
   locale: string;
