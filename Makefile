@@ -1,41 +1,41 @@
 build.ddd:
-	yarn nx run-many -t build -p @techmely/ddd-core @techmely/ddd-users
+	bun run nx run-many -t build -p @techmely/ddd-core @techmely/ddd-users
 
 build: 
-	yarn nx run-many -t build -p
+	bun run nx run-many -t build -p
 
 dev: 
-	yarn workspaces foreach -Rpt run dev
+	bun run workspaces foreach -Rpt run dev
 
 lint.format: 
-	yarn biome check . --apply
+	bun run biome check . --apply
 
 lint.circular: 
-	yarn madge --extensions ts --exclude '.d.ts$' --circular .
+	bun run madge --extensions ts --exclude '.d.ts$' --circular .
 
 lint.useless: 
-	yarn knip
+	bun run knip
 
 test.unit: 
-	yarn vitest --passWithNoTests
+	bun run vitest --passWithNoTests
 
 test.unit.coverage: 
-	yarn vitest --coverage.all
+	bun run vitest --coverage.all
 
 test.unit.run: 
-	yarn vitest run --passWithNoTests
+	bun run vitest run --passWithNoTests
 
 migration.add: 
 	node scripts/generateMigrateFileApi.mjs
 
 migration.run: 
-	yarn tsx scripts/migrate-db.ts
+	bun run tsx scripts/migrate-db.ts
 
 docker.build: 
-	yarn workspaces foreach -Rpt run docker.build
+	bun run workspaces foreach -Rpt run docker.build
 
 docker.storage: 
-	yarn workspaces foreach -Rpt run docker.storage
+	bun run workspaces foreach -Rpt run docker.storage
 
 docker.up: 
-	yarn workspaces foreach -Rpt run docker.up
+	bun run workspaces foreach -Rpt run docker.up

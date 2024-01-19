@@ -2,20 +2,9 @@
   "name": "techmely-monorepo",
   "private": true,
   "license": "AGPLv3",
-  "workspaces": [
-    "apps/*",
-    "ddd/*",
-    "packages/*",
-    "ui/action/*",
-    "ui/communication/*",
-    "ui/containment/*",
-    "ui/core/*",
-    "ui/form/*",
-    "ui/navigation/*",
-    "ui/selection/*"
-  ],
+  "workspaces": ["apps/*", "ddd/*", "packages/*"],
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "node scripts/prepare.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.2",
@@ -62,6 +51,7 @@
     "tslib": "2.6.2",
     "tsup": "8.0.1",
     "tsx": "4.7.0",
+    "bun-types": "1.0.23",
     "typescript": "5.3.3",
     "vite": "5.0.11",
     "vitest": "1.2.0",
@@ -72,10 +62,6 @@
     "node": ">=20.x"
   },
   "nano-staged": {
-    "*.{mjs,js,ts,tsx}": [
-      "make lint.format",
-      "make lint.circular"
-    ]
-  },
-  "packageManager": "yarn@4.0.2"
+    "*.{mjs,js,ts,tsx}": ["make lint.format", "make lint.circular"]
+  }
 }
