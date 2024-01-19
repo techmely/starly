@@ -12,18 +12,16 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
   },
   "peerDependencies": {
     "@techmely/ddd-core": "workspace:*",
-    "@techmely/utils": "^1.10.0",
+    "@techmely/utils": "^2.0.8",
     "consola": "^3.2.3",
     "emittery": "^1.0.1",
-    "kysely": "^0.26.3",
+    "kysely": "0.27.2",
     "nanoid": "^5.0.4",
     "openapi-typescript": "^6.7.3",
     "valibot": "^0.24.1"

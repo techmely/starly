@@ -16,7 +16,7 @@ async function publishPkgNah() {
     await cpBasePkgJson();
     cd(buildPath.replace("/dist", ""));
     echo("Publishing...");
-    await $`yarn publish`;
+    await $`npm publish`;
     echo("Published!");
   } catch (error) {
     console.error(error);

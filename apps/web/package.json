@@ -28,7 +28,7 @@
     "@tanstack/react-table": "8.11.6",
     "@techmely/ddd-users": "workspace:*",
     "@techmely/reset-css": "1.0.3",
-    "@techmely/utils": "2.0.2",
+    "@techmely/utils": "2.0.8",
     "@techmely/vike-react": "0.1.16",
     "@techmely/vike-react-query": "1.0.2",
     "@upstash/ratelimit": "1.0.0",

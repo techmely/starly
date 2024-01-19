@@ -88,8 +88,8 @@ This project mainly write with Typescript + Vue + Rust, so you should learn it t
 
 ## How to run project
 
-1. Install deps `yarn install`
-1. Run web site + api with command `yarn run dev`
+1. Install deps `bun install`
+1. Run web site + api with command `bun run dev`
 2. Have fun with that.
 
 ## How to get the icons for project?
@@ -133,7 +133,7 @@ This project mainly write with Typescript + Vue + Rust, so you should learn it t
 ```sh
 git clone https://github.com/harrytran998/techmely.git
 cd techmely
-yarn docker.build # build Docker image for all app
-yarn docker.storage # create local storage directory + adjust permissions of storage dir
-yarn docker.up # Start container - Enjoy
+bun run docker.build # build Docker image for all app
+bun run docker.storage # create local storage directory + adjust permissions of storage dir
+bun run docker.up # Start container - Enjoy
 ```

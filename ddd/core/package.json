@@ -11,9 +11,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
   },
@@ -21,9 +19,9 @@
     "hono": "^3.12.5"
   },
   "peerDependencies": {
-    "@techmely/utils": "^1.10.0",
+    "@techmely/utils": "^2.0.8",
     "emittery": "^1.0.1",
-    "kysely": "^0.26.3"
+    "kysely": "0.27.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20231218.0",
