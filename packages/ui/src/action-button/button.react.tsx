@@ -1,7 +1,7 @@
 import { Slot } from "@radix-ui/react-slot";
-import type { ElementColor, ElementEmphasis, ElementSize, ElementVariant } from "@techmely/ui-core";
 import clsx from "clsx";
 import { forwardRef } from "react";
+import type { ElementColor, ElementEmphasis, ElementSize, ElementVariant } from "../core";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: ElementVariant;

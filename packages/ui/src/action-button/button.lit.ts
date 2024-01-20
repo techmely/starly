@@ -1,12 +1,12 @@
+import { property, query, state } from "lit/decorators";
 import {
   type LinkRel,
   type LinkTarget,
   MelyElement,
   type MelyFormControl,
   validValidityState,
-} from "@techmely/ui-core";
-import TIcon from "@techmely/ui-icon";
-import { property, query, state } from "lit/decorators";
+} from "../core";
+import TIcon from "../icon";
 class TButton extends MelyElement implements MelyFormControl {
   defaultValue?: unknown;
   defaultChecked?: boolean | undefined;

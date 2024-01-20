@@ -10,9 +10,15 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "ts-lit-plugin"
+      }
+    ]
   },
   "include": ["src", "custom-elements-manifest.config.js"]
 }
