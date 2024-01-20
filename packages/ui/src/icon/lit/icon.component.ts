@@ -3,7 +3,7 @@ import { watch } from "fs-extra";
 import { type HTMLTemplateResult, css, html } from "lit";
 import { property, state } from "lit/decorators";
 import { isTemplateResult } from "lit/directive-helpers";
-import { EVENT_ERROR, EVENT_LOAD, MelyElement } from "../core";
+import { EVENT_ERROR, EVENT_LOAD, MelyElement } from "../../core";
 import type { IconLibrary } from "./icon.types";
 import { addWatchedIconLib, getIconLib, removeWatchedIconLib } from "./icon.utils";
 

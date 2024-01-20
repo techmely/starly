@@ -6,7 +6,7 @@ import {
   type MelyFormControl,
   validValidityState,
 } from "../core";
-import TIcon from "../icon";
+import TIcon from "../icon/lit";
 class TButton extends MelyElement implements MelyFormControl {
   defaultValue?: unknown;
   defaultChecked?: boolean | undefined;
