@@ -24,12 +24,12 @@
     "kysely": "0.27.2",
     "nanoid": "^5.0.4",
     "openapi-typescript": "^6.7.3",
-    "valibot": "^0.24.1"
+    "valibot": "^0.26.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20231218.0",
+    "@cloudflare/workers-types": "4.20240117.0",
     "@techmely/types": "1.6.1",
     "tsup": "8.0.1",
-    "wrangler": "3.22.5"
+    "wrangler": "3.24.0"
   }
 }

@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
   "rebaseWhen": "conflicted",
-  "schedule": ["before 6am on the first day of the month"],
+  "schedule": ["before 6am on the first day of the week"],
   "baseBranches": ["dev"],
   "rangeStrategy": "bump",
   "ignoreDeps": ["node", "yarn"],
@@ -14,7 +14,7 @@
     {
       "groupName": "components",
       "commitMessageTopic": "components",
-      "matchPaths": ["packages/ui/**"],
+      "matchPaths": ["ui/**/**"],
       "matchUpdateTypes": ["major", "minor", "patch"],
       "matchDatasources": ["npm"]
     },
@@ -36,7 +36,6 @@
       "groupName": "packages",
       "matchUpdateTypes": ["patch", "minor", "major"],
       "matchPaths": ["packages/**"],
-      "ignorePaths": ["packages/ui/**"],
       "matchDatasources": ["npm", "github-actions"],
       "labels": ["dependencies"],
       "addLabels": ["dependencies"]
