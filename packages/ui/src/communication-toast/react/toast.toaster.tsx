@@ -1,7 +1,8 @@
 import { isPrefersReducedMotion } from "@techmely/utils";
-import { css } from "lit";
+import { For } from "million/react";
 import type React from "react";
 import { type CSSProperties, type FC, useCallback } from "react";
+import { ToastBar } from "./toast-bar.react";
 import {
   type ToastPosition,
   type ToastWrapperProps,
@@ -60,13 +61,6 @@ const getPositionStyle = (position: ToastPosition, offset: number): React.CSSPro
   };
 };
 
-const activeClass = css`
-  z-index: 9999;
-  > * {
-    pointer-events: auto;
-  }
-`;
-
 const DEFAULT_OFFSET = 16;
 
 export const Toaster: FC<ToasterProps> = ({
@@ -96,33 +90,35 @@ export const Toaster: FC<ToasterProps> = ({
       onMouseEnter={handlers.startPause}
       onMouseLeave={handlers.endPause}
     >
-      {toasts.map((t) => {
-        const toastPosition = t.position || position;
-        const offset = handlers.calculateOffset(t, {
-          reverseOrder,
-          gutter,
-          defaultPosition: position,
-        });
-        const positionStyle = getPositionStyle(toastPosition, offset);
+      <For each={toasts}>
+        {(t) => {
+          const toastPosition = t.position || position;
+          const offset = handlers.calculateOffset(t, {
+            reverseOrder,
+            gutter,
+            defaultPosition: position,
+          });
+          const positionStyle = getPositionStyle(toastPosition, offset);
 
-        return (
-          <ToastWrapper
-            id={t.id}
-            key={t.id}
-            onHeightUpdate={handlers.updateHeight}
-            className={t.visible ? activeClass : ""}
-            style={positionStyle}
-          >
-            {t.type === "custom" ? (
-              resolveValue(t.message, t)
-            ) : children ? (
-              children(t)
-            ) : (
-              <ToastBar toast={t} position={toastPosition} />
-            )}
-          </ToastWrapper>
-        );
-      })}
+          return (
+            <ToastWrapper
+              id={t.id}
+              key={t.id}
+              onHeightUpdate={handlers.updateHeight}
+              className={t.visible ? "z-[9999]" : ""}
+              style={positionStyle}
+            >
+              {t.type === "custom" ? (
+                resolveValue(t.message, t)
+              ) : children ? (
+                children(t)
+              ) : (
+                <ToastBar toast={t} position={toastPosition} />
+              )}
+            </ToastWrapper>
+          );
+        }}
+      </For>
     </div>
   );
 };
