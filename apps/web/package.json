@@ -77,7 +77,7 @@
     "ts-pattern": "5.0.6",
     "ua-parser-js": "1.0.37",
     "unlazy": "0.10.4",
-    "valibot": "0.27.0",
+    "valibot": "0.27.1",
     "vaul": "0.8.9"
   },
   "devDependencies": {
