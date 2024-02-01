@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@auth/core": "0.24.0",
-    "@builder.io/partytown": "0.9.0",
+    "@builder.io/partytown": "0.9.1",
     "@builder.io/react-hydration-overlay": "0.0.8",
     "@fiboup/google-identify-toolkit": "1.0.1",
     "@fiboup/h3-firebase-auth": "1.0.0",
