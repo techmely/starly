@@ -39,3 +39,14 @@ docker.storage:
 
 docker.up: 
 	bun run workspaces foreach -Rpt run docker.up
+
+upgrade.deps:
+	bunx npm-check-updates -u
+	cd packages/ui && bunx npm-check-updates -u
+	cd packages/hono-swagger && bunx npm-check-updates -u
+	cd packages/hono-error-handler && bunx npm-check-updates -u
+	cd ddd/core && bunx npm-check-updates -u
+	cd ddd/users && bunx npm-check-updates -u
+	cd ddd/tenant && bunx npm-check-updates -u
+	cd apps/web && bunx npm-check-updates -u
+	bun install
