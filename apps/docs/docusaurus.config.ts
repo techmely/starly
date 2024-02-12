@@ -3,20 +3,16 @@ import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
+  title: "Techmely",
+  tagline: "Build for people, live for people",
   favicon: "img/favicon.ico",
-
-  // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: "https://docs.techmely.com",
   baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "techmely", // Usually your GitHub org/user name.
+  projectName: "techmely", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -26,7 +22,7 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "vi"],
   },
 
   presets: [
@@ -35,13 +31,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
-        blog: {
-          showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -58,7 +47,7 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "My Site",
+      title: "Techmely Docs",
       logo: {
         alt: "My Site Logo",
         src: "img/logo.svg",
@@ -70,9 +59,8 @@ const config: Config = {
           position: "left",
           label: "Tutorial",
         },
-        { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/techmely/techmely",
           label: "GitHub",
           position: "right",
         },
@@ -94,34 +82,25 @@ const config: Config = {
           title: "Community",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "Facebook",
+              href: "https://www.facebook.com/techmely",
+            },
+            {
+              label: "Tiktok",
+              href: "https://www.tiktok.com/@techmely",
             },
             {
               label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              href: "https://discordapp.com/invite/techmely",
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/docusaurus",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
-            {
-              label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://twitter.com/techmely",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Techmely, Inc. Built with love.`,
     },
     prism: {
       theme: prismThemes.github,
@@ -133,7 +112,6 @@ const config: Config = {
       require.resolve("@cmfcmf/docusaurus-search-local"),
       {
         indexDocs: true,
-        indexBlog: true,
         indexPages: false,
         language: "en",
         // lunr.js-specific settings
