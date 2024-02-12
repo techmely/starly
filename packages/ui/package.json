@@ -48,12 +48,12 @@
     "@radix-ui/colors": "^3.0.0",
     "vaul": "^0.8.9",
     "lit": "^3.1.1",
-    "react": "^18.2.0",
+    "react": "18.2.0",
     "react-hook-form": "^7.49.3"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
-    "tsup": "8.0.1",
+    "tsup": "8.0.2",
     "ts-lit-plugin": "2.0.2"
   },
   "publishConfig": {

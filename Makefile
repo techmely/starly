@@ -49,4 +49,5 @@ upgrade.deps:
 	cd ddd/users && bunx npm-check-updates -u
 	cd ddd/tenant && bunx npm-check-updates -u
 	cd apps/web && bunx npm-check-updates -u
+	cd apps/docs && bunx npm-check-updates -u
 	bun install

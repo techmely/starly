@@ -1,3 +1,0 @@
-# Empty
-
-Start typing here...
