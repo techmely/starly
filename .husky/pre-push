@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
-echo -e "\nStart run units test\n"
+echo "\nStart run units test\n"
 make test.unit.run
