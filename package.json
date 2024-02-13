@@ -4,7 +4,7 @@
   "license": "AGPLv3",
   "workspaces": ["apps/*", "ddd/*", "packages/*"],
   "scripts": {
-    "prepare": "node scripts/prepare.mjs"
+    "prepare": "node .husky/install.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
