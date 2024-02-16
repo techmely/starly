@@ -13,7 +13,9 @@
   "types": "./dist/index.d.ts",
   "files": ["dist"],
   "scripts": {
-    "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
+    "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake",
+    "clean": "rimraf dist",
+    "upgrade.deps": "npm-check-updates -u"
   },
   "peerDependencies": {
     "@techmely/ddd-core": "workspace:*",
@@ -26,9 +28,9 @@
     "valibot": "^0.26.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20240117.0",
+    "@cloudflare/workers-types": "4.20240208.0",
     "@techmely/types": "1.6.1",
-    "tsup": "8.0.1",
-    "wrangler": "3.28.1"
+    "tsup": "8.0.2",
+    "wrangler": "3.28.2"
   }
 }

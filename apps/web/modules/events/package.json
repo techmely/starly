@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "echo PLACEHOLDER"
+    "build": "echo PLACEHOLDER",
+    "clean": "rimraf dist",
+    "upgrade.deps": "npm-check-updates -u"
   }
 }

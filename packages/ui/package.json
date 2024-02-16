@@ -18,7 +18,9 @@
   "types": "dist/index.d.ts",
   "files": ["dist", "src", "README.md", "CHANGELOG.md"],
   "scripts": {
-    "build": "tsup --entry src/index.ts --entry src/**/*.ts --splitting --sourcemap --clean --dts --format cjs,esm --treeshake"
+    "build": "tsup --entry src/index.ts --entry src/**/*.ts --splitting --sourcemap --clean --dts --format cjs,esm --treeshake",
+    "clean": "rimraf dist",
+    "upgrade.deps": "npm-check-updates -u"
   },
   "dependencies": {
     "clsx": "2.1.0"

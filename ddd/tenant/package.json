@@ -14,7 +14,9 @@
   "types": "./dist/index.d.ts",
   "files": ["dist"],
   "scripts": {
-    "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake"
+    "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake",
+    "clean": "rimraf dist",
+    "upgrade.deps": "npm-check-updates -u"
   },
   "peerDependencies": {
     "@techmely/ddd-core": "workspace:*",

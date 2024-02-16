@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "echo BUILD"
+    "build": "echo BUILD",
+    "clean": "rimraf dist",
+    "upgrade.deps": "npm-check-updates -u"
   }
 }
