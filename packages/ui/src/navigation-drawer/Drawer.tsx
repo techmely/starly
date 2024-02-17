@@ -1,75 +1,99 @@
-import { Drawer } from "vaul";
+"use client";
 
-export function NavigationDrawer() {
-  return (
-    <Drawer.Root>
-      <Drawer.Trigger>
-        <button
-          type="button"
-          className="rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-        >
-          Open Drawer
-        </button>
-      </Drawer.Trigger>
-      <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-black/40" />
-        <Drawer.Content className="bg-gray-100 flex flex-col rounded-t-[10px] h-full mt-24 max-h-[96%] fixed bottom-0 left-0 right-0">
-          <div className="p-4 bg-white rounded-t-[10px] flex-1">
-            <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-8" />
-            <div className="max-w-md mx-auto">
-              <Drawer.Title className="font-medium mb-4">Drawer for React.</Drawer.Title>
-              <p className="text-gray-600 mb-2">
-                This component can be used as a Dialog replacement on mobile and tablet devices. You
-                can read about why and how it was built{" "}
-                <a
-                  target="_blank"
-                  className="underline"
-                  href="https://emilkowal.ski/ui/building-a-drawer-component"
-                  rel="noreferrer"
-                >
-                  here
-                </a>
-                .
-              </p>
-              <p className="text-gray-600 mb-2">
-                It comes unstyled, has gesture-driven animations, and is made by{" "}
-                <a
-                  href="https://emilkowal.ski/"
-                  className="underline"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Emil Kowalski
-                </a>
-                .
-              </p>
-              <p className="text-gray-600 mb-8">
-                It uses{" "}
-                <a
-                  href="https://www.radix-ui.com/docs/primitives/components/dialog"
-                  className="underline"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Radix's Dialog primitive
-                </a>{" "}
-                under the hood and is inspired by{" "}
-                <a
-                  href="https://twitter.com/devongovett/status/1674470185783402496"
-                  className="underline"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  this tweet.
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="p-4 bg-gray-100 border-t border-gray-200 mt-auto">
-            <div className="flex gap-6 justify-end max-w-md mx-auto">Content</div>
-          </div>
-        </Drawer.Content>
-      </Drawer.Portal>
-    </Drawer.Root>
-  );
-}
+import clsx from "clsx";
+import * as React from "react";
+import { Drawer as DrawerPrimitive } from "vaul";
+
+const Drawer = ({
+  shouldScaleBackground = true,
+  ...props
+}: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
+  <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...props} />
+);
+Drawer.displayName = "Drawer";
+
+const DrawerTrigger = DrawerPrimitive.Trigger;
+
+const DrawerPortal = DrawerPrimitive.Portal;
+
+const DrawerClose = DrawerPrimitive.Close;
+
+const DrawerOverlay = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
+>(({ className, ...props }, ref) => (
+  <DrawerPrimitive.Overlay
+    ref={ref}
+    className={clsx("fixed inset-0 z-50 bg-black/80", className)}
+    {...props}
+  />
+));
+DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
+
+const DrawerContent = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
+>(({ className, children, ...props }, ref) => (
+  <DrawerPortal>
+    <DrawerOverlay />
+    <DrawerPrimitive.Content
+      ref={ref}
+      className={clsx(
+        "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-background",
+        className,
+      )}
+      {...props}
+    >
+      <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
+      {children}
+    </DrawerPrimitive.Content>
+  </DrawerPortal>
+));
+DrawerContent.displayName = "DrawerContent";
+
+const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={clsx("grid gap-1.5 p-4 text-center sm:text-left", className)} {...props} />
+);
+DrawerHeader.displayName = "DrawerHeader";
+
+const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={clsx("mt-auto flex flex-col gap-2 p-4", className)} {...props} />
+);
+DrawerFooter.displayName = "DrawerFooter";
+
+const DrawerTitle = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
+>(({ className, ...props }, ref) => (
+  <DrawerPrimitive.Title
+    ref={ref}
+    className={clsx("text-lg font-semibold leading-none tracking-tight", className)}
+    {...props}
+  />
+));
+DrawerTitle.displayName = DrawerPrimitive.Title.displayName;
+
+const DrawerDescription = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <DrawerPrimitive.Description
+    ref={ref}
+    className={clsx("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+));
+DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
+
+export {
+  Drawer,
+  DrawerPortal,
+  DrawerOverlay,
+  DrawerTrigger,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerFooter,
+  DrawerTitle,
+  DrawerDescription,
+};
