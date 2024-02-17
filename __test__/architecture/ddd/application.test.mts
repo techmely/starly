@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 describe.concurrent("Application boundaries", () => {
   it("Should allow multiple patterns for dtos", async () => {
     const violations = await filesOfProject()
-      .inFolder("ddd/*/*/dtos")
+      .inFolder("apis/*/*/dtos")
       .should()
       .matchPattern(".dto.ts")
       .check();
@@ -14,7 +14,7 @@ describe.concurrent("Application boundaries", () => {
 
   it("controllers should not depend on the interactors", async () => {
     const rule = filesOfProject()
-      .inFolder("ddd/*/*")
+      .inFolder("apis/*/*")
       .matchingPattern(".controller.ts")
       .shouldNot()
       .dependOnFiles()
@@ -25,22 +25,22 @@ describe.concurrent("Application boundaries", () => {
 
   it("controllers should not depend on the dtos", async () => {
     const rule = filesOfProject()
-      .inFolder("ddd/*/*")
+      .inFolder("apis/*/*")
       .matchingPattern(".controller.ts")
       .shouldNot()
       .dependOnFiles()
-      .inFolder("ddd/*/*/infras/*");
+      .inFolder("apis/*/*/infras/*");
 
     await expect(rule).toPassAsync();
   });
 
   it("controllers should not depend on the repository", async () => {
     const rule = filesOfProject()
-      .inFolder("ddd/*/*")
+      .inFolder("apis/*/*")
       .matchingPattern(".controller.ts")
       .shouldNot()
       .dependOnFiles()
-      .inFolder("ddd/*/*/infras/*");
+      .inFolder("apis/*/*/infras/*");
 
     await expect(rule).toPassAsync();
   });
