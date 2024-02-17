@@ -1,4 +1,4 @@
-import { type Mapper, UniqueEntityID } from "@techmely/ddd-core";
+import { type Mapper, UniqueEntityID } from "@techmely/api-core";
 import { parse } from "valibot";
 import { UserEntity } from "../../domain/entities/user.entity";
 import { type UserModel, userSchema } from "../../domain/repo/user.model";

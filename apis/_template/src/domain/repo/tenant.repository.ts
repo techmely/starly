@@ -1,3 +1,3 @@
-// import type { RepositoryPort } from "@techmely/ddd-core";
+// import type { RepositoryPort } from "@techmely/api-core";
 
 // export interface ITRepository extends RepositoryPort<TEntity> {}

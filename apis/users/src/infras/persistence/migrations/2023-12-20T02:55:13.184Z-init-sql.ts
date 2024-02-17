@@ -1,4 +1,4 @@
-import { psEnumSql, psMySqlUuid, psWithMySqlV8, psWithTimestamps } from "@techmely/ddd-core";
+import { psEnumSql, psMySqlUuid, psWithMySqlV8, psWithTimestamps } from "@techmely/api-core";
 import type { Kysely } from "kysely";
 import type { UserModel } from "../../../domain/repo/user.model";
 

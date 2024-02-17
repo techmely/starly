@@ -44,7 +44,7 @@ export async function signInWithGithub(options: SignInOptions): Promise<SignInOu
 }
 
 export async function signInWithGoogle(options: SignInOptions): Promise<SignInOutput> {
-  const { signInWithPopup, GoogleAuthProvider, AuthCredential } = await import("firebase/auth");
+  const { signInWithPopup, GoogleAuthProvider } = await import("firebase/auth");
   const fbAuth = await ensureInitFirebaseAuth(options.locale);
   const provider = new GoogleAuthProvider();
 

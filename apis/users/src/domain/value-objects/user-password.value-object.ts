@@ -1,4 +1,4 @@
-import { ValueObject } from "@techmely/ddd-core";
+import { ValueObject } from "@techmely/api-core";
 
 export interface IUserPassword {
   value: string;

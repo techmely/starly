@@ -1,4 +1,4 @@
-import { UserStatus } from "@techmely/ddd-users";
+import { UserStatus } from "@techmely/api-users";
 import { authUtmParams } from "./auth.const";
 import type { AuthState, SignInOptions, SignInOutput } from "./auth.types";
 import { signInWithFacebook, signInWithGithub, signInWithGoogle } from "./auth.utils";

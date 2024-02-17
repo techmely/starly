@@ -68,7 +68,7 @@ export class NotFoundException extends ExceptionBase {
  * @extends {ExceptionBase}
  */
 export class InternalServerErrorException extends ExceptionBase {
-  message = "Internal server error";
+  override message = "Internal server error";
 
   readonly code = INTERNAL_SERVER_ERROR;
 }

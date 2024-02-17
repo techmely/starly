@@ -5,13 +5,16 @@ build:
 	bun run nx run-many -t build -p
 
 dev: 
-	bun run workspaces foreach -Rpt run dev
+	bun run nx run-many -t dev
 
 lint.format: 
 	bunx @biomejs/biome check . --apply
 
 lint.circular: 
 	bun run madge --extensions ts --exclude '.d.ts$' --circular .
+
+lint.typecheck:
+	bun tsc
 
 lint.useless: 
 	bun run knip
@@ -32,13 +35,13 @@ migration.run:
 	bun run tsx scripts/migrate-db.ts
 
 docker.build: 
-	bun run workspaces foreach -Rpt run docker.build
+	bun run nx run-many -t docker.build
 
 docker.storage: 
-	bun run workspaces foreach -Rpt run docker.storage
+	bun run nx run-many -t docker.storage
 
 docker.up: 
-	bun run workspaces foreach -Rpt run docker.up
+	bun run nx run-many -t docker.up
 
 clean:
 	bun run nx run-many -t clean -p

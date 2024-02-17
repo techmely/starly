@@ -1,10 +1,10 @@
-import { fixture, oneEvent, updateElementCompleted } from "@techmely/ui-test-utils";
 import { html } from "lit";
 import { beforeEach, describe, expect, it } from "vitest";
 import type { TIcon } from "..";
 import { registerIconLib } from "../icon.utils";
 
-import { EVENT_ERROR, EVENT_LOAD } from "@techmely/ui-core";
+import { EVENT_ERROR, EVENT_LOAD } from "../../../core";
+import { fixture, oneEvent, updateElementCompleted } from "../../../test-utils";
 import "../index";
 
 const testLibraryIcons = {
@@ -35,7 +35,9 @@ describe("<t-icon>", () => {
         }
         return "";
       },
-      mutator: (svg) => svg.setAttribute("fill", "currentColor"),
+      mutator: (svg) => {
+        svg.setAttribute("fill", "currentColor");
+      },
     });
   });
 

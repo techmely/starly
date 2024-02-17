@@ -1,4 +1,4 @@
-import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
+import { DomainEvent, type IDomainEvent } from "@techmely/api-core";
 import type { ITenantCreatedDE } from "../entities/tenant.types";
 
 export class TenantCreatedDomainEvent extends DomainEvent implements ITenantCreatedDE {

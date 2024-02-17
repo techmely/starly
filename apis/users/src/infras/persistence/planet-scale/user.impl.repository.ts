@@ -1,4 +1,4 @@
-import { type EmitDomainEvents, MySQLRepositoryBase } from "@techmely/ddd-core";
+import { type EmitDomainEvents, MySQLRepositoryBase } from "@techmely/api-core";
 import consola from "consola";
 import type Emittery from "emittery";
 import type { UserEntity } from "../../../domain/entities/user.entity";

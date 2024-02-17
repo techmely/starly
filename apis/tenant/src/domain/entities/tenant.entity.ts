@@ -1,4 +1,4 @@
-import { AggregateRoot, UniqueEntityID } from "@techmely/ddd-core";
+import { AggregateRoot, UniqueEntityID } from "@techmely/api-core";
 import { TenantCreatedDomainEvent } from "../events/tenant-created.event";
 import type { CreateTenantProps, TenantProps } from "./tenant.types";
 

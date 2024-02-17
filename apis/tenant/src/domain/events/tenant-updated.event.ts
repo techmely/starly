@@ -1,7 +1,7 @@
-import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
+import { DomainEvent, type IDomainEvent } from "@techmely/api-core";
 import type { ITenantUpdatedDE } from "../entities/tenant.types";
 
-export class UserUpdatedDomainEvent extends DomainEvent implements ITenantUpdatedDE {
+export class TenantUpdatedDomainEvent extends DomainEvent implements ITenantUpdatedDE {
   email?: string;
   unverifiedEmail?: string;
   isEmailVerified?: boolean;
@@ -13,7 +13,7 @@ export class UserUpdatedDomainEvent extends DomainEvent implements ITenantUpdate
   avatarUrl?: string;
   gender?: string | undefined;
 
-  constructor(props: IDomainEvent<UserUpdatedDomainEvent>) {
+  constructor(props: IDomainEvent<TenantUpdatedDomainEvent>) {
     super(props);
     this.email = props.email;
     this.unverifiedEmail = props.unverifiedEmail;

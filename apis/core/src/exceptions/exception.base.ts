@@ -19,7 +19,7 @@ export abstract class ExceptionBase extends Error {
   readonly correlationId: string;
 
   /**
-   * @param {string} message
+   * @param {string} exMessage
    * @param {ObjectLiteral} [metadata={}]
    * **BE CAREFUL** not to include sensitive info in 'metadata'
    * to prevent leaks since all exception's data will end up
@@ -27,16 +27,16 @@ export abstract class ExceptionBase extends Error {
    * info that may help with debugging.
    */
   constructor(
-    readonly message: string,
+    readonly exMessage: string,
     readonly metadata?: Record<string, any>,
   ) {
-    super(message);
+    super(exMessage);
     this.correlationId = metadata?.requestId;
   }
 
   toJSON(): NormalizedException {
     return {
-      message: this.message,
+      message: this.exMessage,
       code: this.code,
       stack: this.stack,
       correlationId: this.correlationId,

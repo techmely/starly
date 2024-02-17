@@ -1,3 +1,3 @@
-import type { UserProps } from "../../domain/entities/template.types";
+import type { TemplateProps } from "../../domain/entities/template.types";
 
-export interface CreateUserDto extends UserProps {}
+export interface CreateTemplateDto extends TemplateProps {}

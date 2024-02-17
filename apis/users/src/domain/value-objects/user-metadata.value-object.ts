@@ -2,7 +2,7 @@ import {
   ArgumentInvalidException,
   ArgumentNotProvidedException,
   ValueObject,
-} from "@techmely/ddd-core";
+} from "@techmely/api-core";
 import { invariant } from "@techmely/utils";
 
 export interface IUserMetadata {

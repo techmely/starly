@@ -1,33 +1,14 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "strict": true,
-    "allowJs": true,
-    "outDir": "./dist",
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client"],
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "useUnknownInCatchVariables": false,
-    "noImplicitAny": false,
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-		"verbatimModuleSyntax": true,
-    "resolveJsonModule": true,
     "paths": {
+      "@techmely/*": ["../../packages/*/src"],
+      "@techmely/api-*": ["../../apis/*/src"],
       "#assets/*": ["./assets/*"],
       "#modules/*": ["./modules/*"],
       "#pages/*": ["./pages/*"],
       "#shared/*": ["./shared/*"],
       "#server/*": ["./server/*"],
     }
-  },
-  "include": ["."],
-  "exclude": ["node_modules", "dist", "test"]
+  }
 }

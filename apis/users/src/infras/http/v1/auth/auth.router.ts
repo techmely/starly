@@ -1,4 +1,4 @@
-import type { EmitDomainEvents } from "@techmely/ddd-core";
+import type { EmitDomainEvents } from "@techmely/api-core";
 import Emittery from "emittery";
 import { UserController } from "../../../../application/controllers/user.controller";
 import { CreateUserInteractor } from "../../../../domain/use-cases/interactors/create-user.interactor";

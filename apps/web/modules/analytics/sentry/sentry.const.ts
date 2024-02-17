@@ -5,7 +5,7 @@ export const sentryConfigs: BrowserOptions = {
   dsn: "https://f9083504fce069f5a06d97f00d0c8ba3@o4505709099483136.ingest.sentry.io/4505709102301184",
   tracesSampleRate: 1.0,
   replaysOnErrorSampleRate: 1.0,
-  release: isBrowser
+  release: isBrowser()
     ? document.querySelector("html")?.getAttribute("data-app-version") || "0.0.0"
     : undefined,
   environment: import.meta.env.MODE,

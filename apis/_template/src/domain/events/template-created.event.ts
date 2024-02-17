@@ -1,4 +1,4 @@
-// import { DomainEvent, type IDomainEvent } from "@techmely/ddd-core";
+// import { DomainEvent, type IDomainEvent } from "@techmely/api-core";
 
 // export class TCreatedDomainEvent extends DomainEvent implements IT {
 

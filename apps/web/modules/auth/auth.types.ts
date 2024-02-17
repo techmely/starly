@@ -1,4 +1,4 @@
-import type { UserModel } from "@techmely/ddd-users";
+import type { UserModel } from "@techmely/api-users";
 import type { User } from "firebase/auth";
 import type { Locale } from "../../locales/locales.utils";
 

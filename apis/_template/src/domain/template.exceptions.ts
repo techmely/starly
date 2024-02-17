@@ -1,4 +1,4 @@
-// import { ExceptionBase } from "@techmely/ddd-core";
+// import { ExceptionBase } from "@techmely/api-core";
 
 // export class TDoNotExistException extends ExceptionBase {
 //   // readonly code = EMAIL_NOT_FOUND;

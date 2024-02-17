@@ -1,4 +1,4 @@
-import type { Mapper } from "@techmely/ddd-core";
+import type { Mapper } from "@techmely/api-core";
 import type { TenantEntity } from "../../domain/entities/tenant.entity";
 import type { TenantModel } from "../../domain/repo/tenant.model";
 

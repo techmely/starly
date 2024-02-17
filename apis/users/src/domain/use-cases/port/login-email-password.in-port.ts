@@ -1,4 +1,4 @@
-import type { UseCase } from "@techmely/ddd-core";
+import type { UseCase } from "@techmely/api-core";
 
 export interface LoginEmailPasswordCommand {
   username: string;

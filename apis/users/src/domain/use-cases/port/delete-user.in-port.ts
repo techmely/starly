@@ -1,4 +1,4 @@
-import type { UseCase } from "@techmely/ddd-core";
+import type { UseCase } from "@techmely/api-core";
 import type { UserEntity } from "../../entities/user.entity";
 
 export interface DeleteUserCommand {

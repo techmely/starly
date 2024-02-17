@@ -1,5 +1,5 @@
 {
-  "name": "@techmely/ddd-user-preferences",
+  "name": "@techmely/api-user-preferences",
   "description": "User preferences aggregate",
   "author": {
     "name": "Harry Tran",
@@ -18,7 +18,7 @@
     "upgrade.deps": "npm-check-updates -u"
   },
   "peerDependencies": {
-    "@techmely/ddd-core": "workspace:*",
+    "@techmely/api-core": "workspace:*",
     "@techmely/utils": "^2.0.8",
     "consola": "^3.2.3",
     "emittery": "^1.0.1",

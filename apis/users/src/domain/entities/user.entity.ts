@@ -1,4 +1,4 @@
-import { AggregateRoot, UniqueEntityID } from "@techmely/ddd-core";
+import { AggregateRoot, UniqueEntityID } from "@techmely/api-core";
 import { UserCreatedDomainEvent } from "../events/user-created.event";
 import { type CreateUserProps, type UserProps, UserRoles, UserStatus } from "./user.types";
 
