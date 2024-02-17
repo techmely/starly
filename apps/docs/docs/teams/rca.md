@@ -1,2 +1,0 @@
-# RCA - Root Cause Analysis
-

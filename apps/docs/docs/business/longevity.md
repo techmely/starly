@@ -1,1 +1,0 @@
-# Techmely Longevity Guarantee
