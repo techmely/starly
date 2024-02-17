@@ -8,7 +8,7 @@ dev:
 	bun run workspaces foreach -Rpt run dev
 
 lint.format: 
-	bun run biome check . --apply
+	bunx @biomejs/biome check . --apply
 
 lint.circular: 
 	bun run madge --extensions ts --exclude '.d.ts$' --circular .
