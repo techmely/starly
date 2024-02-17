@@ -1,5 +1,5 @@
 build.ddd:
-	bun run nx run-many -t build -p @techmely/ddd-core @techmely/ddd-users
+	bun run nx run-many -t build -p @techmely/api-core @techmely/api-users
 
 build: 
 	bun run nx run-many -t build -p
