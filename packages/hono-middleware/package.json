@@ -1,0 +1,40 @@
+{
+  "name": "@techmely/hono-middleware",
+  "version": "1.0.0",
+  "homepage": "https://techmely.com/products/hono-middleware",
+  "bugs": {
+    "url": "https://github.com/techmely/techmely/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techmely/techmely.git",
+    "directory": "packages/hono-middleware"
+  },
+  "funding": "https://github.com/sponsors/techmely",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "src", "README.md", "CHANGELOG.md"],
+  "scripts": {
+    "build": "tsup --entry src/index.ts --entry src/**/*.ts --splitting --sourcemap --clean --dts --format esm --treeshake",
+    "clean": "rimraf dist",
+    "upgrade.deps": "npm-check-updates -u"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "hono": "^4.0.0",
+    "@techmely/utils": "^2.1.8",
+    "valibot": "^0.28.1"
+  },
+  "devDependencies": {
+    "hono": "4.0.4",
+    "rimraf": "^5.0.5",
+    "valibot": "^0.28.1",
+    "tsup": "8.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
