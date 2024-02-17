@@ -41,39 +41,53 @@
 
 ## Build with
 
-### UI
+### Frontend
 
-- 🧩 **Web-Components**: Use @techmely/ui packages with Lit - Frontend Framework Agnostic
-- 🪩 **Web**: Use Vite & SolidJs for the Dx perfect
+- 🧩 **Components**: Use @techmely/ui packages with Radix UI
+- 🪩 **Web**: Use Vite & React & Tanstack Query for the Dx perfect
 - **Desktop**: Build with [Tauri](https://tauri.app/)
 - **Mobile**: Use Flutter for performance
 - Leverage **Web Assembly** and **WebGPU** to handle 3D models
 - **Animation**: Using ThreeJs, GSap and Swup for smooth transition/animation
 
-### Functions
+
+### Backend
 
 - **AI**: Support GPT models to help user write/copy easier!
 - Use **H3** server to create API/Cache/Proxy
-- **Database**: Use **PlanetScale** to optimize system cost and **Kysely** for query builder
-- **Error Handler**: Both server and client have the error boundary to catch and notify the client's error to the team.
-- **Payments**: Subscription billing methods with Stripe
+- **Database**: Use **PlanetScale** to optimize system cost, also can switch to SQLite, MySQL, Postgres or whatever
+- **Error Handler**: Both server and client have the error boundary to catch and notify the client's error to the team. And using native type-safe
+- **Payments**: unified API for one-off & subscription billing methods for Stripe
 - **Notification**: Use PWA to handle Web Push notis, SMS and webhooks
 - **Queue**: Handle the heavy workload on the background(client/server)
+- **Kysely**: Query builder powerful, really type-safe
 - **Realtime Collaboration**: Use CRDT-Driven mindset, and based on [BlockSuite](https://github.com/toeverything/blocksuite) to create realtime editing and painting whatever you want!
-- **Storage**: Use [UnStorage](https://unstorage.unjs.io/) for all environments(Browser, Worker)
+- **Search Engine** smart searching, advanced filtering & sorting, pagination, headless UI
+- **Storage**: Use [UnStorage](https://unstorage.unjs.io) for all environments(Browser, Worker)
 - **Validation**: Use [Valibot](https://valibot.dev/) for validate all the form, schema and whatever we need to validate!
+- **Cache**: Use [BentoCache](https://github.com/Julien-R44/bentocache) for Im-mem cache, redis, DynamoDB, and more—serverless
+- **CLIs**: create beautiful CLIs for Linux, Windows, and Mac—without requirements
+- **AxiomJs** all you need to debug, log & analyze
 
 ### Cloud
 
-- **CDN**: Using CDN to optimize request for each region
-
+- **Server** local development server & production-ready servers out-of-the-box
+- **Serverless** on-demand, auto-scaling, zero maintenance
+- **CDN** zero-config, low-latency, request life-cycle hooks, optimized request compressions (Brotli & gzip)
+- **Domain** version-controlled & zero-config domain management (e.g. DNS management)
+- **AI** fine-tune a foundational model using your application data
+- **AWS** startup program: Infrastructure as Code version-controlled cloud infrastructure(Up to $100,000 USD AWS Activate credits)
+ 
 ### CI/CD
 
 _Focus on coding, not publishing._
 
 - Automatically release process with Github Action
 - Have a lot of Bot/CLI(Rabbit AI, CodeQL, LGTM, KnipJs, BiomeJs...) to help project always in high quality
-- Deploy just one click to merge PR powered by Vercel
+- Production deployments—zero-setup push-to-deploy
+- Zero Downtime deploy with confidence using a zero-downtime deployment strategy
+- Release Manager libraries (component & function) auto-published to npm, git helpers, and more
+
 
 ### Development Experiences
 
@@ -82,6 +96,8 @@ _Focus on coding, not publishing._
 - **Spell checker** will notified once there had typos
 - Have a lot of **Utilities collections** like **VueUse** and **@techmely/utils** for handling data
 - **Testing** - All feature have Unit + UI + e2e testing(mocking DB)
+- Code Snippets say goodbye to the boilerplate
+- Team Management manage your team & their permissions
 
 
 This project mainly write with Typescript + Vue + Rust, so you should learn it to contribute easier 🌷
