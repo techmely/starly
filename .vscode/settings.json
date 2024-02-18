@@ -110,6 +110,7 @@
     "pkgroll",
     "planetscale",
     "postbuild",
+    "posthog",
     "predev",
     "prerendered",
     "pressable",
