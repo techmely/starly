@@ -31,7 +31,7 @@ body:
       description: The standard criteria that a feature must satisfy to be accepted
       options:
         - label: Read the [contribution guide](https://team.techmely.com/docs/community/contribution)
-        - label: Check existing [discussions](https://github.com/harrytran998/techmely/discussions) and [issues](https://github.com/harrytran998/techmely/issues).
+        - label: Check existing [discussions](https://github.com/techmely/techmely/discussions) and [issues](https://github.com/techmely/techmely/issues).
           required: true
         - label: The scope of the feature is clear and small enough to be implemented in a single MR - Not exceeding 500 lines of code and 40 files changed.
           required: true

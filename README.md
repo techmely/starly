@@ -2,7 +2,7 @@
 
 <!-- PROJECT LOGO -->
 <p align="center">
-  <a href="https://github.com/harrytran998/techmely">
+  <a href="https://github.com/techmely/techmely">
    <img src="https://i.ibb.co/3zBkRpd/LogoX300.png" alt="Logo">
   </a>
 
@@ -19,7 +19,7 @@
     ·
     <a href="https://techmely.com">Website</a>
     ·
-    <a href="https://github.com/harrytran998/techmely/issues">Issues</a>
+    <a href="https://github.com/techmely/techmely/issues">Issues</a>
     ·
     <a href="https://roadmap.techmely.com">Roadmap</a>
   </p>
@@ -28,9 +28,9 @@
 <p align="center">
    <a href="https://chat.techmely.com"><img src="https://img.shields.io/badge/Discord-chat.techmely.com-%234A154B" alt="Join Techmely Discord"></a>
    <a href="https://status.techmely.com"><img height="20px" src="https://betteruptime.com/status-badges/v1/monitor/a9kf.svg" alt="Uptime"></a>
-   <a href="https://github.com/harrytran998/techmely.com/stargazers"><img src="https://img.shields.io/github/stars/harrytran998/techmely" alt="Github Stars"></a>
-   <a href="https://github.com/harrytran998/techmely.com/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
-   <a href="https://github.com/harrytran998/techmely/pulse"><img src="https://img.shields.io/github/commit-activity/m/harrytran998/techmely" alt="Commits-per-month"></a>
+   <a href="https://github.com/techmely/techmely.com/stargazers"><img src="https://img.shields.io/github/stars/harrytran998/techmely" alt="Github Stars"></a>
+   <a href="https://github.com/techmely/techmely.com/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
+   <a href="https://github.com/techmely/techmely/pulse"><img src="https://img.shields.io/github/commit-activity/m/harrytran998/techmely" alt="Commits-per-month"></a>
    <a href="https://techmely.com/pricing"><img src="https://img.shields.io/badge/Pricing-Free/Premium-brightgreen" alt="Pricing"></a>
    <a href="https://hub.docker.com/r/harrytran998/techmely"><img src="https://img.shields.io/docker/pulls/harrytran998/techmely"></a>
    <a href="https://youtube.com/@techmely"><img src="https://img.shields.io/youtube/channel/subscribers/UCg3EWZXQK0bnbQISG50Nwfg"></a>
@@ -50,7 +50,6 @@
 - Leverage **Web Assembly** and **WebGPU** to handle 3D models
 - **Animation**: Using ThreeJs, GSap and Swup for smooth transition/animation
 
-
 ### Backend
 
 - **AI**: Support GPT models to help user write/copy easier!
@@ -66,7 +65,7 @@
 - **Storage**: Use [UnStorage](https://unstorage.unjs.io) for all environments(Browser, Worker)
 - **Validation**: Use [Valibot](https://valibot.dev/) for validate all the form, schema and whatever we need to validate!
 - **Cache**: Use [BentoCache](https://github.com/Julien-R44/bentocache) for Im-mem cache, redis, DynamoDB, and more—serverless
-- **CLIs**: create beautiful CLIs for Linux, Windows, and Mac—without requirements
+- **CLIs**: Power by GoLang - create beautiful CLIs for Linux, Windows, and Mac—without requirements
 - **AxiomJs** all you need to debug, log & analyze
 
 ### Cloud
@@ -138,7 +137,7 @@ This project mainly write with Typescript + Vue + Rust, so you should learn it t
 
 ### Self-host Docker Deployment
 
-1. checkout source ```git clone https://github.com/harrytran998/techmely.git```
+1. checkout source ```git clone https://github.com/techmely/techmely.git```
 1. got into new source dir: ```cd tech```
 1. build Docker image: ```docker build .```
 1. create local storage directory for settings: ```mkdir tml-storage```
@@ -147,7 +146,7 @@ This project mainly write with Typescript + Vue + Rust, so you should learn it t
 
 
 ```sh
-git clone https://github.com/harrytran998/techmely.git
+git clone https://github.com/techmely/techmely.git
 cd techmely
 bun run docker.build # build Docker image for all app
 bun run docker.storage # create local storage directory + adjust permissions of storage dir

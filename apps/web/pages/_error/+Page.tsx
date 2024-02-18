@@ -5,7 +5,7 @@
       <h1 class="text-center text-3xl text-red-6">Oops! ERROR DURING RENDERING</h1>
       <div class="flex justify-center">
         <a class="text-center underline text-xl text-blue-500" target="_blank"
-          rel="noopener noreferrer" href="https://github.com/harrytran998/techmely/issues/new/choose">
+          rel="noopener noreferrer" href="https://github.com/techmely/techmely/issues/new/choose">
           ➡ Please report this bug for us to fix it!
         </a>
       </div>

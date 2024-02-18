@@ -11,7 +11,7 @@ Here is some the feature highlights:
 - Official support Dark 🌜/ Light 🌞 Theme 
 - 🦄 Open sources & Backed by Techmely
 
-Techmely UI is designed and developed by [Harry Tran](https://github.com/harrytran998) and Techmely Core Team
+Techmely UI is designed and developed by [Harry Tran](https://github.com/techmely) and Techmely Core Team
 
 ## Folder Structure
 
