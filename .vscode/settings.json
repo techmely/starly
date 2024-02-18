@@ -28,6 +28,7 @@
     "CRDT",
     "Datasources",
     "datetime",
+    "deploysentinel",
     "dotenv",
     "dppx",
     "dreamstree",
