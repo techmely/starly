@@ -31,7 +31,6 @@
   "devDependencies": {
     "hono": "4.0.4",
     "rimraf": "^5.0.5",
-    "valibot": "^0.28.1",
     "tsup": "8.0.2"
   },
   "publishConfig": {

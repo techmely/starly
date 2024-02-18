@@ -18,19 +18,19 @@
     "clean": "rimraf dist",
     "upgrade.deps": "npm-check-updates -u"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@techmely/api-core": "workspace:*",
-    "@techmely/utils": "^2.0.8",
+    "@techmely/utils": "^2.1.9",
     "consola": "^3.2.3",
-    "emittery": "^1.0.1",
+    "emittery": "^1.0.3",
     "kysely": "0.27.2",
-    "nanoid": "^5.0.4",
-    "openapi-typescript": "^6.7.3",
-    "valibot": "^0.26.0"
+    "nanoid": "^5.0.5",
+    "openapi-typescript": "^6.7.4",
+    "valibot": "^0.28.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20240208.0",
-    "@techmely/types": "1.6.1",
+    "@techmely/types": "1.6.2",
     "tsup": "8.0.2",
     "wrangler": "3.28.3"
   }
