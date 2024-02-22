@@ -26,14 +26,14 @@
     "@techmely/utils": "^2.1.9",
     "emittery": "^1.0.3",
     "kysely": "0.27.2",
-    "nanoid": "^5.0.5",
+    "nanoid": "^5.0.6",
     "openapi-typescript": "^6.7.4",
-    "valibot": "^0.28.1"
+    "valibot": "^0.29.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20240208.0",
     "@techmely/types": "1.6.2",
     "tsup": "8.0.2",
-    "wrangler": "3.28.3"
+    "wrangler": "3.28.4"
   }
 }

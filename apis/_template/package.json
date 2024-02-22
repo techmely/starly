@@ -32,6 +32,6 @@
     "@cloudflare/workers-types": "4.20240208.0",
     "@techmely/types": "1.6.2",
     "tsup": "8.0.2",
-    "wrangler": "3.28.3"
+    "wrangler": "3.28.4"
   }
 }
