@@ -1,5 +1,5 @@
 {
-  "name": "@techmely/hono-middleware",
+  "name": "@techmely/hono",
   "version": "1.0.0",
   "homepage": "https://techmely.com/products/hono-middleware",
   "bugs": {
@@ -26,9 +26,10 @@
   "peerDependencies": {
     "hono": "^4.0.0",
     "@techmely/utils": "^2.1.8",
-    "valibot": "^0.28.1"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@techmely/types": "1.6.2",
     "hono": "4.0.5",
     "rimraf": "^5.0.5",
     "tsup": "8.0.2"
