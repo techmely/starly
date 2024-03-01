@@ -23,7 +23,7 @@
     "@types/react-dom": "^18.2.19",
     "@types/ua-parser-js": "0.7.39",
     "@vitest/coverage-v8": "1.2.2",
-    "bun-types": "1.0.26",
+    "bun-types": "1.0.29",
     "concurrently": "8.2.2",
     "custom-element-jet-brains-integration": "1.4.3",
     "custom-element-vs-code-integration": "1.2.2",
