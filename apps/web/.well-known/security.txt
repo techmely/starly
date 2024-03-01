@@ -1,4 +1,4 @@
 Contact: security@techmely.com
 Preferred-Languages: en
 Canonical: https://techmely.com/.well-known/security.txt
-Policy: https://github.com/techmely/techmely/blob/main/apps/handbook/docs/engineering/security/policy.md
+Policy: https://docs.techmely.com/engineering/security/policy.md
