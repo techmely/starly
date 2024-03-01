@@ -42,7 +42,7 @@
     "multiple-cucumber-html-reporter": "3.6.2",
     "nano-staged": "0.8.0",
     "npm-check-updates": "16.14.15",
-    "nx": "18.0.4",
+    "nx": "18.0.6",
     "pino": "8.18.0",
     "reassure": "0.10.2",
     "sass": "1.71.0",
