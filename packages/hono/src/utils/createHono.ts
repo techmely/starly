@@ -1,3 +1,1 @@
-export function createHono() {
-  const app = new 
-}
+export function createHono() {}

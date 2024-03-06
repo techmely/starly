@@ -22,12 +22,13 @@
     "clean": "rimraf dist",
     "upgrade.deps": "npm-check-updates -u"
   },
-  "dependencies": {},
   "peerDependencies": {
     "hono": "^4.0.0",
     "@techmely/utils": "^2.1.8",
     "@asteasolutions/zod-to-openapi": "^6.3.1",
+    "@microlabs/otel-cf-workers": "^1.0.0-rc.24",
     "toucan-js": "^3.3.1",
+    "@opentelemetry/api": "^1.8.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
