@@ -1,7 +1,13 @@
-import type { MetricEventPort } from "@techmely/types";
+import type {
+  LoggerPort,
+  MetricEventPort,
+  RateLimiterPort,
+  UsageLimiterPort,
+} from "@techmely/types";
 import { z } from "zod";
 
 export const runtimeEnv = z.object({
+  VERSION: z.string().default("WHO_KNOW"),
   DB_HOST: z.string(),
   DB_USERNAME: z.string(),
   DB_PASSWORD: z.string(),
@@ -19,9 +25,26 @@ export const runtimeEnv = z.object({
 });
 
 export type AppEnv = z.infer<typeof runtimeEnv>;
+
+export type ContainerServicesCtx = {
+  cache: any;
+  db: any;
+  analytics: any;
+  metrics: any;
+  logger: LoggerPort;
+  usageLimiter: UsageLimiterPort;
+  rateLimiter: RateLimiterPort;
+};
+
 export type AppVariables = {
   requestId: string;
   currentUserId: string;
+  container: ContainerServicesCtx;
+  /**
+   * IP address or region information
+   */
+  location: string;
+  userAgent?: string;
 };
 
 export type HonoEnv = {
