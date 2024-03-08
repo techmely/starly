@@ -14,8 +14,9 @@
 
 ## List
 
-| Sentry             | Check for JS errors                                                               |   |   |   |   |   |   |
+| App Name             | The usage                                                               |   |   |   |   |   |   |
 |--------------------|-----------------------------------------------------------------------------------|---|---|---|---|---|---|
+| Sentry             | Check for JS errors                                                               |   |   |   |   |   |   |
 | AngelList          | Sourcing candidates                                                               |   |   |   |   |   |   |
 | Brevo (Sendinblue) | For sending e-mail campaigns                                                      |   |   |   |   |   |   |
 | BrowserStack       | Test mobile and web application                                                   |   |   |   |   |   |   |
@@ -66,7 +67,7 @@
 | Zendesk          | Private support                                                                     | Orange | SSO (Google) |   |   |   |   |
 | Google Cloud     | SSO login for Toolpad                                                               | Red    | SSO (Google) |   |   |   |   |
 | Metabase         | Data Analytics                                                                      | Red    | SSO (Google) |   |   |   |   |
-
+| Retro.app         | Team Retro after 2 cycle(two weeks) work together(https://reetro.io)                                                                    | Red    | Email |   |   |   |   |
 
 
 # Google Workspace
