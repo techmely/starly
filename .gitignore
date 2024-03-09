@@ -613,3 +613,6 @@ app.*.symbols
 # Generated files
 .docusaurus
 .cache-loader
+
+# Ignore certs .pem files to serve https
+*.pem

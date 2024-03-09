@@ -7,11 +7,10 @@ export let serverEnvs: AppEnv;
 
 export function accessEnvs() {
   if (!serverEnvs) {
-    const envs = config().parsed || {};
-    const extendEnvs =
-      config({ path: `${process.cwd()}/.env.${process.env.NODE_ENV}` }).parsed || {};
+    const envPath = `${process.cwd()}/.env.${process.env.NODE_ENV}`;
+    const envs = config({ path: envPath }).parsed || {};
 
-    const envParsed = runtimeEnvSchema.safeParse({ ...envs, ...extendEnvs });
+    const envParsed = runtimeEnvSchema.safeParse({ ...envs, ...envs });
 
     if (envParsed.success) {
       serverEnvs = envParsed.data;
@@ -19,7 +18,7 @@ export function accessEnvs() {
       const issues = envParsed.error.issues.map((i) => {
         return {
           reason: i.code,
-          key: i.code,
+          key: i.path,
           value: i.message,
         };
       });

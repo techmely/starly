@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun run --hot server/index.ts",
+    "dev": "NODE_ENV=development tsx watch server/index.ts",
     "build:server": "bun build --target=bun --minify --outdir=./dist server/index.ts",
     "start": "bun run server/index.ts",
     "docker.build": "docker build .",
