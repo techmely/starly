@@ -49,6 +49,7 @@
     "nanoid": "5.0.6",
     "openai": "4.28.4",
     "perfume.js": "9.3.0",
+    "posthog-js": "1.112.0",
     "qrcode": "1.5.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -56,17 +57,17 @@
     "react-streaming": "0.3.24",
     "react-use": "17.5.0",
     "sanitize-html": "2.12.1",
-    "zod": "3.22.4",
     "sitemap": "7.1.1",
-    "posthog-js": "1.112.0",
     "stripe": "14.20.0",
     "swup": "4.6.0",
     "telefunc": "0.1.71",
     "three": "0.162.0",
     "ts-pattern": "5.0.8",
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.41.0",
     "ua-parser-js": "1.0.37",
     "unlazy": "0.11.1",
-    "vaul": "0.9.0"
+    "vaul": "0.9.0",
+    "zod": "3.22.4"
   },
   "devDependencies": {
     "@inlang/paraglide-js": "1.2.7",
