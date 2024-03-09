@@ -45,21 +45,6 @@ export default defineConfig({
       "#shared": path.join(__dirname, "/shared"),
     },
   },
-  vercel: {
-    config: {
-      routes: [
-        {
-          src: "/((?!assets/).*)",
-          headers: {
-            "X-Vite-Techmely": "Independence-Freedom-Happiness",
-            // "Cache-Control": "s-maxage=172800, stale-while-revalidate=60", // 2 days
-            // "Content-Encoding": "br",
-          },
-          continue: true,
-        },
-      ],
-    },
-  },
   optimizeDeps: {
     include: ["@techmely/vike-react/onRenderClient"],
   },

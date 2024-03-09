@@ -1,24 +1,14 @@
-import {
-  type H3Event,
-  getCookie,
-  getHeader,
-  getRequestURL,
-  setResponseHeader,
-  setResponseHeaders,
-  setResponseStatus,
-  writeEarlyHints,
-} from "h3";
-import { renderPage } from "vike/server";
-
 import { invariant } from "@techmely/utils";
+import type { HttpRequest, HttpResponse } from "uWebSockets.js";
+import { renderPage } from "vike/server";
 import { serverEnvs } from "#server/utils/server-envs";
 import { localeKey, localeMaxAge } from "../../locales/locales.utils";
 
-export default async function vikeMiddleware(event: H3Event) {
-  const locale = getCookie(event, localeKey);
+export default async function vikeMiddleware(res: HttpResponse, req: HttpRequest) {
+  const cookie = req.getHeader("cookie");
 
   const pageContextInit = {
-    urlOriginal: getRequestURL(event).toString(),
+    urlOriginal: req.getUrl(),
     metadata: {
       userAgent: getHeader(event, "user-agent"),
       [localeKey]: locale,

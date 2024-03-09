@@ -1,7 +1,7 @@
-// import { accessEnvs } from "./utils/server-envs";
 import fs from "fs";
 import uWS from "uWebSockets.js";
 import { accessEnvs } from "./utils/server-envs";
+
 const envs = accessEnvs();
 
 const port = 9001;
