@@ -19,18 +19,18 @@
   },
   "dependencies": {
     "@techmely/api-core": "workspace:*",
-    "@techmely/utils": "^2.1.11",
+    "@techmely/utils": "^2.1.12",
     "consola": "^3.2.3",
     "emittery": "^1.0.3",
     "kysely": "0.27.2",
     "nanoid": "^5.0.6",
     "openapi-typescript": "^6.7.4",
-    "valibot": "^0.29.0"
+    "valibot": "^0.30.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20240222.0",
-    "@techmely/types": "1.6.3",
+    "@techmely/types": "1.6.4",
     "tsup": "8.0.2",
-    "wrangler": "3.30.1"
+    "wrangler": "3.32.0"
   }
 }

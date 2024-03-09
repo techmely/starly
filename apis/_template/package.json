@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20240222.0",
-    "@techmely/types": "1.6.3",
+    "@techmely/types": "1.6.4",
     "tsup": "8.0.2",
-    "wrangler": "3.30.1"
+    "wrangler": "3.32.0"
   }
 }
