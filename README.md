@@ -63,7 +63,7 @@
 - **Realtime Collaboration**: Use CRDT-Driven mindset, and based on [BlockSuite](https://github.com/toeverything/blocksuite) to create realtime editing and painting whatever you want!
 - **Search Engine** smart searching, advanced filtering & sorting, pagination, headless UI
 - **Storage**: Use [UnStorage](https://unstorage.unjs.io) for all environments(Browser, Worker)
-- **Validation**: Use [Valibot](https://valibot.dev/) for validate all the form, schema and whatever we need to validate!
+- **Validation**: Use [Zod](https://zod.dev/) for validate all the form, schema and whatever we need to validate!
 - **Cache**: Use [BentoCache](https://github.com/Julien-R44/bentocache) for Im-mem cache, redis, DynamoDB, and more—serverless
 - **CLIs**: Power by GoLang - create beautiful CLIs for Linux, Windows, and Mac—without requirements
 - **AxiomJs** all you need to debug, log & analyze

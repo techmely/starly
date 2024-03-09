@@ -1,38 +1,26 @@
+import { type AppEnv, runtimeEnvSchema } from "@techmely/hono";
 import { config } from "dotenv";
-import { type Output, object, picklist, safeParse, string } from "valibot";
 
-const envsSchema = object({
-  DB_USERNAME: string(),
-  DB_PASSWORD: string(),
-  DB_HOST: string(),
-  VITE_NODE_ENV: picklexpect(["development", "production", "test"]),
-  PORT: string(),
-  VITE_COOKIE_DOMAIN: string(),
-  VITE_FIREBASE_PROJECT_ID: string(),
-});
+// type EnvSchema = Output<typeof envsSchema>;
 
-type EnvSchema = Output<typeof envsSchema>;
-
-export let serverEnvs: EnvSchema;
+export let serverEnvs: AppEnv;
 
 export function accessEnvs() {
   if (!serverEnvs) {
-    const envs = config().parsed;
-    const extendEnvs = config({ path: `${process.cwd()}/.env.${process.env.NODE_ENV}` }).parsed;
+    const envs = config().parsed || {};
+    const extendEnvs =
+      config({ path: `${process.cwd()}/.env.${process.env.NODE_ENV}` }).parsed || {};
 
-    const envParsed = safeParse(envsSchema, { ...envs, ...extendEnvs });
-
-    envParsed.success ? envParsed.output : envParsed.issues;
+    const envParsed = runtimeEnvSchema.safeParse({ ...envs, ...extendEnvs });
 
     if (envParsed.success) {
-      serverEnvs = envParsed.output;
+      serverEnvs = envParsed.data;
     } else {
-      const issues = envParsed.issues.map((i) => {
-        const x = i.path?.[0];
+      const issues = envParsed.error.issues.map((i) => {
         return {
-          reason: i.reason,
-          key: x?.key,
-          value: x?.value,
+          reason: i.code,
+          key: i.code,
+          value: i.message,
         };
       });
       console.error(issues);

@@ -1,5 +1,4 @@
 import { type Mapper, UniqueEntityID } from "@techmely/api-core";
-import { parse } from "valibot";
 import { UserEntity } from "../../domain/entities/user.entity";
 import { type UserModel, userSchema } from "../../domain/repo/user.model";
 import { UserMetadata } from "../../domain/value-objects/user-metadata.value-object";
@@ -33,7 +32,7 @@ export class UserMapper implements Mapper<UserEntity, UserModel> {
       createdAt: clone.createdAt,
       updatedAt: clone.updatedAt,
     };
-    return parse(userSchema, record);
+    return userSchema.parse(record);
   }
   toDomain(record: UserModel): UserEntity {
     const provider = new UserProvider({

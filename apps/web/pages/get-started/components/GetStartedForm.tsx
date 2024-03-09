@@ -64,7 +64,6 @@
 // <script setup lang="ts">
 // import * as t from '#modules/locales/paraglide/messages'
 // import { track } from "@vercel/analytics";
-// import { email, maxLength, minLength, object, string } from "valibot";
 // import { Form, Field } from 'vee-validate';
 
 // const emailRegisterSchema = object({

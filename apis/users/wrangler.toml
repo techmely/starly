@@ -11,7 +11,7 @@ bindings = [
 
 [env.development]
 route = { pattern = "development-api.techmely.dev", custom_domain = true }
-vars = {ENVIRONMENT = "development"}
+vars = {ENVIRONMENT = "development", GOOGLE_CLIENT_ID = "GOOGLE_CLIENT_ID"}
 
 
 [env.development.durable_objects]

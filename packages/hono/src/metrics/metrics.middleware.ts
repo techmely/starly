@@ -1,5 +1,5 @@
 import type { MiddlewareHandler } from "hono";
-import type { HonoEnv } from "../utils/environment";
+import type { HonoEnv } from "../utils/runtimeEnv";
 
 export function metricsMiddleware(): MiddlewareHandler<HonoEnv> {
   return async (c, next) => {
