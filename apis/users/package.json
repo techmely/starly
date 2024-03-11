@@ -23,9 +23,9 @@
     "@techmely/logger": "1.0.5",
     "@techmely/metrics": "1.0.4",
     "@techmely/rate-limit": "1.1.6",
-    "@techmely/utils": "^2.1.12",
+    "@techmely/utils": "^2.1.13",
     "emittery": "^1.0.3",
-    "kysely": "0.27.2",
+    "kysely": "0.27.3",
     "nanoid": "^5.0.6",
     "openapi-typescript": "^6.7.4",
     "zod": "^3.22.4"
