@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@techmely/types": "1.6.4",
-    "hono": "4.0.10",
+    "hono": "4.1.0",
     "rimraf": "^5.0.5",
     "tsup": "8.0.2"
   },

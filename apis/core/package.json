@@ -18,7 +18,7 @@
     "upgrade.deps": "npm-check-updates -u"
   },
   "optionalDependencies": {
-    "hono": "^4.0.10"
+    "hono": "^4.1.0"
   },
   "peerDependencies": {
     "@techmely/utils": "^2.0.8",
@@ -26,10 +26,10 @@
     "kysely": "0.27.2"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20240222.0",
+    "@cloudflare/workers-types": "4.20240312.0",
     "@techmely/logger": "1.0.5",
     "@techmely/types": "1.6.4",
-    "hono": "^4.0.10",
+    "hono": "^4.1.0",
     "tsup": "8.0.2"
   }
 }
