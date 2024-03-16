@@ -19,7 +19,7 @@
     "@builder.io/react-hydration-overlay": "0.0.8",
     "@lukemorales/query-key-factory": "1.3.4",
     "@sentry/browser": "7.107.0",
-    "@stripe/stripe-js": "3.0.8",
+    "@stripe/stripe-js": "3.0.10",
     "@tanstack/query-persist-client-core": "5.28.0",
     "@tanstack/query-sync-storage-persister": "5.28.0",
     "@tanstack/react-query": "5.28.0",
