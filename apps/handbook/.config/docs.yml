@@ -1,11 +1,10 @@
 # yaml-language-server: $schema=https://unpkg.com/undocs/schema/config.json
 name: Techmely Handbook
-shortDescription: The fairy place to help us create and chase our dream!   
+shortDescription: Techmely's Next Generation
 description:
-  H(TTP) server framework built for high performance and portability running
-  in any JavaScript runtime.
+  The Indie Developer Group born to build things, focus on Digital Products/Services 
 github: techmely/techmely
-themeColor: amber
+themeColor: green
 url: https://techmely.com
 automd: true
 redirects: {}
@@ -13,63 +12,43 @@ landing:
   heroLinks:
     playOnline:
       label: "Connect with Us"
-      icon: "i-simple-icons-lightning"
+      icon: "🌟"
       to: "https://www.facebook.com/techmely"
   contributors: true
-  featuresTitle: "Join Techmely, what you got and what you do 🤔"
+  featuresTitle: "A Builder's Nest for the Modern Developer"
   features:
-    # Transparent Org
-    - title: "Transparent Org"
-      description: "Your code will work on any JavaScript runtime including Node.js, Bun, Deno and Workers."
-      icon: "i-material-symbols-lock-open-right-outline-rounded"
-      to: ""
-      target: "_blank"
-
-    # ShipFast/POC mindset
     - title: "ShipFast/POC mindset"
-      description: "h3 core is super lightweight and tree-shakable, only what you use will be included in the the final bundle."
-      icon: "i-material-symbols-potted-plant-outline"
-      to: ""
-      target: "_blank"
+      description: "In one week, what's the result/values we can deliver for users? What the things make we happy?"
+      icon: "🔥"
 
-    # Work life - Balance
-    - title: "Work life - Balance"
-      description: "Expand your server and add capabilities. Your codebase will scale with your project."
-      icon: "i-fa-puzzle-piece"
-      to: ""
-      target: "_blank"
-
-    # Love & use what you do
     - title: "Love & use what you do"
-      description: "Super fast route matching using unjs/radix3"
-      icon: "i-fa-tree"
-      to: "https://github.com/unjs/radix3"
-      target: "_blank"
+      description: "We actually want build this product/service? We use it? People want to use it?"
+      icon: "🤩"
 
-    # _self(Review & Reflection) together
+    - title: "Transparent Org"
+      description: "Each competences, delivery result, conversations will be public. We try as transparent as we can."
+      icon: "🤯"
+
+    - title: "Work Life - Not Balance"
+      description: "A real builder know what they should trade-off and rewards after all."
+      icon: "🐉"
+
     - title: "_self(Review & Reflection) together"
-      description: "Built on top of powerful UnJS ecosystem powering Nitro, Nuxt and more frameworks!"
-      icon: "i-mdi-umbrella-outline"
-      to: "https://unjs.io"
-      target: "_blank"
+      description: "Fast release & fast feedback-loop is the key to revise anything. Be honest and have a progressive spirit to reach our goals!"
+      icon: "🎯"
 
-    # Made for Humans
-    - title: "Made for Humans"
-      description: "Elegant minimal API to implement HTTP handlers compatible with Web-Standards."
-      icon: "i-material-symbols-robot-2-sharp"
-      to: ""
-      target: "_blank"
+    - title: "Bring values immediately"
+      description: "If we build something, we already have the people wanting to use it. Always talk to customers first!"
+      icon: "👻"
 
-    # Focus on Finance/Ecommerce/Edu domain
-    - title: "Focus on Finance/Ecommerce/Edu domain"
-      description: "Compatibility layer with node/connect/express middleware."
-      icon: "i-simple-icons-express"
-      to: ""
-      target: "_blank"
+    - title: "Focus on Finance - Real Estate - Education - Creative domain"
+      description: "What are the things that have a high impact on the most people in the world? We focus on that!"
+      icon: "💵"
 
-    # Ambition to assume the World
     - title: "Ambition to assume the World"
-      description: "Codebase fully written in TypeScript with strongly typed utils."
-      icon: "i-mdi-language-typescript"
-      to: ""
-      target: "_blank"
+      description: "ChatGPT can, Midjourney can, Apple can, Tesla can...anyone can, so we can do it!"
+      icon: "🚀"
+
+    - title: "Tier-1 Standard"
+      description: "Our products were gorgeous, in the values we bring and the technologies we use."
+      icon: "🥇"
