@@ -5,7 +5,7 @@ import path from "path";
 function generateFilePath(name) {
   const currentDate = new Date();
   const isoDate = currentDate.toISOString();
-  const fileName = `${isoDate}-${name}.ts`;
+  const fileName = `${isoDate.replace(/:/g, '-')}-${name}.ts`;
 
   return path.join(process.cwd(), "migrations", fileName);
 }
