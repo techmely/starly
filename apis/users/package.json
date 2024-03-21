@@ -18,12 +18,12 @@
     "upgrade.deps": "npm-check-updates -u"
   },
   "dependencies": {
-    "@techmely/cache": "1.0.4",
+    "@techmely/cache": "1.0.6",
     "@techmely/api-core": "workspace:*",
-    "@techmely/logger": "1.0.5",
-    "@techmely/metrics": "1.0.4",
-    "@techmely/rate-limit": "1.1.6",
-    "@techmely/utils": "^2.1.13",
+    "@techmely/logger": "1.0.7",
+    "@techmely/metrics": "1.0.6",
+    "@techmely/rate-limit": "1.1.7",
+    "@techmely/utils": "^2.1.17",
     "emittery": "^1.0.3",
     "kysely": "0.27.3",
     "nanoid": "^5.0.6",
@@ -31,8 +31,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20240312.0",
-    "@techmely/types": "1.6.4",
+    "@cloudflare/workers-types": "4.20240314.0",
+    "@techmely/types": "1.6.5",
     "tsup": "8.0.2",
     "wrangler": "3.34.2"
   }

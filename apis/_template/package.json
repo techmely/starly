@@ -28,8 +28,8 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20240312.0",
-    "@techmely/types": "1.6.4",
+    "@cloudflare/workers-types": "4.20240314.0",
+    "@techmely/types": "1.6.5",
     "tsup": "8.0.2",
     "wrangler": "3.34.2"
   }
