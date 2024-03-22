@@ -1,0 +1,12 @@
+syntax = "proto3";
+package techmely.user.models.v1;
+
+import "proto/user/models/user.proto";
+
+message GetUserRequest {
+
+}
+
+messsage UpdateUserRequest {
+
+}
