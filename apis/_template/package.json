@@ -12,7 +12,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake",
     "clean": "rimraf dist",

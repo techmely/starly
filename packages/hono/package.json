@@ -16,7 +16,12 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist", "src", "README.md", "CHANGELOG.md"],
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "tsup --entry src/index.ts --entry src/**/*.ts --splitting --sourcemap --clean --dts --format esm --treeshake",
     "clean": "rimraf dist",

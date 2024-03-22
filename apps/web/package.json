@@ -66,6 +66,7 @@
     "uWebSockets.js": "https://github.com/uNetworking/uWebSockets.js#v20.43.0",
     "ua-parser-js": "1.0.37",
     "unlazy": "0.11.2",
+    "simdjson": "0.9.2",
     "vaul": "0.9.0",
     "zod": "3.22.4"
   },
