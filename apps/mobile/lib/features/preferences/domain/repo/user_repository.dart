@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:uuid/uuid.dart';
 
-import '../../../authentication/domain/repo/user_repository.dart';
+import '../../../users/domain/model/user.dart';
 
 class UserRepository {
   User? _user;
