@@ -1,3 +1,4 @@
 abstract class PreferencesRepository {
-  // dynamic getPreferences(userId String);
+  dynamic getPreferences(userId String);
 }
+
