@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 
-import '../../../authentication/domain/repo/src/authentication_repository.dart';
-import '../../domain/model/password.dart';
-import '../../domain/model/username.dart';
+import '../../../../authorization/domain/repo/src/authentication_repository.dart';
+import '../../model/password.dart';
+import '../../model/username.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
