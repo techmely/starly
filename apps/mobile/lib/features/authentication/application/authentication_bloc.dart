@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../authorization/domain/repo/src/authentication_repository.dart';
 import '../../preferences/domain/model/user.dart';
 import '../../users/domain/repo/src/user_repository.dart';
 import '../domain/repo/src/authentication_repository.dart';
