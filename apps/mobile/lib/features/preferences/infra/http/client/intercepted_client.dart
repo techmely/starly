@@ -1,6 +1,7 @@
 import "dart:convert";
 
 import "package:http/http.dart";
+import "package:techmely_app/features/preferences/infra/http/client/method.dart";
 import "package:techmely_app/features/preferences/infra/http/extensions/base_request.dart";
 import "package:techmely_app/features/preferences/infra/http/extensions/base_response.dart";
 import "package:techmely_app/features/preferences/infra/http/extensions/uri.dart";
@@ -33,7 +34,7 @@ class InterceptedClient extends BaseClient {
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: 'GET',
+          method: Method.GET.asString,
           headers: headers,
           params: params)) as Response;
 
@@ -47,7 +48,7 @@ class InterceptedClient extends BaseClient {
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: 'POST',
+          method: Method.POST.asString,
           headers: headers,
           encoding: encoding,
           body: body,
@@ -63,7 +64,7 @@ class InterceptedClient extends BaseClient {
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: 'PUT',
+          method: Method.PUT.asString,
           headers: headers,
           encoding: encoding,
           body: body,
@@ -79,7 +80,7 @@ class InterceptedClient extends BaseClient {
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: 'DELETE',
+          method: Method.DELETE.asString,
           headers: headers,
           encoding: encoding,
           body: body,
