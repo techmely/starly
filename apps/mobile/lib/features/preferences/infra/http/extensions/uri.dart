@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'dart:developer';
 
-import 'package:techmely_app/features/preferences/infra/utils/query_parameter.dart';
 import "package:http/src/utils.dart";
 
 extension AddParameters on Uri {
