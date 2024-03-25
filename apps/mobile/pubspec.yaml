@@ -41,6 +41,7 @@ dependencies:
   equatable: ^2.0.0
   uuid: ^3.0.0
   http: ^1.2.1
+
   user_repository:
     path: packages/user_repository
 dev_dependencies:

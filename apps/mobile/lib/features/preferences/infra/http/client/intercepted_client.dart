@@ -29,11 +29,11 @@ class InterceptedClient extends BaseClient {
   Future<Response> get(
     Uri url, {
     Map<String, String>? headers,
-    Map<String, dynamic>? params,
+    Map<String, String>? params,
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: 'PUT',
+          method: 'GET',
           headers: headers,
           params: params)) as Response;
 
@@ -41,13 +41,13 @@ class InterceptedClient extends BaseClient {
   Future<Response> post(
     Uri url, {
     Map<String, String>? headers,
-    Map<String, dynamic>? params,
+    Map<String, String>? params,
     Object? body,
     Encoding? encoding,
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: 'PUT',
+          method: 'POST',
           headers: headers,
           encoding: encoding,
           body: body,
@@ -57,7 +57,7 @@ class InterceptedClient extends BaseClient {
   Future<Response> put(
     Uri url, {
     Map<String, String>? headers,
-    Map<String, dynamic>? params,
+    Map<String, String>? params,
     Object? body,
     Encoding? encoding,
   }) async =>
@@ -68,11 +68,12 @@ class InterceptedClient extends BaseClient {
           encoding: encoding,
           body: body,
           params: params)) as Response;
+
   @override
   Future<Response> delete(
     Uri url, {
     Map<String, String>? headers,
-    Map<String, dynamic>? params,
+    Map<String, String>? params,
     Object? body,
     Encoding? encoding,
   }) async =>
@@ -96,11 +97,12 @@ class InterceptedClient extends BaseClient {
     required String method,
     required Uri url,
     Map<String, String>? headers,
-    Map<String, dynamic>? params,
+    Map<String, String>? params,
     Object? body,
     Encoding? encoding,
   }) async {
-    url = url.addParameters(params);
+    url = url.addParameters(params,encoding);
+
     Request request = Request(method, url);
     if (headers != null) request.headers.addAll(headers);
     if (encoding != null) request.encoding = encoding;
@@ -121,7 +123,6 @@ class InterceptedClient extends BaseClient {
     return interceptedResponse;
   }
 
-  /// This internal function intercepts the request.
   Future<BaseRequest> interceptRequest(BaseRequest request) async {
     BaseRequest interceptedRequest = request.copy();
     for (IInterceptor interceptor in interceptors) {
@@ -131,7 +132,6 @@ class InterceptedClient extends BaseClient {
     return interceptedRequest;
   }
 
-  /// This internal function intercepts the request.
   Future<BaseResponse> interceptResponse(BaseResponse response) async {
     BaseResponse interceptedResponse = response.copy();
     for (IInterceptor interceptor in interceptors) {
@@ -149,7 +149,7 @@ class InterceptedClient extends BaseClient {
       final stream = await _client.send(interceptedRequest);
       response = isStream ? stream : await Response.fromStream(stream);
     } on Exception {
-      _client.close();
+      // TODO: implement retry
       rethrow;
     }
     return response;
@@ -157,6 +157,7 @@ class InterceptedClient extends BaseClient {
 
   @override
   void close() {
+
     _client.close();
   }
 }

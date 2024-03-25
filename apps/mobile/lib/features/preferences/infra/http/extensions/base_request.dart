@@ -11,7 +11,6 @@ extension BaseRequestCopy on BaseRequest {
     bool? followRedirects,
     int? maxRedirects,
     bool? persistentConnection,
-    // Request only variables.
     dynamic body,
     Encoding? encoding,
     List<MultipartFile>? files,

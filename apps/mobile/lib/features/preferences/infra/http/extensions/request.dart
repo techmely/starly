@@ -20,12 +20,10 @@ extension RequestCopy on Request {
       url ?? this.url,
     )
       ..body = body ?? this.body
-      ..bodyBytes.addAll(bodyBytes ?? this.bodyBytes)
       ..headers.addAll(headers ?? this.headers)
       ..encoding = encoding ?? this.encoding
       ..followRedirects = followRedirects ?? this.followRedirects
       ..maxRedirects = maxRedirects ?? this.maxRedirects
-      ..persistentConnection = persistentConnection ?? this.persistentConnection
-      ..bodyFields = bodyFields ?? this.bodyFields;
+      ..persistentConnection = persistentConnection ?? this.persistentConnection;
   }
 }
