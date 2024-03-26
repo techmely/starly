@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package techmely.user.models.v1;
+package techmely.user.model.v1;
 
 enum UserRoles {
     SUPER_ADMIN = 0;
@@ -35,17 +35,20 @@ message UserMetadata {
 message User {
     string id = 1;
     string email = 2;
-    string unverifiedEmail = 3;
-    bool isEmailVerified = 4;
+    string unverified_email = 3;
+    bool is_email_verified = 4;
     string nickname = 5;
     string mobile = 6;
     string birthday = 7;
     string name = 8;
-    string avatarUrl = 9;
+    string avatar_url = 9;
     string locale = 10;
     string region = 11;
-    string countryCode = 12;
+    string country_code = 12;
     string gender = 13;
-    UserMetadata metadata = 14;
-    UserProvider provider = 15;
+    string salt = 14;
+    int64 last_login = 15;
+    bool is_beta_user = 16;
+    UserMetadata metadata = 17;
+    UserProvider provider = 18;
 }
