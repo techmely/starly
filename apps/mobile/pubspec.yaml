@@ -44,6 +44,10 @@ dependencies:
 
   user_repository:
     path: packages/user_repository
+
+  logger:
+    path: packages/logger
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

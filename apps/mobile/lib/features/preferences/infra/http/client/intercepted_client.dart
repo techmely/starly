@@ -34,7 +34,7 @@ class InterceptedClient extends BaseClient {
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: Method.GET.asString,
+          method: Method.GET,
           headers: headers,
           params: params)) as Response;
 
@@ -48,7 +48,7 @@ class InterceptedClient extends BaseClient {
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: Method.POST.asString,
+          method: Method.POST,
           headers: headers,
           encoding: encoding,
           body: body,
@@ -64,7 +64,7 @@ class InterceptedClient extends BaseClient {
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: Method.PUT.asString,
+          method: Method.PUT,
           headers: headers,
           encoding: encoding,
           body: body,
@@ -80,7 +80,7 @@ class InterceptedClient extends BaseClient {
   }) async =>
       (await sendUnstreamed(
           url: url,
-          method: Method.DELETE.asString,
+          method: Method.DELETE,
           headers: headers,
           encoding: encoding,
           body: body,
@@ -95,7 +95,7 @@ class InterceptedClient extends BaseClient {
   }
 
   Future<BaseResponse> sendUnstreamed({
-    required String method,
+    required Method method,
     required Uri url,
     Map<String, String>? headers,
     Map<String, String>? params,
@@ -104,7 +104,7 @@ class InterceptedClient extends BaseClient {
   }) async {
     url = url.addParameters(params,encoding);
 
-    Request request = Request(method, url);
+    Request request = Request(method.asString, url);
     if (headers != null) request.headers.addAll(headers);
     if (encoding != null) request.encoding = encoding;
     if (body != null) {

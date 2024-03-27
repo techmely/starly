@@ -1,11 +1,12 @@
 import "dart:convert";
 
 import "package:http/http.dart";
+import "package:techmely_app/features/preferences/infra/http/client/method.dart";
 import "package:techmely_app/features/preferences/infra/http/extensions/request.dart";
 
 extension BaseRequestCopy on BaseRequest {
   BaseRequest copy({
-    String? method,
+    Method? method,
     Uri? url,
     Map<String, String>? headers,
     bool? followRedirects,
@@ -16,7 +17,7 @@ extension BaseRequestCopy on BaseRequest {
     List<MultipartFile>? files,
   }) {
     return RequestCopy(this as Request).copy(
-      method: method,
+      method: method?.asString,
       url: url,
       headers: headers,
       body: body,
