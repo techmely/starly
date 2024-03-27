@@ -1,2 +1,2 @@
-export 'src/models/models.dart';
+export '../model/models.dart';
 export 'src/user_repository.dart';
