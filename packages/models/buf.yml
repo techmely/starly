@@ -1,0 +1,10 @@
+version: v1
+name: techmely-models
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
+
+deps:
