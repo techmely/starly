@@ -28,8 +28,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  authentication_repository:
-    path: packages/authentication_repository
   flutter:
     sdk: flutter
 
@@ -38,16 +36,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.4
+  formz: ^0.7.0
   equatable: ^2.0.0
   uuid: ^3.0.0
   http: ^1.2.1
-
-  user_repository:
-    path: packages/user_repository
-
   logger:
     path: packages/logger
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
