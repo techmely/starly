@@ -6,15 +6,15 @@ import 'package:logger/logger.dart';
 class LoggerInterceptor implements IInterceptor {
   @override
   Future<Request> interceptRequest(Request request) async {
-    Log().info("----*** start of request ***----");
-    Log().info("request: ${request.url}");
+    ConsoleLog().debug("----*** start of request ***----");
+    ConsoleLog().debug("request: ${request.url}");
     return request;
   }
 
   @override
   Future<Response> interceptResponse(Response response) async {
-    Log().info("----*** start of response ***----");
-    Log().info("response: ${response.body}");
+    ConsoleLog().debug("----*** start of response ***----");
+    ConsoleLog().debug("response: ${response.body}");
     return response;
   }
 }
