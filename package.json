@@ -29,7 +29,7 @@
     "custom-element-vs-code-integration": "1.2.2",
     "dependency-cruiser": "16.2.0",
     "dotenv": "16.4.4",
-    "esbuild": "0.20.1",
+    "esbuild": "0.20.2",
     "fast-glob": "3.3.2",
     "fs-extra": "11.2.0",
     "happy-dom": "13.3.8",
