@@ -8,7 +8,7 @@ import "package:http_client/src/extensions/uri.dart";
 import "package:http_client/src/interceptor/i_interceptor.dart";
 
 class InterceptedClient extends BaseClient {
-  final List<IInterceptor> interceptors;
+  List<IInterceptor> interceptors;
 
   late Client _client;
 
