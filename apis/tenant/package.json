@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@techmely/api-core": "workspace:*",
-    "@techmely/utils": "^2.1.17",
+    "@techmely/utils": "^2.1.18",
     "consola": "^3.2.3",
     "emittery": "^1.0.3",
     "kysely": "0.27.3",
@@ -31,9 +31,9 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20240320.1",
+    "@cloudflare/workers-types": "4.20240404.0",
     "@techmely/types": "1.6.5",
     "tsup": "8.0.2",
-    "wrangler": "3.37.0"
+    "wrangler": "3.47.1"
   }
 }

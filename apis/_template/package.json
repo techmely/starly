@@ -30,9 +30,9 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20240320.1",
+    "@cloudflare/workers-types": "4.20240404.0",
     "@techmely/types": "1.6.5",
     "tsup": "8.0.2",
-    "wrangler": "3.37.0"
+    "wrangler": "3.47.1"
   }
 }

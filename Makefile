@@ -47,5 +47,6 @@ clean:
 	bun run nx run-many -t clean -p
 
 upgrade.deps:
+	bun run npm-check-updates -u
 	bun run nx run-many -t upgrade.deps -p
 	bun install
