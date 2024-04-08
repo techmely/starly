@@ -13,14 +13,16 @@
   "funding": "https://github.com/sponsors/techmely",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "files": ["dist", "src", "README.md", "CHANGELOG.md"],
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": ["gen/es", "index.js", "index.d.ts", "README.md", "CHANGELOG.md"],
   "scripts": {
     "gen": "buf generate proto",
     "clean": "rimraf dist",
     "upgrade.deps": "npm-check-updates -u"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "1.8.0"
   },
   "devDependencies": {
     "tsup": "8.0.2"
