@@ -2,16 +2,17 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: github.com/techmely/techmely
+    default: github.com/techmely/models
 plugins:
   - plugin: buf.build/protocolbuffers/go
-    out: go
+    out: gen/go
+    opt: paths=source_relative
+  - plugin: buf.build/connectrpc/go
+    out: gen/go
     opt: paths=source_relative
   - plugin: buf.build/connectrpc/query-es:v1.3.1
-    out: gen
-    opt: paths=source_relative
+    out: gen/query-es
   - plugin: buf.build/bufbuild/es:v1.8.0
-    out: js
-    opt: paths=source_relative
+    out: gen/es
   - plugin: buf.build/protocolbuffers/dart:v21.1.2
-    out: dart
+    out: gen/dart

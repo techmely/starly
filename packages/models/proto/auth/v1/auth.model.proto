@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package gen.go.auth.v1;
+option go_package="github.com/techmely/techmely/gen/go/auth/v1;auth_model_v1";
+
+message Auth {
+  int64 id = 1;
+}

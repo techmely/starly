@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+
+package gen.go.auth.v1;
+option go_package="github.com/techmely/techmely/gen/go/auth/v1;auth_service_v1";
+
+import "auth/v1/auth.event.proto";
+
+service PreferencesService {
+  rpc Get(auth.v1.LoginRequest) returns (auth.v1.LoginResponse) {}
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package gen.go.user.v1;
+option go_package="github.com/techmely/techmely/gen/go/user/v1;user_service_v1";
+
+import "user/v1/user.model.proto";
+import "user/v1/user.event.proto";
+
+service UserService {
+  rpc Get(user.v1.GetUserRequest) returns (user.v1.GetUserResponse) {}
+  rpc Put(user.v1.UpdateUserRequest) returns (user.v1.UpdateUserResponse) {}
+  rpc ChangeEmail(user.v1.ChangeUserEmailRequest) returns (user.v1.ChangeUserEmailResponse) {}
+}

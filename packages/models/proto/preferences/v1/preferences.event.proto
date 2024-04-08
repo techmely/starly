@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package gen.go.preferences.v1;
+option go_package="github.com/techmely/techmely/gen/go/preferences/v1;preferences_event_v1";
+
+message GetPreferencesRequest {
+  string id = 1;
+}
+
+message GetPreferencesResponse {
+  string id = 1;
+}
