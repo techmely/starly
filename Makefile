@@ -1,46 +1,49 @@
 build.ddd:
 	bun run nx run-many -t build -p @techmely/api-core @techmely/api-users
 
-build: 
+build:
 	bun run nx run-many -t build -p
 
-dev: 
+dev:
 	bun run nx run-many -t dev
 
-lint.format: 
+gen.proto:
+	bun nx run @techmely/models:gen
+
+lint.format:
 	bunx @biomejs/biome check . --apply
 
-lint.circular: 
+lint.circular:
 	bun run madge --extensions ts --exclude '.d.ts$' --circular .
 
 lint.typecheck:
 	bun tsc
 
-lint.useless: 
+lint.useless:
 	bun run knip
 
-test.unit: 
+test.unit:
 	bun run vitest --passWithNoTests
 
-test.unit.coverage: 
+test.unit.coverage:
 	bun run vitest --coverage.all
 
-test.unit.run: 
+test.unit.run:
 	bun run vitest run --passWithNoTests
 
-migration.add: 
+migration.add:
 	node scripts/generateMigrateFileApi.mjs
 
-migration.run: 
+migration.run:
 	bun run tsx scripts/migrate-db.ts
 
-docker.build: 
+docker.build:
 	bun run nx run-many -t docker.build
 
-docker.storage: 
+docker.storage:
 	bun run nx run-many -t docker.storage
 
-docker.up: 
+docker.up:
 	bun run nx run-many -t docker.up
 
 clean:
