@@ -1,6 +1,6 @@
 import "package:http/http.dart";
-import 'package:techmely_app/features/preferences/infra/http/interceptor/i_interceptor.dart';
 import 'dart:core';
+import 'package:http_client/src/interceptor/i_interceptor.dart';
 import 'package:logger/logger.dart';
 
 class LoggerInterceptor implements IInterceptor {

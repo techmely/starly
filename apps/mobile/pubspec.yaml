@@ -39,9 +39,12 @@ dependencies:
   formz: ^0.7.0
   equatable: ^2.0.0
   uuid: ^3.0.0
-  http: ^1.2.1
+  mockito: ^5.4.4
   logger:
     path: packages/logger
+  http_client:
+    path: packages/http_client
+  build_runner: ^2.4.9
 dev_dependencies:
   flutter_test:
     sdk: flutter
