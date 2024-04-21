@@ -40,6 +40,7 @@ dependencies:
   dio: ^5.2.1+1
   flutter_bloc: ^8.1.4
   equatable: ^2.0.0
+  get_it: ^7.7.0
   hive: ^2.2.3
   injectable: ^2.1.2
   uuid: ^3.0.0
@@ -50,6 +51,8 @@ dependencies:
     path: packages/logger
   http_client:
     path: packages/http_client
+  ui:
+    path: packages/ui
   build_runner: ^2.4.9
 dev_dependencies:
   flutter_test:
