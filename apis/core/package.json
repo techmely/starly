@@ -11,16 +11,9 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake",
-    "clean": "rimraf dist",
-    "upgrade.deps": "npm-check-updates -u"
-  },
+  "files": ["dist"],
   "optionalDependencies": {
-    "hono": "^4.2.2"
+    "hono": "^4.2.7"
   },
   "peerDependencies": {
     "@techmely/utils": "^2.0.8",
@@ -28,10 +21,10 @@
     "kysely": "0.27.2"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20240405.0",
-    "@techmely/logger": "1.0.7",
-    "@techmely/types": "1.6.5",
-    "hono": "^4.2.2",
+    "@cloudflare/workers-types": "4.20240423.0",
+    "@techmely/logger": "1.1.0",
+    "@techmely/types": "1.6.6",
+    "hono": "^4.2.7",
     "tsup": "8.0.2"
   }
 }

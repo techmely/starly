@@ -23,7 +23,7 @@
     "upgrade.deps": "npm-check-updates -u"
   },
   "dependencies": {
-    "clsx": "2.1.0"
+    "clsx": "2.1.1"
   },
   "peerDependencies": {
     "@radix-ui/react-slot": "^1.0.2",

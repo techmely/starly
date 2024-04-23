@@ -11,14 +11,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsup src/index.ts --splitting --sourcemap --clean --dts --format esm --treeshake",
-    "clean": "rimraf dist",
-    "upgrade.deps": "npm-check-updates -u"
-  },
+  "files": ["dist"],
   "dependencies": {
     "@techmely/cache": "1.0.6",
     "@techmely/api-core": "workspace:*",

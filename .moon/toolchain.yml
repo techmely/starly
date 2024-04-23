@@ -1,0 +1,18 @@
+$schema: "https://moonrepo.dev/schemas/toolchain.json"
+
+bun:
+  version: "1.1.4"
+  dependencyVersionFormat: "workspace"
+  inferTasksFromScripts: true
+  rootPackageOnly: true
+  syncProjectWorkspaceDependencies: true
+
+typescript:
+  projectConfigFileName: "tsconfig.json"
+  rootConfigFileName: "tsconfig.json"
+  routeOutDirToCache: true
+  syncProjectReferences: true
+
+rust:
+  version: "1.77.2"
+  syncToolchainConfig: true

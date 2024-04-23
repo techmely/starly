@@ -13,6 +13,9 @@
     "lib": [
       "esnext"
     ],
-    "types": ["@cloudflare/workers-types"]
-  },
+    "types": [
+      "@cloudflare/workers-types"
+    ],
+    "outDir": "../../.moon/cache/types/apis/core"
+  }
 }
