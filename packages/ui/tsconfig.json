@@ -1,5 +1,6 @@
 {
   "extends": "../../tsconfig.options.json",
+<<<<<<< HEAD
   "include": ["src"],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/packages/ui"
@@ -9,4 +10,13 @@
       "path": "./tsconfig.build.json"
     }
   ]
+=======
+  "include": [
+    "**/*"
+  ],
+  "references": [],
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/ui"
+  }
+>>>>>>> ccf8f8e (TML-9999 chore: prepare bump packages)
 }

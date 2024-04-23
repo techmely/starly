@@ -3,9 +3,18 @@
   "files": [],
   "references": [
     {
+<<<<<<< HEAD
       "path": "apps/api"
     },
     {
+=======
+      "path": "apis/core"
+    },
+    {
+      "path": "apis/users"
+    },
+    {
+>>>>>>> ccf8f8e (TML-9999 chore: prepare bump packages)
       "path": "apps/web"
     },
     {
