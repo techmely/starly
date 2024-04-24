@@ -1,0 +1,20 @@
+name: techmely_mobile
+
+packages:
+  - lib/**
+  - packages/**
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+scripts:
+  analyze:
+    exec: flutter analyze .
+  outdated:
+    exec: flutter pub outdated
+  test:
+    exec: flutter test
+  coverage:
+    exec: flutter test --coverage
+  run:mobile: melos exec --scope="mobile" -- flutter run
