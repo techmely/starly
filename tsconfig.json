@@ -3,10 +3,7 @@
   "files": [],
   "references": [
     {
-      "path": "apis/core"
-    },
-    {
-      "path": "apis/users"
+      "path": "apps/api"
     },
     {
       "path": "apps/web"

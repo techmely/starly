@@ -2,34 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@techmely/*": [
-        "../../packages/*/src"
-      ],
-      "@techmely/api-*": [
-        "../../apis/*/src"
-      ],
-      "#assets/*": [
-        "./assets/*"
-      ],
-      "#modules/*": [
-        "./modules/*"
-      ],
-      "#pages/*": [
-        "./pages/*"
-      ],
-      "#shared/*": [
-        "./shared/*"
-      ],
-      "#server/*": [
-        "./server/*"
-      ]
+      "#root/*": ["./*"]
     },
     "outDir": "../../.moon/cache/types/apps/web"
   },
   "references": [
-    {
-      "path": "../../apis/users"
-    },
     {
       "path": "../../packages/hono"
     }

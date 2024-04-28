@@ -15,7 +15,7 @@
   "type": "module",
   "main": "index.js",
   "types": "index.d.ts",
-  "files": ["gen/es", "index.js", "index.d.ts", "README.md", "CHANGELOG.md"],
+  "files": ["index.js", "index.d.ts", "README.md", "CHANGELOG.md"],
   "scripts": {
     "gen": "buf generate proto",
     "clean": "rimraf dist",

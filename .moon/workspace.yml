@@ -1,11 +1,11 @@
 $schema: https://moonrepo.dev/schemas/workspace.json
 projects:
-  - apis/*
   - apps/*
   - packages/*
 vcs:
   defaultBranch: main
   manager: git
+  syncHooks: true
   hooks:
     commit-msg:
       - echo "commit msg"
@@ -27,6 +27,7 @@ runner:
     - ":lint"
     - ":test"
     - ":typecheck"
+    - ":upgrade.deps"
   logRunningCommand: true
 
 telemetry: false

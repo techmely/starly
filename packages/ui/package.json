@@ -7,18 +7,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techmely/techmely.git",
-    "directory": "hestia/mely-selection/select"
+    "url": "git+https://github.com/techmely/techmely.git"
   },
   "funding": "https://github.com/sponsors/techmely",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist", "src", "README.md", "CHANGELOG.md"],
+  "files": ["dist", "README.md", "CHANGELOG.md"],
   "scripts": {
-    "build": "tsup --entry src/index.ts --entry src/**/*.ts --splitting --sourcemap --clean --dts --format cjs,esm --treeshake",
+    "build": "tsup --entry src/index.ts --entry src/**/*.ts --clean --dts --format esm",
     "clean": "rimraf dist",
     "upgrade.deps": "npm-check-updates -u"
   },
@@ -55,12 +53,9 @@
     "react-hook-form": "^7.49.3"
   },
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "0.9.4",
-    "tsup": "8.0.2",
-    "ts-lit-plugin": "2.0.2"
+    "tsup": "8.0.2"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "customElements": "custom-elements.json"
+  }
 }
