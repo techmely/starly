@@ -1,0 +1,33 @@
+$schema: https://moonrepo.dev/schemas/workspace.json
+projects:
+  - apps/*
+  - packages/*
+vcs:
+  defaultBranch: main
+  manager: git
+  syncHooks: true
+  hooks:
+    commit-msg:
+      - echo "commit msg"
+    pre-commit:
+      - echo "pre commit msg"
+    pre-push:
+      - echo "pre push"
+    prepare-commit-msg:
+      - echo "prepare commit msg"
+
+hasher:
+  optimization: "performance"
+
+runner:
+  cacheLifetime: "24 hours"
+  archivableTargets:
+    - ":clean"
+    - ":format"
+    - ":lint"
+    - ":test"
+    - ":typecheck"
+    - ":upgrade.deps"
+  logRunningCommand: true
+
+telemetry: false

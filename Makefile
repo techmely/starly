@@ -1,6 +1,3 @@
-build.ddd:
-	bun run nx run-many -t build -p @techmely/api-core @techmely/api-users
-
 build:
 	bun run nx run-many -t build -p
 
@@ -48,8 +45,3 @@ docker.up:
 
 clean:
 	bun run nx run-many -t clean -p
-
-upgrade.deps:
-	bun run npm-check-updates -u
-	bun run nx run-many -t upgrade.deps -p
-	bun install

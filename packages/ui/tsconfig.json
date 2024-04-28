@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/ui"
+  },
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

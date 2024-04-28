@@ -15,14 +15,14 @@
   "type": "module",
   "main": "index.js",
   "types": "index.d.ts",
-  "files": ["gen/es", "index.js", "index.d.ts", "README.md", "CHANGELOG.md"],
+  "files": ["index.js", "index.d.ts", "README.md", "CHANGELOG.md"],
   "scripts": {
     "gen": "buf generate proto",
     "clean": "rimraf dist",
     "upgrade.deps": "npm-check-updates -u"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "1.8.0"
+    "@bufbuild/protobuf": "1.9.0"
   },
   "devDependencies": {
     "tsup": "8.0.2"

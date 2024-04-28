@@ -1,0 +1,64 @@
+$schema: "https://moonrepo.dev/schemas/tasks.json"
+
+implicitInputs:
+  - "package.json"
+
+fileGroups:
+  configs:
+    - "*.{js,json,yml,yaml}"
+  sources:
+    - "src/**/*"
+  tests:
+    - "src/**/*.test.mts"
+    - "tests/**/*.test.mts"
+    - "tests/**/*.stories.*"
+    - "**/__tests__/**/*"
+
+tasks:
+  build:
+    command: "tsup"
+    args: "src/index.ts --clean --format esm --dts --tsconfig tsconfig.build.json"
+    inputs:
+      - "@globs(sources)"
+      - "package.json"
+    outputs:
+      - "dist"
+
+  clean:
+    command:
+      - "rm -rf dist"
+    options:
+      shell: true
+
+  lint:
+    command: "bunx"
+    args: "@biomejs/biome check --apply ."
+    inputs:
+      - "/biome.json"
+      - "/tsconfig.base.json"
+      - "tsconfig.json"
+      - "@globs(sources)"
+      - "@globs(tests)"
+
+  test:
+    command:
+      - "vitest"
+    args: "run --passWithNoTests --isolate"
+    inputs:
+      - "@globs(sources)"
+      - "@globs(tests)"
+      - "vitest.config.*"
+
+  typecheck:
+    command:
+      - "tsc"
+    args: "--noEmit"
+    inputs:
+      - "@globs(sources)"
+      - "@globs(tests)"
+      - "tsconfig.json"
+      - "tsconfig.*.json"
+      - "/tsconfig.base.json"
+
+  upgrade.deps:
+    command: "npm-check-updates -u"
