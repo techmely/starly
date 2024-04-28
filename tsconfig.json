@@ -4,6 +4,7 @@
   "references": [
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "path": "apps/api"
     },
     {
@@ -12,6 +13,9 @@
     },
     {
       "path": "apis/users"
+=======
+      "path": "apps/api"
+>>>>>>> d0d2f53 (TML-9999 chore: upgrade deps + update code)
     },
     {
 >>>>>>> ccf8f8e (TML-9999 chore: prepare bump packages)
