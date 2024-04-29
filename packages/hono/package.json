@@ -1,14 +1,14 @@
 {
   "name": "@techmely/hono",
   "version": "1.0.0",
-  "homepage": "https://techmely.com/products/hono-middleware",
+  "homepage": "https://about.techmely.com/products",
   "bugs": {
     "url": "https://github.com/techmely/techmely/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/techmely/techmely.git",
-    "directory": "packages/hono-middleware"
+    "directory": "packages/hono"
   },
   "funding": "https://github.com/sponsors/techmely",
   "license": "MIT",
@@ -20,7 +20,6 @@
   "peerDependencies": {
     "hono": "^4.2.9",
     "@techmely/utils": "^3.0.3",
-    "@asteasolutions/zod-to-openapi": "^7.0.0",
     "@microlabs/otel-cf-workers": "^1.0.0-rc.37",
     "toucan-js": "^3.4.0",
     "@opentelemetry/api": "^1.8.0",

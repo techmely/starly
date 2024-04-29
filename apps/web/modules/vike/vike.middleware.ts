@@ -3,7 +3,7 @@ import { renderPage } from "vike/server";
 import { serverEnvs } from "#root/server/utils/server-envs";
 import { localeKey, localeMaxAge } from "../../locales/locales.utils";
 
-export default async function vikeMiddleware(res: HttpResponse, req: HttpRequest) {
+export default async function vikeMiddleware() {
   const cookie = req.getHeader("cookie");
 
   const pageContextInit = {
@@ -20,9 +20,7 @@ export default async function vikeMiddleware(res: HttpResponse, req: HttpRequest
     setResponseHeader(
       event,
       "Set-Cookie",
-      `${localeKey}=${"en"}; Domain=${
-        serverEnvs.VITE_COOKIE_DOMAIN
-      }; Secure; HttpOnly; Max-Age=${localeMaxAge}`,
+      `${localeKey}=${"en"}; Domain=${serverEnvs.VITE_COOKIE_DOMAIN}; Secure; HttpOnly; Max-Age=${localeMaxAge}`,
     );
   }
   invariant(response, "Do not have response");

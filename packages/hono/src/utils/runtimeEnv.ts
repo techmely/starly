@@ -1,4 +1,4 @@
-import type { LoggerPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
+import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import { z } from "zod";
 
 export const runtimeEnvSchema = z.object({
@@ -7,6 +7,7 @@ export const runtimeEnvSchema = z.object({
   DB_USERNAME: z.string(),
   DB_PASSWORD: z.string(),
   DB_NAME: z.string().default("techmely"),
+  VITE_COOKIE_DOMAIN: z.string(),
   AXIOM_TOKEN: z.string().optional(),
   CLOUDFLARE_API_KEY: z.string().optional(),
   CLOUDFLARE_ZONE_ID: z.string().optional(),
@@ -34,7 +35,7 @@ export type ContainerServicesCtx = {
   cache: any;
   db: any;
   analytics: any;
-  metrics: any;
+  metrics: MetricsPort;
   logger: LoggerPort;
   usageLimiter: UsageLimiterPort;
   rateLimiter: RateLimiterPort;
@@ -42,12 +43,12 @@ export type ContainerServicesCtx = {
 
 export type AppVariables = {
   requestId: string;
-  currentUserId: string;
+  userId: string;
   container: ContainerServicesCtx;
   /**
    * IP address or region information
    */
-  location: string;
+  location?: string;
   userAgent?: string;
 };
 

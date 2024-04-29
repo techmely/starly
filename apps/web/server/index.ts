@@ -1,31 +1,22 @@
-import { accessEnvs } from "./utils/server-envs";
+import { Hono } from "hono";
+import { compress } from "hono/compress";
+import { timing } from "hono/timing";
 
-const envs = accessEnvs();
+import type { HonoEnv } from "@techmely/hono";
+import { useVikeRouter } from "#root/modules/vike/vike.router";
+import useViteMiddleware from "#root/modules/vite/vite.middleware";
 
-const port = 9001;
+// const envs = accessEnvs();
 
-// async function letGo() {
-//   const app = createApp({
-//     onRequest(event) {
-//       useDependenciesInjection(event);
-//     },
-//     // TODO: Capture exceptions with Sentry here
-//     // onError(error, event) {
-//     // },
-//     onBeforeResponse: compressMiddleware,
-//   });
+// const port = 9001;
 
-//   await useViteMiddleware(app);
+const app = new Hono<HonoEnv>();
+app.use(timing());
+app.use(compress());
+app.get("/ping", (c) => c.text("pong"));
 
-//   const router = createRouter({ preemptive: true });
+await useViteMiddleware(app);
 
-//   useVikeRouter(router);
-//   useTelefuncRouter(router);
+useVikeRouter(router);
 
-//   app.use(router);
-//   // const server = createServer(toNodeListener(app)).listen(envs.PORT);
-
-//   // server.on("listening", () => {
-//   //   console.log(`Server listening on http://localhost:${envs.PORT}`);
-//   // });
-// }
+export default app;
