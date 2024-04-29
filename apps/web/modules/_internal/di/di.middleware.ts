@@ -1,5 +1,5 @@
 import type { H3Event } from "h3";
-import { getDBClient } from "#server/utils/planet-scale";
+import { getDBClient } from "#root/server/utils/planet-scale";
 
 const mapDependencies = (e: H3Event) => {
   return {

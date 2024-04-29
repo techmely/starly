@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/packages/hono"
+  },
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}

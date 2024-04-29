@@ -3,9 +3,12 @@
   "display": "BaseTsConfig",
   "compilerOptions": {
     "target": "ES2020",
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["@cloudflare/workers-types", "vite/client"],
     "experimentalDecorators": true,
-    "composite": false,
+    "composite": true,
     "outDir": "dist",
     "useUnknownInCatchVariables": false,
     "noEmitOnError": true,
@@ -20,20 +23,12 @@
     "isolatedModules": true,
     "strict": true,
     "pretty": true,
-    "moduleResolution": "Node",
-    "module": "ESNext",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "removeComments": true,
     "forceConsistentCasingInFileNames": true,
     "verbatimModuleSyntax": true,
-    "jsx": "preserve",
-    "plugins": [
-      {
-        "name": "ts-lit-plugin",
-        "strict": true
-      }
-    ]
+    "jsx": "react"
   }
 }

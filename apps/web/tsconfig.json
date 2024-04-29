@@ -1,14 +1,29 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "outDir": "../../.moon/cache/types/apps/web",
+    "emitDeclarationOnly": false,
+    "incremental": true,
+    "resolveJsonModule": true,
     "paths": {
-      "@techmely/*": ["../../packages/*/src"],
-      "@techmely/api-*": ["../../apis/*/src"],
-      "#assets/*": ["./assets/*"],
-      "#modules/*": ["./modules/*"],
-      "#pages/*": ["./pages/*"],
-      "#shared/*": ["./shared/*"],
-      "#server/*": ["./server/*"],
+      "#root/*": ["./*"]
     }
-  }
+  },
+  "exclude": ["node_modules"],
+  "include": [
+    "assets",
+    "certs",
+    "locales",
+    "modules",
+    "pages",
+    "public",
+    "server",
+    "shared",
+    "typings"
+  ],
+  "references": [
+    {
+      "path": "../../packages/design-system"
+    }
+  ]
 }

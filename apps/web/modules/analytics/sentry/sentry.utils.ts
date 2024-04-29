@@ -1,5 +1,4 @@
 import type { Dict } from "@techmely/types";
-import { clientEnvs } from "#shared/helpers/client-envs";
 
 export function logException(error: unknown, context: Dict<any>) {
   if (typeof Sentry !== "undefined") {
