@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/apps/web",
-    "noEmit": true,
     "emitDeclarationOnly": false,
     "incremental": true,
     "resolveJsonModule": true,
