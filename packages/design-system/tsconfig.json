@@ -1,8 +1,8 @@
 {
-  "extends": "../../tsconfig.options.json",
+  "extends": "../../tsconfig.base.json",
   "include": ["src"],
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/ui"
+    "outDir": "../../.moon/cache/types/packages/design-system"
   },
   "references": [
     {
