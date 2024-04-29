@@ -59,7 +59,8 @@
       "ui/**/**/dist/*",
       "apps/**/dist/*",
       "apps/web/locales/paraglide",
-      "apps/web/typings"
+      "apps/web/typings",
+      "packages/models/gen"
     ]
   }
 }

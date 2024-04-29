@@ -16,7 +16,7 @@
     "@deploysentinel/playwright": "0.3.4",
     "@playwright/test": "^1.43.1",
     "@squoosh/cli": "0.7.3",
-    "@techmely/types": "1.6.6",
+    "@techmely/types": "1.6.9",
     "@total-typescript/ts-reset": "0.5.1",
     "@types/fs-extra": "11.0.4",
     "@types/node": "20.12.7",

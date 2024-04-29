@@ -1,4 +1,4 @@
-import _Sentry from "@sentry/browser";
+import type _Sentry from "@sentry/browser";
 
 declare global {
   type MixPanelInitConfig = {
