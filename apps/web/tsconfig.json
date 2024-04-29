@@ -6,7 +6,6 @@
     "emitDeclarationOnly": false,
     "incremental": true,
     "resolveJsonModule": true,
-    "jsx": "react",
     "paths": {
       "#root/*": ["./*"]
     }
