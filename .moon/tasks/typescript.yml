@@ -8,6 +8,7 @@ fileGroups:
     - "*.{js,json,yml,yaml}"
   sources:
     - "src/**/*"
+    - "typings/**/*.ts"
   tests:
     - "src/**/*.test.mts"
     - "tests/**/*.test.mts"
@@ -61,4 +62,4 @@ tasks:
       - "/tsconfig.base.json"
 
   upgrade.deps:
-    command: "npm-check-updates -u"
+    command: "npm-check-updates --dep dev,prod,peer -u"

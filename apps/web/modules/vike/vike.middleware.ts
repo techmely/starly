@@ -1,7 +1,6 @@
 import { invariant } from "@techmely/utils";
-import type { HttpRequest, HttpResponse } from "uWebSockets.js";
 import { renderPage } from "vike/server";
-import { serverEnvs } from "#server/utils/server-envs";
+import { serverEnvs } from "#root/server/utils/server-envs";
 import { localeKey, localeMaxAge } from "../../locales/locales.utils";
 
 export default async function vikeMiddleware(res: HttpResponse, req: HttpRequest) {

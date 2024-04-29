@@ -1,11 +1,10 @@
-import { inject } from "@vercel/analytics";
-import { handleAnalytics } from "#modules/analytics/vercel/vercel.utils";
+import { handleAnalytics } from "#root/modules/analytics/vercel/vercel.utils";
 
+import React from "react";
 import type { FC, PropsWithChildren } from "react";
 import type { PageContext } from "vike/types";
 
 function initActions() {
-  inject();
   window.addEventListener("click", (e) => {
     handleAnalytics(e);
   });
