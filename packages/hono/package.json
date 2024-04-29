@@ -16,10 +16,7 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist", "src", "README.md", "CHANGELOG.md"],
-  "scripts": {
-    "build": "tsup --entry src/index.ts --entry src/**/*.ts --splitting --sourcemap --clean --dts --format esm"
-  },
+  "files": ["dist", "README.md", "CHANGELOG.md"],
   "peerDependencies": {
     "hono": "^4.2.9",
     "@techmely/utils": "^3.0.3",

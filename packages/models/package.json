@@ -1,7 +1,7 @@
 {
   "name": "@techmely/models",
   "version": "1.0.0",
-  "homepage": "https://techmely.com/products/hono-middleware",
+  "homepage": "https://abount.techmely.com/products",
   "bugs": {
     "url": "https://github.com/techmely/techmely/issues"
   },
@@ -16,18 +16,11 @@
   "main": "index.js",
   "types": "index.d.ts",
   "files": ["index.js", "index.d.ts", "README.md", "CHANGELOG.md"],
-  "scripts": {
-    "gen": "buf generate proto",
-    "clean": "rimraf dist",
-    "upgrade.deps": "npm-check-updates -u"
-  },
   "dependencies": {
     "@bufbuild/protobuf": "1.9.0"
   },
-  "devDependencies": {
-    "tsup": "8.0.2"
-  },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "latest"
   }
 }

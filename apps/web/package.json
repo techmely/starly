@@ -3,16 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "scripts": {
-    "dev": "bun --hot server/index.ts",
-    "build:server": "bun build --target=bun --minify --outdir=./dist server/index.ts",
-    "start": "bun server/index.ts",
-    "docker.build": "docker build .",
-    "docker.storage": "mkdir docker-storage && sudo chown 911:911 ./docker-storage",
-    "docker.up": "docker-compose up -d",
-    "clean": "rimraf dist",
-    "upgrade.deps": "npm-check-updates -u"
-  },
   "dependencies": {
     "@auth/core": "0.30.0",
     "@builder.io/partytown": "0.10.2",

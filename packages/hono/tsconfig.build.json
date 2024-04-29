@@ -1,8 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "composite": false,
     "outDir": "dist",
-    "rootDir": "gen"
+    "rootDir": "src"
   },
-  "include": ["gen/es/**/*"]
+  "include": ["src/**/*", "tests"]
 }
