@@ -4,6 +4,8 @@
     "source.organizeImports.biome": "explicit",
     "quickfix.biome": "explicit"
   },
+  "editor.rulers": [100],
+  "html.format.wrapLineLength": 100,
   "cSpell.words": [
     "animejs",
     "archivable",
@@ -39,6 +41,7 @@
     "dreamstree",
     "dtos",
     "Ecommerce",
+    "elysia",
     "emittery",
     "esbuild",
     "Fastify",
@@ -170,8 +173,5 @@
     "webapi",
     "webp",
     "Zustand"
-  ],
-  "editor.rulers": [100],
-  "html.format.wrapLineLength": 100,
-  "workbench.editor.splitInGroupLayout": "vertical"
+  ]
 }
