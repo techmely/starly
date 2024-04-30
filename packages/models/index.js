@@ -6,3 +6,5 @@ export * from "./gen/es/preferences/v1/preferences.model_pb";
 
 export * from "./gen/es/user/v1/user.event_pb";
 export * from "./gen/es/user/v1/user.model_pb";
+
+export * from "./gen/es/error/v1/response.error.model_pb";
