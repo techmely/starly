@@ -9,13 +9,13 @@
       "path": "apps/web"
     },
     {
+      "path": "packages/design-system"
+    },
+    {
       "path": "packages/hono"
     },
     {
       "path": "packages/models"
-    },
-    {
-      "path": "packages/design-system"
     }
   ],
   "include": ["./typings/global.d.ts", "./typings/reset.d.ts"]

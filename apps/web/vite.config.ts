@@ -1,3 +1,4 @@
+import honoDevServer from "@hono/vite-dev-server";
 import { paraglide } from "@inlang/paraglide-js-adapter-vite";
 import ViteReact from "@vitejs/plugin-react";
 import { FontaineTransform } from "fontaine";
@@ -30,6 +31,20 @@ export default defineConfig({
         deleteOriginalAssets: false,
         exclude: [/\.(png|avif|webp|jpe?g|gif)$/i, /\.map$/, /\.br$/],
       }),
+    honoDevServer({
+      entry: "./server/index.ts",
+      exclude: [
+        /^\/@.+$/,
+        /.*\.(ts|tsx)($|\?)/,
+        /.*\.(s?css|less)($|\?)/,
+        /^\/favicon\.ico$/,
+        /.*\.(svg|png)($|\?)/,
+        /.*\.webmanifest($|\?)/,
+        /^\/(public|assets|static)\/.+/,
+        /^\/node_modules\/.*/,
+      ],
+      injectClientScript: false,
+    }),
   ].filter(Boolean),
   resolve: {
     alias: {

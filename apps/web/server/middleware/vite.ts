@@ -1,11 +1,12 @@
 import { html } from "@elysiajs/html";
+import type { HonoEnv } from "@techmely/hono";
 import type Elysia from "elysia";
+import type { Hono } from "hono";
 
 const isProd = process.env.NODE_ENV === "production";
 const root = process.cwd();
-console.log("root:", root);
 
-export default async function useViteMiddleware() {
+export default async function useViteMiddleware(app: Hono<HonoEnv>) {
   return async (app: Elysia) => {
     if (isProd) {
       app.use(html({ contentType: "text/html; charset=utf-8" }));
