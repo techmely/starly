@@ -1,0 +1,17 @@
+type: "application"
+language: "typescript"
+
+fileGroups:
+  app:
+    - "modules/**/*"
+    - "index.ts"
+
+tasks:
+  dev:
+    command: "ENV=development bun run --hot src/index.ts"
+  start:
+    command: "ENV=production bun run src/index.ts"
+  build:
+    command: "bun build --target=bun --minify --outdir=./dist src/index.ts && bun build --target=bun --minify --outdir=./dist migrate.ts"
+  migrate:dev:latest:
+    command: "bun run ./migrate.ts dev latest"

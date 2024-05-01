@@ -3,16 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "description": "Techmely API",
+  "homepage": "https://docs.techmely.com/api",
+  "bugs": {
+    "url": "https://github.com/techmely/techmely/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techmely/techmely.git",
+    "directory": "apps/api"
+  },
   "author": {
     "name": "Harry Tran",
     "email": "nhattq.coding@gmail.com",
     "url": "https://github.com/techmely"
-  },
-  "script": {
-    "dev": "bun run --hot src/index.ts",
-    "start": "bun run src/index.ts",
-    "build": "bun build --target=bun --minify --outdir=./dist src/index.ts && bun build --target=bun --minify --outdir=./dist migrate.ts",
-    "migrate:dev:latest": "bun run ./migrate.ts dev latest"
   },
   "dependencies": {
     "@techmely/cache": "1.0.9",

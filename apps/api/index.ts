@@ -37,6 +37,6 @@ Bun.serve({
     if (!parsedEnv.success) {
       return Response.json({});
     }
-    return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.data });
+    return app.fetch(req, { ip: server.requestIP(req), ...parsedEnv.data });
   },
 });
