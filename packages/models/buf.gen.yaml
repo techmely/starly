@@ -10,9 +10,13 @@ plugins:
   - plugin: buf.build/connectrpc/go
     out: gen/go
     opt: paths=source_relative
-  - plugin: buf.build/bufbuild/es:v1.8.0
-    out: gen/es
-  - plugin: buf.build/connectrpc/query-es:v1.3.1
-    out: gen/es
+  # - plugin: buf.build/bufbuild/es:v1.8.0
+  #   out: gen/es
+  # - plugin: buf.build/connectrpc/query-es:v1.3.1
+  #   out: gen/es
+  - plugin: ts
+    out: gen/ts
+    strategy: all
+    path: ../../node_modules/ts-proto/protoc-gen-ts_proto
   - plugin: buf.build/protocolbuffers/dart:v21.1.2
     out: gen/dart
