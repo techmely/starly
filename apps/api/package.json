@@ -18,6 +18,8 @@
     "url": "https://github.com/techmely"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "3.565.0",
+    "@aws-sdk/s3-request-presigner": "3.565.0",
     "@techmely/cache": "1.0.9",
     "@techmely/hono": "workspace:*",
     "@techmely/models": "workspace:*",

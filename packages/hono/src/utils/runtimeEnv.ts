@@ -5,6 +5,7 @@ import type {
   UsageLimiterPort,
 } from "@techmely/types";
 import { z } from "zod";
+import type { Http } from "@techmely/http";
 
 export const runtimeEnvSchema = z.object({
   VERSION: z.string().default("WHO_KNOW"),
@@ -20,6 +21,7 @@ export const runtimeEnvSchema = z.object({
   RUNTIME_ENV: z
     .enum(["development", "test", "production"])
     .default("development"),
+  DEBUG: z.boolean().default(false),
   S3_ENDPOINT: z.string(),
   S3_ACCESS_KEY_ID: z.string(),
   S3_SECRET_ACCESS_KEY: z.string(),
@@ -44,11 +46,12 @@ export type AppEnv = z.infer<typeof runtimeEnvSchema> & {
 export type ContainerServicesCtx = {
   cache: any;
   db: any;
-  analytics: any;
-  metrics: MetricsPort;
   logger: LoggerPort;
-  usageLimiter: UsageLimiterPort;
-  rateLimiter: RateLimiterPort;
+  analytics?: any;
+  metrics?: MetricsPort;
+  usageLimiter?: UsageLimiterPort;
+  rateLimiter?: RateLimiterPort;
+  http: Http;
 };
 
 export type AppVariables = {
