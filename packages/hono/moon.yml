@@ -5,4 +5,4 @@ tasks:
   build:
     options:
       mergeArgs: "replace"
-    args: "tsup --entry src/index.ts --entry src/**/*.ts --clean --dts --format esm --tsconfig tsconfig.build.json"
+    args: "src/index.ts --clean --dts --format esm --tsconfig tsconfig.build.json"

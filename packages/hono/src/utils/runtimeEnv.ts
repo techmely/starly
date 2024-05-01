@@ -1,4 +1,4 @@
-import type { LoggerPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
+import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import { z } from "zod";
 
 export const runtimeEnvSchema = z.object({
@@ -7,10 +7,12 @@ export const runtimeEnvSchema = z.object({
   DB_USERNAME: z.string(),
   DB_PASSWORD: z.string(),
   DB_NAME: z.string().default("techmely"),
+  VITE_COOKIE_DOMAIN: z.string(),
   AXIOM_TOKEN: z.string().optional(),
   CLOUDFLARE_API_KEY: z.string().optional(),
   CLOUDFLARE_ZONE_ID: z.string().optional(),
-  ENV: z.enum(["development", "preview", "production"]).default("development"),
+  ENV: z.enum(["development", "staging", "production"]).default("development"),
+  RUNTIME_ENV: z.enum(["development", "test", "production"]).default("development"),
   S3_ENDPOINT: z.string(),
   S3_ACCESS_KEY_ID: z.string(),
   S3_SECRET_ACCESS_KEY: z.string(),
@@ -20,6 +22,11 @@ export const runtimeEnvSchema = z.object({
   CORS_ALLOW_METHODS: z.string(),
   CORS_MAX_AGE: z.string().transform((v) => Number.parseInt(v)),
   CORS_CREDENTIALS: z.string(),
+  IP: z.object({
+    address: z.string(),
+    family: z.string(),
+    port: z.number(),
+  }),
   // DO_RATELIMIT: z.custom<DurableObjectNamespace>((ns) => typeof ns === "object"),
   // DO_USAGE_LIMIT: z.custom<DurableObjectNamespace>((ns) => typeof ns === "object"),
 
@@ -34,7 +41,7 @@ export type ContainerServicesCtx = {
   cache: any;
   db: any;
   analytics: any;
-  metrics: any;
+  metrics: MetricsPort;
   logger: LoggerPort;
   usageLimiter: UsageLimiterPort;
   rateLimiter: RateLimiterPort;
@@ -42,12 +49,12 @@ export type ContainerServicesCtx = {
 
 export type AppVariables = {
   requestId: string;
-  currentUserId: string;
+  userId: string;
   container: ContainerServicesCtx;
   /**
    * IP address or region information
    */
-  location: string;
+  location?: string;
   userAgent?: string;
 };
 

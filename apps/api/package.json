@@ -16,6 +16,9 @@
   },
   "dependencies": {
     "@techmely/cache": "1.0.9",
+    "@techmely/hono": "workspace:*",
+    "@techmely/models": "workspace:*",
+    "@techmely/http": "1.2.3",
     "@techmely/domain-driven": "1.0.2",
     "@techmely/logger": "1.1.2",
     "@techmely/metrics": "1.0.9",
@@ -28,6 +31,7 @@
     "valibot": "0.30.0"
   },
   "devDependencies": {
-    "@techmely/types": "1.6.9"
+    "@techmely/types": "1.6.9",
+    "@types/bun": "1.1.1"
   }
 }

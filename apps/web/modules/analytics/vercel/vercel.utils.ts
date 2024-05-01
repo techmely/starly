@@ -1,10 +1,8 @@
 // So we can write code like:
 // <Button
 //   data-track-event-name="home__click_xyz"
-//   data-track-params={JSON.stringtify(params)}
+//   data-track-params={JSON.stringify(params)}
 // >
-
-import { track } from "@vercel/analytics";
 
 // </Button>
 export function handleAnalytics(event: Event) {
@@ -13,6 +11,6 @@ export function handleAnalytics(event: Event) {
 
   if (trackEventName) {
     const actionParams = trackParams ? JSON.parse(trackParams) : {};
-    track(trackEventName, actionParams);
+    console.log("track", trackEventName, actionParams);
   }
 }

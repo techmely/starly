@@ -2,14 +2,16 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "BaseTsConfig",
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2022",
     "moduleResolution": "Bundler",
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": ["@cloudflare/workers-types", "vite/client"],
-    "experimentalDecorators": true,
     "composite": true,
-    "outDir": "dist",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
     "useUnknownInCatchVariables": false,
     "noEmitOnError": true,
     "noUnusedLocals": true,
@@ -28,7 +30,6 @@
     "skipLibCheck": true,
     "removeComments": true,
     "forceConsistentCasingInFileNames": true,
-    "verbatimModuleSyntax": true,
-    "jsx": "react"
+    "verbatimModuleSyntax": true
   }
 }

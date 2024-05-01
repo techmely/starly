@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package techmely.preferences.model.v1;
-
-message Preferences {
-  int64 id = 1;
-}

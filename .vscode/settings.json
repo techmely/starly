@@ -4,6 +4,8 @@
     "source.organizeImports.biome": "explicit",
     "quickfix.biome": "explicit"
   },
+  "editor.rulers": [100],
+  "html.format.wrapLineLength": 100,
   "cSpell.words": [
     "animejs",
     "archivable",
@@ -39,6 +41,7 @@
     "dreamstree",
     "dtos",
     "Ecommerce",
+    "elysia",
     "emittery",
     "esbuild",
     "Fastify",
@@ -91,6 +94,7 @@
     "miniflare",
     "minio",
     "mixpannel",
+    "moonrepo",
     "motionone",
     "msapplication",
     "nestjs",
@@ -124,7 +128,9 @@
     "predev",
     "prerendered",
     "pressable",
+    "proto",
     "protobuf",
+    "protoc",
     "protocolbuffers",
     "qrcode",
     "ratelimit",
@@ -161,6 +167,7 @@
     "upstash",
     "urlset",
     "Vali",
+    "valibot",
     "vaul",
     "vavite",
     "vercel",
@@ -170,8 +177,5 @@
     "webapi",
     "webp",
     "Zustand"
-  ],
-  "editor.rulers": [100],
-  "html.format.wrapLineLength": 100,
-  "workbench.editor.splitInGroupLayout": "vertical"
+  ]
 }

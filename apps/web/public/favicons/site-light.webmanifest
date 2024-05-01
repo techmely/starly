@@ -1,10 +1,10 @@
 {
-  "name": "Dreams Tree",
-  "short_name": "Dreams Tree",
+  "name": "Techmely",
+  "short_name": "Techmely",
   "start_url": "/",
   "icons": [
     {
-      "src": "/favicons/favicon-light.ico",
+      "src": "/favicons/favicon.ico",
       "sizes": "32x32",
       "type": "image/ico"
     },

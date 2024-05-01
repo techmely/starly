@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src"],
+  "include": ["src/**/*", "tests/**/*", "dist"],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/packages/hono"
   },
