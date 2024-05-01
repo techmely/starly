@@ -1,4 +1,9 @@
-import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
+import type {
+  LoggerPort,
+  MetricsPort,
+  RateLimiterPort,
+  UsageLimiterPort,
+} from "@techmely/types";
 import { z } from "zod";
 
 export const runtimeEnvSchema = z.object({
@@ -12,7 +17,9 @@ export const runtimeEnvSchema = z.object({
   CLOUDFLARE_API_KEY: z.string().optional(),
   CLOUDFLARE_ZONE_ID: z.string().optional(),
   ENV: z.enum(["development", "staging", "production"]).default("development"),
-  RUNTIME_ENV: z.enum(["development", "test", "production"]).default("development"),
+  RUNTIME_ENV: z
+    .enum(["development", "test", "production"])
+    .default("development"),
   S3_ENDPOINT: z.string(),
   S3_ACCESS_KEY_ID: z.string(),
   S3_SECRET_ACCESS_KEY: z.string(),
@@ -22,11 +29,6 @@ export const runtimeEnvSchema = z.object({
   CORS_ALLOW_METHODS: z.string(),
   CORS_MAX_AGE: z.string().transform((v) => Number.parseInt(v)),
   CORS_CREDENTIALS: z.string(),
-  IP: z.object({
-    address: z.string(),
-    family: z.string(),
-    port: z.number(),
-  }),
   // DO_RATELIMIT: z.custom<DurableObjectNamespace>((ns) => typeof ns === "object"),
   // DO_USAGE_LIMIT: z.custom<DurableObjectNamespace>((ns) => typeof ns === "object"),
 
@@ -35,7 +37,9 @@ export const runtimeEnvSchema = z.object({
   // METRICS: z.custom<Queue<keyof MetricEventPort[]>>((ns) => typeof ns === "object").optional(),
 });
 
-export type AppEnv = z.infer<typeof runtimeEnvSchema>;
+export type AppEnv = z.infer<typeof runtimeEnvSchema> & {
+  ip: SocketAddress;
+};
 
 export type ContainerServicesCtx = {
   cache: any;
