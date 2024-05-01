@@ -22,6 +22,11 @@ export const runtimeEnvSchema = z.object({
   CORS_ALLOW_METHODS: z.string(),
   CORS_MAX_AGE: z.string().transform((v) => Number.parseInt(v)),
   CORS_CREDENTIALS: z.string(),
+  IP: z.object({
+    address: z.string(),
+    family: z.string(),
+    port: z.number(),
+  }),
   // DO_RATELIMIT: z.custom<DurableObjectNamespace>((ns) => typeof ns === "object"),
   // DO_USAGE_LIMIT: z.custom<DurableObjectNamespace>((ns) => typeof ns === "object"),
 

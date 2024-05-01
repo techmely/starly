@@ -130,6 +130,7 @@
     "pressable",
     "proto",
     "protobuf",
+    "protoc",
     "protocolbuffers",
     "qrcode",
     "ratelimit",

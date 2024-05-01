@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "include": ["**/*.ts"],
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/apps/api"
+    "outDir": "../../.moon/cache/types/apps/api",
+    "noEmit": true,
+    "types": ["@types/bun"]
   }
 }
