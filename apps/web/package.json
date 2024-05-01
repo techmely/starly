@@ -32,7 +32,7 @@
     "@wasmer/sdk": "0.6.0",
     "bentocache": "1.0.0-beta.8",
     "blurhash": "2.0.5",
-    "canvas-confetti": "1.9.2",
+    "canvas-confetti": "1.9.3",
     "clsx": "2.1.1",
     "firebase": "10.11.1",
     "framer-motion": "11.1.7",
