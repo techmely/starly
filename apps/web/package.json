@@ -94,6 +94,6 @@
     "vike": "0.4.171",
     "vite": "5.2.10",
     "vite-plugin-compression2": "1.1.0",
-    "vite-plugin-pwa": "0.19.8"
+    "vite-plugin-pwa": "0.20.0"
   }
 }
