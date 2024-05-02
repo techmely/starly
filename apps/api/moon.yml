@@ -8,10 +8,14 @@ fileGroups:
 
 tasks:
   dev:
-    command: "ENV=development bun run --hot src/index.ts"
+    command: "bun run --hot index.ts"
+    env:
+      NODE_ENV: "development"
   start:
-    command: "ENV=production bun run src/index.ts"
+    command: "bun run index.ts"
+    env:
+      NODE_ENV: "production"
   build:
     command: "bun build --target=bun --minify --outdir=./dist src/index.ts && bun build --target=bun --minify --outdir=./dist migrate.ts"
-  migrate:dev:latest:
+  migrate.dev.latest:
     command: "bun run ./migrate.ts dev latest"

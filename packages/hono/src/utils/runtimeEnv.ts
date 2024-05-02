@@ -1,26 +1,19 @@
-import type {
-  LoggerPort,
-  MetricsPort,
-  RateLimiterPort,
-  UsageLimiterPort,
-} from "@techmely/types";
+import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import { z } from "zod";
 import type { Http } from "@techmely/http";
 
 export const runtimeEnvSchema = z.object({
-  VERSION: z.string().default("WHO_KNOW"),
+  VERSION: z.string().default("1.0.0"),
   DB_HOST: z.string(),
-  DB_USERNAME: z.string(),
+  DB_USER: z.string(),
   DB_PASSWORD: z.string(),
   DB_NAME: z.string().default("techmely"),
-  VITE_COOKIE_DOMAIN: z.string(),
+  COOKIE_DOMAIN: z.string(),
   AXIOM_TOKEN: z.string().optional(),
   CLOUDFLARE_API_KEY: z.string().optional(),
   CLOUDFLARE_ZONE_ID: z.string().optional(),
   ENV: z.enum(["development", "staging", "production"]).default("development"),
-  RUNTIME_ENV: z
-    .enum(["development", "test", "production"])
-    .default("development"),
+  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   DEBUG: z.boolean().default(false),
   S3_ENDPOINT: z.string(),
   S3_ACCESS_KEY_ID: z.string(),
@@ -40,7 +33,7 @@ export const runtimeEnvSchema = z.object({
 });
 
 export type AppEnv = z.infer<typeof runtimeEnvSchema> & {
-  ip: SocketAddress;
+  IP: SocketAddress;
 };
 
 export type ContainerServicesCtx = {
@@ -51,7 +44,7 @@ export type ContainerServicesCtx = {
   metrics?: MetricsPort;
   usageLimiter?: UsageLimiterPort;
   rateLimiter?: RateLimiterPort;
-  http: Http;
+  http?: Http;
 };
 
 export type AppVariables = {

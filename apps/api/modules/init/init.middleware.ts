@@ -1,5 +1,4 @@
 import type { HonoEnv } from "@techmely/hono";
-import Http from "@techmely/http";
 import { ConsoleLogger } from "@techmely/logger";
 import type { MiddlewareHandler, Context } from "hono";
 
@@ -17,12 +16,12 @@ async function injectDependencies(c: Context<HonoEnv>) {
   return new Promise((res) => {
     const logger = new ConsoleLogger();
     const cache = "cache";
-    const http = Http.create("");
-    http.c.set("container", {
+    // const http = Http.create("");
+    c.set("container", {
       cache,
       db: "db",
       logger,
-      http,
+      // http,
     });
     res("OK");
   });
