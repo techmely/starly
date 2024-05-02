@@ -95,7 +95,9 @@ const DEFAULT_OPTIONS: SecureHeadersOptions = {
   xXssProtection: true,
 };
 
-export const secureHeaders = (customOptions?: Partial<SecureHeadersOptions>): MiddlewareHandler => {
+export const secureHeadersMiddleware = (
+  customOptions?: Partial<SecureHeadersOptions>,
+): MiddlewareHandler => {
   const options = { ...DEFAULT_OPTIONS, ...customOptions };
   const headersToSet = getFilteredHeaders(options);
 
