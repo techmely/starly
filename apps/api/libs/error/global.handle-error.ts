@@ -5,6 +5,7 @@ import type { Context } from "hono";
 
 export function globalHandleError(err: Error, c: Context<HonoEnv>) {
   const { logger } = c.get("container");
+
   const requestId = c.get("requestId");
 
   // Validation error
