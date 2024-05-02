@@ -4,9 +4,7 @@ import { timing } from "hono/timing";
 
 import type { HonoEnv } from "@techmely/hono";
 import { runtimeEnvSchema } from "@techmely/hono";
-import { commonContextMiddleware, secureHeaders } from "@techmely/hono";
-import { globalHandleError } from "./modules/error/global.handle-error";
-import { init } from "./modules/init/init.middleware";
+import { commonContextMiddleware, secureHeadersMiddleware } from "@techmely/hono";
 
 const app = new Hono<HonoEnv>();
 app.use(init());
@@ -17,7 +15,7 @@ app.use(timing());
  * @see https://github.com/oven-sh/bun/issues/159
  */
 // app.use(compress());
-app.use(secureHeaders());
+app.use(secureHeadersMiddleware());
 
 app.get("/", (c) => {
   return c.json({ data: "Welcome to the Techmely API" });
