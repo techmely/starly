@@ -1,8 +1,6 @@
 import { type AppEnv, runtimeEnvSchema } from "@techmely/hono";
 import { config } from "dotenv";
 
-// type EnvSchema = Output<typeof envsSchema>;
-
 export let serverEnvs: AppEnv;
 
 export function accessEnvs() {

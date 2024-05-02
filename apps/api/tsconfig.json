@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": [
+    "**/*.ts"
+  ],
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/apps/api",
+    "types": [
+      "@types/bun"
+    ]
+  },
+  "references": [
+    {
+      "path": "../../packages/hono"
+    },
+    {
+      "path": "../../packages/models"
+    }
+  ]
+}

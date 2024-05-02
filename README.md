@@ -39,7 +39,11 @@
    <a href="https://console.algora.io/org/techmely/bounties?status=open"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fconsole.algora.io%2Fapi%2Fshields%2Ftechmely%2Fbounties%3Fstatus%3Dopen"/></a>
 </p>
 
-## Build with
+## Business Docs overview
+
+### Tech docs overview
+
+This project build with all my loves + the supportive friends, especially my master [HieuHani](https://github.com/hieuhani).
 
 ### Frontend
 
@@ -53,20 +57,18 @@
 ### Backend
 
 - **AI**: Support GPT models to help user write/copy easier!
-- Use **H3** server to create API/Cache/Proxy
-- **Database**: Use **PlanetScale** to optimize system cost, also can switch to SQLite, MySQL, Postgres or whatever
-- **Error Handler**: Both server and client have the error boundary to catch and notify the client's error to the team. And using native type-safe
-- **Payments**: unified API for one-off & subscription billing methods for Stripe
+- Use [**Hono**](https://hono.dev/) server to create API/Cache/Proxy
+- **Database**: Use [**CockroachDB**](https://www.cockroachlabs.com/) to optimize system cost on FREE-tier
+- Use [Stripe](https://stripe.com/en-hk) for **payments**, unified API for one-off & subscription billing methods for Stripe
 - **Notification**: Use PWA to handle Web Push notis, SMS and webhooks
 - **Queue**: Handle the heavy workload on the background(client/server)
-- **Kysely**: Query builder powerful, really type-safe
-- **Realtime Collaboration**: Use CRDT-Driven mindset, and based on [BlockSuite](https://github.com/toeverything/blocksuite) to create realtime editing and painting whatever you want!
-- **Search Engine** smart searching, advanced filtering & sorting, pagination, headless UI
+- [**Kysely**](https://kysely.dev/): Query builder powerful, really type-safe
+- [**Realtime Collaboration**](https://dxos.org/): Use CRDT-Driven mindset, and based on [BlockSuite](https://github.com/toeverything/blocksuite) to create realtime editing and painting whatever you want!
+- [**Kibana Search Engine**](https://www.elastic.co/kibana) smart searching, advanced filtering & sorting, pagination, headless UI
 - **Storage**: Use [UnStorage](https://unstorage.unjs.io) for all environments(Browser, Worker)
-- **Validation**: Use [Zod](https://zod.dev/) for validate all the form, schema and whatever we need to validate!
-- **Cache**: Use [BentoCache](https://github.com/Julien-R44/bentocache) for Im-mem cache, redis, DynamoDB, and more—serverless
-- **CLIs**: Power by GoLang - create beautiful CLIs for Linux, Windows, and Mac—without requirements
-- **AxiomJs** all you need to debug, log & analyze
+- **Validation**: Use [Valibot](https://github.com/fabian-hiller/valibot) for validate all the form, schema and whatever we need to validate!
+- **Cache**: Use [BentoCache](https://github.com/Julien-R44/bentocache) for mutiple cache layer, like Im-mem cache, redis, DynamoDB, and more—serverless
+- **AxiomJs** all you need to debug, log & analyze in production
 
 ### Cloud
 
@@ -76,28 +78,29 @@
 - **Domain** version-controlled & zero-config domain management (e.g. DNS management)
 - **AI** fine-tune a foundational model using your application data
 - **AWS** startup program: Infrastructure as Code version-controlled cloud infrastructure(Up to $100,000 USD AWS Activate credits)
- 
+
 ### CI/CD
 
 _Focus on coding, not publishing._
 
+- Use Gitops for automating deploy + config with [ArgoCD](https://argoproj.github.io/cd/) + [KubeSphere Container Platform](https://kubesphere.io/) + [Helm charts](https://helm.sh/)
 - Automatically release process with Github Action
-- Have a lot of Bot/CLI(Rabbit AI, CodeQL, LGTM, KnipJs, BiomeJs...) to help project always in high quality
+- Have a lot of Bot/CLI(Rabbit AI, CodeQL, LGTM, KnipJs, BiomeJs...) + Checklist Guideline to help project always in high quality
 - Production deployments—zero-setup push-to-deploy
 - Zero Downtime deploy with confidence using a zero-downtime deployment strategy
 - Release Manager libraries (component & function) auto-published to npm, git helpers, and more
 
-
 ### Development Experiences
 
-- Leverage the [**UnJs**](https://unjs.io/) ecosystem to have some incredible features like *Auto Import* and *Framework Agnostic* 
-- Use **Git Workflow** + **Semantic commit** + **Rabbit AI** to have great commit!
+- Use `techmely` CLI write in RUST to automate all the tasks we needs in this project
+- Use [**Consul**](https://www.consul.io/) for centralize the config & enviroment for cross-team and cross-environment
+- Leverage the [**UnJs**](https://unjs.io/) ecosystem to have some incredible features like _Auto Import_ and _Framework Agnostic_
+- Use **Git Workflow** + **Semantic commit** + **Rabbit AI** to have great commit + review code!
 - **Spell checker** will notified once there had typos
-- Have a lot of **Utilities collections** like **VueUse** and **@techmely/utils** for handling data
+- Have a lot of **Utilities collections** like **VueUse** and **@techmely/utils** for handling/transforming data
 - **Testing** - All feature have Unit + UI + e2e testing(mocking DB)
 - Code Snippets say goodbye to the boilerplate
 - Team Management manage your team & their permissions
-
 
 This project mainly write with Typescript + Vue + Rust, so you should learn it to contribute easier 🌷
 
@@ -105,7 +108,7 @@ This project mainly write with Typescript + Vue + Rust, so you should learn it t
 
 1. Install deps `bun install`
 1. Run web site + api with command `bun run dev`
-2. Have fun with that.
+1. Have fun with that.
 
 ## How to get the icons for project?
 
@@ -132,18 +135,16 @@ This project mainly write with Typescript + Vue + Rust, so you should learn it t
 
 - <https://developers.google.com/youtube/v3/docs/?apix=true>
 
-
 ## Deployment
 
 ### Self-host Docker Deployment
 
-1. checkout source ```git clone https://github.com/techmely/techmely.git```
-1. got into new source dir: ```cd tech```
-1. build Docker image: ```docker build .```
-1. create local storage directory for settings: ```mkdir tml-storage```
-1. adjust permissions of storage dir: ```sudo chown 911:911 ./tml-storage```
-1. start container: ```docker-compose up -d```
-
+1. checkout source `git clone https://github.com/techmely/techmely.git`
+1. got into new source dir: `cd tech`
+1. build Docker image: `docker build .`
+1. create local storage directory for settings: `mkdir tml-storage`
+1. adjust permissions of storage dir: `sudo chown 911:911 ./tml-storage`
+1. start container: `docker-compose up -d`
 
 ```sh
 git clone https://github.com/techmely/techmely.git

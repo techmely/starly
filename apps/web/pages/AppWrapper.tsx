@@ -1,26 +1,23 @@
-import { inject } from "@vercel/analytics";
-import { handleAnalytics } from "#modules/analytics/vercel/vercel.utils";
-
 import type { FC, PropsWithChildren } from "react";
+import type React from "react";
 import type { PageContext } from "vike/types";
+import { handleAnalytics } from "#root/modules/analytics/vercel/vercel.utils";
 
-function initActions() {
-  inject();
-  window.addEventListener("click", (e) => {
-    handleAnalytics(e);
-  });
-}
 type Props = {
   pageContext: PageContext;
 };
 
 const AppWrapper: FC<PropsWithChildren<Props>> = ({ children }) => {
-  console.log("import.meta.env.SSR", import.meta.env.SSR);
   if (!import.meta.env.SSR) {
     initActions();
   }
-  console.log("HELLO WORLD");
   return <>{children}</>;
 };
+
+function initActions() {
+  window.addEventListener("click", (e) => {
+    handleAnalytics(e);
+  });
+}
 
 export default AppWrapper;

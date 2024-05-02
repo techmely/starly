@@ -1,12 +1,12 @@
 import { Hono } from "hono";
 import { poweredBy } from "hono/powered-by";
 import { describe, expect, it } from "vitest";
-import { secureHeaders } from ".";
+import { secureHeadersMiddleware } from ".";
 
 describe("Secure Headers Middleware", () => {
   it("default middleware", async () => {
     const app = new Hono();
-    app.use("*", secureHeaders());
+    app.use("*", secureHeadersMiddleware());
     app.get("/test", (ctx) => {
       return ctx.text("test");
     });
@@ -35,7 +35,7 @@ describe("Secure Headers Middleware", () => {
     const app = new Hono();
     app.use(
       "*",
-      secureHeaders({
+      secureHeadersMiddleware({
         contentSecurityPolicy: {
           defaultSrc: ["'self'"],
         },
@@ -69,7 +69,7 @@ describe("Secure Headers Middleware", () => {
 
   it("specific headers disabled", async () => {
     const app = new Hono();
-    app.use("*", secureHeaders({ xFrameOptions: false, xXssProtection: false }));
+    app.use("*", secureHeadersMiddleware({ xFrameOptions: false, xXssProtection: false }));
     app.get("/test", (ctx) => {
       return ctx.text("test");
     });
@@ -95,7 +95,7 @@ describe("Secure Headers Middleware", () => {
 
   it("should remove x-powered-by header", async () => {
     const appBefore = new Hono();
-    appBefore.use("*", secureHeaders());
+    appBefore.use("*", secureHeadersMiddleware());
     appBefore.use("*", poweredBy());
 
     const resBefore = await appBefore.request("/");
@@ -103,7 +103,7 @@ describe("Secure Headers Middleware", () => {
 
     const appAfter = new Hono();
     appAfter.use("*", poweredBy());
-    appAfter.use("*", secureHeaders());
+    appAfter.use("*", secureHeadersMiddleware());
 
     const resAfter = await appAfter.request("/");
     expect(resAfter.headers.get("x-powered-by")).toBe("Hono");
@@ -111,7 +111,7 @@ describe("Secure Headers Middleware", () => {
 
   it("should override Strict-Transport-Security header after middleware", async () => {
     const app = new Hono();
-    app.use("/test1", secureHeaders());
+    app.use("/test1", secureHeadersMiddleware());
 
     app.all("*", (c) => {
       c.res.headers.set("Strict-Transport-Security", "Hono");
@@ -131,7 +131,7 @@ describe("Secure Headers Middleware", () => {
     const app = new Hono();
     app.use(
       "/test",
-      secureHeaders({
+      secureHeadersMiddleware({
         strictTransportSecurity: "max-age=31536000; includeSubDomains; preload;",
         xFrameOptions: "DENY",
         xXssProtection: "1",
@@ -150,7 +150,7 @@ describe("Secure Headers Middleware", () => {
     const app = new Hono();
     app.use(
       "/test",
-      secureHeaders({
+      secureHeadersMiddleware({
         contentSecurityPolicy: {
           defaultSrc: ["'self'"],
           baseUri: ["'self'"],
@@ -180,7 +180,7 @@ describe("Secure Headers Middleware", () => {
     const app = new Hono();
     app.use(
       "/test",
-      secureHeaders({
+      secureHeadersMiddleware({
         contentSecurityPolicy: {
           defaultSrc: ["'self'"],
         },
@@ -197,7 +197,7 @@ describe("Secure Headers Middleware", () => {
 
   it("No CSP Setting", async () => {
     const app = new Hono();
-    app.use("/test", secureHeaders({ contentSecurityPolicy: {} }));
+    app.use("/test", secureHeadersMiddleware({ contentSecurityPolicy: {} }));
 
     app.all("*", (c) => {
       return c.text("header updated");
@@ -211,7 +211,7 @@ describe("Secure Headers Middleware", () => {
     const app = new Hono();
     app.use(
       "/test1",
-      secureHeaders({
+      secureHeadersMiddleware({
         reportingEndpoints: [
           {
             name: "endpoint-1",
@@ -227,7 +227,7 @@ describe("Secure Headers Middleware", () => {
 
     app.use(
       "/test2",
-      secureHeaders({
+      secureHeadersMiddleware({
         reportTo: [
           {
             group: "endpoint-1",
@@ -244,7 +244,7 @@ describe("Secure Headers Middleware", () => {
 
     app.use(
       "/test3",
-      secureHeaders({
+      secureHeadersMiddleware({
         reportTo: [
           {
             group: "g1",
@@ -272,7 +272,7 @@ describe("Secure Headers Middleware", () => {
 
     app.use(
       "/test4",
-      secureHeaders({
+      secureHeadersMiddleware({
         reportingEndpoints: [
           {
             name: "e1",

@@ -70,8 +70,8 @@ export const seoLinkHead = [
     rel: "shortcut icon",
     type: "image/x-icon",
     href: "/favicons/favicon-dark.ico",
-    "data-href-light": "/favicons/favicon-light.ico",
-    "data-href-dark": "/favicons/favicon-dark.ico",
+    "data-href-light": "/favicons/favicon.ico",
+    "data-href-dark": "/favicons/favicon.ico",
   },
   {
     rel: "apple-touch-icon",

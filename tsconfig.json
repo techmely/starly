@@ -1,18 +1,25 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "paths": {
-      "@techmely/*": ["./packages/*/src"],
-      "@techmely/api-*": ["./apis/*/src"],
+  "files": [],
+  "references": [
+    {
+      "path": "apps/api"
     },
-    "types": ["@cloudflare/workers-types", "vite/client"]
-  },
-  "include": ["./packages/*/src", "./typings/*.d.ts", "./apis/*/src", "./apps"],
-  "exclude": [
-    "**/dist/**",
-    "**/node_modules/**",
-    "**/examples/**",
-    "**/fixtures/**",
-    "**/test/dts/**"
-  ]
+    {
+      "path": "apps/web"
+    },
+    {
+      "path": "packages/design-system"
+    },
+    {
+      "path": "packages/hono"
+    },
+    {
+      "path": "packages/models"
+    },
+    {
+      "path": "packages/models"
+    }
+  ],
+  "include": ["./typings/global.d.ts", "./typings/reset.d.ts"]
 }

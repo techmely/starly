@@ -1,13 +1,11 @@
-import path from "path";
+import honoDevServer from "@hono/vite-dev-server";
 import { paraglide } from "@inlang/paraglide-js-adapter-vite";
 import ViteReact from "@vitejs/plugin-react";
 import { FontaineTransform } from "fontaine";
 import ViteMillion from "million/compiler";
-import { telefunc as ViteTelefunc } from "telefunc/vite";
 import Vike from "vike/plugin";
 import { defineConfig } from "vite";
 import ViteCompress from "vite-plugin-compression2";
-import ViteVercel from "vite-plugin-vercel";
 import viteAutoImport from "./modules/vite/vite.auto-import";
 
 const isProd = process.env.NODE_ENV === "production";
@@ -27,25 +25,30 @@ export default defineConfig({
     viteAutoImport,
     ViteReact(),
     Vike({ prerender: { partial: true } }),
-    ViteTelefunc(),
-    ViteVercel(),
     isProd &&
       ViteCompress({
         algorithm: "brotliCompress",
         deleteOriginalAssets: false,
         exclude: [/\.(png|avif|webp|jpe?g|gif)$/i, /\.map$/, /\.br$/],
       }),
+    honoDevServer({
+      entry: "./server/index.ts",
+      exclude: [
+        /^\/@.+$/,
+        /.*\.(ts|tsx)($|\?)/,
+        /.*\.(s?css|less)($|\?)/,
+        /^\/favicon\.ico$/,
+        /.*\.(svg|png)($|\?)/,
+        /.*\.webmanifest($|\?)/,
+        /^\/(public|assets|static)\/.+/,
+        /^\/node_modules\/.*/,
+      ],
+      injectClientScript: false,
+    }),
   ].filter(Boolean),
   resolve: {
     alias: {
-      "#assets": path.join(__dirname, "/assets"),
-      "#modules": path.join(__dirname, "/modules"),
-      "#pages": path.join(__dirname, "/pages"),
-      "#server": path.join(__dirname, "/server"),
-      "#shared": path.join(__dirname, "/shared"),
+      "#root": __dirname,
     },
-  },
-  optimizeDeps: {
-    include: ["@techmely/vike-react/onRenderClient"],
   },
 });

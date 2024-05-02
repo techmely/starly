@@ -1,5 +1,5 @@
 import type { Kysely } from "kysely";
-import type { AppDatabase } from "#server/utils/planet-scale";
+import type { AppDatabase } from "#root/server/utils/planet-scale";
 import type {
   BaseQueryOptions,
   BaseRepo,

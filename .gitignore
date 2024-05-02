@@ -615,3 +615,5 @@ app.*.symbols
 
 # Ignore certs .pem files to serve https
 *.pem
+
+.moon/cache
