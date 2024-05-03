@@ -5,7 +5,7 @@ import type { MiddlewareHandler, Context } from "hono";
 /**
  * Call this once before hono instance running
  */
-export function init(): MiddlewareHandler<HonoEnv> {
+export function initAppConfig(): MiddlewareHandler<HonoEnv> {
   return async (c, next) => {
     await injectConfig(c);
     await injectDependencies(c);
