@@ -9,7 +9,7 @@ export type FirebaseBaseAuthOptions = {
   projectId: string;
   transformUser?: <T>(decodedToken: UserFromDecodedIdToken) => T;
   /**
-   * @default "user"
+   * @default "firebaseUser"
    */
   userContextKey?: string;
   /**
@@ -31,7 +31,7 @@ export function validateFirebaseAuth(options: FirebaseBaseAuthOptions): Middlewa
     projectId,
     tokenHeaderPrefix = "Bearer",
     transformUser = transformCurrentUser,
-    userContextKey = "user",
+    userContextKey = "firebaseUser",
   } = options;
 
   return async (c, next) => {

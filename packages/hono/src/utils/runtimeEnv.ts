@@ -1,6 +1,7 @@
 import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import { z } from "zod";
 import type { Http } from "@techmely/http";
+import type { UserFromDecodedIdToken } from "@techmely/auth";
 
 export const runtimeEnvSchema = z.object({
   ENV: z.enum(["development", "staging", "production"]).default("development"),
@@ -11,7 +12,7 @@ export const runtimeEnvSchema = z.object({
   VERSION: z.string().default("1.0.0"),
 
   DB_HOST: z.string(),
-  DB_PORT: z.number(),
+  DB_PORT: z.string().transform((p) => +p),
   DB_USER: z.string(),
   DB_PASSWORD: z.string(),
   DB_NAME: z.string().default("techmely"),
@@ -83,7 +84,6 @@ export type AppConfig = {
 
 export type AppVariables = {
   requestId: string;
-  userId: string;
   container: ContainerServicesCtx;
   config: AppConfig;
   /**
@@ -91,6 +91,7 @@ export type AppVariables = {
    */
   location?: string;
   userAgent?: string;
+  firebaseUser: UserFromDecodedIdToken;
 };
 
 export type HonoEnv = {
