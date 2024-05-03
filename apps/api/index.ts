@@ -6,10 +6,10 @@ import type { HonoEnv } from "@techmely/hono";
 import { runtimeEnvSchema } from "@techmely/hono";
 import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
 import { globalHandleError } from "./libs/error/global.handle-error";
-import { initAppConfig } from "./libs/init/init.middleware";
+import { initApp } from "./libs/middlewares/init";
 
 const app = new Hono<HonoEnv>();
-app.use(initAppConfig());
+app.use(initApp());
 app.use(commonContext());
 app.use(timing());
 /*
