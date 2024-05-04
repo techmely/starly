@@ -1,4 +1,4 @@
-import { type Mapper, UniqueEntityID } from "@techmely/api-core";
+import { type Mapper, UniqueEntityID } from "@techmely/domain-driven";
 import { UserEntity } from "../../domain/entities/user.entity";
 import { type UserModel, userSchema } from "../../domain/repo/user.model";
 import { UserMetadata } from "../../domain/value-objects/user-metadata.value-object";

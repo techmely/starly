@@ -1,9 +1,16 @@
-import { DomainEvent, type IDomainEvent } from "@techmely/api-core";
-import type { IUserCreatedDE, UserRoles, UserStatus } from "../entities/user.types";
+import { DomainEvent, type IDomainEvent } from "@techmely/domain-driven";
+import type {
+  IUserCreatedDE,
+  UserRoles,
+  UserStatus,
+} from "../entities/user.types";
 import type { UserMetadata } from "../value-objects/user-metadata.value-object";
 import type { UserProvider } from "../value-objects/user-providers.value-object";
 
-export class UserCreatedDomainEvent extends DomainEvent implements IUserCreatedDE {
+export class UserCreatedDomainEvent
+  extends DomainEvent
+  implements IUserCreatedDE
+{
   email: string;
   unverifiedEmail: string;
   isEmailVerified: boolean;
