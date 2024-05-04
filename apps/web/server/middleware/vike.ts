@@ -17,7 +17,7 @@ export default function vikeMiddleware(): MiddlewareHandler<HonoEnv> {
     };
     if (!locale) {
       setCookie(c, localeKey, "en", {
-        domain: c.env.VITE_COOKIE_DOMAIN,
+        domain: c.env.COOKIE_DOMAIN,
         secure: true,
         httpOnly: true,
         maxAge: localeMaxAge,
