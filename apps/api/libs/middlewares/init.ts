@@ -1,16 +1,24 @@
 import type { HonoEnv } from "@techmely/hono";
 import { ConsoleLogger } from "@techmely/logger";
 import type { MiddlewareHandler, Context } from "hono";
+import { DEFAULT_PREFIX_ID_LENGTH, generatePrefixId } from "@techmely/utils/id";
 
 /**
  * Call this once before hono instance running
  */
-export function init(): MiddlewareHandler<HonoEnv> {
+export function initApp(): MiddlewareHandler<HonoEnv> {
   return async (c, next) => {
+    injectRequestId(c);
     await injectConfig(c);
     await injectDependencies(c);
     await next();
   };
+}
+
+function injectRequestId(c: Context<HonoEnv>) {
+  const requestId = generatePrefixId("req", DEFAULT_PREFIX_ID_LENGTH);
+  c.set("requestId", requestId);
+  c.res.headers.append("X-Request-Id", requestId);
 }
 
 async function injectDependencies(c: Context<HonoEnv>) {

@@ -3,14 +3,14 @@ import { compress } from "hono/compress";
 import { timing } from "hono/timing";
 
 import type { HonoEnv } from "@techmely/hono";
-import { commonContextMiddleware, secureHeadersMiddleware } from "@techmely/hono";
+import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
 import vikeMiddleware from "./middleware/vike";
 import { accessEnvs } from "./utils/server-envs";
 
 const envs = accessEnvs();
 
 const app = new Hono<HonoEnv>();
-app.use(commonContextMiddleware());
+app.use(commonContext());
 app.use(timing());
 app.use(compress());
 app.use(secureHeadersMiddleware());
