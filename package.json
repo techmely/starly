@@ -2,9 +2,9 @@
   "name": "techmely-monorepo",
   "private": true,
   "license": "AGPLv3",
-  "workspaces": ["apps/*", "packages/*"],
-  "scripts": {
-    "moon": "moon --color"
+  "workspaces": ["apps/*", "packages/*", "internals/*"],
+  "bin": {
+    "gen:db": "bun scripts/generateMigrateFileAPI.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.1",
@@ -13,7 +13,6 @@
     "@cloudflare/workers-types": "4.20240423.0",
     "@cucumber/cucumber": "10.6.0",
     "@deploysentinel/playwright": "0.3.4",
-    "@moonrepo/cli": "^1.24.2",
     "@playwright/test": "^1.43.1",
     "@squoosh/cli": "0.7.3",
     "@techmely/types": "1.6.9",
