@@ -1,16 +1,17 @@
-#!/usr/bin/env zx
+#!/usr/bin/env bun
+
 import fs from "fs";
 import path from "path";
 
-function generateFilePath(name) {
+function generateFilePath(name: string) {
   const currentDate = new Date();
   const isoDate = currentDate.toISOString();
-  const fileName = `${isoDate.replace(/:/g, '-')}-${name}.ts`;
+  const fileName = `${isoDate.replaceAll(":", "").replaceAll("-", "")}-${name}.ts`;
 
-  return path.join(process.cwd(), "migrations", fileName);
+  return path.join(process.cwd(), "internals/db/src/migrations", fileName);
 }
 
-function createFile(fileName) {
+function createFile(fileName: string) {
   fs.writeFile(fileName, "", "utf8", (error) => {
     if (error) {
       console.error(`Error creating file: ${error}`);
@@ -20,15 +21,13 @@ function createFile(fileName) {
   });
 }
 
-function writeFileContent(
-  filePath,
+async function writeFileContent(
+  filePath: string,
   content = `import { Kysely } from "kysely";
-import type { AppDatabase } from "../apps/web/server/utils/planet-scale";
-
-export async function up(db: Kysely<AppDatabase>) {}
-export async function down(db: Kysely<AppDatabase>) {}`,
+export async function up(db: Kysely<any>) {}
+export async function down(db: Kysely<any>) {}`,
 ) {
-  fs.appendFileSync(filePath, content, { encoding: "utf-8" });
+  await Bun.write(filePath, content, { encoding: "utf-8" });
 }
 
 const fileName = process.argv[2];
@@ -38,6 +37,5 @@ if (!fileName) {
 }
 
 const filePath = generateFilePath(fileName);
-console.log("filePath:", filePath);
 createFile(filePath);
 writeFileContent(filePath);

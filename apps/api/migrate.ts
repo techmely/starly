@@ -3,7 +3,6 @@ import * as path from "path";
 import { fileURLToPath } from "url";
 import * as dotenv from "dotenv";
 import { FileMigrationProvider, Kysely, Migrator, NO_MIGRATIONS } from "kysely";
-import { PlanetScaleDialect } from "kysely-planetscale";
 
 const envFile = {
   dev: ".env.development",
