@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ddd_core/dđ_core.dart';
+import 'package:ddd_core/ddd_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../authentication/domain/use-cases/auth_value_objects.dart';

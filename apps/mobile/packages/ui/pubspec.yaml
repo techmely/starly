@@ -1,0 +1,11 @@
+name: ui
+description: Dart package which manages ui.
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  another_flushbar: ^1.12.30
+  get_it: ^7.7.0
+  injectable: ^2.1.2

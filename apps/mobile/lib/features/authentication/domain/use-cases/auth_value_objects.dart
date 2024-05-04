@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ddd_core/dđ_core.dart';
+import 'package:ddd_core/ddd_core.dart';
 
 class EmailAddress extends ValueObject<String> {
   @override
