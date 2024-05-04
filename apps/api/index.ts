@@ -4,11 +4,13 @@ import { timing } from "hono/timing";
 
 import type { HonoEnv } from "@techmely/hono";
 import { runtimeEnvSchema } from "@techmely/hono";
-import { commonContextMiddleware, secureHeadersMiddleware } from "@techmely/hono";
+import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
+import { globalHandleError } from "./libs/error/global.handle-error";
+import { initApp } from "./libs/middlewares/init";
 
 const app = new Hono<HonoEnv>();
-app.use(init());
-app.use(commonContextMiddleware());
+app.use(initApp());
+app.use(commonContext());
 app.use(timing());
 /*
  * Bun currently not support CompressionStream yet
