@@ -9,6 +9,9 @@
       "path": "apps/web"
     },
     {
+      "path": "internals/db"
+    },
+    {
       "path": "packages/design-system"
     },
     {
@@ -21,5 +24,8 @@
       "path": "packages/models"
     }
   ],
-  "include": ["./typings/global.d.ts", "./typings/reset.d.ts"]
+  "include": [
+    "./typings/global.d.ts",
+    "./typings/reset.d.ts"
+  ]
 }
