@@ -1,0 +1,121 @@
+name: CI Mobile Workflow
+
+on:
+  push:
+    paths:
+      - 'apps/mobile/**'
+    branches: ["dev","release"]
+  pull_request:
+    branches: ["dev","release"]
+
+jobs:
+  build:
+    name: Pub get and build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/mobile
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.6'
+      - run: flutter pub get
+      - run: flutter build apk
+  test:
+    name: testing packages
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/mobile/packages
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.6'
+      - run: flutter test
+
+  # code-coverage:
+  #   name: coverage packages
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #       working-directory: apps/mobile/packages
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-java@v3
+  #       with:
+  #         java-version: '17'
+  #         distribution: 'temurin'
+  #     - uses: subosito/flutter-action@v2
+  #       with:
+  #         flutter-version: '3.19.6'
+  #     - run: flutter test --coverage
+
+  #     - name: Setup LCOV
+  #       uses: hrishikesh-kadam/setup-lcov@v1
+
+  #     - name: Report Code Coverage
+  #       uses: zgosalvez/github-actions-report-lcov@v3
+  #       with:
+  #         coverage-files: coverage/lcov.*.info
+  #         minimum-coverage: 90
+  #         artifact-name: code-coverage-report
+  #         github-token: ${{ secrets.GITHUB_TOKEN }}
+  #         update-comment: true
+
+
+#  prepare-linux:
+#    if: github.event.pull_request.draft != true
+#    strategy:
+#      fail-fast: true
+#      matrix:
+#        os: [ubuntu-latest]
+#        include:
+#          - os: ubuntu-latest
+#            flutter_profile: development-linux-x86_64
+#            target: x86_64-unknown-linux-gnu
+#    runs-on: ${{ matrix.os }}
+#
+#    steps:
+#      - name: Checkout source code
+#        uses: actions/checkout@v4
+#
+#  unit_test:
+#    needs: [prepare-linux]
+#    if: github.event.pull_request.draft != true
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        os: [ubuntu-latest]
+#        include:
+#          - os: ubuntu-latest
+#            flutter_profile: development-linux-x86_64
+#            target: x86_64-unknown-linux-gnu
+#    runs-on: ${{ matrix.os }}
+#
+#    steps:
+#      - name: Checkout source code
+#        uses: actions/checkout@v4
+#
+#      - name: Install flutter
+#        id: flutter
+#        uses: subosito/flutter-action@v2
+#        with:
+#          channel: "stable"
+#          flutter-version: ${{ env.FLUTTER_VERSION }}
+#          cache: true
+#
+#      - name: "Run flutter pub get"
+#        run: flutter pub get
+#
+#      - name: "Run flutter unit test"
+#        run: flutter test
