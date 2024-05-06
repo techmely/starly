@@ -17,4 +17,12 @@ scripts:
     exec: flutter test
   coverage:
     exec: flutter test --coverage
+    select-package:
+      dir-exists:
+        - test
+  generate-report:
+    exec: genhtml coverage/lcov.info -o coverage/html
+    select-package:
+      dir-exists:
+        - test
   run:mobile: melos exec --scope="mobile" -- flutter run
