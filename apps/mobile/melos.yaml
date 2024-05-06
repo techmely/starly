@@ -16,12 +16,9 @@ scripts:
   test:
     exec: flutter test
   coverage:
-    exec: flutter test --coverage
-    select-package:
-      dir-exists:
-        - test
-  generate-report:
-    exec: genhtml coverage/lcov.info -o coverage/html
+    run: flutter test --coverage && genhtml coverage/lcov.info -o coverage/html
+    exec:
+      failFast: false
     select-package:
       dir-exists:
         - test

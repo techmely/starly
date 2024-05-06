@@ -38,6 +38,9 @@ jobs:
         uses: actions/checkout@v4
 
   unit_test:
+    defaults:
+      run:
+        working-directory: apps/mobile/packages
     needs: [prepare-linux]
     if: github.event.pull_request.draft != true
     strategy:
