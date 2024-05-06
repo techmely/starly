@@ -44,7 +44,7 @@ dependencies:
   get_it: ^7.7.0
   hive: ^2.2.3
   injectable: ^2.1.2
-  uuid: ^3.0.0
+  uuid: ^4.4.0
   mockito: ^5.4.4
   ddd_core:
     path: packages/ddd_core
