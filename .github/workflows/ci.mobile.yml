@@ -3,11 +3,11 @@ name: CI Mobile Workflow
 on:
   push:
     paths:
-      - 'apps/mobile/**'
-      - '.github/workflows/ci.mobile.yml'
-    branches: ["dev","release"]
+      - "apps/mobile/**"
+      - ".github/workflows/ci.mobile.yml"
+    branches: ["dev", "release/*"]
   pull_request:
-    branches: ["dev","release"]
+    branches: ["dev", "release/*"]
 
 jobs:
   prepare-linux:
@@ -42,6 +42,9 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
+      - uses: moonrepo/setup-toolchain@v0
+        with:
+          auto-install: true
 
       - name: Install flutter
         id: flutter
@@ -50,9 +53,12 @@ jobs:
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
+      - name: Install need deps
+        run: |
+          dart pub global activate melos
 
-      - name: "Run flutter pub get"
-        run: flutter pub get
+      - name: "Flutter pub get"
+        run: moon ci :install --query "projectName=mobile"
 
-      - name: "Run flutter unit test"
-        run: flutter test
+      - name: "Run unit test"
+        run: moon ci --color --log debug :test --query "projectName=mobile"

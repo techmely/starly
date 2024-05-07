@@ -1,0 +1,26 @@
+$schema: "https://moonrepo.dev/schemas/tasks.json"
+
+implicitInputs:
+  - "pubspec.yaml"
+
+fileGroups:
+  configs:
+    - "*.{yml,yaml}"
+  sources:
+    - "*lib/**/*"
+    - "*packages/**/*.dart"
+  tests:
+    - "*packages/**/test/**/*.dart"
+    - "*tests/**/*.dart"
+    - "*lib/contexts/**/test/**/*.dart"
+
+tasks:
+  install:
+    command:
+      - flutter
+    args: "pub get"
+
+  test:
+    command:
+      - melos
+    args: "test"

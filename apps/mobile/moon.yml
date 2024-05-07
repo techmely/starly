@@ -1,0 +1,27 @@
+type: "application"
+language: "dart"
+
+fileGroups:
+  app:
+    - "android/**/*"
+    - "ios/**/*"
+    - "lib/**/*"
+    - "linux/**/*"
+    - "web/**/*"
+    - "windows/**/*"
+    - "packages/**/*"
+    - "pubspec.*"
+
+tasks:
+  build:
+    command: "bun script/build.ts"
+    inputs:
+      - "@group(app)"
+      - "@group(sources)"
+  dev:
+    command: "vite"
+    local: true
+
+  start:
+    command: "bun server/index.ts"
+    local: true
