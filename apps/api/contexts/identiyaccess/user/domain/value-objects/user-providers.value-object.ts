@@ -1,4 +1,4 @@
-import { ValueObject } from "@techmely/api-core";
+import { ValueObject } from "@techmely/domain-driven";
 
 export interface IUserProvider {
   githubId?: string;

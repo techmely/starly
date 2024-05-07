@@ -3,7 +3,7 @@ import { Hono } from "hono";
 import { timing } from "hono/timing";
 
 import type { HonoEnv } from "@techmely/hono";
-import { runtimeEnvSchema } from "@techmely/hono";
+import { serverRuntimeEnvSchema } from "@techmely/hono";
 import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
 import { globalHandleError } from "./libs/error/global.handle-error";
 import { initApp } from "./libs/middlewares/init";
@@ -38,7 +38,7 @@ app.onError(globalHandleError);
 Bun.serve({
   port: 3000,
   fetch(req, server) {
-    const parsedEnv = runtimeEnvSchema.safeParse(Bun.env);
+    const parsedEnv = serverRuntimeEnvSchema.safeParse(Bun.env);
     if (!parsedEnv.success) {
       return Response.json(
         {

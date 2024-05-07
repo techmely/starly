@@ -1,3 +1,3 @@
-// import { DomainEvent } from "@techmely/api-core";
+// import { DomainEvent } from "@techmely/domain-driven";
 
 // export class TDomainEvent extends DomainEvent {}

@@ -1,7 +1,10 @@
-import { DomainEvent, type IDomainEvent } from "@techmely/api-core";
+import { DomainEvent, type IDomainEvent } from "@techmely/domain-driven";
 import type { IUserUpdatedDE } from "../entities/user.types";
 
-export class UserUpdatedDomainEvent extends DomainEvent implements IUserUpdatedDE {
+export class UserUpdatedDomainEvent
+  extends DomainEvent
+  implements IUserUpdatedDE
+{
   email?: string;
   unverifiedEmail?: string;
   isEmailVerified?: boolean;

@@ -3,7 +3,7 @@ import { z } from "zod";
 import type { Http } from "@techmely/http";
 import type { UserFromDecodedIdToken } from "@techmely/auth";
 
-export const runtimeEnvSchema = z.object({
+export const serverRuntimeEnvSchema = z.object({
   ENV: z.enum(["development", "staging", "production"]).default("development"),
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   DEBUG: z.boolean().default(false),
@@ -35,7 +35,15 @@ export const runtimeEnvSchema = z.object({
   CORS_CREDENTIALS: z.string(),
 });
 
-export type AppEnv = z.infer<typeof runtimeEnvSchema> & {
+export const clientRuntimeEnvSchema = z.object({
+  VITE_ENV: z.enum(["development", "staging", "production"]).default("development"),
+  VITE_NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
+  VITE_DEBUG: z.boolean().default(false),
+  VITE_COOKIE_DOMAIN: z.string(),
+  VITE_VERSION: z.string().default("1.0.0"),
+});
+
+export type AppEnv = z.infer<typeof serverRuntimeEnvSchema> & {
   IP: SocketAddress;
 };
 

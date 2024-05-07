@@ -1,4 +1,4 @@
-import { ExceptionBase } from "@techmely/api-core";
+import { ExceptionBase } from "@techmely/domain-driven";
 
 const EMAIL_NOT_FOUND = "USER.EMAIL_NOT_FOUND";
 const USERNAME_NOT_FOUND = "USER.USERNAME_NOT_FOUND";

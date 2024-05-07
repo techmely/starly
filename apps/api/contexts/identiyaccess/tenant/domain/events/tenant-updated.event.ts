@@ -1,7 +1,10 @@
-import { DomainEvent, type IDomainEvent } from "@techmely/api-core";
+import { DomainEvent, type IDomainEvent } from "@techmely/domain-driven";
 import type { ITenantUpdatedDE } from "../entities/tenant.types";
 
-export class TenantUpdatedDomainEvent extends DomainEvent implements ITenantUpdatedDE {
+export class TenantUpdatedDomainEvent
+  extends DomainEvent
+  implements ITenantUpdatedDE
+{
   email?: string;
   unverifiedEmail?: string;
   isEmailVerified?: boolean;

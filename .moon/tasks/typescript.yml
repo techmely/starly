@@ -62,4 +62,4 @@ tasks:
       - "/tsconfig.base.json"
 
   upgrade.deps:
-    command: "npm-check-updates --dep dev,prod,peer -u"
+    command: "npm-check-updates --dep dev,prod,peer -u -x react -x react-dom -x @types/react -x @types/react-dom"

@@ -1,4 +1,4 @@
-import { DomainEvent, type IDomainEvent } from "@techmely/api-core";
+import { DomainEvent, type IDomainEvent } from "@techmely/domain-driven";
 import type { UserRoles } from "../entities/user.types";
 
 export class UserRoleChangedDomainEvent extends DomainEvent {
