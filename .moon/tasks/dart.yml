@@ -19,6 +19,14 @@ tasks:
     command:
       - flutter
     args: "pub get"
+  build.ios:
+    command:
+      - flutter
+    args: "build ipa --split-debug-info=./ --obfuscate --verbose"
+  build.android:
+    command:
+      - flutter
+    args: "build apk --split-per-abi --split-debug-info=./ --obfuscate --verbose"
 
   test:
     command:

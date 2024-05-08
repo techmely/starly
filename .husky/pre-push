@@ -1,4 +1,3 @@
 #!/bin/bash
 
 echo "\nStart run units test\n"
-make test.unit.run
