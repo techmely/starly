@@ -30,11 +30,11 @@ void main() {
     blocTest<RegisterFormBloc, RegisterFormState>(
       'emits correct state when emailChanged is added',
       build: () => registerFormBloc,
-      act: (bloc) =>
-          bloc.add(const RegisterFormEvent.emailChanged('test@gmail.com')),
+      act: (bloc) => bloc.add(
+          const RegisterFormEvent.emailChanged('yusakithejoker@gmail.com')),
       expect: () => [
         RegisterFormState.initial().copyWith(
-          emailAddress: EmailAddress('test@gmail.com'),
+          emailAddress: EmailAddress('yusakithejoker@gmail.com'),
           authFailureOrSuccessOption: none(),
         ),
       ],
@@ -44,10 +44,10 @@ void main() {
       'emits correct state when usernameChanged is added',
       build: () => registerFormBloc,
       act: (bloc) =>
-          bloc.add(const RegisterFormEvent.usernameChanged('testuser')),
+          bloc.add(const RegisterFormEvent.usernameChanged('yusaki')),
       expect: () => [
         RegisterFormState.initial().copyWith(
-          username: Username('testuser'),
+          username: Username('yusaki'),
           authFailureOrSuccessOption: none(),
         ),
       ],
@@ -57,10 +57,10 @@ void main() {
       'emits correct state when passwordChanged is added',
       build: () => registerFormBloc,
       act: (bloc) =>
-          bloc.add(const RegisterFormEvent.passwordChanged('testpassword')),
+          bloc.add(const RegisterFormEvent.passwordChanged('12345678')),
       expect: () => [
         RegisterFormState.initial().copyWith(
-          password: Password('testpassword'),
+          password: Password('12345678'),
           authFailureOrSuccessOption: none(),
         ),
       ],
@@ -78,24 +78,27 @@ void main() {
         return registerFormBloc;
       },
       act: (bloc) {
-        bloc.add(const RegisterFormEvent.emailChanged('test@gmail.com'));
-        bloc.add(const RegisterFormEvent.usernameChanged('testuser'));
-        bloc.add(const RegisterFormEvent.passwordChanged('testpassword'));
+        bloc.add(
+            const RegisterFormEvent.emailChanged('yusakithejoker@gmail.com'));
+        bloc.add(const RegisterFormEvent.usernameChanged('yusaki'));
+        bloc.add(const RegisterFormEvent.passwordChanged('12345678'));
         bloc.add(const RegisterFormEvent.registerPressed());
       },
       expect: () => [
         RegisterFormState.initial().copyWith(
-          emailAddress: EmailAddress('test@gmail.com'),
-          authFailureOrSuccessOption: none(),
+          emailAddress: EmailAddress('yusakithejoker@gmail.com'),
+          username: Username('yusaki'),
+          password: Password('12345678'),
           isSubmitting: true,
+          authFailureOrSuccessOption: none(),
         ),
         RegisterFormState.initial().copyWith(
-          emailAddress: EmailAddress('test@gmail.com'),
-          username: Username('testuser'),
-          password: Password('testpassword'),
+          emailAddress: EmailAddress('yusakithejoker@gmail.com'),
+          username: Username('yusaki'),
+          password: Password('12345678'),
           authFailureOrSuccessOption: none(),
           isSubmitting: false,
-          showErrorMessages: true,
+          showErrorMessages: false,
         ),
       ],
     );
@@ -116,15 +119,35 @@ void main() {
     );
 
     blocTest<RegisterFormBloc, RegisterFormState>(
-      'emits correct state when registerPressed is added with invalid email',
+      'does not emit submitting state when email is invalid',
       build: () => registerFormBloc,
       act: (bloc) {
-        bloc.add(const RegisterFormEvent.emailChanged('invalid-email'));
+        bloc.add(
+            const RegisterFormEvent.emailChanged('kjhqwerhfqkjwfb@gmail.com'));
+        bloc.add(const RegisterFormEvent.passwordChanged('123456'));
+        bloc.add(const RegisterFormEvent.usernameChanged('username'));
         bloc.add(const RegisterFormEvent.registerPressed());
       },
       expect: () => [
         RegisterFormState.initial().copyWith(
-          emailAddress: EmailAddress('invalid-email'),
+          emailAddress: EmailAddress('kjhqwerhfqkjwfb@gmail.com'),
+          authFailureOrSuccessOption: none(),
+        ),
+        RegisterFormState.initial().copyWith(
+          emailAddress: EmailAddress('kjhqwerhfqkjwfb@gmail.com'),
+          password: Password('123456'),
+          authFailureOrSuccessOption: none(),
+        ),
+        RegisterFormState.initial().copyWith(
+          emailAddress: EmailAddress('kjhqwerhfqkjwfb@gmail.com'),
+          password: Password('123456'),
+          username: Username('username'),
+          authFailureOrSuccessOption: none(),
+        ),
+        RegisterFormState.initial().copyWith(
+          emailAddress: EmailAddress('kjhqwerhfqkjwfb@gmail.com'),
+          password: Password('123456'),
+          username: Username('username'),
           isSubmitting: false,
           showErrorMessages: true,
           authFailureOrSuccessOption: none(),

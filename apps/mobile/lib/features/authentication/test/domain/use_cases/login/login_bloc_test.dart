@@ -32,18 +32,21 @@ void main() {
     blocTest<LoginBloc, LoginState>(
       'emits username validation state when LoginUsernameChanged is added',
       build: () => loginBloc,
-      act: (bloc) => bloc.add(const LoginUsernameChanged('yusaki')),
+      act: (bloc) =>
+          bloc.add(const LoginUsernameChanged('yusakithejoker@gmail.com')),
       expect: () => const [
-        LoginState(username: Username.dirty('yusaki'), isValid: false),
+        LoginState(
+            username: Username.dirty('yusakithejoker@gmail.com'),
+            isValid: false),
       ],
     );
 
     blocTest<LoginBloc, LoginState>(
       'emits password validation state when LoginPasswordChanged is added',
       build: () => loginBloc,
-      act: (bloc) => bloc.add(const LoginPasswordChanged('123456')),
+      act: (bloc) => bloc.add(const LoginPasswordChanged('12345678')),
       expect: () => const [
-        LoginState(password: Password.dirty('123456'), isValid: false),
+        LoginState(password: Password.dirty('12345678'), isValid: false),
       ],
     );
 
@@ -51,26 +54,27 @@ void main() {
       'emits inProgress and success when LoginSubmitted is added with valid data',
       build: () {
         when(() => authenticationRepository.logIn(
-            username: any(named: 'yusaki'),
-            password: any(named: '123456'))).thenAnswer((_) => Future.value());
+                username: any(named: 'yusakithejoker@gmail.com'),
+                password: any(named: '12345678')))
+            .thenAnswer((_) => Future.value());
 
         return loginBloc;
       },
       act: (bloc) {
-        bloc.add(const LoginUsernameChanged('yusaki'));
-        bloc.add(const LoginPasswordChanged('123456'));
+        bloc.add(const LoginUsernameChanged('yusakithejoker@gmail.com'));
+        bloc.add(const LoginPasswordChanged('12345678'));
         bloc.add(const LoginSubmitted());
       },
       expect: () => [
         const LoginState(
-          username: Username.dirty('yusaki'),
-          password: Password.dirty('123456'),
+          username: Username.dirty('yusakithejoker@gmail.com'),
+          password: Password.dirty('12345678'),
           isValid: true,
           status: FormzSubmissionStatus.inProgress,
         ),
         const LoginState(
-          username: Username.dirty('yusaki'),
-          password: Password.dirty('123456'),
+          username: Username.dirty('yusakithejoker@gmail.com'),
+          password: Password.dirty('12345678'),
           isValid: true,
           status: FormzSubmissionStatus.success,
         ),
@@ -81,20 +85,26 @@ void main() {
       'emits inProgress and failure when LoginSubmitted is added with invalid data',
       build: () {
         when(() => authenticationRepository.logIn(
-            username: any(named: 'yusaki'),
-            password: any(named: '123456'))).thenAnswer((_) => Future.value());
-
+                username: any(named: 'username'),
+                password: any(named: 'password')))
+            .thenThrow(Exception("Login failed due to invalid credentials"));
         return loginBloc;
       },
       act: (bloc) {
+        bloc.add(const LoginUsernameChanged('invalid_email@gmail.com'));
+        bloc.add(const LoginPasswordChanged('wrongpassword'));
         bloc.add(const LoginSubmitted());
       },
       expect: () => [
         const LoginState(
+          username: Username.dirty('invalid_email@gmail.com'),
+          password: Password.dirty('wrongpassword'),
           isValid: false,
           status: FormzSubmissionStatus.inProgress,
         ),
         const LoginState(
+          username: Username.dirty('invalid_email@gmail.com'),
+          password: Password.dirty('wrongpassword'),
           isValid: false,
           status: FormzSubmissionStatus.failure,
         ),
