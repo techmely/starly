@@ -1,0 +1,5 @@
+[tasks.generate.model]
+script = ["""
+  moon run :gen --query "projectName=models"
+ """]
+script_runner = "@shell"
