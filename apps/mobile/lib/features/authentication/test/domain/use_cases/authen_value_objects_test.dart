@@ -21,12 +21,6 @@ void main() {
       final username = Username('testuser');
       final password = Password('password');
 
-      when(() => authFacade.register(
-            emailAddress: emailAddress,
-            username: username,
-            password: password,
-          )).thenAnswer((_) async => right(unit));
-
       final result = await authFacade.register(
         emailAddress: emailAddress,
         username: username,
@@ -40,12 +34,6 @@ void main() {
       final emailAddress = EmailAddress('test@gmail.com');
       final username = Username('testuser');
       final password = Password('password');
-
-      when(() => authFacade.register(
-            emailAddress: emailAddress,
-            username: username,
-            password: password,
-          )).thenAnswer((_) async => left(const AuthFailure.serverError()));
 
       final result = await authFacade.register(
         emailAddress: emailAddress,
