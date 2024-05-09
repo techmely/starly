@@ -8,8 +8,10 @@ environment:
 # Add regular dependencies here.
 dependencies:
   http: ^1.2.1
+  mockito: ^5.4.4
   logger:
     path: ../logger
 
 dev_dependencies:
-  test: ^1.24.0
+  flutter_test:
+    sdk: flutter

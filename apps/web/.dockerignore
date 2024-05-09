@@ -1,7 +1,6 @@
 node_modules
 *.log
 .output
-.nuxt
 #.env # Not ignoring this file because it can contain build-related settings.
 .DS_Store
 .vercel

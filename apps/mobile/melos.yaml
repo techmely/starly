@@ -15,6 +15,13 @@ scripts:
     exec: flutter pub outdated
   test:
     exec: flutter test
+  upgrade.deps:
+    exec: flutter pub upgrade
   coverage:
-    exec: flutter test --coverage
+    run: flutter test --coverage && genhtml coverage/lcov.info -o coverage/html
+    exec:
+      failFast: false
+    select-package:
+      dir-exists:
+        - test
   run:mobile: melos exec --scope="mobile" -- flutter run

@@ -1,0 +1,35 @@
+type: "application"
+language: "dart"
+
+fileGroups:
+  app:
+    - "android/**/*"
+    - "ios/**/*"
+    - "lib/**/*"
+    - "linux/**/*"
+    - "web/**/*"
+    - "windows/**/*"
+    - "packages/**/*"
+    - "pubspec.*"
+
+tasks:
+  pub.get:
+    command: "flutter"
+    args: "pub get"
+    inputs:
+      - '@group(app)'
+    local: true
+
+  pub.outdated:
+    command: "melos"
+    args: "outdated"
+    inputs:
+      - '@group(app)'
+    local: true
+  
+  test:
+    command: "melos"
+    args: "test"
+    inputs:
+      - '@group(app)'
+    local: true

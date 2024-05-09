@@ -16,13 +16,13 @@ main() {
       final request = baseReq as Request;
       expect(copied.hashCode, isNot(equals(request.hashCode)));
       expect(copied.url, equals(request.url));
-      expect(copied.method,equals(request.method));
-      expect(copied.headers,equals(request.headers));
-      expect(copied.body,equals(request.body));
-      expect(copied.encoding,equals(request.encoding));
-      expect(copied.followRedirects,equals(request.followRedirects));
-      expect(copied.maxRedirects,equals(request.maxRedirects));
-      expect(copied.persistentConnection,equals(request.persistentConnection));
+      expect(copied.method, equals(request.method));
+      expect(copied.headers, equals(request.headers));
+      expect(copied.body, equals(request.body));
+      expect(copied.encoding, equals(request.encoding));
+      expect(copied.followRedirects, equals(request.followRedirects));
+      expect(copied.maxRedirects, equals(request.maxRedirects));
+      expect(copied.persistentConnection, equals(request.persistentConnection));
     });
   });
 }

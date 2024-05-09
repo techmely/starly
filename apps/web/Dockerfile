@@ -1,4 +1,4 @@
-FROM docker.io/library/node:18-alpine AS builder
+FROM docker.io/library/node:20-alpine AS builder
 
 # Prepare work directory
 WORKDIR /techmely/web
@@ -18,7 +18,7 @@ RUN bun install
 # Build
 RUN bun run build
 
-FROM gcr.io/distroless/nodejs:18 AS runner
+FROM gcr.io/distroless/nodejs:20 AS runner
 
 ARG UID=911
 ARG GID=911
@@ -37,9 +37,6 @@ COPY --from=builder /techmely/web/.output ./.output
 EXPOSE 2023/tcp
 
 ENV PORT=2023
-
-# Specify container only environment variables ( can be overwritten by runtime env )
-ENV NUXT_STORAGE_FS_BASE='/techmely/web/data'
 
 # Persistent storage data
 VOLUME [ "/techmely/web/data" ]
