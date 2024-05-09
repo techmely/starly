@@ -1,7 +1,8 @@
 import type { HonoEnv } from "@techmely/hono";
 import { ConsoleLogger } from "@techmely/logger";
+import http from "@techmely/http";
 import type { MiddlewareHandler, Context } from "hono";
-import { DEFAULT_PREFIX_ID_LENGTH, generatePrefixId } from "@techmely/utils/id";
+import { generatePrefixId } from "@techmely/utils/id";
 
 /**
  * Call this once before hono instance running
@@ -16,7 +17,7 @@ export function initApp(): MiddlewareHandler<HonoEnv> {
 }
 
 function injectRequestId(c: Context<HonoEnv>) {
-  const requestId = generatePrefixId("req", DEFAULT_PREFIX_ID_LENGTH);
+  const requestId = generatePrefixId("req");
   c.set("requestId", requestId);
   c.res.headers.append("X-Request-Id", requestId);
 }
@@ -25,12 +26,16 @@ async function injectDependencies(c: Context<HonoEnv>) {
   return new Promise((resolve) => {
     const logger = new ConsoleLogger();
     const cache = "cache";
-    // const http = Http.create("");
+    const _http = http.create({
+      headers: {
+        "X-Powser-By": "Techmely",
+      },
+    });
     c.set("container", {
       cache,
       db: "db",
       logger,
-      // http,
+      http: _http,
     });
     resolve("OK");
   });
