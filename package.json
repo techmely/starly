@@ -10,7 +10,6 @@
     "@biomejs/biome": "1.7.1",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.1",
-    "@cloudflare/workers-types": "4.20240423.0",
     "@cucumber/cucumber": "10.6.0",
     "@deploysentinel/playwright": "0.3.4",
     "@playwright/test": "^1.43.1",
@@ -30,18 +29,12 @@
     "fast-glob": "3.3.2",
     "fs-extra": "11.2.0",
     "happy-dom": "14.7.1",
-    "husky": "9.0.11",
     "knip": "5.11.0",
-    "kysely": "0.27.3",
     "linkinator": "6.0.4",
     "madge": "7.0.0",
-    "msw": "2.2.14",
     "multiple-cucumber-html-reporter": "3.6.2",
-    "nano-staged": "0.8.0",
     "npm-check-updates": "16.14.20",
-    "pino": "9.0.0",
     "reassure": "0.11.0",
-    "sass": "1.75.0",
     "speedscope": "1.20.0",
     "syncpack": "12.3.2",
     "tasuku": "2.0.1",
@@ -55,8 +48,5 @@
     "vitest": "1.5.2",
     "vitest-axe": "^0.1.0",
     "zx": "8.0.2"
-  },
-  "nano-staged": {
-    "*.{mjs,js,ts,tsx}": ["make lint.format", "make lint.circular"]
   }
 }
