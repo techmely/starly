@@ -31,15 +31,34 @@ tasks:
     options:
       shell: true
 
-  lint:
-    command: "bunx"
-    args: "@biomejs/biome check --apply ."
+  lint-biome:
+    command:
+      - "bunx @biomejs/biome check . --apply"
+  lint-circular:
+    command:
+      - "madge"
+  lint-typecheck:
+    command: "tsc"
+    args: "--noEmit"
     inputs:
-      - "/biome.json"
-      - "/tsconfig.base.json"
-      - "tsconfig.json"
       - "@globs(sources)"
       - "@globs(tests)"
+      - "tsconfig.json"
+      - "tsconfig.*.json"
+      - "/tsconfig.base.json"
+
+  lint-useless:
+    command:
+      - "knip"
+    local: true
+
+  lint:
+    command: "noop"
+    deps:
+      - lint-biome
+      - lint-circular
+      - lint-typecheck
+      - lint-useless
 
   test:
     command:
@@ -49,17 +68,6 @@ tasks:
       - "@globs(sources)"
       - "@globs(tests)"
       - "vitest.config.*"
-
-  typecheck:
-    command:
-      - "tsc"
-    args: "--noEmit"
-    inputs:
-      - "@globs(sources)"
-      - "@globs(tests)"
-      - "tsconfig.json"
-      - "tsconfig.*.json"
-      - "/tsconfig.base.json"
 
   upgrade.deps:
     command: "npm-check-updates --dep dev,prod,peer -u -x react -x react-dom -x @types/react -x @types/react-dom"
