@@ -36,14 +36,14 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   bloc_test: ^9.1.7
   calendar_time: ^2.2.0
-  collection: ^1.17.1
+  collection: ^1.18.0
   cupertino_icons: ^1.0.2
-  dio: ^5.2.1+1
-  flutter_bloc: ^8.1.4
-  equatable: ^2.0.0
+  dio: ^5.4.3+1
+  flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
   get_it: ^7.7.0
   hive: ^2.2.3
-  injectable: ^2.1.2
+  injectable: ^2.4.1
   uuid: ^4.4.0
   mockito: ^5.4.4
   ddd_core:

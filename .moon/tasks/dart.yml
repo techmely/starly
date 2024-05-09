@@ -15,10 +15,6 @@ fileGroups:
     - "*lib/contexts/**/test/**/*.dart"
 
 tasks:
-  install:
-    command:
-      - flutter
-    args: "pub get"
   build.ios:
     command:
       - flutter
@@ -27,8 +23,12 @@ tasks:
     command:
       - flutter
     args: "build apk --split-per-abi --split-debug-info=./ --obfuscate --verbose"
-
   test:
     command:
       - melos
     args: "test"
+    
+  upgrade.deps:
+    command: "melos"
+    args: "upgrade.deps"
+  

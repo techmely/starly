@@ -15,6 +15,8 @@ scripts:
     exec: flutter pub outdated
   test:
     exec: flutter test
+  upgrade.deps:
+    exec: flutter pub upgrade
   coverage:
     run: flutter test --coverage && genhtml coverage/lcov.info -o coverage/html
     exec:
