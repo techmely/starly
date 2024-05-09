@@ -5,3 +5,4 @@ set -eo pipefail
 # https://moonrepo.dev/docs/guides/vcs-hooks
 
 echo "pre commit msg"
+

@@ -1,0 +1,26 @@
+# You can see detail the tool here
+# https://github.com/sagiegurari/cargo-make
+
+extend = [
+  { path = "scripts/api.toml" },
+  { path = "scripts/generate.toml" },
+  { path = "scripts/git.toml" },
+  { path = "scripts/migration.toml" },
+  { path = "scripts/mobile.toml" },
+  # { path = "scripts/protobuf.toml" },
+  # { path = "scripts/docker.toml" },
+  # { path = "scripts/env.toml" },
+  { path = "scripts/tests.toml" },
+  { path = "scripts/tool.toml" },
+  { path = "scripts/web.toml" },
+]
+
+[config]
+on_error_task = "catch"
+
+[env]
+RUST_LOG = "info"
+CARGO_PROFILE = "dev"
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+# CARGO_MAKE_CRATE_FS_NAME = "dart_ffi"
+# CARGO_MAKE_CRATE_NAME = "dart-ffi"

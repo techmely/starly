@@ -1,0 +1,34 @@
+$schema: "https://moonrepo.dev/schemas/tasks.json"
+
+implicitInputs:
+  - "pubspec.yaml"
+
+fileGroups:
+  configs:
+    - "*.{yml,yaml}"
+  sources:
+    - "*lib/**/*"
+    - "*packages/**/*.dart"
+  tests:
+    - "*packages/**/test/**/*.dart"
+    - "*tests/**/*.dart"
+    - "*lib/contexts/**/test/**/*.dart"
+
+tasks:
+  build.ios:
+    command:
+      - flutter
+    args: "build ipa --split-debug-info=./ --obfuscate --verbose"
+  build.android:
+    command:
+      - flutter
+    args: "build apk --split-per-abi --split-debug-info=./ --obfuscate --verbose"
+  test:
+    command:
+      - melos
+    args: "test"
+    
+  upgrade.deps:
+    command: "melos"
+    args: "upgrade.deps"
+  
