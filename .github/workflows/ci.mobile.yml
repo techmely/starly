@@ -56,7 +56,7 @@ jobs:
           dart pub global activate melos
 
       - name: "Flutter pub get"
-        run: moon ci :install --query "projectName=mobile"
+        run: moon run :pub.get --query "projectName=mobile"
 
       - name: "Run unit test"
-        run: moon ci --color --log debug :test --query "projectName=mobile"
+        run: moon run :test --query "projectName=mobile"
