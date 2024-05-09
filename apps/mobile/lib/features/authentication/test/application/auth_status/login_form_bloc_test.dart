@@ -64,7 +64,7 @@ void main() {
         ).thenAnswer(
           (_) => Future.delayed(
             const Duration(milliseconds: 1),
-            () => passCase(unit),
+            () => OK(unit),
           ),
         );
         return loginFormBloc;
@@ -88,7 +88,7 @@ void main() {
           password: Password(password),
           isSubmitting: false,
           showErrorMessages: true,
-          authFailureOrSuccessOption: some(passCase(unit)),
+          authFailureOrSuccessOption: some(OK(unit)),
         ),
       ],
       verify: (_) {
@@ -112,7 +112,7 @@ void main() {
         ).thenAnswer(
           (_) => Future.delayed(
             const Duration(milliseconds: 1),
-            () => failCase(const AuthFailure.serverError()),
+            () => failure(const AuthFailure.serverError()),
           ),
         );
         return loginFormBloc;
@@ -137,7 +137,7 @@ void main() {
           isSubmitting: false,
           showErrorMessages: true,
           authFailureOrSuccessOption:
-              some(failCase(const AuthFailure.serverError())),
+              some(failure(const AuthFailure.serverError())),
         ),
       ],
       verify: (_) {

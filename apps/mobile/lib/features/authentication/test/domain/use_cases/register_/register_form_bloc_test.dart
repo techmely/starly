@@ -74,7 +74,7 @@ void main() {
               emailAddress: any(named: 'emailAddress'),
               username: any(named: 'username'),
               password: any(named: 'password'),
-            )).thenAnswer((_) async => passCase(unit));
+            )).thenAnswer((_) async => OK(unit));
 
         return registerFormBloc;
       },
