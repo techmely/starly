@@ -13,15 +13,23 @@ fileGroups:
     - "pubspec.*"
 
 tasks:
-  build:
-    command: "bun script/build.ts"
+  pub.get:
+    command: "flutter"
+    args: "pub get"
     inputs:
-      - "@group(app)"
-      - "@group(sources)"
-  dev:
-    command: "vite"
+      - '@group(app)'
     local: true
 
-  start:
-    command: "bun server/index.ts"
+  pub.outdated:
+    command: "melos"
+    args: "outdated"
+    inputs:
+      - '@group(app)'
+    local: true
+  
+  test:
+    command: "melos"
+    args: "test"
+    inputs:
+      - '@group(app)'
     local: true

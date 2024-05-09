@@ -10,7 +10,7 @@ dependencies:
   another_flushbar: ^1.12.30
   calendar_time: ^2.2.0
   collection: ^1.17.1
-  cyclop: ^0.6.2
+  cyclop: ^0.7.0
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   dio: ^5.2.1+1
@@ -22,4 +22,5 @@ dependencies:
   injectable: ^2.1.2
 
 dev_dependencies:
-  test: ^1.24.0
+  flutter_test:
+    sdk: flutter

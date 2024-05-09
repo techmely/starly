@@ -66,3 +66,36 @@ We'll handle the generation of required files for 🚀 your onboarding!
 
 8. Localization
    Using this library to handle multi-languages. Follow this guide to understand and config languages files
+
+
+##- How to run project
+
+
+1. Install flutter + dart
+2. Install proto + moon
+
+```bash
+# A version manager for all your favorite languages and tools. A unified toolchain.
+curl -fsSL https://moonrepo.dev/install/proto.sh | bash
+proto install bun
+proto install rust
+proto plugin add buf "source:https://raw.githubusercontent.com/stk0vrfl0w/proto-toml-plugins/main/plugins/buf.toml"
+proto install buf
+proto plugin add moon "source:https://raw.githubusercontent.com/moonrepo/moon/master/proto-plugin.toml"
+proto install moon
+flutter pub get
+
+```
+
+3. Install `melos` to manage packages 
+
+```bash
+dart pub global activate melos
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+```
+
+4. Run
+
+```bash
+moon run :test --query "language=dart" # Run test
+```
