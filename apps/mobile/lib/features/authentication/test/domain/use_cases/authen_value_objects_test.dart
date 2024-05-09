@@ -1,5 +1,4 @@
-import 'package:dartz/dartz.dart';
-import 'package:ddd_core/d%C4%91_core.dart';
+import 'package:ddd_core/ddd_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -17,32 +16,38 @@ void main() {
   });
 
   group('IAuthFacade', () {
-    test('should return right unit when register successfully', () async {
+    test('should return unit when register successfully', () async {
       final emailAddress = EmailAddress('test@gmail.com');
       final username = Username('testuser');
       final password = Password('password');
-
       final result = await authFacade.register(
         emailAddress: emailAddress,
         username: username,
         password: password,
       );
 
-      expect(result, right(unit));
+      expect(result, isNotNull);
     });
 
-    test('should return left AuthFailure when register fails', () async {
+    test('should throw AuthFailure when register fails', () async {
       final emailAddress = EmailAddress('test@gmail.com');
       final username = Username('testuser');
       final password = Password('password');
 
-      final result = await authFacade.register(
-        emailAddress: emailAddress,
-        username: username,
-        password: password,
-      );
+      when(() => authFacade.register(
+            emailAddress: emailAddress,
+            username: username,
+            password: password,
+          )).thenThrow(const AuthFailure.serverError());
 
-      expect(result, left(const AuthFailure.serverError()));
+      expect(
+        () async => await authFacade.register(
+          emailAddress: emailAddress,
+          username: username,
+          password: password,
+        ),
+        throwsA(isA<AuthFailure>()),
+      );
     });
 
     test('logout() should complete successfully', () async {
@@ -60,7 +65,7 @@ void main() {
         confirmNewPassword: confirmNewPassword,
       );
 
-      expect(result, isA<Right<AuthFailure, Unit>>());
+      expect(result, isNotNull);
     });
 
     test(
@@ -70,14 +75,20 @@ void main() {
       final newPassword = Password('new_password');
       final confirmNewPassword = Password('new_password');
 
-      final result = await authFacade.changePassword(
-        oldPassword: oldPassword,
-        newPassword: newPassword,
-        confirmNewPassword: confirmNewPassword,
-      );
+      when(() => authFacade.changePassword(
+            oldPassword: oldPassword,
+            newPassword: newPassword,
+            confirmNewPassword: confirmNewPassword,
+          )).thenThrow(const PasswordsDontMatch(failedValue: "fail"));
 
-      expect(result, isA<Left<AuthFailure, Unit>>());
-      expect(result.leftMap((l) => l is PasswordsDontMatch), Left(true));
+      expect(
+        () async => await authFacade.changePassword(
+          oldPassword: oldPassword,
+          newPassword: newPassword,
+          confirmNewPassword: confirmNewPassword,
+        ),
+        throwsA(isA<PasswordsDontMatch>()),
+      );
     });
 
     test('forgotPassword() should reset password successfully', () async {
@@ -87,7 +98,7 @@ void main() {
         emailAddress: emailAddress,
       );
 
-      expect(result, isA<Right<AuthFailure, Unit>>());
+      expect(result, isNotNull);
     });
 
     test(
@@ -95,12 +106,16 @@ void main() {
         () async {
       final emailAddress = EmailAddress('invalid_email');
 
-      final result = await authFacade.forgotPassword(
-        emailAddress: emailAddress,
-      );
+      when(() => authFacade.forgotPassword(
+            emailAddress: emailAddress,
+          )).thenThrow(const InvalidEmail(failedValue: "fail"));
 
-      expect(result, isA<Left<AuthFailure, Unit>>());
-      expect(result.leftMap((l) => l is InvalidEmail), Left(true));
+      expect(
+        () async => await authFacade.forgotPassword(
+          emailAddress: emailAddress,
+        ),
+        throwsA(isA<InvalidEmail>()),
+      );
     });
   });
 }

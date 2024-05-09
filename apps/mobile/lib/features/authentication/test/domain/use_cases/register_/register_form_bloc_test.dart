@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
+import 'package:ddd_core/ddd_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -73,7 +74,7 @@ void main() {
               emailAddress: any(named: 'emailAddress'),
               username: any(named: 'username'),
               password: any(named: 'password'),
-            )).thenAnswer((_) async => right(unit));
+            )).thenAnswer((_) async => passCase(unit));
 
         return registerFormBloc;
       },
