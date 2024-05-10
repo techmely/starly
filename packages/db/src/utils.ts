@@ -1,4 +1,4 @@
-import { CreateTableBuilder, sql } from "kysely";
+import { type CreateTableBuilder, sql } from "kysely";
 
 export function withTimestamps<Table extends string, Fields extends string>(
   qb: CreateTableBuilder<Table, Fields>,

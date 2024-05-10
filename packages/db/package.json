@@ -8,7 +8,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/techmely/techmely.git",
-    "directory": "internals/db"
+    "directory": "packages/db"
   },
   "funding": "https://github.com/sponsors/techmely",
   "license": "MIT",
@@ -21,7 +21,6 @@
     "kysely": "0.27.3"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
     "tsup": "8.0.2"
   },
   "publishConfig": {

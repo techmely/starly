@@ -1,5 +1,6 @@
-import { sql, type Kysely } from "kysely";
+import type { Kysely } from "kysely";
 import { withTimestamps } from "../utils";
+import { sql } from "kysely";
 
 export async function up(db: Kysely<any>) {
   await db.schema.createType("meta_schema_type").asEnum(["SYSTEM", "DEFAULT"]).execute();
@@ -13,18 +14,18 @@ export async function up(db: Kysely<any>) {
     .addColumn("is_default", "boolean", (col) => col.notNull().defaultTo(false))
     .addColumn("schema", "jsonb", (col) => col.notNull())
     .addColumn("type", sql`"meta_schema_type"`, (col) => col.notNull().defaultTo("DEFAULT"))
-    .addColumn("tenant_id", "integer", (col) => col.references("tenant.id"))
+    .addColumn("tenant_id", "integer", (col) => col.references("tenants.id"))
     .$call(withTimestamps)
     .execute();
 
   await db.schema
-    .createIndex("meta_schemas_tenant_id")
+    .createIndex("meta_schemas_tenants_id")
     .on("meta_schemas")
     .column("tenant_id")
     .execute();
 
   await db.schema
-    .createIndex("meta_schemas_name_version_tenant_id_unique")
+    .createIndex("meta_schemas_name_version_tenants_id_unique")
     .on("meta_schemas")
     .columns(["name", "version", "tenant_id"])
     .unique()
