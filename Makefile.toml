@@ -4,7 +4,6 @@
 extend = [
   { path = "scripts/api.toml" },
   { path = "scripts/generate.toml" },
-  { path = "scripts/git.toml" },
   { path = "scripts/migration.toml" },
   { path = "scripts/mobile.toml" },
   # { path = "scripts/protobuf.toml" },
@@ -24,3 +23,45 @@ CARGO_PROFILE = "dev"
 CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
 # CARGO_MAKE_CRATE_FS_NAME = "dart_ffi"
 # CARGO_MAKE_CRATE_NAME = "dart-ffi"
+
+# lint-useless:
+#   command:
+#     - "knip"
+#   local: true
+
+# build:
+# 	bun run nx run-many -t build -p
+
+# dev:
+# 	bun run nx run-many -t dev
+
+
+# lint.useless:
+# 	bun run knip
+
+# test.unit:
+# 	bun run vitest --passWithNoTests
+
+# test.unit.coverage:
+# 	bun run vitest --coverage.all
+
+# test.unit.run:
+# 	bun run vitest run --passWithNoTests
+
+# migration.add:
+# 	node scripts/generateMigrateFileApi.mjs
+
+# migration.run:
+# 	bun run tsx scripts/migrate-db.ts
+
+# docker.build:
+# 	bun run nx run-many -t docker.build
+
+# docker.storage:
+# 	bun run nx run-many -t docker.storage
+
+# docker.up:
+# 	bun run nx run-many -t docker.up
+
+# clean:
+# 	bun run nx run-many -t clean -p
