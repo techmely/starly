@@ -22,6 +22,7 @@
     "@aws-sdk/s3-request-presigner": "3.572.0",
     "@techmely/auth": "^1.0.1",
     "@techmely/cache": "1.0.9",
+    "@techmely/db": "workspace:*",
     "@techmely/domain-driven": "1.0.3",
     "@techmely/hono": "workspace:*",
     "@techmely/http": "1.2.6",

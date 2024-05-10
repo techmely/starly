@@ -1,71 +1,52 @@
-import { promises as fs } from "fs";
-import * as path from "path";
-import { fileURLToPath } from "url";
-import * as dotenv from "dotenv";
-import { FileMigrationProvider, Kysely, Migrator, NO_MIGRATIONS } from "kysely";
+import { NO_MIGRATIONS, PostgresDialect } from "kysely";
+import { Pool, type PoolConfig } from "pg";
+import { getEnvVar } from "@techmely/utils";
+import { createDatabase, createMigrator } from "@techmely/db";
 
-const envFile = {
-  dev: ".env.development",
-  prod: ".env",
-  test: ".env.test",
+const dbPoolConfig: PoolConfig = {
+  host: getEnvVar("DB_HOST"),
+  port: +(getEnvVar("DB_PORT") ?? "5432"),
+  user: getEnvVar("DB_USER"),
+  password: getEnvVar("DB_PASSWORD"),
+  database: getEnvVar("DB_DATABASE"),
+  // ssl:
+  //   getEnvVar("DB_SSL", "false") === "true"
+  //     ? {
+  //         rejectUnauthorized: getEnvVar("DB_SSL_REJECT_UNAUTHORIZED", "true") === "true",
+  //       }
+  //     : undefined,
 };
 
-const __filename = fileURLToPath(import.meta.url);
-const args = process.argv.slice(2);
-if (args.length < 2) {
-  console.error(
-    "Please provide 2: environment want to migrate including [dev, prod, test] & 2: Migrate options includes [down, none, latest]",
-  );
-  process.exit(1);
-}
-
-const env = args[0];
-const migrateOption = args[1];
-
-if (!["dev", "prod", "test"].includes(env) || !["latest", "down", "none"].includes(migrateOption)) {
-  console.error(
-    "Please provide 2: environment want to migrate including [dev, prod, test] & 2: Migrate options includes [down, none, latest]",
-  );
-  process.exit(1);
-}
-
-dotenv.config({ path: path.join(process.cwd(), "apps/web", envFile[env]) });
-
-const db = new Kysely({
-  dialect: new PlanetScaleDialect({
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    host: process.env.DB_HOST,
-  }),
+export const dialect = new PostgresDialect({
+  pool: new Pool(dbPoolConfig),
 });
 
-const migrator = new Migrator({
-  db,
-  provider: new FileMigrationProvider({
-    fs,
-    path,
-    migrationFolder: path.join(path.dirname(__filename), "../migrations"),
-  }),
-});
+const db = createDatabase(dialect);
+const migrator = createMigrator(db);
 
-if (migrateOption === "down") {
+const migrationDirection = process.argv[3];
+
+if (!["down", "up", "none"].includes(migrationDirection)) {
+  throw new Error("Migration direction must be one of options [up,down,none]");
+}
+
+if (migrationDirection === "down") {
   migrateDown();
-} else if (migrateOption === "latest") {
-  migrateToLatest();
-} else if (migrateOption === "none") {
+} else if (migrationDirection === "up") {
+  migrateUp();
+} else if (migrationDirection === "none") {
   migrateNone();
 }
 
-async function migrateToLatest() {
-  const { error, results } = await migrator.migrateToLatest();
-  // biome-ignore lint/complexity/noForEach: no needed
-  results?.forEach((it) => {
-    if (it.status === "Success") {
-      console.log(`migration '${it.migrationName}' was executed successfully`);
-    } else if (it.status === "Error") {
-      console.error(`\nfailed to execute migration "${it.migrationName}"\n`);
+async function migrateUp() {
+  const { error, results = [] } = await migrator.migrateToLatest();
+  for (const mr of results) {
+    if (mr.status === "Success") {
+      console.log(`migration '${mr.migrationName}' was executed successfully`);
+    } else if (mr.status === "Error") {
+      console.error(`\nfailed to execute migration "${mr.migrationName}"\n`);
     }
-  });
+  }
 
   if (error) {
     console.error("\nfailed to migrate\n");
@@ -77,15 +58,15 @@ async function migrateToLatest() {
 }
 
 async function migrateDown() {
-  const { error, results } = await migrator.migrateDown();
-  // biome-ignore lint/complexity/noForEach: no needed
-  results?.forEach((it) => {
-    if (it.status === "Success") {
-      console.log(`migration '${it.migrationName}' was reverted successfully`);
-    } else if (it.status === "Error") {
-      console.error(`failed to execute migration "${it.migrationName}"`);
+  const { error, results = [] } = await migrator.migrateDown();
+
+  for (const mr of results) {
+    if (mr.status === "Success") {
+      console.log(`migration '${mr.migrationName}' was reverted successfully`);
+    } else if (mr.status === "Error") {
+      console.error(`failed to execute migration "${mr.migrationName}"`);
     }
-  });
+  }
 
   if (error) {
     console.error("failed to migrate");
@@ -97,15 +78,14 @@ async function migrateDown() {
 }
 
 async function migrateNone() {
-  const { error, results } = await migrator.migrateTo(NO_MIGRATIONS);
-  // biome-ignore lint/complexity/noForEach: no needed
-  results?.forEach((it) => {
-    if (it.status === "Success") {
-      console.log(`migration '${it.migrationName}' was reverted successfully`);
-    } else if (it.status === "Error") {
-      console.error(`failed to execute migration "${it.migrationName}"`);
+  const { error, results = [] } = await migrator.migrateTo(NO_MIGRATIONS);
+  for (const mr of results) {
+    if (mr.status === "Success") {
+      console.log(`migration '${mr.migrationName}' was reverted successfully`);
+    } else if (mr.status === "Error") {
+      console.error(`failed to execute migration "${mr.migrationName}"`);
     }
-  });
+  }
 
   if (error) {
     console.error("\nfailed to migrate\n");
