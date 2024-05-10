@@ -2,16 +2,16 @@
 # https://github.com/sagiegurari/cargo-make
 
 extend = [
-  { path = "scripts/api.toml" },
-  { path = "scripts/generate.toml" },
-  { path = "scripts/migration.toml" },
-  { path = "scripts/mobile.toml" },
+  # { path = "scripts/api.toml" },
+  # { path = "scripts/generate.toml" },
+  # { path = "scripts/migration.toml" },
+  # { path = "scripts/mobile.toml" },
   # { path = "scripts/protobuf.toml" },
-  # { path = "scripts/docker.toml" },
+  { path = "scripts/docker.toml" },
   # { path = "scripts/env.toml" },
-  { path = "scripts/tests.toml" },
-  { path = "scripts/tool.toml" },
-  { path = "scripts/web.toml" },
+  # { path = "scripts/tests.toml" },
+  # { path = "scripts/tool.toml" },
+  # { path = "scripts/web.toml" },
 ]
 
 [config]
