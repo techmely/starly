@@ -5,4 +5,6 @@ tasks:
   build:
     options:
       mergeArgs: "replace"
-    args: "src/**/*.ts --clean --dts --format esm --tsconfig tsconfig.build.json"
+    args: "src/index.ts --clean --dts --format esm --tsconfig tsconfig.build.json"
+  gen.model:
+    command: "kysely-codegen"

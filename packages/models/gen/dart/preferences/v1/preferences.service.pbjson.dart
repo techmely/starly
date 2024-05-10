@@ -13,7 +13,7 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import 'preferences.event.pbjson.dart' as $1;
+import 'preferences.event.pbjson.dart' as $2;
 
 const $core.Map<$core.String, $core.dynamic> PreferencesServiceBase$json = {
   '1': 'PreferencesService',
@@ -24,8 +24,8 @@ const $core.Map<$core.String, $core.dynamic> PreferencesServiceBase$json = {
 
 @$core.Deprecated('Use preferencesServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> PreferencesServiceBase$messageJson = {
-  '.gen.go.preferences.v1.GetPreferencesRequest': $1.GetPreferencesRequest$json,
-  '.gen.go.preferences.v1.GetPreferencesResponse': $1.GetPreferencesResponse$json,
+  '.gen.go.preferences.v1.GetPreferencesRequest': $2.GetPreferencesRequest$json,
+  '.gen.go.preferences.v1.GetPreferencesResponse': $2.GetPreferencesResponse$json,
 };
 
 /// Descriptor for `PreferencesService`. Decode as a `google.protobuf.ServiceDescriptorProto`.

@@ -15,30 +15,30 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'user.event.pb.dart' as $2;
+import 'user.event.pb.dart' as $5;
 import 'user.service.pbjson.dart';
 
 export 'user.service.pb.dart';
 
 abstract class UserServiceBase extends $pb.GeneratedService {
-  $async.Future<$2.GetUserResponse> get($pb.ServerContext ctx, $2.GetUserRequest request);
-  $async.Future<$2.UpdateUserResponse> put($pb.ServerContext ctx, $2.UpdateUserRequest request);
-  $async.Future<$2.ChangeUserEmailResponse> changeEmail($pb.ServerContext ctx, $2.ChangeUserEmailRequest request);
+  $async.Future<$5.GetUserResponse> get($pb.ServerContext ctx, $5.GetUserRequest request);
+  $async.Future<$5.UpdateUserResponse> put($pb.ServerContext ctx, $5.UpdateUserRequest request);
+  $async.Future<$5.ChangeUserEmailResponse> changeEmail($pb.ServerContext ctx, $5.ChangeUserEmailRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'Get': return $2.GetUserRequest();
-      case 'Put': return $2.UpdateUserRequest();
-      case 'ChangeEmail': return $2.ChangeUserEmailRequest();
+      case 'Get': return $5.GetUserRequest();
+      case 'Put': return $5.UpdateUserRequest();
+      case 'ChangeEmail': return $5.ChangeUserEmailRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'Get': return this.get(ctx, request as $2.GetUserRequest);
-      case 'Put': return this.put(ctx, request as $2.UpdateUserRequest);
-      case 'ChangeEmail': return this.changeEmail(ctx, request as $2.ChangeUserEmailRequest);
+      case 'Get': return this.get(ctx, request as $5.GetUserRequest);
+      case 'Put': return this.put(ctx, request as $5.UpdateUserRequest);
+      case 'ChangeEmail': return this.changeEmail(ctx, request as $5.ChangeUserEmailRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }

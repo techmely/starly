@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package gen.go.tenant.v1;
+option go_package="github.com/techmely/techmely/gen/go/tenant/v1;tenant_service_v1";
+
+import "tenant/v1/tenant.model.proto";
+import "tenant/v1/tenant.event.proto";
+
+service TenantService {
+  rpc Get(tenant.v1.GetTenantRequest) returns (tenant.v1.GetTenantResponse) {}
+}

@@ -8,7 +8,7 @@ export async function up(db: Kysely<any>) {
     .addColumn("name", "varchar(255)", (col) => col.notNull())
     .addColumn("slug", "varchar(255)", (col) => col.unique().notNull())
     .addColumn("description", "text", (col) => col.notNull().defaultTo(""))
-    .addColumn("verified", "boolean", (col) => col.notNull().defaultTo(false))
+    .addColumn("is_verified", "boolean", (col) => col.notNull().defaultTo(false))
     .addColumn("owner_id", "text", (col) => col.references("users.id").onDelete("set null"))
     .addColumn("metadata", "jsonb")
     .$call(withTimestamps)

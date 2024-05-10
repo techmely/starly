@@ -120,3 +120,37 @@ final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'F0YVIIbWV0YWRhdGESOAoIcHJvdmlkZXIYEiABKAsyHC5nZW4uZ28udXNlci52MS5Vc2VyUHJv'
     'dmlkZXJSCHByb3ZpZGVy');
 
+@$core.Deprecated('Use userTableDescriptor instead')
+const UserTable$json = {
+  '1': 'UserTable',
+  '2': [
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'email', '3': 2, '4': 1, '5': 9, '10': 'email'},
+    {'1': 'unverified_email', '3': 3, '4': 1, '5': 9, '9': 0, '10': 'unverifiedEmail', '17': true},
+    {'1': 'nickname', '3': 4, '4': 1, '5': 9, '10': 'nickname'},
+    {'1': 'status', '3': 5, '4': 1, '5': 14, '6': '.gen.go.user.v1.UserStatus', '10': 'status'},
+    {'1': 'is_email_verified', '3': 6, '4': 1, '5': 8, '10': 'isEmailVerified'},
+    {'1': 'name', '3': 7, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'avatar_url', '3': 8, '4': 1, '5': 9, '10': 'avatarUrl'},
+    {'1': 'firebase_user_id', '3': 9, '4': 1, '5': 9, '10': 'firebaseUserId'},
+    {'1': 'metadata', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Any', '10': 'metadata'},
+    {'1': 'created_at', '3': 11, '4': 1, '5': 9, '10': 'createdAt'},
+    {'1': 'updated_at', '3': 12, '4': 1, '5': 9, '10': 'updatedAt'},
+  ],
+  '8': [
+    {'1': '_unverified_email'},
+  ],
+};
+
+/// Descriptor for `UserTable`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List userTableDescriptor = $convert.base64Decode(
+    'CglVc2VyVGFibGUSDgoCaWQYASABKAlSAmlkEhQKBWVtYWlsGAIgASgJUgVlbWFpbBIuChB1bn'
+    'ZlcmlmaWVkX2VtYWlsGAMgASgJSABSD3VudmVyaWZpZWRFbWFpbIgBARIaCghuaWNrbmFtZRgE'
+    'IAEoCVIIbmlja25hbWUSMgoGc3RhdHVzGAUgASgOMhouZ2VuLmdvLnVzZXIudjEuVXNlclN0YX'
+    'R1c1IGc3RhdHVzEioKEWlzX2VtYWlsX3ZlcmlmaWVkGAYgASgIUg9pc0VtYWlsVmVyaWZpZWQS'
+    'EgoEbmFtZRgHIAEoCVIEbmFtZRIdCgphdmF0YXJfdXJsGAggASgJUglhdmF0YXJVcmwSKAoQZm'
+    'lyZWJhc2VfdXNlcl9pZBgJIAEoCVIOZmlyZWJhc2VVc2VySWQSMAoIbWV0YWRhdGEYCiABKAsy'
+    'FC5nb29nbGUucHJvdG9idWYuQW55UghtZXRhZGF0YRIdCgpjcmVhdGVkX2F0GAsgASgJUgljcm'
+    'VhdGVkQXQSHQoKdXBkYXRlZF9hdBgMIAEoCVIJdXBkYXRlZEF0QhMKEV91bnZlcmlmaWVkX2Vt'
+    'YWls');
+
