@@ -1,14 +1,14 @@
 #!/usr/bin/env bun
 
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 function generateFilePath(name: string) {
   const currentDate = new Date();
   const isoDate = currentDate.toISOString();
   const fileName = `${isoDate.replaceAll(":", "").replaceAll("-", "")}-${name}.ts`;
 
-  return path.join(process.cwd(), "internals/db/src/migrations", fileName);
+  return path.join(process.cwd(), "packages/db/src/migrations", fileName);
 }
 
 function createFile(fileName: string) {
