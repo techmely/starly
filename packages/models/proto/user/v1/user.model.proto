@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/any.proto";
+
 package gen.go.user.v1;
 option go_package="github.com/techmely/techmely/gen/go/user/v1;user_model_v1";
 
@@ -53,4 +55,19 @@ message User {
     bool is_beta_user = 16;
     UserMetadata metadata = 17;
     UserProvider provider = 18;
+}
+
+message UserTable {
+    string id = 1;
+    string email = 2;
+    optional string unverified_email = 3;
+    string nickname = 4;
+    UserStatus status = 5;
+    bool is_email_verified = 6;
+    string name = 7;
+    string avatar_url = 8;
+    string firebase_user_id = 9;
+    google.protobuf.Any metadata = 10;
+    string created_at = 11;
+    string updated_at = 12;
 }

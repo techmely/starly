@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package gen.go.meta_schema.v1;
+option go_package="github.com/techmely/techmely/gen/go/meta_schema/v1;meta_schema_event_v1";
+
+message GetMetaSchemaRequest {
+  string id = 1;
+}
+
+message GetMetaSchemaResponse {
+  string id = 1;
+}
