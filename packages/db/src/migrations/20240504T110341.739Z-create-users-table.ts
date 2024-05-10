@@ -1,8 +1,9 @@
 import type { Kysely } from "kysely";
 import { withTimestamps } from "../utils";
 import { sql } from "kysely";
+import type { DB } from "kysely-codegen";
 
-export async function up(db: Kysely<any>) {
+export async function up(db: Kysely<DB>) {
   await db.schema
     .createType("user_status")
     .asEnum(["NEWBIE", "VERIFIED", "BLACKLIST", "INACTIVE", "ACTIVE", "CLOSED"])
