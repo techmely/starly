@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
 
-class Failure<L, R> extends Either<L, R> {
+class FAILURE<L, R> extends Either<L, R> {
   final L _l;
-  const Failure(this._l);
+  const FAILURE(this._l);
   L get value => _l;
   @override
   B fold<B>(B ifLeft(L l), B ifRight(R r)) => ifLeft(_l);
   @override
-  bool operator ==(other) => other is Failure && other._l == _l;
+  bool operator ==(other) => other is FAILURE && other._l == _l;
   @override
   int get hashCode => _l.hashCode;
 }
@@ -25,4 +25,4 @@ class OKE<L, R> extends Either<L, R> {
 }
 
 Either<L, R> OK<L, R>(R r) => new OKE(r);
-Either<L, R> failure<L, R>(L l) => new Failure(l);
+Either<L, R> Failure<L, R>(L l) => new FAILURE(l);

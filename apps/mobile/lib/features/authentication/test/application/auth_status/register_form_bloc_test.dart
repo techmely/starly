@@ -131,7 +131,7 @@ void main() {
         ).thenAnswer(
           (_) => Future.delayed(
             const Duration(milliseconds: 1),
-            () => failure(const AuthFailure.serverError()),
+            () => Failure(const AuthFailure.serverError()),
           ),
         );
         return registerFormBloc;

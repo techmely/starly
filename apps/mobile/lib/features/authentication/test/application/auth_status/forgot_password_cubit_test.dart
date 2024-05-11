@@ -92,7 +92,7 @@ void main() {
         ).thenAnswer(
           (_) => Future.delayed(
             const Duration(milliseconds: 1),
-            () => failure(const AuthFailure.serverError()),
+            () => Failure(const AuthFailure.serverError()),
           ),
         );
         forgotPasswordCubit.emailChanged(email);
@@ -109,7 +109,7 @@ void main() {
           isSubmitting: false,
           showErrorMessages: true,
           authFailureOrSuccessOption:
-              some(failure(const AuthFailure.serverError())),
+              some(Failure(const AuthFailure.serverError())),
         ),
       ],
       verify: (_) {
