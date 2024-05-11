@@ -1,6 +1,5 @@
-import type { EmitDomainEvents } from "@techmely/domain-driven";
+import type {} from "@techmely/domain-driven";
 import type { HonoEnv } from "@techmely/hono";
-import Emittery from "emittery";
 import { Hono } from "hono";
 import { UserController } from "../../../application/controllers/user.controller";
 import { CreateUserInteractor } from "../../../application/use-cases/interactors/create-user.interactor";
@@ -9,8 +8,7 @@ import { UserMapper } from "../../mappers/user.mapper";
 import { UserPlanetScaleRepository } from "../../persistence/planet-scale/user.impl.repository";
 
 const userMapper = new UserMapper();
-const emitter = new Emittery<EmitDomainEvents>();
-const userRepo = new UserPlanetScaleRepository(userMapper, emitter);
+const userRepo = new UserPlanetScaleRepository(userMapper);
 const createUserUseCases = new CreateUserInteractor(userRepo);
 const loginUserPasswordUseCases = new LoginEmailPasswordInteractor(userRepo);
 const userController = new UserController(createUserUseCases, loginUserPasswordUseCases);
