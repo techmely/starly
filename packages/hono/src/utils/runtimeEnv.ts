@@ -1,8 +1,8 @@
-import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
-import { z } from "zod";
-import type { HttpInstance } from "@techmely/http";
 import type { UserFromDecodedIdToken } from "@techmely/auth";
+import type { HttpInstance } from "@techmely/http";
+import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import type { SocketAddress } from "bun";
+import { z } from "zod";
 
 export const serverRuntimeEnvSchema = z.object({
   ENV: z.enum(["development", "staging", "production"]).default("development"),
@@ -88,6 +88,9 @@ export type AppConfig = {
     allowMethods: string[];
     maxAge: number;
     credentials: string;
+  };
+  admin: {
+    authIds: string[];
   };
 };
 

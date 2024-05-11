@@ -5,6 +5,7 @@ import { timing } from "hono/timing";
 import type { HonoEnv } from "@techmely/hono";
 import { serverRuntimeEnvSchema } from "@techmely/hono";
 import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
+import { userRouter } from "./contexts/identiyaccess/user/infras/http/routers/user.router";
 import { globalHandleError } from "./libs/error/global.handle-error";
 import { initApp } from "./libs/middlewares/init";
 
@@ -32,6 +33,8 @@ app.get("/routers", (c) => {
     })),
   );
 });
+
+app.route("/api/v1/users", userRouter);
 
 app.onError(globalHandleError);
 
