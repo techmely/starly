@@ -14,6 +14,9 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/any.pb.dart' as $3;
+import 'user.model.pbenum.dart';
+
 export 'user.model.pbenum.dart';
 
 class UserProvider extends $pb.GeneratedMessage {
@@ -490,6 +493,212 @@ class User extends $pb.GeneratedMessage {
   void clearProvider() => clearField(18);
   @$pb.TagNumber(18)
   UserProvider ensureProvider() => $_ensure(17);
+}
+
+class UserTable extends $pb.GeneratedMessage {
+  factory UserTable({
+    $core.String? id,
+    $core.String? email,
+    $core.String? unverifiedEmail,
+    $core.String? nickname,
+    UserStatus? status,
+    $core.bool? isEmailVerified,
+    $core.String? name,
+    $core.String? avatarUrl,
+    $core.String? firebaseUserId,
+    $3.Any? metadata,
+    $core.String? createdAt,
+    $core.String? updatedAt,
+  }) {
+    final $result = create();
+    if (id != null) {
+      $result.id = id;
+    }
+    if (email != null) {
+      $result.email = email;
+    }
+    if (unverifiedEmail != null) {
+      $result.unverifiedEmail = unverifiedEmail;
+    }
+    if (nickname != null) {
+      $result.nickname = nickname;
+    }
+    if (status != null) {
+      $result.status = status;
+    }
+    if (isEmailVerified != null) {
+      $result.isEmailVerified = isEmailVerified;
+    }
+    if (name != null) {
+      $result.name = name;
+    }
+    if (avatarUrl != null) {
+      $result.avatarUrl = avatarUrl;
+    }
+    if (firebaseUserId != null) {
+      $result.firebaseUserId = firebaseUserId;
+    }
+    if (metadata != null) {
+      $result.metadata = metadata;
+    }
+    if (createdAt != null) {
+      $result.createdAt = createdAt;
+    }
+    if (updatedAt != null) {
+      $result.updatedAt = updatedAt;
+    }
+    return $result;
+  }
+  UserTable._() : super();
+  factory UserTable.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UserTable.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UserTable', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'email')
+    ..aOS(3, _omitFieldNames ? '' : 'unverifiedEmail')
+    ..aOS(4, _omitFieldNames ? '' : 'nickname')
+    ..e<UserStatus>(5, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: UserStatus.VERIFIED, valueOf: UserStatus.valueOf, enumValues: UserStatus.values)
+    ..aOB(6, _omitFieldNames ? '' : 'isEmailVerified')
+    ..aOS(7, _omitFieldNames ? '' : 'name')
+    ..aOS(8, _omitFieldNames ? '' : 'avatarUrl')
+    ..aOS(9, _omitFieldNames ? '' : 'firebaseUserId')
+    ..aOM<$3.Any>(10, _omitFieldNames ? '' : 'metadata', subBuilder: $3.Any.create)
+    ..aOS(11, _omitFieldNames ? '' : 'createdAt')
+    ..aOS(12, _omitFieldNames ? '' : 'updatedAt')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UserTable clone() => UserTable()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UserTable copyWith(void Function(UserTable) updates) => super.copyWith((message) => updates(message as UserTable)) as UserTable;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UserTable create() => UserTable._();
+  UserTable createEmptyInstance() => create();
+  static $pb.PbList<UserTable> createRepeated() => $pb.PbList<UserTable>();
+  @$core.pragma('dart2js:noInline')
+  static UserTable getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UserTable>(create);
+  static UserTable? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get email => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set email($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasEmail() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearEmail() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get unverifiedEmail => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set unverifiedEmail($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasUnverifiedEmail() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUnverifiedEmail() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get nickname => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set nickname($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasNickname() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearNickname() => clearField(4);
+
+  @$pb.TagNumber(5)
+  UserStatus get status => $_getN(4);
+  @$pb.TagNumber(5)
+  set status(UserStatus v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasStatus() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearStatus() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.bool get isEmailVerified => $_getBF(5);
+  @$pb.TagNumber(6)
+  set isEmailVerified($core.bool v) { $_setBool(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasIsEmailVerified() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearIsEmailVerified() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get name => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set name($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasName() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearName() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get avatarUrl => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set avatarUrl($core.String v) { $_setString(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasAvatarUrl() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearAvatarUrl() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get firebaseUserId => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set firebaseUserId($core.String v) { $_setString(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasFirebaseUserId() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearFirebaseUserId() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $3.Any get metadata => $_getN(9);
+  @$pb.TagNumber(10)
+  set metadata($3.Any v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasMetadata() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearMetadata() => clearField(10);
+  @$pb.TagNumber(10)
+  $3.Any ensureMetadata() => $_ensure(9);
+
+  @$pb.TagNumber(11)
+  $core.String get createdAt => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set createdAt($core.String v) { $_setString(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasCreatedAt() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearCreatedAt() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.String get updatedAt => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set updatedAt($core.String v) { $_setString(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasUpdatedAt() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearUpdatedAt() => clearField(12);
 }
 
 

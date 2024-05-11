@@ -17,12 +17,12 @@
   "types": "dist/index.d.ts",
   "files": ["dist", "README.md", "CHANGELOG.md"],
   "peerDependencies": {
-    "@techmely/utils": "^3.1.0",
+    "@techmely/utils": "^3.2.0",
     "@techmely/auth": "^1.0.1",
     "jose": "^5.2.4",
-    "hono": "^4.3.2",
+    "hono": "^4.3.4",
     "toucan-js": "^3.4.0",
-    "zod": "^3.23.6"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@techmely/types": "1.6.9",

@@ -1,7 +1,8 @@
 import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import { z } from "zod";
-import type { Http } from "@techmely/http";
+import type { HttpInstance } from "@techmely/http";
 import type { UserFromDecodedIdToken } from "@techmely/auth";
+import type { SocketAddress } from "bun";
 
 export const serverRuntimeEnvSchema = z.object({
   ENV: z.enum(["development", "staging", "production"]).default("development"),
@@ -55,7 +56,7 @@ export type ContainerServicesCtx = {
   metrics?: MetricsPort;
   usageLimiter?: UsageLimiterPort;
   rateLimiter?: RateLimiterPort;
-  http?: Http;
+  http?: HttpInstance;
 };
 
 export type AppConfig = {

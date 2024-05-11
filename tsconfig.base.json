@@ -6,7 +6,7 @@
     "moduleResolution": "Bundler",
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["@cloudflare/workers-types", "vite/client"],
+    "types": ["vite/client", "@types/bun"],
     "composite": true,
     "moduleDetection": "force",
     "allowImportingTsExtensions": true,

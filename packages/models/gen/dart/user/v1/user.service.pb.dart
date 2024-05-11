@@ -14,20 +14,20 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'user.event.pb.dart' as $2;
+import 'user.event.pb.dart' as $5;
 
 class UserServiceApi {
   $pb.RpcClient _client;
   UserServiceApi(this._client);
 
-  $async.Future<$2.GetUserResponse> get($pb.ClientContext? ctx, $2.GetUserRequest request) =>
-    _client.invoke<$2.GetUserResponse>(ctx, 'UserService', 'Get', request, $2.GetUserResponse())
+  $async.Future<$5.GetUserResponse> get($pb.ClientContext? ctx, $5.GetUserRequest request) =>
+    _client.invoke<$5.GetUserResponse>(ctx, 'UserService', 'Get', request, $5.GetUserResponse())
   ;
-  $async.Future<$2.UpdateUserResponse> put($pb.ClientContext? ctx, $2.UpdateUserRequest request) =>
-    _client.invoke<$2.UpdateUserResponse>(ctx, 'UserService', 'Put', request, $2.UpdateUserResponse())
+  $async.Future<$5.UpdateUserResponse> put($pb.ClientContext? ctx, $5.UpdateUserRequest request) =>
+    _client.invoke<$5.UpdateUserResponse>(ctx, 'UserService', 'Put', request, $5.UpdateUserResponse())
   ;
-  $async.Future<$2.ChangeUserEmailResponse> changeEmail($pb.ClientContext? ctx, $2.ChangeUserEmailRequest request) =>
-    _client.invoke<$2.ChangeUserEmailResponse>(ctx, 'UserService', 'ChangeEmail', request, $2.ChangeUserEmailResponse())
+  $async.Future<$5.ChangeUserEmailResponse> changeEmail($pb.ClientContext? ctx, $5.ChangeUserEmailRequest request) =>
+    _client.invoke<$5.ChangeUserEmailResponse>(ctx, 'UserService', 'ChangeEmail', request, $5.ChangeUserEmailResponse())
   ;
 }
 

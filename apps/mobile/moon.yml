@@ -13,23 +13,28 @@ fileGroups:
     - "pubspec.*"
 
 tasks:
+  clean:
+    command: "flutter"
+    args: "clean"
+    local: true
+
   pub.get:
     command: "flutter"
     args: "pub get"
     inputs:
-      - '@group(app)'
+      - "@group(app)"
     local: true
 
   pub.outdated:
     command: "melos"
     args: "outdated"
     inputs:
-      - '@group(app)'
+      - "@group(app)"
     local: true
-  
+
   test:
     command: "melos"
     args: "test"
     inputs:
-      - '@group(app)'
+      - "@group(app)"
     local: true

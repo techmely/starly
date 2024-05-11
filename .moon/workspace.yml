@@ -9,13 +9,15 @@ vcs:
   syncHooks: true
   hooks:
     commit-msg:
-      - echo "commit msg"
+      - scripts/git/commit-msg.sh
     pre-commit:
-      - echo "pre commit msg"
+      - scripts/git/pre-commit.sh
     pre-push:
-      - echo "pre push"
+      - scripts/git/pre-push.sh
     prepare-commit-msg:
-      - echo "prepare commit msg"
+      - scripts/git/commit-msg.sh
+    post-checkout:
+      - scripts/git/post-checkout.sh
 
 hasher:
   optimization: "performance"

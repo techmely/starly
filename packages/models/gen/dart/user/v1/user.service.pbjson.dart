@@ -13,7 +13,7 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import 'user.event.pbjson.dart' as $2;
+import 'user.event.pbjson.dart' as $5;
 
 const $core.Map<$core.String, $core.dynamic> UserServiceBase$json = {
   '1': 'UserService',
@@ -26,12 +26,12 @@ const $core.Map<$core.String, $core.dynamic> UserServiceBase$json = {
 
 @$core.Deprecated('Use userServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> UserServiceBase$messageJson = {
-  '.gen.go.user.v1.GetUserRequest': $2.GetUserRequest$json,
-  '.gen.go.user.v1.GetUserResponse': $2.GetUserResponse$json,
-  '.gen.go.user.v1.UpdateUserRequest': $2.UpdateUserRequest$json,
-  '.gen.go.user.v1.UpdateUserResponse': $2.UpdateUserResponse$json,
-  '.gen.go.user.v1.ChangeUserEmailRequest': $2.ChangeUserEmailRequest$json,
-  '.gen.go.user.v1.ChangeUserEmailResponse': $2.ChangeUserEmailResponse$json,
+  '.gen.go.user.v1.GetUserRequest': $5.GetUserRequest$json,
+  '.gen.go.user.v1.GetUserResponse': $5.GetUserResponse$json,
+  '.gen.go.user.v1.UpdateUserRequest': $5.UpdateUserRequest$json,
+  '.gen.go.user.v1.UpdateUserResponse': $5.UpdateUserResponse$json,
+  '.gen.go.user.v1.ChangeUserEmailRequest': $5.ChangeUserEmailRequest$json,
+  '.gen.go.user.v1.ChangeUserEmailResponse': $5.ChangeUserEmailResponse$json,
 };
 
 /// Descriptor for `UserService`. Decode as a `google.protobuf.ServiceDescriptorProto`.

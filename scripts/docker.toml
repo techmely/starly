@@ -1,0 +1,4 @@
+[tasks.docker-db-local-up]
+script = """
+docker-compose -f docker/docker-compose.yml up -d
+"""

@@ -1,8 +1,8 @@
 version: "3.8"
-
+name: techmely-local-db
 services:
   postgresql:
-    image: docker.io/bitnami/postgresql:16
+    image: docker.io/bitnami/postgresql:16.3.0
     ports:
       - "5432:5432"
     volumes:
@@ -30,7 +30,7 @@ services:
       /bin/sh -c "
       /usr/bin/mc alias set techmely_minio http://minio:9000 minio_access_key minio_secret_key;
       /usr/bin/mc mb techmely_minio/techmely;
-      /usr/bin/mc policy set public techmely_minio/techmely;
+      /usr/bin/mc mc anonymous set public techmely_minio/techmely;
       exit 0;
       "
 volumes:
