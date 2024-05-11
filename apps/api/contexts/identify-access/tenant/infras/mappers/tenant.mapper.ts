@@ -1,6 +1,6 @@
 import type { Mapper } from "@techmely/domain-driven";
 import type { TenantEntity } from "../../domain/entities/tenant.entity";
-import type { TenantModel } from "../../domain/repo/tenant.model";
+import type { TenantModel } from "../../domain/tenant.schema";
 
 export class TenantMapper implements Mapper<TenantEntity, TenantModel> {
   toPersistence(entity: TenantEntity): {

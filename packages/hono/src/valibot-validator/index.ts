@@ -1,45 +1,55 @@
-import type { Context, Env, MiddlewareHandler, TypedResponse, ValidationTargets } from "hono";
+import type { Context, Env, Input as HonoInput, MiddlewareHandler, ValidationTargets } from "hono";
 import { validator } from "hono/validator";
-import type { ZodError, ZodSchema, z } from "zod";
+import type { BaseSchema, Input, Output, SafeParseResult } from "valibot";
+import { safeParse } from "valibot";
 
-export type Hook<T, E extends Env, P extends string, O = {}> = (
-  result: { success: true; data: T } | { success: false; error: ZodError; data: T },
+type Hook<T extends BaseSchema, E extends Env, P extends string> = (
+  result: SafeParseResult<T>,
   c: Context<E, P>,
-) => Response | Promise<Response> | void | Promise<Response | void> | TypedResponse<O>;
+  // biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
+) => Response | Promise<Response> | void | Promise<Response | void>;
 
 type HasUndefined<T> = undefined extends T ? true : false;
 
-export const zValidator = <
-  T extends ZodSchema,
+export const vValidator = <
+  T extends BaseSchema,
   Target extends keyof ValidationTargets,
   E extends Env,
   P extends string,
-  I = z.input<T>,
-  O = z.output<T>,
-  V extends {
-    in: HasUndefined<I> extends true ? { [K in Target]?: I } : { [K in Target]: I };
-    out: { [K in Target]: O };
-  } = {
-    in: HasUndefined<I> extends true ? { [K in Target]?: I } : { [K in Target]: I };
-    out: { [K in Target]: O };
+  In = Input<T>,
+  Out = Output<T>,
+  I extends HonoInput = {
+    in: HasUndefined<In> extends true
+      ? {
+          [K in Target]?: K extends "json"
+            ? In
+            : HasUndefined<keyof ValidationTargets[K]> extends true
+              ? { [K2 in keyof In]?: ValidationTargets[K][K2] }
+              : { [K2 in keyof In]: ValidationTargets[K][K2] };
+        }
+      : {
+          [K in Target]: K extends "json"
+            ? In
+            : HasUndefined<keyof ValidationTargets[K]> extends true
+              ? { [K2 in keyof In]?: ValidationTargets[K][K2] }
+              : { [K2 in keyof In]: ValidationTargets[K][K2] };
+        };
+    out: { [K in Target]: Out };
   },
+  V extends I = I,
 >(
   target: Target,
   schema: T,
-  hook?: Hook<z.infer<T>, E, P>,
+  hook?: Hook<T, E, P>,
 ): MiddlewareHandler<E, P, V> =>
-  validator(target, async (value, c) => {
-    const result = await schema.safeParseAsync(value);
+  // @ts-expect-error not typed well
+  validator(target, (value, c) => {
+    const result = safeParse(schema, value);
 
     if (hook) {
-      const hookResult = hook({ data: value, ...result }, c);
-      if (hookResult) {
-        if (hookResult instanceof Response || hookResult instanceof Promise) {
-          return hookResult;
-        }
-        if ("response" in hookResult) {
-          return hookResult.response;
-        }
+      const hookResult = hook(result, c);
+      if (hookResult instanceof Response || hookResult instanceof Promise) {
+        return hookResult;
       }
     }
 
@@ -47,6 +57,6 @@ export const zValidator = <
       return c.json(result, 400);
     }
 
-    const data = result.data as z.infer<T>;
+    const data = result.output as Output<T>;
     return data;
   });

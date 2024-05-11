@@ -1,6 +1,6 @@
 import { CamelCasePlugin, Kysely } from "kysely";
 import { PlanetScaleDialect } from "kysely-planetscale";
-import type { TenantModel } from "../../../domain/repo/tenant.model";
+import type { TenantModel } from "../../../domain/tenant.schema";
 
 let dbClient: Kysely<AppDatabase>;
 

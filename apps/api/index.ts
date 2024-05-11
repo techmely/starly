@@ -5,6 +5,8 @@ import { timing } from "hono/timing";
 import type { HonoEnv } from "@techmely/hono";
 import { serverRuntimeEnvSchema } from "@techmely/hono";
 import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
+import { safeParse } from "valibot";
+import { authRouter } from "./contexts/identify-access/user/infras/http/routers/auth.router";
 import { userRouter } from "./contexts/identify-access/user/infras/http/routers/user.router";
 import { globalHandleError } from "./libs/error/global.handle-error";
 import { initApp } from "./libs/middlewares/init";
@@ -34,6 +36,7 @@ app.get("/routers", (c) => {
   );
 });
 
+app.route("/api/v1/auth", authRouter);
 app.route("/api/v1/users", userRouter);
 
 app.onError(globalHandleError);
@@ -41,17 +44,17 @@ app.onError(globalHandleError);
 Bun.serve({
   port: 3000,
   fetch(req, server) {
-    const parsedEnv = serverRuntimeEnvSchema.safeParse(Bun.env);
+    const parsedEnv = safeParse(serverRuntimeEnvSchema, Bun.env);
     if (!parsedEnv.success) {
       return Response.json(
         {
           code: "BAD_ENVIRONMENT",
           message: "Some environment variables are missing or are invalid",
-          errors: parsedEnv.error,
+          errors: parsedEnv.issues[0],
         },
         { status: 500 },
       );
     }
-    return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.data });
+    return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
   },
 });
