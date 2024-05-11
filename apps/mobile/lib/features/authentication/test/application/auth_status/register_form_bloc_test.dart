@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
+import 'package:ddd_core/ddd_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -77,7 +78,7 @@ void main() {
         ).thenAnswer(
           (_) => Future.delayed(
             const Duration(milliseconds: 1),
-            () => right(unit),
+            () => OK(unit),
           ),
         );
         return registerFormBloc;
@@ -104,7 +105,7 @@ void main() {
           username: Username(username),
           isSubmitting: false,
           showErrorMessages: true,
-          authFailureOrSuccessOption: some(right(unit)),
+          authFailureOrSuccessOption: some(OK(unit)),
         ),
       ],
       verify: (_) {
@@ -130,7 +131,7 @@ void main() {
         ).thenAnswer(
           (_) => Future.delayed(
             const Duration(milliseconds: 1),
-            () => left(const AuthFailure.serverError()),
+            () => Failure(const AuthFailure.serverError()),
           ),
         );
         return registerFormBloc;
@@ -157,8 +158,7 @@ void main() {
           username: Username(username),
           isSubmitting: false,
           showErrorMessages: true,
-          authFailureOrSuccessOption:
-              some(left(const AuthFailure.serverError())),
+          authFailureOrSuccessOption: some(fail('Test fail')),
         ),
       ],
       verify: (_) {
