@@ -25,7 +25,7 @@
     "@techmely/db": "workspace:*",
     "@techmely/domain-driven": "1.0.3",
     "@techmely/hono": "workspace:*",
-    "@techmely/http": "1.2.6",
+    "@techmely/http": "1.2.8",
     "@techmely/logger": "1.1.2",
     "@techmely/metrics": "1.0.9",
     "@techmely/models": "workspace:*",
