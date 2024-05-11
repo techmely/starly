@@ -2,49 +2,49 @@ import type { UserFromDecodedIdToken } from "@techmely/auth";
 import type { HttpInstance } from "@techmely/http";
 import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import type { SocketAddress } from "bun";
-import { z } from "zod";
+import { type Output, boolean, object, optional, picklist, string, transform } from "valibot";
 
-export const serverRuntimeEnvSchema = z.object({
-  ENV: z.enum(["development", "staging", "production"]).default("development"),
-  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-  DEBUG: z.boolean().default(false),
-  COOKIE_DOMAIN: z.string(),
-  AXIOM_TOKEN: z.string().optional(),
-  VERSION: z.string().default("1.0.0"),
+export const serverRuntimeEnvSchema = object({
+  ENV: optional(picklist(["development", "staging", "optional(production"]), "development"),
+  NODE_ENV: optional(picklist(["development", "test", "optional(production"]), "development"),
+  DEBUG: optional(boolean(), false),
+  COOKIE_DOMAIN: string(),
+  AXIOM_TOKEN: optional(string()),
+  VERSION: optional(string(), "1.0.0"),
 
-  DB_HOST: z.string(),
-  DB_PORT: z.string().transform((p) => +p),
-  DB_USER: z.string(),
-  DB_PASSWORD: z.string(),
-  DB_NAME: z.string().default("techmely"),
-  DB_SSL: z.string(),
+  DB_HOST: string(),
+  DB_PORT: transform(string(), (p) => +p),
+  DB_USER: string(),
+  DB_PASSWORD: string(),
+  DB_NAME: optional(string(), "techmely"),
+  DB_SSL: string(),
 
-  FIREBASE_API_KEY: z.string(),
-  FIREBASE_PROJECT_ID: z.string(),
+  FIREBASE_API_KEY: string(),
+  FIREBASE_PROJECT_ID: string(),
 
-  S3_ENDPOINT: z.string(),
-  S3_ACCESS_KEY_ID: z.string(),
-  S3_SECRET_ACCESS_KEY: z.string(),
-  S3_BUCKET: z.string(),
-  S3_REGION: z.string(),
-  S3_GET_GCS_IMAGE_SERVING_ENDPOINT: z.string(),
+  S3_ENDPOINT: string(),
+  S3_ACCESS_KEY_ID: string(),
+  S3_SECRET_ACCESS_KEY: string(),
+  S3_BUCKET: string(),
+  S3_REGION: string(),
+  S3_GET_GCS_IMAGE_SERVING_ENDPOINT: string(),
 
-  CORS_ORIGIN: z.string(),
-  CORS_ALLOW_HEADERS: z.string(),
-  CORS_ALLOW_METHODS: z.string(),
-  CORS_MAX_AGE: z.string().transform((v) => +v),
-  CORS_CREDENTIALS: z.string(),
+  CORS_ORIGIN: string(),
+  CORS_ALLOW_HEADERS: string(),
+  CORS_ALLOW_METHODS: string(),
+  CORS_MAX_AGE: transform(string(), (v) => +v),
+  CORS_CREDENTIALS: string(),
 });
 
-export const clientRuntimeEnvSchema = z.object({
-  VITE_ENV: z.enum(["development", "staging", "production"]).default("development"),
-  VITE_NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-  VITE_DEBUG: z.boolean().default(false),
-  VITE_COOKIE_DOMAIN: z.string(),
-  VITE_VERSION: z.string().default("1.0.0"),
+export const clientRuntimeEnvSchema = object({
+  VITE_ENV: optional(picklist(["development", "staging", "optional(production"]), "development"),
+  VITE_NODE_ENV: optional(picklist(["development", "test", "optional(production"], "development")),
+  VITE_DEBUG: optional(boolean(), false),
+  VITE_COOKIE_DOMAIN: string(),
+  VITE_VERSION: optional(string(), "1.0.0"),
 });
 
-export type AppEnv = z.infer<typeof serverRuntimeEnvSchema> & {
+export type AppEnv = Output<typeof serverRuntimeEnvSchema> & {
   IP: SocketAddress;
 };
 

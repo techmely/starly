@@ -3,7 +3,7 @@ language: "typescript"
 
 workspace:
   inheritedTasks:
-    exclude: ["build", "lint", "clean", "publish"]
+    exclude: ["build", "lint-biome", "lint", "clean", "publish"]
 
 tasks:
   gen:
