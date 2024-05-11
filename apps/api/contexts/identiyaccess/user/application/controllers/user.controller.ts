@@ -1,7 +1,7 @@
-import type { CreateUserInPort } from "../../domain/use-cases/port/create-user.in-port";
-import type { LoginEmailPasswordInPort } from "../../domain/use-cases/port/login-email-password.in-port";
 import type { CreateUserDto } from "../dtos/create-user.dto";
 import type { LoginEmailPasswordDTO } from "../dtos/login.dto";
+import type { CreateUserInPort } from "../use-cases/port/create-user.in-port";
+import type { LoginEmailPasswordInPort } from "../use-cases/port/login-email-password.in-port";
 
 export class UserController {
   constructor(
