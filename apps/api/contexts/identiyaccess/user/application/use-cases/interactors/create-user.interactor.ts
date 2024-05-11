@@ -1,4 +1,4 @@
-import { UserEntity } from "../../entities/user.entity";
+import { UserEntity } from "../../../domain/entities/user.entity";
 import type { CreateUserCommand, CreateUserInPort } from "../port/create-user.in-port";
 import type { CreateUserOutPort } from "../port/create-user.out-port";
 
