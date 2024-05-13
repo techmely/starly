@@ -1,4 +1,4 @@
-# Techmely
+# Tech guide
 
 ## How to run project
 
