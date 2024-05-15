@@ -1,0 +1,53 @@
+title: "Nue: The content-first web framework"
+desc: Nue is a fresh Next.js and Astro alternative with a content-first development model, universal hot-reloading, and extreme performance.
+logo: /img/logo.png
+favicon: /img/favicon.svg
+og: /img/perfect-framework.png
+baseurl: https://nuejs.org
+theme-color: #00C2FF
+
+# Design assets
+icons: /global/icons
+site-top: false
+
+mastnav:
+  - Docs
+  - Blog
+  - FAQ
+
+banner:
+  label: "Nue status update"
+  url: /blog/status-update-01/
+
+footnav:
+  - FAQ
+  - Docs
+  - Blog
+  - label: Backstory
+    url: /blog/backstory/
+  - img: /global/icons/github.svg
+    url: https://github.com/nuejs/nue
+    class: octocat
+
+subnav:
+  - label: Try beta
+    url: /docs/
+    class: get-started
+  - label: 5.8k+
+    url: https://github.com/nuejs/nue
+    class: github-button
+  - img: /global/icons/menu.svg
+    hash: mobile-nav
+    class: burger
+
+  # - label: Poll
+  #   class: small secondary poll
+  #   role: button
+
+# port: 5000
+hotreload: true
+# use_router: true
+
+# generation
+globals: [global, style, lib]
+secondary_css: [css2, secondary, 2.]
