@@ -6,7 +6,7 @@ projects:
 vcs:
   defaultBranch: main
   manager: git
-  syncHooks: true
+  # syncHooks: true
   hooks:
     commit-msg:
       - scripts/git/commit-msg.sh
