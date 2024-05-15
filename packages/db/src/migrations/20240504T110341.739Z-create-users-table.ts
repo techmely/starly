@@ -7,6 +7,7 @@ export async function up(db: Kysely<any>) {
     .createType("user_status")
     .asEnum(["NEWBIE", "VERIFIED", "BLACKLIST", "INACTIVE", "ACTIVE", "CLOSED"])
     .execute();
+
   // .addColumn("mobile", "varchar(20)", (col) => col.unique())
   // .addColumn("birthday", "timestamp")
   // .addColumn("locale", "varchar(10)", (col) => col.notNull())
@@ -57,4 +58,5 @@ export async function down(db: Kysely<any>) {
   await db.schema.dropIndex("users_email_idx").on("users").execute();
   await db.schema.dropIndex("users_nickname_idx").on("users").execute();
   await db.schema.dropTable("users").execute();
+  await db.schema.dropType("user_status").execute();
 }

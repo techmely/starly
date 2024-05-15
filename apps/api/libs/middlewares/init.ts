@@ -72,6 +72,9 @@ async function injectConfig(c: Context<HonoEnv>) {
         maxAge: c.env.CORS_MAX_AGE,
         credentials: c.env.CORS_CREDENTIALS,
       },
+      admin: {
+        authIds: c.env.ADMIN_AUTH_IDS.split(","),
+      },
     });
     resolve("OK");
   });

@@ -21,6 +21,7 @@ export const serverRuntimeEnvSchema = object({
 
   FIREBASE_API_KEY: string(),
   FIREBASE_PROJECT_ID: string(),
+  ADMIN_AUTH_IDS: string(),
 
   S3_ENDPOINT: string(),
   S3_ACCESS_KEY_ID: string(),
