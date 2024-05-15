@@ -50,6 +50,7 @@ export async function down(db: Kysely<any>) {
   await db.schema.dropIndex("tenants_users_tenant_id").execute();
   await db.schema.dropIndex("tenant_roles_tenant_id").execute();
   await db.schema.dropIndex("tenant_roles_name_tenant_id_unique").execute();
+
   await db.schema.dropTable("tenants_users").execute();
   await db.schema.dropTable("tenant_roles").execute();
 }
