@@ -15,8 +15,7 @@ export interface IUserMetadata {
 export class UserMetadata extends ValueObject<IUserMetadata> {
   protected validate(props: IUserMetadata): void {
     const USER_METADATA_LENGTH = 4;
-    const niceUserKeyMetadata =
-      Object.keys(props).length === USER_METADATA_LENGTH;
+    const niceUserKeyMetadata = Object.keys(props).length === USER_METADATA_LENGTH;
     invariant(
       niceUserKeyMetadata,
       new ArgumentNotProvidedException("User metadata keys not correct"),

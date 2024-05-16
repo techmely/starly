@@ -11,15 +11,7 @@
   },
   "useEffect with cleanup func": {
     "prefix": "uefc",
-    "body": [
-      "useEffect(() => {",
-      "\t",
-      "\n$2",
-      "\treturn () => {",
-      "\t\t",
-      "\t}",
-      "}, [${1}]);$0"
-    ],
+    "body": ["useEffect(() => {", "\t", "\n$2", "\treturn () => {", "\t\t", "\t}", "}, [${1}]);$0"],
     "description": "React useEffect() hook"
   },
   "useContext": {

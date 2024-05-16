@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { timing } from "hono/timing";
 
 import type { HonoEnv } from "@techmely/hono";
-import { commonContext, secureHeadersMiddleware, clientRuntimeEnvSchema } from "@techmely/hono";
+import { clientRuntimeEnvSchema, commonContext, secureHeadersMiddleware } from "@techmely/hono";
 import vikeMiddleware from "./middleware/vike";
 
 const app = new Hono<HonoEnv>();

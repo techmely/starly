@@ -13,7 +13,6 @@ if (!fileName) {
 
 const filePath = generateFilePath(fileName);
 createFile(filePath);
-writeFileContent(filePath);
 
 function generateFilePath(name: string) {
   const currentDate = new Date();
@@ -31,15 +30,4 @@ function createFile(fileName: string) {
       console.log(`File created: ${fileName}`);
     }
   });
-}
-
-async function writeFileContent(
-  filePath: string,
-  content = `
-import type { Kysely } from "kysely";
-export async function up(db: Kysely<any>) {}
-export async function down(db: Kysely<any>) {}`,
-) {
-  // @ts-expect-error
-  await Bun.write(filePath, content, { encoding: "utf-8" });
 }

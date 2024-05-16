@@ -31,5 +31,5 @@
     "prefix": "exch",
     "body": ["export function ${1:${TM_FILENAME_BASE}}() {", " $2", "}"],
     "description": "export custom hooks"
-  },
+  }
 }

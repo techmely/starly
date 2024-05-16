@@ -1,8 +1,8 @@
 import type { HonoEnv } from "@techmely/hono";
-import { ConsoleLogger } from "@techmely/logger";
 import http from "@techmely/http";
-import type { MiddlewareHandler, Context } from "hono";
+import { ConsoleLogger } from "@techmely/logger";
 import { generatePrefixId } from "@techmely/utils/id";
+import type { Context, MiddlewareHandler } from "hono";
 
 /**
  * Call this once before hono instance running

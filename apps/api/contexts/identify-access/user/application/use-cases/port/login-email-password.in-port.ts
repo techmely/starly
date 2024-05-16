@@ -5,8 +5,6 @@ export interface LoginEmailPasswordCommand {
   password: string;
 }
 
-export abstract class LoginEmailPasswordInPort
-  implements UseCase<LoginEmailPasswordCommand, void>
-{
+export abstract class LoginEmailPasswordInPort implements UseCase<LoginEmailPasswordCommand, void> {
   abstract execute(loginCommand: LoginEmailPasswordCommand): Promise<void>;
 }

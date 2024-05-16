@@ -1,11 +1,6 @@
-import { UniqueEntityID, type Aggregate } from "@techmely/domain-driven";
+import { type Aggregate, UniqueEntityID } from "@techmely/domain-driven";
 import { UserCreatedDomainEvent } from "../events/user-created.event";
-import {
-  type CreateUserProps,
-  type UserProps,
-  UserRoles,
-  UserStatus,
-} from "./user.types";
+import { type CreateUserProps, type UserProps, UserRoles, UserStatus } from "./user.types";
 
 export class UserEntity extends Aggregate<UserProps> {
   static create(createProps: CreateUserProps) {
