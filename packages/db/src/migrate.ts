@@ -1,7 +1,13 @@
+import { getEnvVar } from "@techmely/utils";
 import { NO_MIGRATIONS, PostgresDialect } from "kysely";
 import { Pool, type PoolConfig } from "pg";
-import { getEnvVar } from "@techmely/utils";
-import { createDatabase, createMigrator } from "@techmely/db";
+import { createDatabase } from "./create.ts";
+import { createMigrator } from "./migrator.ts";
+import dotenv from 'dotenv'
+import appRoot from 'app-root-path'
+
+const apiEnvPath = `${appRoot.path}/apps/api/.env`;
+dotenv.config({ path: apiEnvPath }) // prevent writing to `process.env`
 
 const dbPoolConfig: PoolConfig = {
   host: getEnvVar("DB_HOST"),

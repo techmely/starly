@@ -27,7 +27,7 @@ export async function up(db: Kysely<any>) {
     .createTable("tenants_users")
     .addColumn("id", "serial", (col) => col.primaryKey())
     .addColumn("tenant_id", "integer", (col) => col.references("tenants.id").notNull())
-    .addColumn("user_id", "integer", (col) => col.references("users.id").notNull())
+    .addColumn("user_id", "varchar(42)", (col) => col.references("users.id").notNull())
     .addColumn("tenant_role_id", "integer", (col) => col.references("tenant_roles.id"))
     .$call(withTimestamps)
     .execute();

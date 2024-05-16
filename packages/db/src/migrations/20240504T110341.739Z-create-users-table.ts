@@ -1,15 +1,12 @@
 import type { Kysely } from "kysely";
-import { withTimestamps } from "../utils";
 import { sql } from "kysely";
-import type { DB } from "kysely-codegen";
+import { withTimestamps } from "../utils";
 
-export async function up(db: Kysely<DB>) {
+export async function up(db: Kysely<any>) {
   await db.schema
     .createType("user_status")
     .asEnum(["NEWBIE", "VERIFIED", "BLACKLIST", "INACTIVE", "ACTIVE", "CLOSED"])
     .execute();
-  await db.schema.createType("system_role_type").asEnum(["USER", "ADMIN", "SUPER_ADMIN"]).execute();
-
   // .addColumn("mobile", "varchar(20)", (col) => col.unique())
   // .addColumn("birthday", "timestamp")
   // .addColumn("locale", "varchar(10)", (col) => col.notNull())
@@ -18,7 +15,7 @@ export async function up(db: Kysely<DB>) {
   await db.schema
     .createTable("users")
     .ifNotExists()
-    .addColumn("id", "varchar(50)", (col) => col.primaryKey())
+    .addColumn("id", "varchar(42)", (col) => col.primaryKey())
     .addColumn("email", "varchar(200)", (col) => col.notNull().unique())
     // If user need to receive the system notification or do some transaction --> Need to confirm email
     .addColumn("unverified_email", "varchar(200)", (col) => col.unique())
@@ -28,7 +25,6 @@ export async function up(db: Kysely<DB>) {
     .addColumn("name", "varchar(255)", (col) => col.notNull())
     .addColumn("avatar_url", "text", (col) => col.notNull())
     .addColumn("firebase_user_id", "varchar(50)", (col) => col.notNull().unique())
-    .addColumn("system_role", sql`"system_role_type"`, (col) => col.notNull().defaultTo("USER"))
     // When using firebase auth --> Know user using basic auth, or facebook/github/twitter/google... auth
     .addColumn("auth_strategy", "varchar(12)", (col) => col.unique())
     // Use to know where is user creating their account - for marketing strategy

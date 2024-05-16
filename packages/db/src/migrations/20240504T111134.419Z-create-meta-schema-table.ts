@@ -1,6 +1,6 @@
 import type { Kysely } from "kysely";
-import { withTimestamps } from "../utils";
 import { sql } from "kysely";
+import { withTimestamps } from "../utils";
 
 export async function up(db: Kysely<any>) {
   await db.schema.createType("meta_schema_type").asEnum(["SYSTEM", "DEFAULT"]).execute();
