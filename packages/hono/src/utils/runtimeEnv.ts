@@ -2,6 +2,7 @@ import type { UserFromDecodedIdToken } from "@techmely/auth";
 import type { HttpInstance } from "@techmely/http";
 import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import type { SocketAddress } from "bun";
+import type { Kysely } from "kysely";
 import { type Output, boolean, object, optional, picklist, string, transform } from "valibot";
 
 export const serverRuntimeEnvSchema = object({
@@ -49,9 +50,9 @@ export type AppEnv = Output<typeof serverRuntimeEnvSchema> & {
   IP: SocketAddress;
 };
 
-export type ContainerServicesCtx = {
+export type ContainerServicesCtx<Database> = {
   cache: any;
-  db: any;
+  db: Kysely<Database>;
   logger: LoggerPort;
   analytics?: any;
   metrics?: MetricsPort;
@@ -95,9 +96,9 @@ export type AppConfig = {
   };
 };
 
-export type AppVariables = {
+export type AppVariables<Database> = {
   requestId: string;
-  container: ContainerServicesCtx;
+  container: ContainerServicesCtx<Database>;
   config: AppConfig;
   /**
    * IP address or region information
@@ -107,7 +108,7 @@ export type AppVariables = {
   firebaseUser: UserFromDecodedIdToken;
 };
 
-export type HonoEnv = {
+export type HonoEnv<Database = any> = {
   Bindings: AppEnv;
-  Variables: AppVariables;
+  Variables: AppVariables<Database>;
 };
