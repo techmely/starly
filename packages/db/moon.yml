@@ -9,4 +9,6 @@ tasks:
   gen.model:
     command: "kysely-codegen"
   migrate.dev.up:
-    command: "bun run ./src/migrate.ts dev up"
+    command: "bun run src/migrate.ts dev up"
+  migrate.dev.down:
+    command: "bun run src/migrate.ts dev down"

@@ -7,7 +7,9 @@ import { createDatabase } from "./create.ts";
 import { createMigrator } from "./migrator.ts";
 
 const apiEnvPath = `${appRoot.path}/apps/api/.env`;
-dotenv.config({ path: apiEnvPath }); // prevent writing to `process.env`
+dotenv.config({ path: apiEnvPath });
+
+console.log(process.env);
 
 const dbPoolConfig: PoolConfig = {
   host: getEnvVar("DB_HOST"),
