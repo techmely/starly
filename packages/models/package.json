@@ -18,7 +18,7 @@
   "files": ["index.js", "index.d.ts", "README.md", "CHANGELOG.md"],
   "devDependencies": {
     "@bufbuild/protobuf": "1.9.0",
-    "ts-proto": "1.174.0"
+    "ts-proto": "1.176.0"
   },
   "publishConfig": {
     "access": "public",
