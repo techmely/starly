@@ -9,9 +9,7 @@ export class LoginEmailPasswordInteractor implements LoginEmailPasswordInPort {
 
   async execute(command: LoginEmailPasswordCommand) {
     const isEmailExist = await this.loginEmailPasswordPort.findByKey("email");
-    const isValidPassword = true;
-    const accessToken = "accessToken";
-    const refreshToken = "refreshToken";
+
     // return this.loginEmailPasswordPort.insert(user);
   }
 }
