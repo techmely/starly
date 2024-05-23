@@ -1,25 +1,17 @@
-import { type Aggregate, UniqueEntityID } from "@techmely/domain-driven";
-import { UserCreatedDomainEvent } from "../events/user-created.event";
+import { Aggregate, Result, UniqueEntityID } from "@techmely/domain-driven";
 import { type CreateUserProps, type UserProps, UserRoles, UserStatus } from "./user.types";
+import EventEmitter from "node:events";
 
 export class UserEntity extends Aggregate<UserProps> {
-  static create(createProps: CreateUserProps) {
+  static override create(request: CreateUserProps) {
     const id = new UniqueEntityID();
     const props: UserProps = {
       role: UserRoles.MEMBER,
       status: UserStatus.ACTIVE,
-      ...createProps,
+      ...request,
     };
-    const user = new UserEntity({ id, props });
-    user.addEvent(
-      new UserCreatedDomainEvent({
-        aggregateId: id,
-        ...props,
-        ...props?.metadata?.raw(),
-        ...props?.provider?.raw(),
-      }),
-    );
-    return user;
+    const user = new UserEntity({ ...props, id }, { emitter: EventEmitter });
+    return Result.Ok(user);
   }
 
   validate(): void {
