@@ -27,8 +27,9 @@ tasks:
     command:
       - melos
     args: "test"
-    
+
   upgrade.deps:
     command: "melos"
     args: "upgrade.deps"
-  
+    options:
+      allowFailure: true
