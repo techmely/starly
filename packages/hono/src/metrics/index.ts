@@ -60,8 +60,8 @@ export function metricsMiddleware(): MiddlewareHandler<HonoEnv> {
       payload.serviceLatency = performance.now() - start;
       c.res.headers.append("Techmely-Latency", `service=${payload.serviceLatency}ms`);
       c.res.headers.append("Techmely-Version", c.env.VERSION);
-      metrics.emit(payload);
-      c.executionCtx.waitUntil(Promise.all([metrics.flush(), logger.flush()]));
+      // metrics?.emit(payload);
+      c.executionCtx.waitUntil(Promise.all([metrics?.flush(), logger.flush()]));
     }
   };
 }
