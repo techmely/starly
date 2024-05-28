@@ -71,3 +71,4 @@ language.
 • On a single project that develops a single Bounded Context, there are always one or more additional isolated Bounded Contexts with which it integrates using Context Maps. Each of the multiple Bounded Contexts that integrate has its own Ubiquitous Language, even though some
 terms of each may overlap.
 • If you try to apply a single Ubiquitous Language to an entire enterprise, or worse, universally among many enterprises, you will fail.
+
