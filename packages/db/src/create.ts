@@ -1,4 +1,4 @@
-import { CamelCasePlugin, Kysely, type Dialect } from "kysely";
+import { CamelCasePlugin, type Dialect, Kysely } from "kysely";
 
 export function createDatabase<Database>(dialect: Dialect) {
   return new Kysely<Database>({

@@ -3,6 +3,10 @@ syntax = "proto3";
 package gen.go.user.v1;
 option go_package="github.com/techmely/techmely/gen/go/user;user_event_v1";
 
+message CreateUserRequest {
+
+}
+
 message GetUserRequest {
     string id = 1;
 }

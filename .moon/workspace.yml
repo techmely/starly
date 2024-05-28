@@ -2,11 +2,11 @@ $schema: https://moonrepo.dev/schemas/workspace.json
 projects:
   - apps/*
   - packages/*
-  - internals/*
+  - docs/*
 vcs:
   defaultBranch: main
   manager: git
-  syncHooks: true
+  # syncHooks: true
   hooks:
     commit-msg:
       - scripts/git/commit-msg.sh

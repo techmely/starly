@@ -1,0 +1,15 @@
+<!-- global header -->
+<header>
+  <a href="/"><img :src="avatar" /></a>
+  <nav>
+    <a :for="el in social" :href="el.url">
+      <img class="icon" src="/img/{el.icon}.svg" />
+    </a>
+  </nav>
+</header>
+
+<!-- global footer -->
+<footer>
+  <p>© { fullname } • { new Date().getFullYear() }</p>
+  <q>{ slogan }</q>
+</footer>

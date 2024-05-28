@@ -1,8 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": [
-    "gen"
-  ],
+  "include": ["gen"],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/packages/models"
   }

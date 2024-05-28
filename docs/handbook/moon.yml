@@ -1,0 +1,17 @@
+type: "application"
+language: "markdown"
+
+fileGroups:
+  app:
+    - "*"
+tasks:
+  dev:
+    command: "undocs"
+    args: "dev"
+    inputs:
+      - "@group(app)"
+  build:
+    command: "undocs"
+    args: "buil"
+    inputs:
+      - "@group(app)"

@@ -1,13 +1,17 @@
+import { createDatabase } from "@techmely/db";
 import type { HonoEnv } from "@techmely/hono";
-import { ConsoleLogger } from "@techmely/logger";
 import http from "@techmely/http";
-import type { MiddlewareHandler, Context } from "hono";
+import { ConsoleLogger } from "@techmely/logger";
 import { generatePrefixId } from "@techmely/utils/id";
+import type { Context, MiddlewareHandler } from "hono";
+import { PostgresDialect } from "kysely";
+import { Pool } from "pg";
+import type { AppDatabase } from "../db/app-db.types";
 
 /**
  * Call this once before hono instance running
  */
-export function initApp(): MiddlewareHandler<HonoEnv> {
+export function initApp(): MiddlewareHandler<HonoEnv<AppDatabase>> {
   return async (c, next) => {
     injectRequestId(c);
     await injectConfig(c);
@@ -16,13 +20,14 @@ export function initApp(): MiddlewareHandler<HonoEnv> {
   };
 }
 
-function injectRequestId(c: Context<HonoEnv>) {
+function injectRequestId(c: Context<HonoEnv<AppDatabase>>) {
   const requestId = generatePrefixId("req");
   c.set("requestId", requestId);
   c.res.headers.append("X-Request-Id", requestId);
 }
 
-async function injectDependencies(c: Context<HonoEnv>) {
+async function injectDependencies(c: Context<HonoEnv<AppDatabase>>) {
+  const config = c.get("config");
   return new Promise((resolve) => {
     const logger = new ConsoleLogger();
     const cache = "cache";
@@ -31,9 +36,14 @@ async function injectDependencies(c: Context<HonoEnv>) {
         "X-Powser-By": "Techmely",
       },
     });
+    const pgDialect = new PostgresDialect({
+      pool: new Pool(config.db),
+    });
+    const db = createDatabase<AppDatabase>(pgDialect);
+
     c.set("container", {
       cache,
-      db: "db",
+      db,
       logger,
       http: _http,
     });
@@ -71,6 +81,9 @@ async function injectConfig(c: Context<HonoEnv>) {
         allowMethods: c.env.CORS_ALLOW_METHODS.split(","),
         maxAge: c.env.CORS_MAX_AGE,
         credentials: c.env.CORS_CREDENTIALS,
+      },
+      admin: {
+        authIds: c.env.ADMIN_AUTH_IDS.split(","),
       },
     });
     resolve("OK");

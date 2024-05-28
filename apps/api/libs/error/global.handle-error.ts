@@ -1,6 +1,5 @@
 import type { HonoEnv } from "@techmely/hono";
 import { CODE_INTERNAL_SERVER_ERROR } from "@techmely/http";
-import type { ErrorResponse } from "@techmely/models";
 import type { Context } from "hono";
 
 export function globalHandleError(err: Error, c: Context<HonoEnv>) {
@@ -26,7 +25,7 @@ export function globalHandleError(err: Error, c: Context<HonoEnv>) {
     requestId,
   });
 
-  return c.json<ErrorResponse>({
+  return c.json({
     code: CODE_INTERNAL_SERVER_ERROR,
     docs: "https://techmely/docs/api-reference/errors/code/HTTP_INTERNAL_SERVER_ERROR",
     message: "something unexpected happened",
