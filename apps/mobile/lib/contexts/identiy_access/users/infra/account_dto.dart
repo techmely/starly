@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../authentication/domain/use-cases/auth_value_objects.dart';
-import '../domain/model/account.dart';
+import '../../../../features/authentication/domain/use-cases/auth_value_objects.dart';
+import '../domain/entities/account.dart';
 
 part 'account_dto.freezed.dart';
 part 'account_dto.g.dart';

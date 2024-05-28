@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 
-import '../../authentication/domain/use-cases/auth_value_objects.dart';
-import '../domain/model/account.dart';
+import '../../../../features/authentication/domain/use-cases/auth_value_objects.dart';
+import '../domain/entities/account.dart';
 
 @HiveType(typeId: 0)
 class AccountEntity extends HiveObject {
