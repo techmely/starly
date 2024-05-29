@@ -1,6 +1,6 @@
 import type {} from "@techmely/domain-driven";
 import type { HonoEnv } from "@techmely/hono";
-import { Hono, type MiddlewareHandler } from "hono";
+import { Hono } from "hono";
 import { UserController } from "../../../application/controllers/user.controller";
 import { CreateUserInteractor } from "../../../application/use-cases/interactors/create-user.interactor";
 import { LoginEmailPasswordInteractor } from "../../../application/use-cases/interactors/login.interactor";
@@ -25,7 +25,6 @@ router.use(async (c, next) => {
   const createUserUseCases = new CreateUserInteractor(userRepo);
   const loginUserPasswordUseCases = new LoginEmailPasswordInteractor(userRepo);
   const userController = new UserController(createUserUseCases, loginUserPasswordUseCases);
-
   await next();
 });
 router.put("/");
