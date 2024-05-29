@@ -33,19 +33,40 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
+	// TenantServiceCreateProcedure is the fully-qualified name of the TenantService's Create RPC.
+	TenantServiceCreateProcedure = "/gen.go.tenant.v1.TenantService/Create"
 	// TenantServiceGetProcedure is the fully-qualified name of the TenantService's Get RPC.
 	TenantServiceGetProcedure = "/gen.go.tenant.v1.TenantService/Get"
+	// TenantServiceGetAllProcedure is the fully-qualified name of the TenantService's GetAll RPC.
+	TenantServiceGetAllProcedure = "/gen.go.tenant.v1.TenantService/GetAll"
+	// TenantServiceGetAvailableProcedure is the fully-qualified name of the TenantService's
+	// GetAvailable RPC.
+	TenantServiceGetAvailableProcedure = "/gen.go.tenant.v1.TenantService/GetAvailable"
+	// TenantServiceUpdateProcedure is the fully-qualified name of the TenantService's Update RPC.
+	TenantServiceUpdateProcedure = "/gen.go.tenant.v1.TenantService/Update"
+	// TenantServiceDeleteProcedure is the fully-qualified name of the TenantService's Delete RPC.
+	TenantServiceDeleteProcedure = "/gen.go.tenant.v1.TenantService/Delete"
 )
 
 // These variables are the protoreflect.Descriptor objects for the RPCs defined in this package.
 var (
-	tenantServiceServiceDescriptor   = v1.File_tenant_v1_tenant_service_proto.Services().ByName("TenantService")
-	tenantServiceGetMethodDescriptor = tenantServiceServiceDescriptor.Methods().ByName("Get")
+	tenantServiceServiceDescriptor            = v1.File_tenant_v1_tenant_service_proto.Services().ByName("TenantService")
+	tenantServiceCreateMethodDescriptor       = tenantServiceServiceDescriptor.Methods().ByName("Create")
+	tenantServiceGetMethodDescriptor          = tenantServiceServiceDescriptor.Methods().ByName("Get")
+	tenantServiceGetAllMethodDescriptor       = tenantServiceServiceDescriptor.Methods().ByName("GetAll")
+	tenantServiceGetAvailableMethodDescriptor = tenantServiceServiceDescriptor.Methods().ByName("GetAvailable")
+	tenantServiceUpdateMethodDescriptor       = tenantServiceServiceDescriptor.Methods().ByName("Update")
+	tenantServiceDeleteMethodDescriptor       = tenantServiceServiceDescriptor.Methods().ByName("Delete")
 )
 
 // TenantServiceClient is a client for the gen.go.tenant.v1.TenantService service.
 type TenantServiceClient interface {
+	Create(context.Context, *connect.Request[v1.CreateTenantRequest]) (*connect.Response[v1.CreateTenantResponse], error)
 	Get(context.Context, *connect.Request[v1.GetTenantRequest]) (*connect.Response[v1.GetTenantResponse], error)
+	GetAll(context.Context, *connect.Request[v1.GetTenantsRequest]) (*connect.Response[v1.GetTenantsResponse], error)
+	GetAvailable(context.Context, *connect.Request[v1.GetAvailableTenantsRequest]) (*connect.Response[v1.GetAvailableTenantsResponse], error)
+	Update(context.Context, *connect.Request[v1.UpdateTenantRequest]) (*connect.Response[v1.UpdateTenantResponse], error)
+	Delete(context.Context, *connect.Request[v1.DeleteTenantRequest]) (*connect.Response[v1.DeleteTenantResponse], error)
 }
 
 // NewTenantServiceClient constructs a client for the gen.go.tenant.v1.TenantService service. By
@@ -58,10 +79,40 @@ type TenantServiceClient interface {
 func NewTenantServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) TenantServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &tenantServiceClient{
+		create: connect.NewClient[v1.CreateTenantRequest, v1.CreateTenantResponse](
+			httpClient,
+			baseURL+TenantServiceCreateProcedure,
+			connect.WithSchema(tenantServiceCreateMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
 		get: connect.NewClient[v1.GetTenantRequest, v1.GetTenantResponse](
 			httpClient,
 			baseURL+TenantServiceGetProcedure,
 			connect.WithSchema(tenantServiceGetMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		getAll: connect.NewClient[v1.GetTenantsRequest, v1.GetTenantsResponse](
+			httpClient,
+			baseURL+TenantServiceGetAllProcedure,
+			connect.WithSchema(tenantServiceGetAllMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		getAvailable: connect.NewClient[v1.GetAvailableTenantsRequest, v1.GetAvailableTenantsResponse](
+			httpClient,
+			baseURL+TenantServiceGetAvailableProcedure,
+			connect.WithSchema(tenantServiceGetAvailableMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		update: connect.NewClient[v1.UpdateTenantRequest, v1.UpdateTenantResponse](
+			httpClient,
+			baseURL+TenantServiceUpdateProcedure,
+			connect.WithSchema(tenantServiceUpdateMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		delete: connect.NewClient[v1.DeleteTenantRequest, v1.DeleteTenantResponse](
+			httpClient,
+			baseURL+TenantServiceDeleteProcedure,
+			connect.WithSchema(tenantServiceDeleteMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -69,7 +120,17 @@ func NewTenantServiceClient(httpClient connect.HTTPClient, baseURL string, opts 
 
 // tenantServiceClient implements TenantServiceClient.
 type tenantServiceClient struct {
-	get *connect.Client[v1.GetTenantRequest, v1.GetTenantResponse]
+	create       *connect.Client[v1.CreateTenantRequest, v1.CreateTenantResponse]
+	get          *connect.Client[v1.GetTenantRequest, v1.GetTenantResponse]
+	getAll       *connect.Client[v1.GetTenantsRequest, v1.GetTenantsResponse]
+	getAvailable *connect.Client[v1.GetAvailableTenantsRequest, v1.GetAvailableTenantsResponse]
+	update       *connect.Client[v1.UpdateTenantRequest, v1.UpdateTenantResponse]
+	delete       *connect.Client[v1.DeleteTenantRequest, v1.DeleteTenantResponse]
+}
+
+// Create calls gen.go.tenant.v1.TenantService.Create.
+func (c *tenantServiceClient) Create(ctx context.Context, req *connect.Request[v1.CreateTenantRequest]) (*connect.Response[v1.CreateTenantResponse], error) {
+	return c.create.CallUnary(ctx, req)
 }
 
 // Get calls gen.go.tenant.v1.TenantService.Get.
@@ -77,9 +138,34 @@ func (c *tenantServiceClient) Get(ctx context.Context, req *connect.Request[v1.G
 	return c.get.CallUnary(ctx, req)
 }
 
+// GetAll calls gen.go.tenant.v1.TenantService.GetAll.
+func (c *tenantServiceClient) GetAll(ctx context.Context, req *connect.Request[v1.GetTenantsRequest]) (*connect.Response[v1.GetTenantsResponse], error) {
+	return c.getAll.CallUnary(ctx, req)
+}
+
+// GetAvailable calls gen.go.tenant.v1.TenantService.GetAvailable.
+func (c *tenantServiceClient) GetAvailable(ctx context.Context, req *connect.Request[v1.GetAvailableTenantsRequest]) (*connect.Response[v1.GetAvailableTenantsResponse], error) {
+	return c.getAvailable.CallUnary(ctx, req)
+}
+
+// Update calls gen.go.tenant.v1.TenantService.Update.
+func (c *tenantServiceClient) Update(ctx context.Context, req *connect.Request[v1.UpdateTenantRequest]) (*connect.Response[v1.UpdateTenantResponse], error) {
+	return c.update.CallUnary(ctx, req)
+}
+
+// Delete calls gen.go.tenant.v1.TenantService.Delete.
+func (c *tenantServiceClient) Delete(ctx context.Context, req *connect.Request[v1.DeleteTenantRequest]) (*connect.Response[v1.DeleteTenantResponse], error) {
+	return c.delete.CallUnary(ctx, req)
+}
+
 // TenantServiceHandler is an implementation of the gen.go.tenant.v1.TenantService service.
 type TenantServiceHandler interface {
+	Create(context.Context, *connect.Request[v1.CreateTenantRequest]) (*connect.Response[v1.CreateTenantResponse], error)
 	Get(context.Context, *connect.Request[v1.GetTenantRequest]) (*connect.Response[v1.GetTenantResponse], error)
+	GetAll(context.Context, *connect.Request[v1.GetTenantsRequest]) (*connect.Response[v1.GetTenantsResponse], error)
+	GetAvailable(context.Context, *connect.Request[v1.GetAvailableTenantsRequest]) (*connect.Response[v1.GetAvailableTenantsResponse], error)
+	Update(context.Context, *connect.Request[v1.UpdateTenantRequest]) (*connect.Response[v1.UpdateTenantResponse], error)
+	Delete(context.Context, *connect.Request[v1.DeleteTenantRequest]) (*connect.Response[v1.DeleteTenantResponse], error)
 }
 
 // NewTenantServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -88,16 +174,56 @@ type TenantServiceHandler interface {
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
 func NewTenantServiceHandler(svc TenantServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
+	tenantServiceCreateHandler := connect.NewUnaryHandler(
+		TenantServiceCreateProcedure,
+		svc.Create,
+		connect.WithSchema(tenantServiceCreateMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
 	tenantServiceGetHandler := connect.NewUnaryHandler(
 		TenantServiceGetProcedure,
 		svc.Get,
 		connect.WithSchema(tenantServiceGetMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
+	tenantServiceGetAllHandler := connect.NewUnaryHandler(
+		TenantServiceGetAllProcedure,
+		svc.GetAll,
+		connect.WithSchema(tenantServiceGetAllMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	tenantServiceGetAvailableHandler := connect.NewUnaryHandler(
+		TenantServiceGetAvailableProcedure,
+		svc.GetAvailable,
+		connect.WithSchema(tenantServiceGetAvailableMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	tenantServiceUpdateHandler := connect.NewUnaryHandler(
+		TenantServiceUpdateProcedure,
+		svc.Update,
+		connect.WithSchema(tenantServiceUpdateMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	tenantServiceDeleteHandler := connect.NewUnaryHandler(
+		TenantServiceDeleteProcedure,
+		svc.Delete,
+		connect.WithSchema(tenantServiceDeleteMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/gen.go.tenant.v1.TenantService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
+		case TenantServiceCreateProcedure:
+			tenantServiceCreateHandler.ServeHTTP(w, r)
 		case TenantServiceGetProcedure:
 			tenantServiceGetHandler.ServeHTTP(w, r)
+		case TenantServiceGetAllProcedure:
+			tenantServiceGetAllHandler.ServeHTTP(w, r)
+		case TenantServiceGetAvailableProcedure:
+			tenantServiceGetAvailableHandler.ServeHTTP(w, r)
+		case TenantServiceUpdateProcedure:
+			tenantServiceUpdateHandler.ServeHTTP(w, r)
+		case TenantServiceDeleteProcedure:
+			tenantServiceDeleteHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -107,6 +233,26 @@ func NewTenantServiceHandler(svc TenantServiceHandler, opts ...connect.HandlerOp
 // UnimplementedTenantServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedTenantServiceHandler struct{}
 
+func (UnimplementedTenantServiceHandler) Create(context.Context, *connect.Request[v1.CreateTenantRequest]) (*connect.Response[v1.CreateTenantResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.tenant.v1.TenantService.Create is not implemented"))
+}
+
 func (UnimplementedTenantServiceHandler) Get(context.Context, *connect.Request[v1.GetTenantRequest]) (*connect.Response[v1.GetTenantResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.tenant.v1.TenantService.Get is not implemented"))
+}
+
+func (UnimplementedTenantServiceHandler) GetAll(context.Context, *connect.Request[v1.GetTenantsRequest]) (*connect.Response[v1.GetTenantsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.tenant.v1.TenantService.GetAll is not implemented"))
+}
+
+func (UnimplementedTenantServiceHandler) GetAvailable(context.Context, *connect.Request[v1.GetAvailableTenantsRequest]) (*connect.Response[v1.GetAvailableTenantsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.tenant.v1.TenantService.GetAvailable is not implemented"))
+}
+
+func (UnimplementedTenantServiceHandler) Update(context.Context, *connect.Request[v1.UpdateTenantRequest]) (*connect.Response[v1.UpdateTenantResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.tenant.v1.TenantService.Update is not implemented"))
+}
+
+func (UnimplementedTenantServiceHandler) Delete(context.Context, *connect.Request[v1.DeleteTenantRequest]) (*connect.Response[v1.DeleteTenantResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.tenant.v1.TenantService.Delete is not implemented"))
 }

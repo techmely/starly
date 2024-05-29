@@ -7,5 +7,10 @@ import "tenant/v1/tenant.model.proto";
 import "tenant/v1/tenant.event.proto";
 
 service TenantService {
+  rpc Create(tenant.v1.CreateTenantRequest) returns (tenant.v1.CreateTenantResponse) {}
   rpc Get(tenant.v1.GetTenantRequest) returns (tenant.v1.GetTenantResponse) {}
+  rpc GetAll(tenant.v1.GetTenantsRequest) returns (tenant.v1.GetTenantsResponse) {}
+  rpc GetAvailable(tenant.v1.GetAvailableTenantsRequest) returns (tenant.v1.GetAvailableTenantsResponse) {}
+  rpc Update(tenant.v1.UpdateTenantRequest) returns (tenant.v1.UpdateTenantResponse) {}
+  rpc Delete(tenant.v1.DeleteTenantRequest) returns (tenant.v1.DeleteTenantResponse) {}
 }

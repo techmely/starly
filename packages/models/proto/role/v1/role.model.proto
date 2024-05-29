@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package gen.go.role.v1;
+option go_package="github.com/techmely/techmely/gen/go/role/v1;role_model_v1";
+
+message Role {
+    string id = 1;
+}

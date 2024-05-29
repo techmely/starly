@@ -2,43 +2,42 @@
 // versions:
 //   protoc-gen-ts_proto  v1.176.0
 //   protoc               unknown
-// source: auth/v1/auth.model.proto
+// source: role/v1/role.model.proto
 
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
-import Long = require("long");
 
-export const protobufPackage = "gen.go.auth.v1";
+export const protobufPackage = "gen.go.role.v1";
 
-export interface Auth {
-  id: number;
+export interface Role {
+  id: string;
 }
 
-function createBaseAuth(): Auth {
-  return { id: 0 };
+function createBaseRole(): Role {
+  return { id: "" };
 }
 
-export const Auth = {
-  encode(message: Auth, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== 0) {
-      writer.uint32(8).int64(message.id);
+export const Role = {
+  encode(message: Role, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.id !== "") {
+      writer.uint32(10).string(message.id);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): Auth {
+  decode(input: _m0.Reader | Uint8Array, length?: number): Role {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseAuth();
+    const message = createBaseRole();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          if (tag !== 8) {
+          if (tag !== 10) {
             break;
           }
 
-          message.id = longToNumber(reader.int64() as Long);
+          message.id = reader.string();
           continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
@@ -49,24 +48,24 @@ export const Auth = {
     return message;
   },
 
-  fromJSON(object: any): Auth {
-    return { id: isSet(object.id) ? globalThis.Number(object.id) : 0 };
+  fromJSON(object: any): Role {
+    return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
   },
 
-  toJSON(message: Auth): unknown {
+  toJSON(message: Role): unknown {
     const obj: any = {};
-    if (message.id !== 0) {
-      obj.id = Math.round(message.id);
+    if (message.id !== "") {
+      obj.id = message.id;
     }
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<Auth>, I>>(base?: I): Auth {
-    return Auth.fromPartial(base ?? ({} as any));
+  create<I extends Exact<DeepPartial<Role>, I>>(base?: I): Role {
+    return Role.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<Auth>, I>>(object: I): Auth {
-    const message = createBaseAuth();
-    message.id = object.id ?? 0;
+  fromPartial<I extends Exact<DeepPartial<Role>, I>>(object: I): Role {
+    const message = createBaseRole();
+    message.id = object.id ?? "";
     return message;
   },
 };
@@ -82,18 +81,6 @@ export type DeepPartial<T> = T extends Builtin ? T
 type KeysOfUnion<T> = T extends T ? keyof T : never;
 export type Exact<P, I extends P> = P extends Builtin ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
-
-function longToNumber(long: Long): number {
-  if (long.gt(globalThis.Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
-}
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
-}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

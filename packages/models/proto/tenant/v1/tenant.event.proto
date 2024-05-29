@@ -7,6 +7,45 @@ message GetTenantRequest {
     string id = 1;
 }
 
+message GetTenantsRequest {
+  string id = 1;
+}
+
+message GetAvailableTenantsRequest {
+  string id = 1;
+}
+
+message CreateTenantRequest {
+  string id = 1;
+}
+
+message UpdateTenantRequest {
+  string id = 1;
+}
+
+message DeleteTenantRequest {
+  string id = 1;
+}
+
 message GetTenantResponse {
 
+}
+
+message GetTenantsResponse {
+
+}
+
+message CreateTenantResponse {
+
+}
+
+message UpdateTenantResponse {
+
+}
+
+message GetAvailableTenantsResponse {
+}
+
+message DeleteTenantResponse {
+  string id = 1;
 }

@@ -11,7 +11,15 @@ message GetUserRequest {
     string id = 1;
 }
 
+message GetUsersRequest {
+    string id = 1;
+}
+
 message GetUserResponse {
+
+}
+
+message GetUsersResponse {
 
 }
 
@@ -35,6 +43,18 @@ message ChangeUserEmailRequest {
     string email = 1;
 }
 
+message DeleteUserRequest {
+    string email = 1;
+}
+
+message DeleteUserResponse {
+    string email = 1;
+}
+
 message ChangeUserEmailResponse {
+    string email = 1;
+}
+
+message CreateUserResponse {
     string email = 1;
 }

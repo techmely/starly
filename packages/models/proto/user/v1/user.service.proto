@@ -7,7 +7,10 @@ import "user/v1/user.model.proto";
 import "user/v1/user.event.proto";
 
 service UserService {
+  rpc Register(user.v1.CreateUserRequest) returns (user.v1.CreateUserResponse) {}
   rpc Get(user.v1.GetUserRequest) returns (user.v1.GetUserResponse) {}
-  rpc Put(user.v1.UpdateUserRequest) returns (user.v1.UpdateUserResponse) {}
+  rpc GetAll(user.v1.GetUsersRequest) returns (user.v1.GetUsersResponse) {}
+  rpc Update(user.v1.UpdateUserRequest) returns (user.v1.UpdateUserResponse) {}
   rpc ChangeEmail(user.v1.ChangeUserEmailRequest) returns (user.v1.ChangeUserEmailResponse) {}
+  rpc Delete(user.v1.DeleteUserRequest) returns (user.v1.DeleteUserResponse) {}
 }
