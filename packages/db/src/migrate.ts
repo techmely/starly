@@ -9,8 +9,6 @@ import { createMigrator } from "./migrator.ts";
 const apiEnvPath = `${appRoot.path}/apps/api/.env`;
 dotenv.config({ path: apiEnvPath });
 
-console.log(process.env);
-
 const dbPoolConfig: PoolConfig = {
   host: getEnvVar("DB_HOST"),
   port: +(getEnvVar("DB_PORT") ?? "5432"),

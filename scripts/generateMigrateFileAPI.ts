@@ -17,7 +17,8 @@ createFile(filePath);
 function generateFilePath(name: string) {
   const currentDate = new Date();
   const isoDate = currentDate.toISOString();
-  const fileName = `${isoDate.replaceAll(":", "").replaceAll("-", "")}-${name}.ts`;
+  const formattedIsoDate = isoDate.replaceAll(":", "").replaceAll("-", "");
+  const fileName = `${formattedIsoDate.substring(0, formattedIsoDate.length - 5)}-${name}.ts`;
 
   return path.join(process.cwd(), "packages/db/src", folder, fileName);
 }
