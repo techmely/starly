@@ -1,9 +1,9 @@
 import { Aggregate, Result, UniqueEntityID } from "@techmely/domain-driven";
-import { type CreateUserProps, type UserProps, UserRoles, UserStatus } from "./user.types";
+import { UserRoles, UserStatus, type CreateUserRequest } from "@techmely/models";
 import EventEmitter from "node:events";
 
 export class UserEntity extends Aggregate<UserProps> {
-  static override create(request: CreateUserProps) {
+  static override create(request: CreateUserRequest) {
     const id = new UniqueEntityID();
     const props: UserProps = {
       role: UserRoles.MEMBER,

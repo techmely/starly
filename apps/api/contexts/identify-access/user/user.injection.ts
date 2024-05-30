@@ -5,16 +5,16 @@ import { CreateUserInteractor } from "./application/use-cases/interactors/create
 import { LoginEmailPasswordInteractor } from "./application/use-cases/interactors/login.interactor";
 import { UserService } from "./application/services/user.service";
 
-type UserModuleOptions = {
+type UserInjectionOptions = {
   db: Kysely<any>;
 };
 
-export function userModule({ db }: UserModuleOptions) {
+export function injectUserDomain({ db }: UserInjectionOptions): UserService {
   const userMapper = new UserMapper();
   const userRepo = new UserPgRepository(userMapper, db);
   const createUserUseCases = new CreateUserInteractor(userRepo);
   const loginUserPasswordUseCases = new LoginEmailPasswordInteractor(userRepo);
-  const userController = new UserService(createUserUseCases, loginUserPasswordUseCases);
+  const service = new UserService(createUserUseCases, loginUserPasswordUseCases);
 
-  return userController;
+  return service;
 }
