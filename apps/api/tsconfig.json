@@ -3,7 +3,10 @@
   "include": ["**/*.ts"],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/apps/api",
-    "types": ["@types/bun"]
+    "types": ["@types/bun"],
+    "paths": {
+      "#root/*": ["./*"]
+    }
   },
   "references": [
     {

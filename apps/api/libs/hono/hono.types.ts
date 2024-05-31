@@ -2,7 +2,6 @@ import type { UserFromDecodedIdToken } from "@techmely/auth";
 import type { HttpInstance } from "@techmely/http";
 import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import type { SocketAddress } from "bun";
-import type { Kysely } from "kysely";
 import type { Output } from "valibot";
 import type { runtimeEnvSchema } from "./hono.schema";
 import type { UserService } from "#root/contexts/identify-access/user/application/services/user.service";
@@ -11,9 +10,8 @@ export type AppEnv = Output<typeof runtimeEnvSchema> & {
   IP: SocketAddress;
 };
 
-export type ContainerServicesCtx<Database> = {
+export type ContainerServicesCtx = {
   cache: any;
-  db: Kysely<Database>;
   logger: LoggerPort;
   analytics?: any;
   metrics?: MetricsPort;
@@ -23,14 +21,6 @@ export type ContainerServicesCtx<Database> = {
 };
 
 export type AppConfig = {
-  db: {
-    host: string;
-    port: number;
-    user: string;
-    password: string;
-    database: string;
-    // ssl: { rejectUnauthorized: boolean } | boolean;
-  };
   firebase: {
     apiKey: string;
     projectId: string;
@@ -57,9 +47,9 @@ export type AppConfig = {
   };
 };
 
-export type AppVariables<Database> = {
+export type AppVariables = {
   requestId: string;
-  container: ContainerServicesCtx<Database>;
+  container: ContainerServicesCtx;
   config: AppConfig;
   /**
    * IP address or region information
@@ -70,7 +60,7 @@ export type AppVariables<Database> = {
   userService: UserService;
 };
 
-export type HonoEnv<Database = any> = {
+export type HonoEnv = {
   Bindings: AppEnv;
-  Variables: AppVariables<Database>;
+  Variables: AppVariables;
 };

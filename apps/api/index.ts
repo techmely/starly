@@ -2,14 +2,14 @@ import { Hono } from "hono";
 // import { compress } from "hono/compress";
 import { timing } from "hono/timing";
 
-import type { HonoEnv } from "@techmely/hono";
-import { serverRuntimeEnvSchema } from "@techmely/hono";
 import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
 import { safeParse } from "valibot";
 import { authRouter } from "./contexts/identify-access/user/infras/http/routers/auth.router";
 import { userRouter } from "./contexts/identify-access/user/infras/http/routers/user.router";
 import { globalHandleError } from "./libs/error/global.handle-error";
 import { initApp } from "./libs/middlewares/init";
+import type { HonoEnv } from "./libs/hono/hono.types";
+import { runtimeEnvSchema } from "./libs/hono/hono.schema";
 
 const app = new Hono<HonoEnv>();
 app.use(initApp());
@@ -44,7 +44,7 @@ app.onError(globalHandleError);
 Bun.serve({
   port: 3000,
   fetch(req, server) {
-    const parsedEnv = safeParse(serverRuntimeEnvSchema, Bun.env);
+    const parsedEnv = safeParse(runtimeEnvSchema, Bun.env);
     if (!parsedEnv.success) {
       return Response.json(
         {
