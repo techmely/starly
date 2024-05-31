@@ -1,7 +1,6 @@
 import type { MiddlewareHandler } from "hono";
-import type { HonoEnv } from "../utils/runtimeEnv";
 
-export function metricsMiddleware(): MiddlewareHandler<HonoEnv> {
+export function metricsMiddleware(): MiddlewareHandler {
   return async (c, next) => {
     const { logger, analytics, metrics } = c.get("container");
     const start = performance.now();

@@ -1,7 +1,6 @@
 import type { MiddlewareHandler } from "hono";
-import type { HonoEnv } from "./utils/runtimeEnv";
 
-export function commonContext(): MiddlewareHandler<HonoEnv> {
+export function commonContext(): MiddlewareHandler {
   return (c, next) => {
     c.set(
       "location",
