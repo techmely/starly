@@ -7,3 +7,7 @@ export interface CreateUserCommand extends CreateUserRequest {}
 export abstract class CreateUserInPort implements UseCase<CreateUserCommand, UserEntity> {
   abstract execute(createUserCommand: CreateUserCommand): Promise<UserEntity>;
 }
+
+export abstract class CreateUserOutPort {
+  abstract insert(user: UserEntity): Promise<UserEntity>;
+}
