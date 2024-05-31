@@ -7,16 +7,21 @@ message CreateUserRequest {
 
 }
 
-message GetUserRequest {
-    string id = 1;
+message CreateUserResponse {
+    string email = 1;
 }
 
-message GetUsersRequest {
+
+message GetUserRequest {
     string id = 1;
 }
 
 message GetUserResponse {
 
+}
+
+message GetUsersRequest {
+    string id = 1;
 }
 
 message GetUsersResponse {
@@ -31,30 +36,10 @@ message UpdateUserResponse {
 
 }
 
-message UserChangePasswordRequest {
-    string email = 1;
-}
-
-message UserChangePasswordResponse {
-    string email = 1;
-}
-
-message ChangeUserEmailRequest {
-    string email = 1;
-}
-
 message DeleteUserRequest {
     string email = 1;
 }
 
 message DeleteUserResponse {
-    string email = 1;
-}
-
-message ChangeUserEmailResponse {
-    string email = 1;
-}
-
-message CreateUserResponse {
     string email = 1;
 }

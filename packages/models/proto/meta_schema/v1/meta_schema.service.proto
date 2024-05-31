@@ -6,6 +6,6 @@ option go_package="github.com/techmely/techmely/gen/go/meta_schema/v1;meta_schem
 import "meta_schema/v1/meta_schema.model.proto";
 import "meta_schema/v1/meta_schema.event.proto";
 
-service MetaSchemaService {
-  rpc Get(meta_schema.v1.GetMetaSchemaRequest) returns (meta_schema.v1.GetMetaSchemaResponse) {}
+service MetaSchemaServicePort {
+  rpc get(meta_schema.v1.GetMetaSchemaRequest) returns (meta_schema.v1.GetMetaSchemaResponse) {}
 }

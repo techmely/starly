@@ -15,22 +15,22 @@ import 'dart:typed_data' as $typed_data;
 
 import 'meta_schema.event.pbjson.dart' as $1;
 
-const $core.Map<$core.String, $core.dynamic> MetaSchemaServiceBase$json = {
-  '1': 'MetaSchemaService',
+const $core.Map<$core.String, $core.dynamic> MetaSchemaServicePortServiceBase$json = {
+  '1': 'MetaSchemaServicePort',
   '2': [
-    {'1': 'Get', '2': '.gen.go.meta_schema.v1.GetMetaSchemaRequest', '3': '.gen.go.meta_schema.v1.GetMetaSchemaResponse', '4': {}},
+    {'1': 'get', '2': '.gen.go.meta_schema.v1.GetMetaSchemaRequest', '3': '.gen.go.meta_schema.v1.GetMetaSchemaResponse', '4': {}},
   ],
 };
 
-@$core.Deprecated('Use metaSchemaServiceDescriptor instead')
-const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> MetaSchemaServiceBase$messageJson = {
+@$core.Deprecated('Use metaSchemaServicePortServiceDescriptor instead')
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> MetaSchemaServicePortServiceBase$messageJson = {
   '.gen.go.meta_schema.v1.GetMetaSchemaRequest': $1.GetMetaSchemaRequest$json,
   '.gen.go.meta_schema.v1.GetMetaSchemaResponse': $1.GetMetaSchemaResponse$json,
 };
 
-/// Descriptor for `MetaSchemaService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
-final $typed_data.Uint8List metaSchemaServiceDescriptor = $convert.base64Decode(
-    'ChFNZXRhU2NoZW1hU2VydmljZRJiCgNHZXQSKy5nZW4uZ28ubWV0YV9zY2hlbWEudjEuR2V0TW'
-    'V0YVNjaGVtYVJlcXVlc3QaLC5nZW4uZ28ubWV0YV9zY2hlbWEudjEuR2V0TWV0YVNjaGVtYVJl'
-    'c3BvbnNlIgA=');
+/// Descriptor for `MetaSchemaServicePort`. Decode as a `google.protobuf.ServiceDescriptorProto`.
+final $typed_data.Uint8List metaSchemaServicePortServiceDescriptor = $convert.base64Decode(
+    'ChVNZXRhU2NoZW1hU2VydmljZVBvcnQSYgoDZ2V0EisuZ2VuLmdvLm1ldGFfc2NoZW1hLnYxLk'
+    'dldE1ldGFTY2hlbWFSZXF1ZXN0GiwuZ2VuLmdvLm1ldGFfc2NoZW1hLnYxLkdldE1ldGFTY2hl'
+    'bWFSZXNwb25zZSIA');
 

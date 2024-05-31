@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+
+package gen.go.auth.v1;
+option go_package="github.com/techmely/techmely/gen/go/account/v1;account_service_v1";
+
+import "account/v1/account.event.proto";
+
+service AccountServicePort {
+  rpc login(auth.v1.LoginRequest) returns (auth.v1.LoginResponse) {}
+  rpc register(auth.v1.RegisterRequest) returns (auth.v1.RegisterResponse) {}
+  rpc logout(auth.v1.LogoutRequest) returns (auth.v1.LogoutResponse) {}
+  rpc resendVerificationCode(auth.v1.ResendVerificationCodeRequest) returns (auth.v1.ResendVerificationCodeResponse) {}
+  rpc updatePassword(auth.v1.UpdatePasswordRequest) returns (auth.v1.UpdatePasswordResponse) {}
+  rpc updateEmail(auth.v1.UpdateEmailRequest) returns (auth.v1.UpdateEmailResponse) {}
+  rpc verifyAccount(auth.v1.VerifyAccountRequest) returns (auth.v1.VerifyAccountResponse) {}
+  rpc verifyActivationLink(auth.v1.VerifyActivationLinkRequest) returns (auth.v1.VerifyActivationLinkResponse) {}
+  rpc forgotPassword(auth.v1.ForgotPasswordRequest) returns (auth.v1.ForgotPasswordResponse) {}
+}

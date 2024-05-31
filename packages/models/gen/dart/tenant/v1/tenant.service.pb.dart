@@ -16,27 +16,27 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'tenant.event.pb.dart' as $4;
 
-class TenantServiceApi {
+class TenantServicePortApi {
   $pb.RpcClient _client;
-  TenantServiceApi(this._client);
+  TenantServicePortApi(this._client);
 
   $async.Future<$4.CreateTenantResponse> create_($pb.ClientContext? ctx, $4.CreateTenantRequest request) =>
-    _client.invoke<$4.CreateTenantResponse>(ctx, 'TenantService', 'Create', request, $4.CreateTenantResponse())
+    _client.invoke<$4.CreateTenantResponse>(ctx, 'TenantServicePort', 'create', request, $4.CreateTenantResponse())
   ;
   $async.Future<$4.GetTenantResponse> get($pb.ClientContext? ctx, $4.GetTenantRequest request) =>
-    _client.invoke<$4.GetTenantResponse>(ctx, 'TenantService', 'Get', request, $4.GetTenantResponse())
+    _client.invoke<$4.GetTenantResponse>(ctx, 'TenantServicePort', 'get', request, $4.GetTenantResponse())
   ;
   $async.Future<$4.GetTenantsResponse> getAll($pb.ClientContext? ctx, $4.GetTenantsRequest request) =>
-    _client.invoke<$4.GetTenantsResponse>(ctx, 'TenantService', 'GetAll', request, $4.GetTenantsResponse())
+    _client.invoke<$4.GetTenantsResponse>(ctx, 'TenantServicePort', 'getAll', request, $4.GetTenantsResponse())
   ;
   $async.Future<$4.GetAvailableTenantsResponse> getAvailable($pb.ClientContext? ctx, $4.GetAvailableTenantsRequest request) =>
-    _client.invoke<$4.GetAvailableTenantsResponse>(ctx, 'TenantService', 'GetAvailable', request, $4.GetAvailableTenantsResponse())
+    _client.invoke<$4.GetAvailableTenantsResponse>(ctx, 'TenantServicePort', 'getAvailable', request, $4.GetAvailableTenantsResponse())
   ;
   $async.Future<$4.UpdateTenantResponse> update($pb.ClientContext? ctx, $4.UpdateTenantRequest request) =>
-    _client.invoke<$4.UpdateTenantResponse>(ctx, 'TenantService', 'Update', request, $4.UpdateTenantResponse())
+    _client.invoke<$4.UpdateTenantResponse>(ctx, 'TenantServicePort', 'update', request, $4.UpdateTenantResponse())
   ;
   $async.Future<$4.DeleteTenantResponse> delete($pb.ClientContext? ctx, $4.DeleteTenantRequest request) =>
-    _client.invoke<$4.DeleteTenantResponse>(ctx, 'TenantService', 'Delete', request, $4.DeleteTenantResponse())
+    _client.invoke<$4.DeleteTenantResponse>(ctx, 'TenantServicePort', 'delete', request, $4.DeleteTenantResponse())
   ;
 }
 

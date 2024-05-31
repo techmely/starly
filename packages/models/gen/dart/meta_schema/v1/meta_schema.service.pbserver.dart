@@ -20,24 +20,24 @@ import 'meta_schema.service.pbjson.dart';
 
 export 'meta_schema.service.pb.dart';
 
-abstract class MetaSchemaServiceBase extends $pb.GeneratedService {
+abstract class MetaSchemaServicePortServiceBase extends $pb.GeneratedService {
   $async.Future<$1.GetMetaSchemaResponse> get($pb.ServerContext ctx, $1.GetMetaSchemaRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'Get': return $1.GetMetaSchemaRequest();
+      case 'get': return $1.GetMetaSchemaRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'Get': return this.get(ctx, request as $1.GetMetaSchemaRequest);
+      case 'get': return this.get(ctx, request as $1.GetMetaSchemaRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
-  $core.Map<$core.String, $core.dynamic> get $json => MetaSchemaServiceBase$json;
-  $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> get $messageJson => MetaSchemaServiceBase$messageJson;
+  $core.Map<$core.String, $core.dynamic> get $json => MetaSchemaServicePortServiceBase$json;
+  $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> get $messageJson => MetaSchemaServicePortServiceBase$messageJson;
 }
 

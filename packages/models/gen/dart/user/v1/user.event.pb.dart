@@ -45,6 +45,56 @@ class CreateUserRequest extends $pb.GeneratedMessage {
   static CreateUserRequest? _defaultInstance;
 }
 
+class CreateUserResponse extends $pb.GeneratedMessage {
+  factory CreateUserResponse({
+    $core.String? email,
+  }) {
+    final $result = create();
+    if (email != null) {
+      $result.email = email;
+    }
+    return $result;
+  }
+  CreateUserResponse._() : super();
+  factory CreateUserResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CreateUserResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'email')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CreateUserResponse clone() => CreateUserResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CreateUserResponse copyWith(void Function(CreateUserResponse) updates) => super.copyWith((message) => updates(message as CreateUserResponse)) as CreateUserResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CreateUserResponse create() => CreateUserResponse._();
+  CreateUserResponse createEmptyInstance() => create();
+  static $pb.PbList<CreateUserResponse> createRepeated() => $pb.PbList<CreateUserResponse>();
+  @$core.pragma('dart2js:noInline')
+  static CreateUserResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateUserResponse>(create);
+  static CreateUserResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get email => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set email($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasEmail() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearEmail() => clearField(1);
+}
+
 class GetUserRequest extends $pb.GeneratedMessage {
   factory GetUserRequest({
     $core.String? id,
@@ -95,6 +145,38 @@ class GetUserRequest extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 }
 
+class GetUserResponse extends $pb.GeneratedMessage {
+  factory GetUserResponse() => create();
+  GetUserResponse._() : super();
+  factory GetUserResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetUserResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetUserResponse clone() => GetUserResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetUserResponse copyWith(void Function(GetUserResponse) updates) => super.copyWith((message) => updates(message as GetUserResponse)) as GetUserResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetUserResponse create() => GetUserResponse._();
+  GetUserResponse createEmptyInstance() => create();
+  static $pb.PbList<GetUserResponse> createRepeated() => $pb.PbList<GetUserResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetUserResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetUserResponse>(create);
+  static GetUserResponse? _defaultInstance;
+}
+
 class GetUsersRequest extends $pb.GeneratedMessage {
   factory GetUsersRequest({
     $core.String? id,
@@ -143,38 +225,6 @@ class GetUsersRequest extends $pb.GeneratedMessage {
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
-}
-
-class GetUserResponse extends $pb.GeneratedMessage {
-  factory GetUserResponse() => create();
-  GetUserResponse._() : super();
-  factory GetUserResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetUserResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetUserResponse clone() => GetUserResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetUserResponse copyWith(void Function(GetUserResponse) updates) => super.copyWith((message) => updates(message as GetUserResponse)) as GetUserResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static GetUserResponse create() => GetUserResponse._();
-  GetUserResponse createEmptyInstance() => create();
-  static $pb.PbList<GetUserResponse> createRepeated() => $pb.PbList<GetUserResponse>();
-  @$core.pragma('dart2js:noInline')
-  static GetUserResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetUserResponse>(create);
-  static GetUserResponse? _defaultInstance;
 }
 
 class GetUsersResponse extends $pb.GeneratedMessage {
@@ -291,156 +341,6 @@ class UpdateUserResponse extends $pb.GeneratedMessage {
   static UpdateUserResponse? _defaultInstance;
 }
 
-class UserChangePasswordRequest extends $pb.GeneratedMessage {
-  factory UserChangePasswordRequest({
-    $core.String? email,
-  }) {
-    final $result = create();
-    if (email != null) {
-      $result.email = email;
-    }
-    return $result;
-  }
-  UserChangePasswordRequest._() : super();
-  factory UserChangePasswordRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UserChangePasswordRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UserChangePasswordRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'email')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UserChangePasswordRequest clone() => UserChangePasswordRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UserChangePasswordRequest copyWith(void Function(UserChangePasswordRequest) updates) => super.copyWith((message) => updates(message as UserChangePasswordRequest)) as UserChangePasswordRequest;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UserChangePasswordRequest create() => UserChangePasswordRequest._();
-  UserChangePasswordRequest createEmptyInstance() => create();
-  static $pb.PbList<UserChangePasswordRequest> createRepeated() => $pb.PbList<UserChangePasswordRequest>();
-  @$core.pragma('dart2js:noInline')
-  static UserChangePasswordRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UserChangePasswordRequest>(create);
-  static UserChangePasswordRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get email => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set email($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasEmail() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearEmail() => clearField(1);
-}
-
-class UserChangePasswordResponse extends $pb.GeneratedMessage {
-  factory UserChangePasswordResponse({
-    $core.String? email,
-  }) {
-    final $result = create();
-    if (email != null) {
-      $result.email = email;
-    }
-    return $result;
-  }
-  UserChangePasswordResponse._() : super();
-  factory UserChangePasswordResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UserChangePasswordResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UserChangePasswordResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'email')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UserChangePasswordResponse clone() => UserChangePasswordResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UserChangePasswordResponse copyWith(void Function(UserChangePasswordResponse) updates) => super.copyWith((message) => updates(message as UserChangePasswordResponse)) as UserChangePasswordResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UserChangePasswordResponse create() => UserChangePasswordResponse._();
-  UserChangePasswordResponse createEmptyInstance() => create();
-  static $pb.PbList<UserChangePasswordResponse> createRepeated() => $pb.PbList<UserChangePasswordResponse>();
-  @$core.pragma('dart2js:noInline')
-  static UserChangePasswordResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UserChangePasswordResponse>(create);
-  static UserChangePasswordResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get email => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set email($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasEmail() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearEmail() => clearField(1);
-}
-
-class ChangeUserEmailRequest extends $pb.GeneratedMessage {
-  factory ChangeUserEmailRequest({
-    $core.String? email,
-  }) {
-    final $result = create();
-    if (email != null) {
-      $result.email = email;
-    }
-    return $result;
-  }
-  ChangeUserEmailRequest._() : super();
-  factory ChangeUserEmailRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ChangeUserEmailRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ChangeUserEmailRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'email')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  ChangeUserEmailRequest clone() => ChangeUserEmailRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  ChangeUserEmailRequest copyWith(void Function(ChangeUserEmailRequest) updates) => super.copyWith((message) => updates(message as ChangeUserEmailRequest)) as ChangeUserEmailRequest;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static ChangeUserEmailRequest create() => ChangeUserEmailRequest._();
-  ChangeUserEmailRequest createEmptyInstance() => create();
-  static $pb.PbList<ChangeUserEmailRequest> createRepeated() => $pb.PbList<ChangeUserEmailRequest>();
-  @$core.pragma('dart2js:noInline')
-  static ChangeUserEmailRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ChangeUserEmailRequest>(create);
-  static ChangeUserEmailRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get email => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set email($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasEmail() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearEmail() => clearField(1);
-}
-
 class DeleteUserRequest extends $pb.GeneratedMessage {
   factory DeleteUserRequest({
     $core.String? email,
@@ -530,106 +430,6 @@ class DeleteUserResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static DeleteUserResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteUserResponse>(create);
   static DeleteUserResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get email => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set email($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasEmail() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearEmail() => clearField(1);
-}
-
-class ChangeUserEmailResponse extends $pb.GeneratedMessage {
-  factory ChangeUserEmailResponse({
-    $core.String? email,
-  }) {
-    final $result = create();
-    if (email != null) {
-      $result.email = email;
-    }
-    return $result;
-  }
-  ChangeUserEmailResponse._() : super();
-  factory ChangeUserEmailResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ChangeUserEmailResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ChangeUserEmailResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'email')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  ChangeUserEmailResponse clone() => ChangeUserEmailResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  ChangeUserEmailResponse copyWith(void Function(ChangeUserEmailResponse) updates) => super.copyWith((message) => updates(message as ChangeUserEmailResponse)) as ChangeUserEmailResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static ChangeUserEmailResponse create() => ChangeUserEmailResponse._();
-  ChangeUserEmailResponse createEmptyInstance() => create();
-  static $pb.PbList<ChangeUserEmailResponse> createRepeated() => $pb.PbList<ChangeUserEmailResponse>();
-  @$core.pragma('dart2js:noInline')
-  static ChangeUserEmailResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ChangeUserEmailResponse>(create);
-  static ChangeUserEmailResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get email => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set email($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasEmail() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearEmail() => clearField(1);
-}
-
-class CreateUserResponse extends $pb.GeneratedMessage {
-  factory CreateUserResponse({
-    $core.String? email,
-  }) {
-    final $result = create();
-    if (email != null) {
-      $result.email = email;
-    }
-    return $result;
-  }
-  CreateUserResponse._() : super();
-  factory CreateUserResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreateUserResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'email')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  CreateUserResponse clone() => CreateUserResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  CreateUserResponse copyWith(void Function(CreateUserResponse) updates) => super.copyWith((message) => updates(message as CreateUserResponse)) as CreateUserResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static CreateUserResponse create() => CreateUserResponse._();
-  CreateUserResponse createEmptyInstance() => create();
-  static $pb.PbList<CreateUserResponse> createRepeated() => $pb.PbList<CreateUserResponse>();
-  @$core.pragma('dart2js:noInline')
-  static CreateUserResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateUserResponse>(create);
-  static CreateUserResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get email => $_getSZ(0);

@@ -10,22 +10,22 @@ import { GetMetaSchemaRequest, GetMetaSchemaResponse } from "./meta_schema.event
 
 export const protobufPackage = "gen.go.meta_schema.v1";
 
-export interface MetaSchemaService {
-  Get(request: GetMetaSchemaRequest): Promise<GetMetaSchemaResponse>;
+export interface MetaSchemaServicePort {
+  get(request: GetMetaSchemaRequest): Promise<GetMetaSchemaResponse>;
 }
 
-export const MetaSchemaServiceServiceName = "gen.go.meta_schema.v1.MetaSchemaService";
-export class MetaSchemaServiceClientImpl implements MetaSchemaService {
+export const MetaSchemaServicePortServiceName = "gen.go.meta_schema.v1.MetaSchemaServicePort";
+export class MetaSchemaServicePortClientImpl implements MetaSchemaServicePort {
   private readonly rpc: Rpc;
   private readonly service: string;
   constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || MetaSchemaServiceServiceName;
+    this.service = opts?.service || MetaSchemaServicePortServiceName;
     this.rpc = rpc;
-    this.Get = this.Get.bind(this);
+    this.get = this.get.bind(this);
   }
-  Get(request: GetMetaSchemaRequest): Promise<GetMetaSchemaResponse> {
+  get(request: GetMetaSchemaRequest): Promise<GetMetaSchemaResponse> {
     const data = GetMetaSchemaRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "Get", data);
+    const promise = this.rpc.request(this.service, "get", data);
     return promise.then((data) => GetMetaSchemaResponse.decode(_m0.Reader.create(data)));
   }
 }

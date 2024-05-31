@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v1.176.0
 //   protoc               unknown
-// source: auth/v1/auth.model.proto
+// source: account/v1/account.model.proto
 
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
@@ -10,26 +10,26 @@ import Long = require("long");
 
 export const protobufPackage = "gen.go.auth.v1";
 
-export interface Auth {
+export interface AccountModel {
   id: number;
 }
 
-function createBaseAuth(): Auth {
+function createBaseAccountModel(): AccountModel {
   return { id: 0 };
 }
 
-export const Auth = {
-  encode(message: Auth, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const AccountModel = {
+  encode(message: AccountModel, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== 0) {
       writer.uint32(8).int64(message.id);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): Auth {
+  decode(input: _m0.Reader | Uint8Array, length?: number): AccountModel {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseAuth();
+    const message = createBaseAccountModel();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -49,11 +49,11 @@ export const Auth = {
     return message;
   },
 
-  fromJSON(object: any): Auth {
+  fromJSON(object: any): AccountModel {
     return { id: isSet(object.id) ? globalThis.Number(object.id) : 0 };
   },
 
-  toJSON(message: Auth): unknown {
+  toJSON(message: AccountModel): unknown {
     const obj: any = {};
     if (message.id !== 0) {
       obj.id = Math.round(message.id);
@@ -61,11 +61,11 @@ export const Auth = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<Auth>, I>>(base?: I): Auth {
-    return Auth.fromPartial(base ?? ({} as any));
+  create<I extends Exact<DeepPartial<AccountModel>, I>>(base?: I): AccountModel {
+    return AccountModel.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<Auth>, I>>(object: I): Auth {
-    const message = createBaseAuth();
+  fromPartial<I extends Exact<DeepPartial<AccountModel>, I>>(object: I): AccountModel {
+    const message = createBaseAccountModel();
     message.id = object.id ?? 0;
     return message;
   },

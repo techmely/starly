@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package gen.go.auth.v1;
+option go_package="github.com/techmely/techmely/gen/go/account/v1;account_event_v1";
+
+message LoginRequest {
+  string id = 1;
+}
+
+message LoginResponse {
+  string id = 1;
+}
+
+message RegisterRequest {
+  string id = 1;
+}
+
+message RegisterResponse {
+  string id = 1;
+}
+
+message LogoutRequest {
+  string id = 1;
+}
+
+message LogoutResponse {
+  string id = 1;
+}
+
+message ResendVerificationCodeRequest {
+  string id = 1;
+}
+
+message ResendVerificationCodeResponse {
+  string id = 1;
+}
+
+message UpdatePasswordRequest {
+  string id = 1;
+}
+
+message UpdatePasswordResponse {
+  string id = 1;
+}
+
+message UpdateEmailRequest {
+  string id = 1;
+}
+
+message UpdateEmailResponse {
+  string id = 1;
+}
+
+
+message VerifyAccountRequest {
+  string id = 1;
+}
+
+message VerifyAccountResponse {
+  string id = 1;
+}
+
+message VerifyActivationLinkRequest {
+  string id = 1;
+}
+
+message VerifyActivationLinkResponse {
+  string id = 1;
+}
+
+message ForgotPasswordRequest {
+  string id = 1;
+}
+
+message ForgotPasswordResponse {
+  string id = 1;
+}
