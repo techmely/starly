@@ -1,7 +1,7 @@
 import type {} from "@techmely/domain-driven";
-import type { HonoEnv } from "@techmely/hono";
 import { Hono } from "hono";
-import { injectUserDomain } from "../../../user.injection";
+import type { HonoEnv } from "#root/libs/hono/hono.types";
+import userService from "../../user.injection";
 
 // POST("/v1/auth/email-password", userController.loginEmailPassword)
 
@@ -14,14 +14,10 @@ import { injectUserDomain } from "../../../user.injection";
 //
 
 const router = new Hono<HonoEnv>();
-router.use(async (c, next) => {
-  const { db } = c.get("container");
-  const userService = injectUserDomain({ db });
-  c.set("userService", userService);
-  await next();
-});
 router.put("/");
-router.get("/me");
+router.get("/me", (c, next) => {
+  const x = userService.get(request);
+});
 router.put("/my_profile");
 router.put("/my_profile/avatar");
 
