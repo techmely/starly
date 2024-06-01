@@ -27,7 +27,7 @@
     "fast-glob": "3.3.2",
     "fs-extra": "11.2.0",
     "happy-dom": "14.11.0",
-    "knip": "5.16.0",
+    "knip": "5.17.3",
     "linkinator": "6.0.4",
     "madge": "7.0.0",
     "multiple-cucumber-html-reporter": "3.6.2",
