@@ -18,7 +18,7 @@
     "url": "https://github.com/techmely"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.582.0",
+    "@aws-sdk/client-s3": "3.588.0",
     "@aws-sdk/s3-request-presigner": "3.582.0",
     "@techmely/auth": "^1.0.1",
     "@techmely/cache": "1.0.9",
