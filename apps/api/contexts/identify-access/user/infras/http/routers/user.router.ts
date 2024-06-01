@@ -6,7 +6,7 @@ import userService from "../../user.injection";
 const router = new Hono<HonoEnv>();
 router.put("/");
 router.get("/me", (c, next) => {
-  const x = userService.get(request);
+  const x = userService.Get({ key });
 });
 router.put("/my_profile");
 router.put("/my_profile/avatar");
