@@ -1,44 +1,37 @@
 import type {
   CreateUserRequest,
-  CreateUserResponse,
   DeleteUserRequest,
-  DeleteUserResponse,
   GetUserRequest,
-  GetUserResponse,
-  GetUsersRequest,
-  GetUsersResponse,
+  GetUsersPaginationRequest,
+  GetUsersPaginationResponse,
   UpdateUserRequest,
-  UpdateUserResponse,
+  UserModel,
   UserServicePort,
+  BoolValue,
 } from "@techmely/models";
-import type { CreateUserInPort } from "../use-cases/port/create-user.port";
-import type { LoginEmailPasswordInPort } from "../use-cases/port/login-email-password.port";
 import type { UserMapper } from "../../infras/mappers/user.mapper";
+import type { CreateUserInPort } from "../use-cases/port/create-user.port";
 
 export class UserService implements UserServicePort {
   constructor(
     private readonly mapper: UserMapper,
     private readonly createUserUseCase: CreateUserInPort,
-    private readonly loginEmailPasswordUseCase: LoginEmailPasswordInPort,
   ) {}
-  register(request: CreateUserRequest): Promise<CreateUserResponse> {
-    const user = this.createUserUseCase.execute(request);
-    return this.mapper.toDomain(user);
+  async Create(request: CreateUserRequest): Promise<UserModel> {
+    const entity = await this.createUserUseCase.execute(request);
+    const model = this.mapper.toPersistence(entity);
+    return model;
   }
-  get(request: GetUserRequest): Promise<GetUserResponse> {
+  Get(request: GetUserRequest): Promise<UserModel> {
     throw new Error("Method not implemented.");
   }
-  getAll(request: GetUsersRequest): Promise<GetUsersResponse> {
+  GetPagination(request: GetUsersPaginationRequest): Promise<GetUsersPaginationResponse> {
     throw new Error("Method not implemented.");
   }
-  update(request: UpdateUserRequest): Promise<UpdateUserResponse> {
+  Update(request: UpdateUserRequest): Promise<UserModel> {
     throw new Error("Method not implemented.");
   }
-  delete(request: DeleteUserRequest): Promise<DeleteUserResponse> {
-    throw new Error("Method not implemented.");
-  }
-
-  loginEmailPassword(body) {
-    return this.loginEmailPasswordUseCase.execute(body);
+  Delete(request: DeleteUserRequest): Promise<BoolValue> {
+    return Promise.resolve({ value: true });
   }
 }

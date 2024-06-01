@@ -5,10 +5,10 @@ import { UserMapper } from "./mappers/user.mapper";
 import { UserPgRepository } from "./persistence/pg/user.repository.pg.impl";
 import { pgDatabase } from "#root/libs/db/pg.db";
 
-const userMapper = new UserMapper();
+export const userMapper = new UserMapper();
 const userRepo = new UserPgRepository(userMapper, pgDatabase);
 const createUserUseCases = new CreateUserInteractor(userRepo);
 const loginUserPasswordUseCases = new LoginEmailPasswordInteractor(userRepo);
-const userService = new UserService(userMapper, createUserUseCases, loginUserPasswordUseCases);
+const userService = new UserService(userMapper, createUserUseCases);
 
 export default userService;

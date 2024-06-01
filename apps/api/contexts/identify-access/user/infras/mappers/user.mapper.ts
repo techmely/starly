@@ -1,38 +1,29 @@
-import { type Mapper, UniqueEntityID } from "@techmely/domain-driven";
+import { type DomainMapper, UniqueEntityID } from "@techmely/domain-driven";
 import { UserEntity } from "../../domain/entities/user.entity";
-import { type UserModel, userSchema } from "../../domain/repo/user.model";
-import { UserMetadata } from "../../domain/value-objects/user-metadata.value-object";
-import { UserProvider } from "../../domain/value-objects/user-providers.value-object";
+import type { UserModel } from "@techmely/models";
 
-export class UserMapper implements Mapper<UserEntity, UserModel> {
+export class UserMapper implements DomainMapper<any, UserModel, UserEntity> {
   toPersistence(entity: UserEntity): UserModel {
     const clone = entity.getProps();
     const record: UserModel = {
       id: clone.id.toString(),
       email: clone.email,
-      unverifiedEmail: clone.unverifiedEmail,
       isEmailVerified: clone.isEmailVerified,
       nickname: clone.nickname,
-      mobile: clone.mobile,
-      birthday: clone.birthday,
       name: clone.name,
       avatarUrl: clone.avatarUrl,
-      role: clone.role,
       status: clone.status,
-      locale: clone.locale,
-      gender: clone.gender,
+      authStrategy: clone.authStrategy,
+      firebaseUserId: clone.firebaseUserId,
+      metadata: clone?.metadata,
       openPlatform: clone.metadata?.raw()?.openPlatform,
       utmCampaign: clone.metadata?.raw()?.utmCampaign,
       utmMedium: clone.metadata?.raw()?.utmMedium,
       utmSource: clone.metadata?.raw()?.utmSource,
-      googleId: clone.provider?.raw()?.googleId,
-      githubId: clone.provider?.raw()?.githubId,
-      facebookId: clone.provider?.raw()?.facebookId,
-      appleId: clone.provider?.raw()?.appleId,
       createdAt: clone.createdAt,
       updatedAt: clone.updatedAt,
     };
-    return userSchema.parse(record);
+    return record;
   }
   toDomain(record: UserModel): UserEntity {
     const provider = new UserProvider({
