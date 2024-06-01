@@ -9,6 +9,57 @@ import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "gen.go.role.v1";
 
+export enum UserRoles {
+  SUPER_ADMIN = 0,
+  MODERATOR = 1,
+  ADMIN = 2,
+  MEMBER = 3,
+  GUEST = 4,
+  UNRECOGNIZED = -1,
+}
+
+export function userRolesFromJSON(object: any): UserRoles {
+  switch (object) {
+    case 0:
+    case "SUPER_ADMIN":
+      return UserRoles.SUPER_ADMIN;
+    case 1:
+    case "MODERATOR":
+      return UserRoles.MODERATOR;
+    case 2:
+    case "ADMIN":
+      return UserRoles.ADMIN;
+    case 3:
+    case "MEMBER":
+      return UserRoles.MEMBER;
+    case 4:
+    case "GUEST":
+      return UserRoles.GUEST;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return UserRoles.UNRECOGNIZED;
+  }
+}
+
+export function userRolesToJSON(object: UserRoles): string {
+  switch (object) {
+    case UserRoles.SUPER_ADMIN:
+      return "SUPER_ADMIN";
+    case UserRoles.MODERATOR:
+      return "MODERATOR";
+    case UserRoles.ADMIN:
+      return "ADMIN";
+    case UserRoles.MEMBER:
+      return "MEMBER";
+    case UserRoles.GUEST:
+      return "GUEST";
+    case UserRoles.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
 export interface Role {
   id: string;
 }

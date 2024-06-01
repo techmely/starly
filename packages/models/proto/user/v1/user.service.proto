@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/wrappers.proto";
+
 package gen.go.user.v1;
 option go_package="github.com/techmely/techmely/gen/go/user/v1;user_service_v1";
 
@@ -7,9 +9,9 @@ import "user/v1/user.model.proto";
 import "user/v1/user.event.proto";
 
 service UserServicePort {
-  rpc register(user.v1.CreateUserRequest) returns (user.v1.CreateUserResponse) {}
-  rpc get(user.v1.GetUserRequest) returns (user.v1.GetUserResponse) {}
-  rpc getAll(user.v1.GetUsersRequest) returns (user.v1.GetUsersResponse) {}
-  rpc update(user.v1.UpdateUserRequest) returns (user.v1.UpdateUserResponse) {}
-  rpc delete(user.v1.DeleteUserRequest) returns (user.v1.DeleteUserResponse) {}
+  rpc Create(user.v1.CreateUserRequest) returns (user.v1.UserModel) {}
+  rpc Get(user.v1.GetUserRequest) returns (user.v1.UserModel) {}
+  rpc GetPagination(user.v1.GetUsersPaginationRequest) returns (user.v1.GetUsersPaginationResponse) {}
+  rpc Update(user.v1.UpdateUserRequest) returns (user.v1.UserModel) {}
+  rpc Delete(user.v1.DeleteUserRequest) returns (google.protobuf.BoolValue) {}
 }

@@ -9,6 +9,7 @@ import (
 	context "context"
 	errors "errors"
 	v1 "github.com/techmely/models/account/v1"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	http "net/http"
 	strings "strings"
 )
@@ -36,6 +37,9 @@ const (
 	// AccountServicePortLoginProcedure is the fully-qualified name of the AccountServicePort's login
 	// RPC.
 	AccountServicePortLoginProcedure = "/gen.go.auth.v1.AccountServicePort/login"
+	// AccountServicePortLoginWithProviderProcedure is the fully-qualified name of the
+	// AccountServicePort's loginWithProvider RPC.
+	AccountServicePortLoginWithProviderProcedure = "/gen.go.auth.v1.AccountServicePort/loginWithProvider"
 	// AccountServicePortRegisterProcedure is the fully-qualified name of the AccountServicePort's
 	// register RPC.
 	AccountServicePortRegisterProcedure = "/gen.go.auth.v1.AccountServicePort/register"
@@ -66,6 +70,7 @@ const (
 var (
 	accountServicePortServiceDescriptor                      = v1.File_account_v1_account_service_proto.Services().ByName("AccountServicePort")
 	accountServicePortLoginMethodDescriptor                  = accountServicePortServiceDescriptor.Methods().ByName("login")
+	accountServicePortLoginWithProviderMethodDescriptor      = accountServicePortServiceDescriptor.Methods().ByName("loginWithProvider")
 	accountServicePortRegisterMethodDescriptor               = accountServicePortServiceDescriptor.Methods().ByName("register")
 	accountServicePortLogoutMethodDescriptor                 = accountServicePortServiceDescriptor.Methods().ByName("logout")
 	accountServicePortResendVerificationCodeMethodDescriptor = accountServicePortServiceDescriptor.Methods().ByName("resendVerificationCode")
@@ -79,6 +84,7 @@ var (
 // AccountServicePortClient is a client for the gen.go.auth.v1.AccountServicePort service.
 type AccountServicePortClient interface {
 	Login(context.Context, *connect.Request[v1.LoginRequest]) (*connect.Response[v1.LoginResponse], error)
+	LoginWithProvider(context.Context, *connect.Request[v1.LoginWithProviderRequest]) (*connect.Response[emptypb.Empty], error)
 	Register(context.Context, *connect.Request[v1.RegisterRequest]) (*connect.Response[v1.RegisterResponse], error)
 	Logout(context.Context, *connect.Request[v1.LogoutRequest]) (*connect.Response[v1.LogoutResponse], error)
 	ResendVerificationCode(context.Context, *connect.Request[v1.ResendVerificationCodeRequest]) (*connect.Response[v1.ResendVerificationCodeResponse], error)
@@ -103,6 +109,12 @@ func NewAccountServicePortClient(httpClient connect.HTTPClient, baseURL string, 
 			httpClient,
 			baseURL+AccountServicePortLoginProcedure,
 			connect.WithSchema(accountServicePortLoginMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		loginWithProvider: connect.NewClient[v1.LoginWithProviderRequest, emptypb.Empty](
+			httpClient,
+			baseURL+AccountServicePortLoginWithProviderProcedure,
+			connect.WithSchema(accountServicePortLoginWithProviderMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
 		register: connect.NewClient[v1.RegisterRequest, v1.RegisterResponse](
@@ -159,6 +171,7 @@ func NewAccountServicePortClient(httpClient connect.HTTPClient, baseURL string, 
 // accountServicePortClient implements AccountServicePortClient.
 type accountServicePortClient struct {
 	login                  *connect.Client[v1.LoginRequest, v1.LoginResponse]
+	loginWithProvider      *connect.Client[v1.LoginWithProviderRequest, emptypb.Empty]
 	register               *connect.Client[v1.RegisterRequest, v1.RegisterResponse]
 	logout                 *connect.Client[v1.LogoutRequest, v1.LogoutResponse]
 	resendVerificationCode *connect.Client[v1.ResendVerificationCodeRequest, v1.ResendVerificationCodeResponse]
@@ -172,6 +185,11 @@ type accountServicePortClient struct {
 // Login calls gen.go.auth.v1.AccountServicePort.login.
 func (c *accountServicePortClient) Login(ctx context.Context, req *connect.Request[v1.LoginRequest]) (*connect.Response[v1.LoginResponse], error) {
 	return c.login.CallUnary(ctx, req)
+}
+
+// LoginWithProvider calls gen.go.auth.v1.AccountServicePort.loginWithProvider.
+func (c *accountServicePortClient) LoginWithProvider(ctx context.Context, req *connect.Request[v1.LoginWithProviderRequest]) (*connect.Response[emptypb.Empty], error) {
+	return c.loginWithProvider.CallUnary(ctx, req)
 }
 
 // Register calls gen.go.auth.v1.AccountServicePort.register.
@@ -217,6 +235,7 @@ func (c *accountServicePortClient) ForgotPassword(ctx context.Context, req *conn
 // AccountServicePortHandler is an implementation of the gen.go.auth.v1.AccountServicePort service.
 type AccountServicePortHandler interface {
 	Login(context.Context, *connect.Request[v1.LoginRequest]) (*connect.Response[v1.LoginResponse], error)
+	LoginWithProvider(context.Context, *connect.Request[v1.LoginWithProviderRequest]) (*connect.Response[emptypb.Empty], error)
 	Register(context.Context, *connect.Request[v1.RegisterRequest]) (*connect.Response[v1.RegisterResponse], error)
 	Logout(context.Context, *connect.Request[v1.LogoutRequest]) (*connect.Response[v1.LogoutResponse], error)
 	ResendVerificationCode(context.Context, *connect.Request[v1.ResendVerificationCodeRequest]) (*connect.Response[v1.ResendVerificationCodeResponse], error)
@@ -237,6 +256,12 @@ func NewAccountServicePortHandler(svc AccountServicePortHandler, opts ...connect
 		AccountServicePortLoginProcedure,
 		svc.Login,
 		connect.WithSchema(accountServicePortLoginMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	accountServicePortLoginWithProviderHandler := connect.NewUnaryHandler(
+		AccountServicePortLoginWithProviderProcedure,
+		svc.LoginWithProvider,
+		connect.WithSchema(accountServicePortLoginWithProviderMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
 	accountServicePortRegisterHandler := connect.NewUnaryHandler(
@@ -291,6 +316,8 @@ func NewAccountServicePortHandler(svc AccountServicePortHandler, opts ...connect
 		switch r.URL.Path {
 		case AccountServicePortLoginProcedure:
 			accountServicePortLoginHandler.ServeHTTP(w, r)
+		case AccountServicePortLoginWithProviderProcedure:
+			accountServicePortLoginWithProviderHandler.ServeHTTP(w, r)
 		case AccountServicePortRegisterProcedure:
 			accountServicePortRegisterHandler.ServeHTTP(w, r)
 		case AccountServicePortLogoutProcedure:
@@ -318,6 +345,10 @@ type UnimplementedAccountServicePortHandler struct{}
 
 func (UnimplementedAccountServicePortHandler) Login(context.Context, *connect.Request[v1.LoginRequest]) (*connect.Response[v1.LoginResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.auth.v1.AccountServicePort.login is not implemented"))
+}
+
+func (UnimplementedAccountServicePortHandler) LoginWithProvider(context.Context, *connect.Request[v1.LoginWithProviderRequest]) (*connect.Response[emptypb.Empty], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.auth.v1.AccountServicePort.loginWithProvider is not implemented"))
 }
 
 func (UnimplementedAccountServicePortHandler) Register(context.Context, *connect.Request[v1.RegisterRequest]) (*connect.Response[v1.RegisterResponse], error) {

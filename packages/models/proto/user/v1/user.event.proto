@@ -1,43 +1,52 @@
 syntax = "proto3";
 
+import "user/v1/user.model.proto";
+import "google/protobuf/any.proto";
+
 package gen.go.user.v1;
 option go_package="github.com/techmely/techmely/gen/go/user;user_event_v1";
 
 message CreateUserRequest {
-
-}
-
-message CreateUserResponse {
-    string email = 1;
+  string email = 2;
+  string nickname = 3;
+  UserStatus status = 4;
+  bool is_email_verified = 5;
+  string name = 6;
+  string avatar_url = 7;
+  string firebase_user_id = 8;
+  AuthStrategy auth_strategy = 9;
+  string open_platform = 10;
+  string utm_campaign = 11;
+  string utm_medium = 12;
+  string utm_source = 13;
+  google.protobuf.Any metadata = 14;
 }
 
 
 message GetUserRequest {
-    string id = 1;
+    string key = 1;
 }
 
-message GetUserResponse {
-
+message GetUserByAuthIdRequest {
+  string id = 1;
 }
 
-message GetUsersRequest {
-    string id = 1;
+message GetUsersPaginationRequest {
+    string tenantId = 1;
+    uint64  limit = 2;
+    uint64  page = 3;
 }
 
-message GetUsersResponse {
-
+message GetUsersPaginationResponse {
+  string id = 1;
 }
 
 message UpdateUserRequest {
     string id = 1;
 }
 
-message UpdateUserResponse {
-
-}
-
 message DeleteUserRequest {
-    string email = 1;
+    string id = 1;
 }
 
 message DeleteUserResponse {

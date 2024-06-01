@@ -13,37 +13,12 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class UserRoles extends $pb.ProtobufEnum {
-  static const UserRoles SUPER_ADMIN = UserRoles._(0, _omitEnumNames ? '' : 'SUPER_ADMIN');
-  static const UserRoles MODERATOR = UserRoles._(1, _omitEnumNames ? '' : 'MODERATOR');
-  static const UserRoles ADMIN = UserRoles._(2, _omitEnumNames ? '' : 'ADMIN');
-  static const UserRoles MEMBER = UserRoles._(3, _omitEnumNames ? '' : 'MEMBER');
-  static const UserRoles GUEST = UserRoles._(4, _omitEnumNames ? '' : 'GUEST');
-
-  static const $core.List<UserRoles> values = <UserRoles> [
-    SUPER_ADMIN,
-    MODERATOR,
-    ADMIN,
-    MEMBER,
-    GUEST,
-  ];
-
-  static final $core.Map<$core.int, UserRoles> _byValue = $pb.ProtobufEnum.initByValue(values);
-  static UserRoles? valueOf($core.int value) => _byValue[value];
-
-  const UserRoles._($core.int v, $core.String n) : super(v, n);
-}
-
 class UserStatus extends $pb.ProtobufEnum {
-  static const UserStatus VERIFIED = UserStatus._(0, _omitEnumNames ? '' : 'VERIFIED');
-  static const UserStatus BLACKLIST = UserStatus._(1, _omitEnumNames ? '' : 'BLACKLIST');
-  static const UserStatus INACTIVE = UserStatus._(2, _omitEnumNames ? '' : 'INACTIVE');
-  static const UserStatus ACTIVE = UserStatus._(3, _omitEnumNames ? '' : 'ACTIVE');
-  static const UserStatus CLOSED = UserStatus._(4, _omitEnumNames ? '' : 'CLOSED');
+  static const UserStatus INACTIVE = UserStatus._(0, _omitEnumNames ? '' : 'INACTIVE');
+  static const UserStatus ACTIVE = UserStatus._(1, _omitEnumNames ? '' : 'ACTIVE');
+  static const UserStatus CLOSED = UserStatus._(2, _omitEnumNames ? '' : 'CLOSED');
 
   static const $core.List<UserStatus> values = <UserStatus> [
-    VERIFIED,
-    BLACKLIST,
     INACTIVE,
     ACTIVE,
     CLOSED,
@@ -53,6 +28,31 @@ class UserStatus extends $pb.ProtobufEnum {
   static UserStatus? valueOf($core.int value) => _byValue[value];
 
   const UserStatus._($core.int v, $core.String n) : super(v, n);
+}
+
+class AuthStrategy extends $pb.ProtobufEnum {
+  static const AuthStrategy BASIC = AuthStrategy._(0, _omitEnumNames ? '' : 'BASIC');
+  static const AuthStrategy GOOGLE = AuthStrategy._(1, _omitEnumNames ? '' : 'GOOGLE');
+  static const AuthStrategy GITHUB = AuthStrategy._(2, _omitEnumNames ? '' : 'GITHUB');
+  static const AuthStrategy FACEBOOK = AuthStrategy._(3, _omitEnumNames ? '' : 'FACEBOOK');
+  static const AuthStrategy X = AuthStrategy._(4, _omitEnumNames ? '' : 'X');
+  static const AuthStrategy APPLE = AuthStrategy._(5, _omitEnumNames ? '' : 'APPLE');
+  static const AuthStrategy LINKEDIN = AuthStrategy._(6, _omitEnumNames ? '' : 'LINKEDIN');
+
+  static const $core.List<AuthStrategy> values = <AuthStrategy> [
+    BASIC,
+    GOOGLE,
+    GITHUB,
+    FACEBOOK,
+    X,
+    APPLE,
+    LINKEDIN,
+  ];
+
+  static final $core.Map<$core.int, AuthStrategy> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static AuthStrategy? valueOf($core.int value) => _byValue[value];
+
+  const AuthStrategy._($core.int v, $core.String n) : super(v, n);
 }
 
 

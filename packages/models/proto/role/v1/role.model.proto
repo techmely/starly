@@ -6,3 +6,11 @@ option go_package="github.com/techmely/techmely/gen/go/role/v1;role_model_v1";
 message Role {
     string id = 1;
 }
+
+enum UserRoles {
+    SUPER_ADMIN = 0;
+    MODERATOR = 1;
+    ADMIN = 2;
+    MEMBER = 3;
+    GUEST = 4;
+}

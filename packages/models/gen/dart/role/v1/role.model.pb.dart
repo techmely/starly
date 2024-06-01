@@ -13,6 +13,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+export 'role.model.pbenum.dart';
+
 class Role extends $pb.GeneratedMessage {
   factory Role({
     $core.String? id,

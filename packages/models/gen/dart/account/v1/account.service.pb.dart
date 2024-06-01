@@ -14,6 +14,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/empty.pb.dart' as $1;
 import 'account.event.pb.dart' as $0;
 
 class AccountServicePortApi {
@@ -22,6 +23,9 @@ class AccountServicePortApi {
 
   $async.Future<$0.LoginResponse> login($pb.ClientContext? ctx, $0.LoginRequest request) =>
     _client.invoke<$0.LoginResponse>(ctx, 'AccountServicePort', 'login', request, $0.LoginResponse())
+  ;
+  $async.Future<$1.Empty> loginWithProvider($pb.ClientContext? ctx, $0.LoginWithProviderRequest request) =>
+    _client.invoke<$1.Empty>(ctx, 'AccountServicePort', 'loginWithProvider', request, $1.Empty())
   ;
   $async.Future<$0.RegisterResponse> register($pb.ClientContext? ctx, $0.RegisterRequest request) =>
     _client.invoke<$0.RegisterResponse>(ctx, 'AccountServicePort', 'register', request, $0.RegisterResponse())

@@ -13,41 +13,43 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import 'user.event.pbjson.dart' as $5;
+import '../../google/protobuf/any.pbjson.dart' as $4;
+import '../../google/protobuf/wrappers.pbjson.dart' as $8;
+import 'user.event.pbjson.dart' as $7;
+import 'user.model.pbjson.dart' as $6;
 
 const $core.Map<$core.String, $core.dynamic> UserServicePortServiceBase$json = {
   '1': 'UserServicePort',
   '2': [
-    {'1': 'register', '2': '.gen.go.user.v1.CreateUserRequest', '3': '.gen.go.user.v1.CreateUserResponse', '4': {}},
-    {'1': 'get', '2': '.gen.go.user.v1.GetUserRequest', '3': '.gen.go.user.v1.GetUserResponse', '4': {}},
-    {'1': 'getAll', '2': '.gen.go.user.v1.GetUsersRequest', '3': '.gen.go.user.v1.GetUsersResponse', '4': {}},
-    {'1': 'update', '2': '.gen.go.user.v1.UpdateUserRequest', '3': '.gen.go.user.v1.UpdateUserResponse', '4': {}},
-    {'1': 'delete', '2': '.gen.go.user.v1.DeleteUserRequest', '3': '.gen.go.user.v1.DeleteUserResponse', '4': {}},
+    {'1': 'Create', '2': '.gen.go.user.v1.CreateUserRequest', '3': '.gen.go.user.v1.UserModel', '4': {}},
+    {'1': 'Get', '2': '.gen.go.user.v1.GetUserRequest', '3': '.gen.go.user.v1.UserModel', '4': {}},
+    {'1': 'GetPagination', '2': '.gen.go.user.v1.GetUsersPaginationRequest', '3': '.gen.go.user.v1.GetUsersPaginationResponse', '4': {}},
+    {'1': 'Update', '2': '.gen.go.user.v1.UpdateUserRequest', '3': '.gen.go.user.v1.UserModel', '4': {}},
+    {'1': 'Delete', '2': '.gen.go.user.v1.DeleteUserRequest', '3': '.google.protobuf.BoolValue', '4': {}},
   ],
 };
 
 @$core.Deprecated('Use userServicePortServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> UserServicePortServiceBase$messageJson = {
-  '.gen.go.user.v1.CreateUserRequest': $5.CreateUserRequest$json,
-  '.gen.go.user.v1.CreateUserResponse': $5.CreateUserResponse$json,
-  '.gen.go.user.v1.GetUserRequest': $5.GetUserRequest$json,
-  '.gen.go.user.v1.GetUserResponse': $5.GetUserResponse$json,
-  '.gen.go.user.v1.GetUsersRequest': $5.GetUsersRequest$json,
-  '.gen.go.user.v1.GetUsersResponse': $5.GetUsersResponse$json,
-  '.gen.go.user.v1.UpdateUserRequest': $5.UpdateUserRequest$json,
-  '.gen.go.user.v1.UpdateUserResponse': $5.UpdateUserResponse$json,
-  '.gen.go.user.v1.DeleteUserRequest': $5.DeleteUserRequest$json,
-  '.gen.go.user.v1.DeleteUserResponse': $5.DeleteUserResponse$json,
+  '.gen.go.user.v1.CreateUserRequest': $7.CreateUserRequest$json,
+  '.google.protobuf.Any': $4.Any$json,
+  '.gen.go.user.v1.UserModel': $6.UserModel$json,
+  '.gen.go.user.v1.GetUserRequest': $7.GetUserRequest$json,
+  '.gen.go.user.v1.GetUsersPaginationRequest': $7.GetUsersPaginationRequest$json,
+  '.gen.go.user.v1.GetUsersPaginationResponse': $7.GetUsersPaginationResponse$json,
+  '.gen.go.user.v1.UpdateUserRequest': $7.UpdateUserRequest$json,
+  '.gen.go.user.v1.DeleteUserRequest': $7.DeleteUserRequest$json,
+  '.google.protobuf.BoolValue': $8.BoolValue$json,
 };
 
 /// Descriptor for `UserServicePort`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List userServicePortServiceDescriptor = $convert.base64Decode(
-    'Cg9Vc2VyU2VydmljZVBvcnQSUwoIcmVnaXN0ZXISIS5nZW4uZ28udXNlci52MS5DcmVhdGVVc2'
-    'VyUmVxdWVzdBoiLmdlbi5nby51c2VyLnYxLkNyZWF0ZVVzZXJSZXNwb25zZSIAEkgKA2dldBIe'
-    'Lmdlbi5nby51c2VyLnYxLkdldFVzZXJSZXF1ZXN0Gh8uZ2VuLmdvLnVzZXIudjEuR2V0VXNlcl'
-    'Jlc3BvbnNlIgASTQoGZ2V0QWxsEh8uZ2VuLmdvLnVzZXIudjEuR2V0VXNlcnNSZXF1ZXN0GiAu'
-    'Z2VuLmdvLnVzZXIudjEuR2V0VXNlcnNSZXNwb25zZSIAElEKBnVwZGF0ZRIhLmdlbi5nby51c2'
-    'VyLnYxLlVwZGF0ZVVzZXJSZXF1ZXN0GiIuZ2VuLmdvLnVzZXIudjEuVXBkYXRlVXNlclJlc3Bv'
-    'bnNlIgASUQoGZGVsZXRlEiEuZ2VuLmdvLnVzZXIudjEuRGVsZXRlVXNlclJlcXVlc3QaIi5nZW'
-    '4uZ28udXNlci52MS5EZWxldGVVc2VyUmVzcG9uc2UiAA==');
+    'Cg9Vc2VyU2VydmljZVBvcnQSSAoGQ3JlYXRlEiEuZ2VuLmdvLnVzZXIudjEuQ3JlYXRlVXNlcl'
+    'JlcXVlc3QaGS5nZW4uZ28udXNlci52MS5Vc2VyTW9kZWwiABJCCgNHZXQSHi5nZW4uZ28udXNl'
+    'ci52MS5HZXRVc2VyUmVxdWVzdBoZLmdlbi5nby51c2VyLnYxLlVzZXJNb2RlbCIAEmgKDUdldF'
+    'BhZ2luYXRpb24SKS5nZW4uZ28udXNlci52MS5HZXRVc2Vyc1BhZ2luYXRpb25SZXF1ZXN0Giou'
+    'Z2VuLmdvLnVzZXIudjEuR2V0VXNlcnNQYWdpbmF0aW9uUmVzcG9uc2UiABJICgZVcGRhdGUSIS'
+    '5nZW4uZ28udXNlci52MS5VcGRhdGVVc2VyUmVxdWVzdBoZLmdlbi5nby51c2VyLnYxLlVzZXJN'
+    'b2RlbCIAEkkKBkRlbGV0ZRIhLmdlbi5nby51c2VyLnYxLkRlbGV0ZVVzZXJSZXF1ZXN0GhouZ2'
+    '9vZ2xlLnByb3RvYnVmLkJvb2xWYWx1ZSIA');
 

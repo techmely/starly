@@ -37,6 +37,18 @@ const LoginResponse$json = {
 final $typed_data.Uint8List loginResponseDescriptor = $convert.base64Decode(
     'Cg1Mb2dpblJlc3BvbnNlEg4KAmlkGAEgASgJUgJpZA==');
 
+@$core.Deprecated('Use loginWithProviderRequestDescriptor instead')
+const LoginWithProviderRequest$json = {
+  '1': 'LoginWithProviderRequest',
+  '2': [
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+  ],
+};
+
+/// Descriptor for `LoginWithProviderRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List loginWithProviderRequestDescriptor = $convert.base64Decode(
+    'ChhMb2dpbldpdGhQcm92aWRlclJlcXVlc3QSDgoCaWQYASABKAlSAmlk');
+
 @$core.Deprecated('Use registerRequestDescriptor instead')
 const RegisterRequest$json = {
   '1': 'RegisterRequest',

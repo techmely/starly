@@ -11,6 +11,10 @@ message LoginResponse {
   string id = 1;
 }
 
+message LoginWithProviderRequest {
+  string id = 1;
+}
+
 message RegisterRequest {
   string id = 1;
 }

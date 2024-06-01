@@ -6,11 +6,13 @@
 
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
+import { Empty } from "../../google/protobuf/empty";
 import {
   ForgotPasswordRequest,
   ForgotPasswordResponse,
   LoginRequest,
   LoginResponse,
+  LoginWithProviderRequest,
   LogoutRequest,
   LogoutResponse,
   RegisterRequest,
@@ -31,6 +33,7 @@ export const protobufPackage = "gen.go.auth.v1";
 
 export interface AccountServicePort {
   login(request: LoginRequest): Promise<LoginResponse>;
+  loginWithProvider(request: LoginWithProviderRequest): Promise<Empty>;
   register(request: RegisterRequest): Promise<RegisterResponse>;
   logout(request: LogoutRequest): Promise<LogoutResponse>;
   resendVerificationCode(request: ResendVerificationCodeRequest): Promise<ResendVerificationCodeResponse>;
@@ -49,6 +52,7 @@ export class AccountServicePortClientImpl implements AccountServicePort {
     this.service = opts?.service || AccountServicePortServiceName;
     this.rpc = rpc;
     this.login = this.login.bind(this);
+    this.loginWithProvider = this.loginWithProvider.bind(this);
     this.register = this.register.bind(this);
     this.logout = this.logout.bind(this);
     this.resendVerificationCode = this.resendVerificationCode.bind(this);
@@ -62,6 +66,12 @@ export class AccountServicePortClientImpl implements AccountServicePort {
     const data = LoginRequest.encode(request).finish();
     const promise = this.rpc.request(this.service, "login", data);
     return promise.then((data) => LoginResponse.decode(_m0.Reader.create(data)));
+  }
+
+  loginWithProvider(request: LoginWithProviderRequest): Promise<Empty> {
+    const data = LoginWithProviderRequest.encode(request).finish();
+    const promise = this.rpc.request(this.service, "loginWithProvider", data);
+    return promise.then((data) => Empty.decode(_m0.Reader.create(data)));
   }
 
   register(request: RegisterRequest): Promise<RegisterResponse> {

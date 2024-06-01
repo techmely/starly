@@ -113,6 +113,56 @@ class LoginResponse extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 }
 
+class LoginWithProviderRequest extends $pb.GeneratedMessage {
+  factory LoginWithProviderRequest({
+    $core.String? id,
+  }) {
+    final $result = create();
+    if (id != null) {
+      $result.id = id;
+    }
+    return $result;
+  }
+  LoginWithProviderRequest._() : super();
+  factory LoginWithProviderRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory LoginWithProviderRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginWithProviderRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.auth.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  LoginWithProviderRequest clone() => LoginWithProviderRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  LoginWithProviderRequest copyWith(void Function(LoginWithProviderRequest) updates) => super.copyWith((message) => updates(message as LoginWithProviderRequest)) as LoginWithProviderRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static LoginWithProviderRequest create() => LoginWithProviderRequest._();
+  LoginWithProviderRequest createEmptyInstance() => create();
+  static $pb.PbList<LoginWithProviderRequest> createRepeated() => $pb.PbList<LoginWithProviderRequest>();
+  @$core.pragma('dart2js:noInline')
+  static LoginWithProviderRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LoginWithProviderRequest>(create);
+  static LoginWithProviderRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
 class RegisterRequest extends $pb.GeneratedMessage {
   factory RegisterRequest({
     $core.String? id,

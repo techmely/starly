@@ -15,6 +15,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/empty.pb.dart' as $1;
 import 'account.event.pb.dart' as $0;
 import 'account.service.pbjson.dart';
 
@@ -22,6 +23,7 @@ export 'account.service.pb.dart';
 
 abstract class AccountServicePortServiceBase extends $pb.GeneratedService {
   $async.Future<$0.LoginResponse> login($pb.ServerContext ctx, $0.LoginRequest request);
+  $async.Future<$1.Empty> loginWithProvider($pb.ServerContext ctx, $0.LoginWithProviderRequest request);
   $async.Future<$0.RegisterResponse> register($pb.ServerContext ctx, $0.RegisterRequest request);
   $async.Future<$0.LogoutResponse> logout($pb.ServerContext ctx, $0.LogoutRequest request);
   $async.Future<$0.ResendVerificationCodeResponse> resendVerificationCode($pb.ServerContext ctx, $0.ResendVerificationCodeRequest request);
@@ -34,6 +36,7 @@ abstract class AccountServicePortServiceBase extends $pb.GeneratedService {
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
       case 'login': return $0.LoginRequest();
+      case 'loginWithProvider': return $0.LoginWithProviderRequest();
       case 'register': return $0.RegisterRequest();
       case 'logout': return $0.LogoutRequest();
       case 'resendVerificationCode': return $0.ResendVerificationCodeRequest();
@@ -49,6 +52,7 @@ abstract class AccountServicePortServiceBase extends $pb.GeneratedService {
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
       case 'login': return this.login(ctx, request as $0.LoginRequest);
+      case 'loginWithProvider': return this.loginWithProvider(ctx, request as $0.LoginWithProviderRequest);
       case 'register': return this.register(ctx, request as $0.RegisterRequest);
       case 'logout': return this.logout(ctx, request as $0.LogoutRequest);
       case 'resendVerificationCode': return this.resendVerificationCode(ctx, request as $0.ResendVerificationCodeRequest);

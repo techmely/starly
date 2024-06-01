@@ -15,24 +15,24 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'meta_schema.event.pb.dart' as $1;
+import 'meta_schema.event.pb.dart' as $2;
 import 'meta_schema.service.pbjson.dart';
 
 export 'meta_schema.service.pb.dart';
 
 abstract class MetaSchemaServicePortServiceBase extends $pb.GeneratedService {
-  $async.Future<$1.GetMetaSchemaResponse> get($pb.ServerContext ctx, $1.GetMetaSchemaRequest request);
+  $async.Future<$2.GetMetaSchemaResponse> get($pb.ServerContext ctx, $2.GetMetaSchemaRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'get': return $1.GetMetaSchemaRequest();
+      case 'get': return $2.GetMetaSchemaRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'get': return this.get(ctx, request as $1.GetMetaSchemaRequest);
+      case 'get': return this.get(ctx, request as $2.GetMetaSchemaRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }

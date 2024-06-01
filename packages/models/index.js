@@ -1,6 +1,8 @@
-export * from "./gen/ts/auth/v1/auth.event";
-export * from "./gen/ts/auth/v1/auth.model";
-export * from "./gen/ts/auth/v1/auth.service";
+export * from "./gen/ts/account/v1/account.event";
+export * from "./gen/ts/account/v1/account.model";
+export * from "./gen/ts/account/v1/account.service";
+
+export * from "./gen/ts/common/common.model";
 
 export * from "./gen/ts/preferences/v1/preferences.event";
 export * from "./gen/ts/preferences/v1/preferences.model";

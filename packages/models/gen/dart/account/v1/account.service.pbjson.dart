@@ -13,12 +13,14 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+import '../../google/protobuf/empty.pbjson.dart' as $1;
 import 'account.event.pbjson.dart' as $0;
 
 const $core.Map<$core.String, $core.dynamic> AccountServicePortServiceBase$json = {
   '1': 'AccountServicePort',
   '2': [
     {'1': 'login', '2': '.gen.go.auth.v1.LoginRequest', '3': '.gen.go.auth.v1.LoginResponse', '4': {}},
+    {'1': 'loginWithProvider', '2': '.gen.go.auth.v1.LoginWithProviderRequest', '3': '.google.protobuf.Empty', '4': {}},
     {'1': 'register', '2': '.gen.go.auth.v1.RegisterRequest', '3': '.gen.go.auth.v1.RegisterResponse', '4': {}},
     {'1': 'logout', '2': '.gen.go.auth.v1.LogoutRequest', '3': '.gen.go.auth.v1.LogoutResponse', '4': {}},
     {'1': 'resendVerificationCode', '2': '.gen.go.auth.v1.ResendVerificationCodeRequest', '3': '.gen.go.auth.v1.ResendVerificationCodeResponse', '4': {}},
@@ -34,6 +36,8 @@ const $core.Map<$core.String, $core.dynamic> AccountServicePortServiceBase$json 
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> AccountServicePortServiceBase$messageJson = {
   '.gen.go.auth.v1.LoginRequest': $0.LoginRequest$json,
   '.gen.go.auth.v1.LoginResponse': $0.LoginResponse$json,
+  '.gen.go.auth.v1.LoginWithProviderRequest': $0.LoginWithProviderRequest$json,
+  '.google.protobuf.Empty': $1.Empty$json,
   '.gen.go.auth.v1.RegisterRequest': $0.RegisterRequest$json,
   '.gen.go.auth.v1.RegisterResponse': $0.RegisterResponse$json,
   '.gen.go.auth.v1.LogoutRequest': $0.LogoutRequest$json,
@@ -55,19 +59,21 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> AccountSer
 /// Descriptor for `AccountServicePort`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List accountServicePortServiceDescriptor = $convert.base64Decode(
     'ChJBY2NvdW50U2VydmljZVBvcnQSRgoFbG9naW4SHC5nZW4uZ28uYXV0aC52MS5Mb2dpblJlcX'
-    'Vlc3QaHS5nZW4uZ28uYXV0aC52MS5Mb2dpblJlc3BvbnNlIgASTwoIcmVnaXN0ZXISHy5nZW4u'
-    'Z28uYXV0aC52MS5SZWdpc3RlclJlcXVlc3QaIC5nZW4uZ28uYXV0aC52MS5SZWdpc3RlclJlc3'
-    'BvbnNlIgASSQoGbG9nb3V0Eh0uZ2VuLmdvLmF1dGgudjEuTG9nb3V0UmVxdWVzdBoeLmdlbi5n'
-    'by5hdXRoLnYxLkxvZ291dFJlc3BvbnNlIgASeQoWcmVzZW5kVmVyaWZpY2F0aW9uQ29kZRItLm'
-    'dlbi5nby5hdXRoLnYxLlJlc2VuZFZlcmlmaWNhdGlvbkNvZGVSZXF1ZXN0Gi4uZ2VuLmdvLmF1'
-    'dGgudjEuUmVzZW5kVmVyaWZpY2F0aW9uQ29kZVJlc3BvbnNlIgASYQoOdXBkYXRlUGFzc3dvcm'
-    'QSJS5nZW4uZ28uYXV0aC52MS5VcGRhdGVQYXNzd29yZFJlcXVlc3QaJi5nZW4uZ28uYXV0aC52'
-    'MS5VcGRhdGVQYXNzd29yZFJlc3BvbnNlIgASWAoLdXBkYXRlRW1haWwSIi5nZW4uZ28uYXV0aC'
-    '52MS5VcGRhdGVFbWFpbFJlcXVlc3QaIy5nZW4uZ28uYXV0aC52MS5VcGRhdGVFbWFpbFJlc3Bv'
-    'bnNlIgASXgoNdmVyaWZ5QWNjb3VudBIkLmdlbi5nby5hdXRoLnYxLlZlcmlmeUFjY291bnRSZX'
-    'F1ZXN0GiUuZ2VuLmdvLmF1dGgudjEuVmVyaWZ5QWNjb3VudFJlc3BvbnNlIgAScwoUdmVyaWZ5'
-    'QWN0aXZhdGlvbkxpbmsSKy5nZW4uZ28uYXV0aC52MS5WZXJpZnlBY3RpdmF0aW9uTGlua1JlcX'
-    'Vlc3QaLC5nZW4uZ28uYXV0aC52MS5WZXJpZnlBY3RpdmF0aW9uTGlua1Jlc3BvbnNlIgASYQoO'
-    'Zm9yZ290UGFzc3dvcmQSJS5nZW4uZ28uYXV0aC52MS5Gb3Jnb3RQYXNzd29yZFJlcXVlc3QaJi'
-    '5nZW4uZ28uYXV0aC52MS5Gb3Jnb3RQYXNzd29yZFJlc3BvbnNlIgA=');
+    'Vlc3QaHS5nZW4uZ28uYXV0aC52MS5Mb2dpblJlc3BvbnNlIgASVwoRbG9naW5XaXRoUHJvdmlk'
+    'ZXISKC5nZW4uZ28uYXV0aC52MS5Mb2dpbldpdGhQcm92aWRlclJlcXVlc3QaFi5nb29nbGUucH'
+    'JvdG9idWYuRW1wdHkiABJPCghyZWdpc3RlchIfLmdlbi5nby5hdXRoLnYxLlJlZ2lzdGVyUmVx'
+    'dWVzdBogLmdlbi5nby5hdXRoLnYxLlJlZ2lzdGVyUmVzcG9uc2UiABJJCgZsb2dvdXQSHS5nZW'
+    '4uZ28uYXV0aC52MS5Mb2dvdXRSZXF1ZXN0Gh4uZ2VuLmdvLmF1dGgudjEuTG9nb3V0UmVzcG9u'
+    'c2UiABJ5ChZyZXNlbmRWZXJpZmljYXRpb25Db2RlEi0uZ2VuLmdvLmF1dGgudjEuUmVzZW5kVm'
+    'VyaWZpY2F0aW9uQ29kZVJlcXVlc3QaLi5nZW4uZ28uYXV0aC52MS5SZXNlbmRWZXJpZmljYXRp'
+    'b25Db2RlUmVzcG9uc2UiABJhCg51cGRhdGVQYXNzd29yZBIlLmdlbi5nby5hdXRoLnYxLlVwZG'
+    'F0ZVBhc3N3b3JkUmVxdWVzdBomLmdlbi5nby5hdXRoLnYxLlVwZGF0ZVBhc3N3b3JkUmVzcG9u'
+    'c2UiABJYCgt1cGRhdGVFbWFpbBIiLmdlbi5nby5hdXRoLnYxLlVwZGF0ZUVtYWlsUmVxdWVzdB'
+    'ojLmdlbi5nby5hdXRoLnYxLlVwZGF0ZUVtYWlsUmVzcG9uc2UiABJeCg12ZXJpZnlBY2NvdW50'
+    'EiQuZ2VuLmdvLmF1dGgudjEuVmVyaWZ5QWNjb3VudFJlcXVlc3QaJS5nZW4uZ28uYXV0aC52MS'
+    '5WZXJpZnlBY2NvdW50UmVzcG9uc2UiABJzChR2ZXJpZnlBY3RpdmF0aW9uTGluaxIrLmdlbi5n'
+    'by5hdXRoLnYxLlZlcmlmeUFjdGl2YXRpb25MaW5rUmVxdWVzdBosLmdlbi5nby5hdXRoLnYxLl'
+    'ZlcmlmeUFjdGl2YXRpb25MaW5rUmVzcG9uc2UiABJhCg5mb3Jnb3RQYXNzd29yZBIlLmdlbi5n'
+    'by5hdXRoLnYxLkZvcmdvdFBhc3N3b3JkUmVxdWVzdBomLmdlbi5nby5hdXRoLnYxLkZvcmdvdF'
+    'Bhc3N3b3JkUmVzcG9uc2UiAA==');
 

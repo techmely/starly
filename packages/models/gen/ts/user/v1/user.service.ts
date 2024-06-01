@@ -6,27 +6,25 @@
 
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
+import { BoolValue } from "../../google/protobuf/wrappers";
 import {
   CreateUserRequest,
-  CreateUserResponse,
   DeleteUserRequest,
-  DeleteUserResponse,
   GetUserRequest,
-  GetUserResponse,
-  GetUsersRequest,
-  GetUsersResponse,
+  GetUsersPaginationRequest,
+  GetUsersPaginationResponse,
   UpdateUserRequest,
-  UpdateUserResponse,
 } from "./user.event";
+import { UserModel } from "./user.model";
 
 export const protobufPackage = "gen.go.user.v1";
 
 export interface UserServicePort {
-  register(request: CreateUserRequest): Promise<CreateUserResponse>;
-  get(request: GetUserRequest): Promise<GetUserResponse>;
-  getAll(request: GetUsersRequest): Promise<GetUsersResponse>;
-  update(request: UpdateUserRequest): Promise<UpdateUserResponse>;
-  delete(request: DeleteUserRequest): Promise<DeleteUserResponse>;
+  Create(request: CreateUserRequest): Promise<UserModel>;
+  Get(request: GetUserRequest): Promise<UserModel>;
+  GetPagination(request: GetUsersPaginationRequest): Promise<GetUsersPaginationResponse>;
+  Update(request: UpdateUserRequest): Promise<UserModel>;
+  Delete(request: DeleteUserRequest): Promise<BoolValue>;
 }
 
 export const UserServicePortServiceName = "gen.go.user.v1.UserServicePort";
@@ -36,40 +34,40 @@ export class UserServicePortClientImpl implements UserServicePort {
   constructor(rpc: Rpc, opts?: { service?: string }) {
     this.service = opts?.service || UserServicePortServiceName;
     this.rpc = rpc;
-    this.register = this.register.bind(this);
-    this.get = this.get.bind(this);
-    this.getAll = this.getAll.bind(this);
-    this.update = this.update.bind(this);
-    this.delete = this.delete.bind(this);
+    this.Create = this.Create.bind(this);
+    this.Get = this.Get.bind(this);
+    this.GetPagination = this.GetPagination.bind(this);
+    this.Update = this.Update.bind(this);
+    this.Delete = this.Delete.bind(this);
   }
-  register(request: CreateUserRequest): Promise<CreateUserResponse> {
+  Create(request: CreateUserRequest): Promise<UserModel> {
     const data = CreateUserRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "register", data);
-    return promise.then((data) => CreateUserResponse.decode(_m0.Reader.create(data)));
+    const promise = this.rpc.request(this.service, "Create", data);
+    return promise.then((data) => UserModel.decode(_m0.Reader.create(data)));
   }
 
-  get(request: GetUserRequest): Promise<GetUserResponse> {
+  Get(request: GetUserRequest): Promise<UserModel> {
     const data = GetUserRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "get", data);
-    return promise.then((data) => GetUserResponse.decode(_m0.Reader.create(data)));
+    const promise = this.rpc.request(this.service, "Get", data);
+    return promise.then((data) => UserModel.decode(_m0.Reader.create(data)));
   }
 
-  getAll(request: GetUsersRequest): Promise<GetUsersResponse> {
-    const data = GetUsersRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "getAll", data);
-    return promise.then((data) => GetUsersResponse.decode(_m0.Reader.create(data)));
+  GetPagination(request: GetUsersPaginationRequest): Promise<GetUsersPaginationResponse> {
+    const data = GetUsersPaginationRequest.encode(request).finish();
+    const promise = this.rpc.request(this.service, "GetPagination", data);
+    return promise.then((data) => GetUsersPaginationResponse.decode(_m0.Reader.create(data)));
   }
 
-  update(request: UpdateUserRequest): Promise<UpdateUserResponse> {
+  Update(request: UpdateUserRequest): Promise<UserModel> {
     const data = UpdateUserRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "update", data);
-    return promise.then((data) => UpdateUserResponse.decode(_m0.Reader.create(data)));
+    const promise = this.rpc.request(this.service, "Update", data);
+    return promise.then((data) => UserModel.decode(_m0.Reader.create(data)));
   }
 
-  delete(request: DeleteUserRequest): Promise<DeleteUserResponse> {
+  Delete(request: DeleteUserRequest): Promise<BoolValue> {
     const data = DeleteUserRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "delete", data);
-    return promise.then((data) => DeleteUserResponse.decode(_m0.Reader.create(data)));
+    const promise = this.rpc.request(this.service, "Delete", data);
+    return promise.then((data) => BoolValue.decode(_m0.Reader.create(data)));
   }
 }
 

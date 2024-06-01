@@ -13,6 +13,23 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use userRolesDescriptor instead')
+const UserRoles$json = {
+  '1': 'UserRoles',
+  '2': [
+    {'1': 'SUPER_ADMIN', '2': 0},
+    {'1': 'MODERATOR', '2': 1},
+    {'1': 'ADMIN', '2': 2},
+    {'1': 'MEMBER', '2': 3},
+    {'1': 'GUEST', '2': 4},
+  ],
+};
+
+/// Descriptor for `UserRoles`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List userRolesDescriptor = $convert.base64Decode(
+    'CglVc2VyUm9sZXMSDwoLU1VQRVJfQURNSU4QABINCglNT0RFUkFUT1IQARIJCgVBRE1JThACEg'
+    'oKBk1FTUJFUhADEgkKBUdVRVNUEAQ=');
+
 @$core.Deprecated('Use roleDescriptor instead')
 const Role$json = {
   '1': 'Role',

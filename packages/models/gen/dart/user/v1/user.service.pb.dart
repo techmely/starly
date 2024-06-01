@@ -14,26 +14,28 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'user.event.pb.dart' as $5;
+import '../../google/protobuf/wrappers.pb.dart' as $8;
+import 'user.event.pb.dart' as $7;
+import 'user.model.pb.dart' as $6;
 
 class UserServicePortApi {
   $pb.RpcClient _client;
   UserServicePortApi(this._client);
 
-  $async.Future<$5.CreateUserResponse> register($pb.ClientContext? ctx, $5.CreateUserRequest request) =>
-    _client.invoke<$5.CreateUserResponse>(ctx, 'UserServicePort', 'register', request, $5.CreateUserResponse())
+  $async.Future<$6.UserModel> create_($pb.ClientContext? ctx, $7.CreateUserRequest request) =>
+    _client.invoke<$6.UserModel>(ctx, 'UserServicePort', 'Create', request, $6.UserModel())
   ;
-  $async.Future<$5.GetUserResponse> get($pb.ClientContext? ctx, $5.GetUserRequest request) =>
-    _client.invoke<$5.GetUserResponse>(ctx, 'UserServicePort', 'get', request, $5.GetUserResponse())
+  $async.Future<$6.UserModel> get($pb.ClientContext? ctx, $7.GetUserRequest request) =>
+    _client.invoke<$6.UserModel>(ctx, 'UserServicePort', 'Get', request, $6.UserModel())
   ;
-  $async.Future<$5.GetUsersResponse> getAll($pb.ClientContext? ctx, $5.GetUsersRequest request) =>
-    _client.invoke<$5.GetUsersResponse>(ctx, 'UserServicePort', 'getAll', request, $5.GetUsersResponse())
+  $async.Future<$7.GetUsersPaginationResponse> getPagination($pb.ClientContext? ctx, $7.GetUsersPaginationRequest request) =>
+    _client.invoke<$7.GetUsersPaginationResponse>(ctx, 'UserServicePort', 'GetPagination', request, $7.GetUsersPaginationResponse())
   ;
-  $async.Future<$5.UpdateUserResponse> update($pb.ClientContext? ctx, $5.UpdateUserRequest request) =>
-    _client.invoke<$5.UpdateUserResponse>(ctx, 'UserServicePort', 'update', request, $5.UpdateUserResponse())
+  $async.Future<$6.UserModel> update($pb.ClientContext? ctx, $7.UpdateUserRequest request) =>
+    _client.invoke<$6.UserModel>(ctx, 'UserServicePort', 'Update', request, $6.UserModel())
   ;
-  $async.Future<$5.DeleteUserResponse> delete($pb.ClientContext? ctx, $5.DeleteUserRequest request) =>
-    _client.invoke<$5.DeleteUserResponse>(ctx, 'UserServicePort', 'delete', request, $5.DeleteUserResponse())
+  $async.Future<$8.BoolValue> delete($pb.ClientContext? ctx, $7.DeleteUserRequest request) =>
+    _client.invoke<$8.BoolValue>(ctx, 'UserServicePort', 'Delete', request, $8.BoolValue())
   ;
 }
 

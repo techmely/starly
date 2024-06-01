@@ -9,6 +9,7 @@ import (
 	context "context"
 	errors "errors"
 	v1 "github.com/techmely/models/user/v1"
+	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	http "net/http"
 	strings "strings"
 )
@@ -33,36 +34,36 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// UserServicePortRegisterProcedure is the fully-qualified name of the UserServicePort's register
-	// RPC.
-	UserServicePortRegisterProcedure = "/gen.go.user.v1.UserServicePort/register"
-	// UserServicePortGetProcedure is the fully-qualified name of the UserServicePort's get RPC.
-	UserServicePortGetProcedure = "/gen.go.user.v1.UserServicePort/get"
-	// UserServicePortGetAllProcedure is the fully-qualified name of the UserServicePort's getAll RPC.
-	UserServicePortGetAllProcedure = "/gen.go.user.v1.UserServicePort/getAll"
-	// UserServicePortUpdateProcedure is the fully-qualified name of the UserServicePort's update RPC.
-	UserServicePortUpdateProcedure = "/gen.go.user.v1.UserServicePort/update"
-	// UserServicePortDeleteProcedure is the fully-qualified name of the UserServicePort's delete RPC.
-	UserServicePortDeleteProcedure = "/gen.go.user.v1.UserServicePort/delete"
+	// UserServicePortCreateProcedure is the fully-qualified name of the UserServicePort's Create RPC.
+	UserServicePortCreateProcedure = "/gen.go.user.v1.UserServicePort/Create"
+	// UserServicePortGetProcedure is the fully-qualified name of the UserServicePort's Get RPC.
+	UserServicePortGetProcedure = "/gen.go.user.v1.UserServicePort/Get"
+	// UserServicePortGetPaginationProcedure is the fully-qualified name of the UserServicePort's
+	// GetPagination RPC.
+	UserServicePortGetPaginationProcedure = "/gen.go.user.v1.UserServicePort/GetPagination"
+	// UserServicePortUpdateProcedure is the fully-qualified name of the UserServicePort's Update RPC.
+	UserServicePortUpdateProcedure = "/gen.go.user.v1.UserServicePort/Update"
+	// UserServicePortDeleteProcedure is the fully-qualified name of the UserServicePort's Delete RPC.
+	UserServicePortDeleteProcedure = "/gen.go.user.v1.UserServicePort/Delete"
 )
 
 // These variables are the protoreflect.Descriptor objects for the RPCs defined in this package.
 var (
-	userServicePortServiceDescriptor        = v1.File_user_v1_user_service_proto.Services().ByName("UserServicePort")
-	userServicePortRegisterMethodDescriptor = userServicePortServiceDescriptor.Methods().ByName("register")
-	userServicePortGetMethodDescriptor      = userServicePortServiceDescriptor.Methods().ByName("get")
-	userServicePortGetAllMethodDescriptor   = userServicePortServiceDescriptor.Methods().ByName("getAll")
-	userServicePortUpdateMethodDescriptor   = userServicePortServiceDescriptor.Methods().ByName("update")
-	userServicePortDeleteMethodDescriptor   = userServicePortServiceDescriptor.Methods().ByName("delete")
+	userServicePortServiceDescriptor             = v1.File_user_v1_user_service_proto.Services().ByName("UserServicePort")
+	userServicePortCreateMethodDescriptor        = userServicePortServiceDescriptor.Methods().ByName("Create")
+	userServicePortGetMethodDescriptor           = userServicePortServiceDescriptor.Methods().ByName("Get")
+	userServicePortGetPaginationMethodDescriptor = userServicePortServiceDescriptor.Methods().ByName("GetPagination")
+	userServicePortUpdateMethodDescriptor        = userServicePortServiceDescriptor.Methods().ByName("Update")
+	userServicePortDeleteMethodDescriptor        = userServicePortServiceDescriptor.Methods().ByName("Delete")
 )
 
 // UserServicePortClient is a client for the gen.go.user.v1.UserServicePort service.
 type UserServicePortClient interface {
-	Register(context.Context, *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.CreateUserResponse], error)
-	Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error)
-	GetAll(context.Context, *connect.Request[v1.GetUsersRequest]) (*connect.Response[v1.GetUsersResponse], error)
-	Update(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UpdateUserResponse], error)
-	Delete(context.Context, *connect.Request[v1.DeleteUserRequest]) (*connect.Response[v1.DeleteUserResponse], error)
+	Create(context.Context, *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.UserModel], error)
+	Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.UserModel], error)
+	GetPagination(context.Context, *connect.Request[v1.GetUsersPaginationRequest]) (*connect.Response[v1.GetUsersPaginationResponse], error)
+	Update(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UserModel], error)
+	Delete(context.Context, *connect.Request[v1.DeleteUserRequest]) (*connect.Response[wrapperspb.BoolValue], error)
 }
 
 // NewUserServicePortClient constructs a client for the gen.go.user.v1.UserServicePort service. By
@@ -75,31 +76,31 @@ type UserServicePortClient interface {
 func NewUserServicePortClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) UserServicePortClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &userServicePortClient{
-		register: connect.NewClient[v1.CreateUserRequest, v1.CreateUserResponse](
+		create: connect.NewClient[v1.CreateUserRequest, v1.UserModel](
 			httpClient,
-			baseURL+UserServicePortRegisterProcedure,
-			connect.WithSchema(userServicePortRegisterMethodDescriptor),
+			baseURL+UserServicePortCreateProcedure,
+			connect.WithSchema(userServicePortCreateMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		get: connect.NewClient[v1.GetUserRequest, v1.GetUserResponse](
+		get: connect.NewClient[v1.GetUserRequest, v1.UserModel](
 			httpClient,
 			baseURL+UserServicePortGetProcedure,
 			connect.WithSchema(userServicePortGetMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		getAll: connect.NewClient[v1.GetUsersRequest, v1.GetUsersResponse](
+		getPagination: connect.NewClient[v1.GetUsersPaginationRequest, v1.GetUsersPaginationResponse](
 			httpClient,
-			baseURL+UserServicePortGetAllProcedure,
-			connect.WithSchema(userServicePortGetAllMethodDescriptor),
+			baseURL+UserServicePortGetPaginationProcedure,
+			connect.WithSchema(userServicePortGetPaginationMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		update: connect.NewClient[v1.UpdateUserRequest, v1.UpdateUserResponse](
+		update: connect.NewClient[v1.UpdateUserRequest, v1.UserModel](
 			httpClient,
 			baseURL+UserServicePortUpdateProcedure,
 			connect.WithSchema(userServicePortUpdateMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		delete: connect.NewClient[v1.DeleteUserRequest, v1.DeleteUserResponse](
+		delete: connect.NewClient[v1.DeleteUserRequest, wrapperspb.BoolValue](
 			httpClient,
 			baseURL+UserServicePortDeleteProcedure,
 			connect.WithSchema(userServicePortDeleteMethodDescriptor),
@@ -110,45 +111,45 @@ func NewUserServicePortClient(httpClient connect.HTTPClient, baseURL string, opt
 
 // userServicePortClient implements UserServicePortClient.
 type userServicePortClient struct {
-	register *connect.Client[v1.CreateUserRequest, v1.CreateUserResponse]
-	get      *connect.Client[v1.GetUserRequest, v1.GetUserResponse]
-	getAll   *connect.Client[v1.GetUsersRequest, v1.GetUsersResponse]
-	update   *connect.Client[v1.UpdateUserRequest, v1.UpdateUserResponse]
-	delete   *connect.Client[v1.DeleteUserRequest, v1.DeleteUserResponse]
+	create        *connect.Client[v1.CreateUserRequest, v1.UserModel]
+	get           *connect.Client[v1.GetUserRequest, v1.UserModel]
+	getPagination *connect.Client[v1.GetUsersPaginationRequest, v1.GetUsersPaginationResponse]
+	update        *connect.Client[v1.UpdateUserRequest, v1.UserModel]
+	delete        *connect.Client[v1.DeleteUserRequest, wrapperspb.BoolValue]
 }
 
-// Register calls gen.go.user.v1.UserServicePort.register.
-func (c *userServicePortClient) Register(ctx context.Context, req *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.CreateUserResponse], error) {
-	return c.register.CallUnary(ctx, req)
+// Create calls gen.go.user.v1.UserServicePort.Create.
+func (c *userServicePortClient) Create(ctx context.Context, req *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.UserModel], error) {
+	return c.create.CallUnary(ctx, req)
 }
 
-// Get calls gen.go.user.v1.UserServicePort.get.
-func (c *userServicePortClient) Get(ctx context.Context, req *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error) {
+// Get calls gen.go.user.v1.UserServicePort.Get.
+func (c *userServicePortClient) Get(ctx context.Context, req *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.UserModel], error) {
 	return c.get.CallUnary(ctx, req)
 }
 
-// GetAll calls gen.go.user.v1.UserServicePort.getAll.
-func (c *userServicePortClient) GetAll(ctx context.Context, req *connect.Request[v1.GetUsersRequest]) (*connect.Response[v1.GetUsersResponse], error) {
-	return c.getAll.CallUnary(ctx, req)
+// GetPagination calls gen.go.user.v1.UserServicePort.GetPagination.
+func (c *userServicePortClient) GetPagination(ctx context.Context, req *connect.Request[v1.GetUsersPaginationRequest]) (*connect.Response[v1.GetUsersPaginationResponse], error) {
+	return c.getPagination.CallUnary(ctx, req)
 }
 
-// Update calls gen.go.user.v1.UserServicePort.update.
-func (c *userServicePortClient) Update(ctx context.Context, req *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UpdateUserResponse], error) {
+// Update calls gen.go.user.v1.UserServicePort.Update.
+func (c *userServicePortClient) Update(ctx context.Context, req *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UserModel], error) {
 	return c.update.CallUnary(ctx, req)
 }
 
-// Delete calls gen.go.user.v1.UserServicePort.delete.
-func (c *userServicePortClient) Delete(ctx context.Context, req *connect.Request[v1.DeleteUserRequest]) (*connect.Response[v1.DeleteUserResponse], error) {
+// Delete calls gen.go.user.v1.UserServicePort.Delete.
+func (c *userServicePortClient) Delete(ctx context.Context, req *connect.Request[v1.DeleteUserRequest]) (*connect.Response[wrapperspb.BoolValue], error) {
 	return c.delete.CallUnary(ctx, req)
 }
 
 // UserServicePortHandler is an implementation of the gen.go.user.v1.UserServicePort service.
 type UserServicePortHandler interface {
-	Register(context.Context, *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.CreateUserResponse], error)
-	Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error)
-	GetAll(context.Context, *connect.Request[v1.GetUsersRequest]) (*connect.Response[v1.GetUsersResponse], error)
-	Update(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UpdateUserResponse], error)
-	Delete(context.Context, *connect.Request[v1.DeleteUserRequest]) (*connect.Response[v1.DeleteUserResponse], error)
+	Create(context.Context, *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.UserModel], error)
+	Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.UserModel], error)
+	GetPagination(context.Context, *connect.Request[v1.GetUsersPaginationRequest]) (*connect.Response[v1.GetUsersPaginationResponse], error)
+	Update(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UserModel], error)
+	Delete(context.Context, *connect.Request[v1.DeleteUserRequest]) (*connect.Response[wrapperspb.BoolValue], error)
 }
 
 // NewUserServicePortHandler builds an HTTP handler from the service implementation. It returns the
@@ -157,10 +158,10 @@ type UserServicePortHandler interface {
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
 func NewUserServicePortHandler(svc UserServicePortHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	userServicePortRegisterHandler := connect.NewUnaryHandler(
-		UserServicePortRegisterProcedure,
-		svc.Register,
-		connect.WithSchema(userServicePortRegisterMethodDescriptor),
+	userServicePortCreateHandler := connect.NewUnaryHandler(
+		UserServicePortCreateProcedure,
+		svc.Create,
+		connect.WithSchema(userServicePortCreateMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
 	userServicePortGetHandler := connect.NewUnaryHandler(
@@ -169,10 +170,10 @@ func NewUserServicePortHandler(svc UserServicePortHandler, opts ...connect.Handl
 		connect.WithSchema(userServicePortGetMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
-	userServicePortGetAllHandler := connect.NewUnaryHandler(
-		UserServicePortGetAllProcedure,
-		svc.GetAll,
-		connect.WithSchema(userServicePortGetAllMethodDescriptor),
+	userServicePortGetPaginationHandler := connect.NewUnaryHandler(
+		UserServicePortGetPaginationProcedure,
+		svc.GetPagination,
+		connect.WithSchema(userServicePortGetPaginationMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
 	userServicePortUpdateHandler := connect.NewUnaryHandler(
@@ -189,12 +190,12 @@ func NewUserServicePortHandler(svc UserServicePortHandler, opts ...connect.Handl
 	)
 	return "/gen.go.user.v1.UserServicePort/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case UserServicePortRegisterProcedure:
-			userServicePortRegisterHandler.ServeHTTP(w, r)
+		case UserServicePortCreateProcedure:
+			userServicePortCreateHandler.ServeHTTP(w, r)
 		case UserServicePortGetProcedure:
 			userServicePortGetHandler.ServeHTTP(w, r)
-		case UserServicePortGetAllProcedure:
-			userServicePortGetAllHandler.ServeHTTP(w, r)
+		case UserServicePortGetPaginationProcedure:
+			userServicePortGetPaginationHandler.ServeHTTP(w, r)
 		case UserServicePortUpdateProcedure:
 			userServicePortUpdateHandler.ServeHTTP(w, r)
 		case UserServicePortDeleteProcedure:
@@ -208,22 +209,22 @@ func NewUserServicePortHandler(svc UserServicePortHandler, opts ...connect.Handl
 // UnimplementedUserServicePortHandler returns CodeUnimplemented from all methods.
 type UnimplementedUserServicePortHandler struct{}
 
-func (UnimplementedUserServicePortHandler) Register(context.Context, *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.CreateUserResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.register is not implemented"))
+func (UnimplementedUserServicePortHandler) Create(context.Context, *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.UserModel], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.Create is not implemented"))
 }
 
-func (UnimplementedUserServicePortHandler) Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.get is not implemented"))
+func (UnimplementedUserServicePortHandler) Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.UserModel], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.Get is not implemented"))
 }
 
-func (UnimplementedUserServicePortHandler) GetAll(context.Context, *connect.Request[v1.GetUsersRequest]) (*connect.Response[v1.GetUsersResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.getAll is not implemented"))
+func (UnimplementedUserServicePortHandler) GetPagination(context.Context, *connect.Request[v1.GetUsersPaginationRequest]) (*connect.Response[v1.GetUsersPaginationResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.GetPagination is not implemented"))
 }
 
-func (UnimplementedUserServicePortHandler) Update(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UpdateUserResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.update is not implemented"))
+func (UnimplementedUserServicePortHandler) Update(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UserModel], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.Update is not implemented"))
 }
 
-func (UnimplementedUserServicePortHandler) Delete(context.Context, *connect.Request[v1.DeleteUserRequest]) (*connect.Response[v1.DeleteUserResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.delete is not implemented"))
+func (UnimplementedUserServicePortHandler) Delete(context.Context, *connect.Request[v1.DeleteUserRequest]) (*connect.Response[wrapperspb.BoolValue], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.Delete is not implemented"))
 }

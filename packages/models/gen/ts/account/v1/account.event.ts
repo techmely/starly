@@ -17,6 +17,10 @@ export interface LoginResponse {
   id: string;
 }
 
+export interface LoginWithProviderRequest {
+  id: string;
+}
+
 export interface RegisterRequest {
   id: string;
 }
@@ -190,6 +194,63 @@ export const LoginResponse = {
   },
   fromPartial<I extends Exact<DeepPartial<LoginResponse>, I>>(object: I): LoginResponse {
     const message = createBaseLoginResponse();
+    message.id = object.id ?? "";
+    return message;
+  },
+};
+
+function createBaseLoginWithProviderRequest(): LoginWithProviderRequest {
+  return { id: "" };
+}
+
+export const LoginWithProviderRequest = {
+  encode(message: LoginWithProviderRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.id !== "") {
+      writer.uint32(10).string(message.id);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): LoginWithProviderRequest {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseLoginWithProviderRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 10) {
+            break;
+          }
+
+          message.id = reader.string();
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): LoginWithProviderRequest {
+    return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
+  },
+
+  toJSON(message: LoginWithProviderRequest): unknown {
+    const obj: any = {};
+    if (message.id !== "") {
+      obj.id = message.id;
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<LoginWithProviderRequest>, I>>(base?: I): LoginWithProviderRequest {
+    return LoginWithProviderRequest.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<LoginWithProviderRequest>, I>>(object: I): LoginWithProviderRequest {
+    const message = createBaseLoginWithProviderRequest();
     message.id = object.id ?? "";
     return message;
   },
