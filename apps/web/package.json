@@ -18,7 +18,7 @@
     "@techmely/cache": "1.0.9",
     "@techmely/design-system": "workspace:*",
     "@techmely/hono": "workspace:*",
-    "@techmely/domain-driven": "1.1.1",
+    "@techmely/domain-driven": "1.1.2",
     "@techmely/logger": "1.1.2",
     "@techmely/metrics": "1.0.9",
     "@techmely/rate-limit": "2.0.2",
