@@ -23,6 +23,7 @@ const $core.Map<$core.String, $core.dynamic> UserServicePortServiceBase$json = {
   '2': [
     {'1': 'Create', '2': '.gen.go.user.v1.CreateUserRequest', '3': '.gen.go.user.v1.UserModel', '4': {}},
     {'1': 'Get', '2': '.gen.go.user.v1.GetUserRequest', '3': '.gen.go.user.v1.UserModel', '4': {}},
+    {'1': 'GetByAuthId', '2': '.gen.go.user.v1.GetUserByAuthIdRequest', '3': '.gen.go.user.v1.UserModel', '4': {}},
     {'1': 'GetPagination', '2': '.gen.go.user.v1.GetUsersPaginationRequest', '3': '.gen.go.user.v1.GetUsersPaginationResponse', '4': {}},
     {'1': 'Update', '2': '.gen.go.user.v1.UpdateUserRequest', '3': '.gen.go.user.v1.UserModel', '4': {}},
     {'1': 'Delete', '2': '.gen.go.user.v1.DeleteUserRequest', '3': '.google.protobuf.BoolValue', '4': {}},
@@ -35,6 +36,7 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> UserServic
   '.google.protobuf.Any': $4.Any$json,
   '.gen.go.user.v1.UserModel': $6.UserModel$json,
   '.gen.go.user.v1.GetUserRequest': $7.GetUserRequest$json,
+  '.gen.go.user.v1.GetUserByAuthIdRequest': $7.GetUserByAuthIdRequest$json,
   '.gen.go.user.v1.GetUsersPaginationRequest': $7.GetUsersPaginationRequest$json,
   '.gen.go.user.v1.GetUsersPaginationResponse': $7.GetUsersPaginationResponse$json,
   '.gen.go.user.v1.UpdateUserRequest': $7.UpdateUserRequest$json,
@@ -46,10 +48,11 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> UserServic
 final $typed_data.Uint8List userServicePortServiceDescriptor = $convert.base64Decode(
     'Cg9Vc2VyU2VydmljZVBvcnQSSAoGQ3JlYXRlEiEuZ2VuLmdvLnVzZXIudjEuQ3JlYXRlVXNlcl'
     'JlcXVlc3QaGS5nZW4uZ28udXNlci52MS5Vc2VyTW9kZWwiABJCCgNHZXQSHi5nZW4uZ28udXNl'
-    'ci52MS5HZXRVc2VyUmVxdWVzdBoZLmdlbi5nby51c2VyLnYxLlVzZXJNb2RlbCIAEmgKDUdldF'
-    'BhZ2luYXRpb24SKS5nZW4uZ28udXNlci52MS5HZXRVc2Vyc1BhZ2luYXRpb25SZXF1ZXN0Giou'
-    'Z2VuLmdvLnVzZXIudjEuR2V0VXNlcnNQYWdpbmF0aW9uUmVzcG9uc2UiABJICgZVcGRhdGUSIS'
-    '5nZW4uZ28udXNlci52MS5VcGRhdGVVc2VyUmVxdWVzdBoZLmdlbi5nby51c2VyLnYxLlVzZXJN'
-    'b2RlbCIAEkkKBkRlbGV0ZRIhLmdlbi5nby51c2VyLnYxLkRlbGV0ZVVzZXJSZXF1ZXN0GhouZ2'
-    '9vZ2xlLnByb3RvYnVmLkJvb2xWYWx1ZSIA');
+    'ci52MS5HZXRVc2VyUmVxdWVzdBoZLmdlbi5nby51c2VyLnYxLlVzZXJNb2RlbCIAElIKC0dldE'
+    'J5QXV0aElkEiYuZ2VuLmdvLnVzZXIudjEuR2V0VXNlckJ5QXV0aElkUmVxdWVzdBoZLmdlbi5n'
+    'by51c2VyLnYxLlVzZXJNb2RlbCIAEmgKDUdldFBhZ2luYXRpb24SKS5nZW4uZ28udXNlci52MS'
+    '5HZXRVc2Vyc1BhZ2luYXRpb25SZXF1ZXN0GiouZ2VuLmdvLnVzZXIudjEuR2V0VXNlcnNQYWdp'
+    'bmF0aW9uUmVzcG9uc2UiABJICgZVcGRhdGUSIS5nZW4uZ28udXNlci52MS5VcGRhdGVVc2VyUm'
+    'VxdWVzdBoZLmdlbi5nby51c2VyLnYxLlVzZXJNb2RlbCIAEkkKBkRlbGV0ZRIhLmdlbi5nby51'
+    'c2VyLnYxLkRlbGV0ZVVzZXJSZXF1ZXN0GhouZ29vZ2xlLnByb3RvYnVmLkJvb2xWYWx1ZSIA');
 

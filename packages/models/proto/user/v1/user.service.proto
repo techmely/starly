@@ -11,6 +11,7 @@ import "user/v1/user.event.proto";
 service UserServicePort {
   rpc Create(user.v1.CreateUserRequest) returns (user.v1.UserModel) {}
   rpc Get(user.v1.GetUserRequest) returns (user.v1.UserModel) {}
+  rpc GetByAuthId(user.v1.GetUserByAuthIdRequest) returns (user.v1.UserModel) {}
   rpc GetPagination(user.v1.GetUsersPaginationRequest) returns (user.v1.GetUsersPaginationResponse) {}
   rpc Update(user.v1.UpdateUserRequest) returns (user.v1.UserModel) {}
   rpc Delete(user.v1.DeleteUserRequest) returns (google.protobuf.BoolValue) {}

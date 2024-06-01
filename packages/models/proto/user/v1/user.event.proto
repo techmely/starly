@@ -25,6 +25,7 @@ message CreateUserRequest {
 
 message GetUserRequest {
     string key = 1;
+    string value = 2;
 }
 
 message GetUserByAuthIdRequest {

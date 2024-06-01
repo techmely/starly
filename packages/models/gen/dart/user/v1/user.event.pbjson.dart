@@ -51,12 +51,14 @@ const GetUserRequest$json = {
   '1': 'GetUserRequest',
   '2': [
     {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
+    {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
   ],
 };
 
 /// Descriptor for `GetUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getUserRequestDescriptor = $convert.base64Decode(
-    'Cg5HZXRVc2VyUmVxdWVzdBIQCgNrZXkYASABKAlSA2tleQ==');
+    'Cg5HZXRVc2VyUmVxdWVzdBIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdW'
+    'U=');
 
 @$core.Deprecated('Use getUserByAuthIdRequestDescriptor instead')
 const GetUserByAuthIdRequest$json = {

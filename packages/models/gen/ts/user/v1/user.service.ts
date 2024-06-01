@@ -10,6 +10,7 @@ import { BoolValue } from "../../google/protobuf/wrappers";
 import {
   CreateUserRequest,
   DeleteUserRequest,
+  GetUserByAuthIdRequest,
   GetUserRequest,
   GetUsersPaginationRequest,
   GetUsersPaginationResponse,
@@ -22,6 +23,7 @@ export const protobufPackage = "gen.go.user.v1";
 export interface UserServicePort {
   Create(request: CreateUserRequest): Promise<UserModel>;
   Get(request: GetUserRequest): Promise<UserModel>;
+  GetByAuthId(request: GetUserByAuthIdRequest): Promise<UserModel>;
   GetPagination(request: GetUsersPaginationRequest): Promise<GetUsersPaginationResponse>;
   Update(request: UpdateUserRequest): Promise<UserModel>;
   Delete(request: DeleteUserRequest): Promise<BoolValue>;
@@ -36,6 +38,7 @@ export class UserServicePortClientImpl implements UserServicePort {
     this.rpc = rpc;
     this.Create = this.Create.bind(this);
     this.Get = this.Get.bind(this);
+    this.GetByAuthId = this.GetByAuthId.bind(this);
     this.GetPagination = this.GetPagination.bind(this);
     this.Update = this.Update.bind(this);
     this.Delete = this.Delete.bind(this);
@@ -49,6 +52,12 @@ export class UserServicePortClientImpl implements UserServicePort {
   Get(request: GetUserRequest): Promise<UserModel> {
     const data = GetUserRequest.encode(request).finish();
     const promise = this.rpc.request(this.service, "Get", data);
+    return promise.then((data) => UserModel.decode(_m0.Reader.create(data)));
+  }
+
+  GetByAuthId(request: GetUserByAuthIdRequest): Promise<UserModel> {
+    const data = GetUserByAuthIdRequest.encode(request).finish();
+    const promise = this.rpc.request(this.service, "GetByAuthId", data);
     return promise.then((data) => UserModel.decode(_m0.Reader.create(data)));
   }
 

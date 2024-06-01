@@ -37,6 +37,7 @@ export interface CreateUserRequest {
 
 export interface GetUserRequest {
   key: string;
+  value: string;
 }
 
 export interface GetUserByAuthIdRequest {
@@ -321,13 +322,16 @@ export const CreateUserRequest = {
 };
 
 function createBaseGetUserRequest(): GetUserRequest {
-  return { key: "" };
+  return { key: "", value: "" };
 }
 
 export const GetUserRequest = {
   encode(message: GetUserRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.key !== "") {
       writer.uint32(10).string(message.key);
+    }
+    if (message.value !== "") {
+      writer.uint32(18).string(message.value);
     }
     return writer;
   },
@@ -346,6 +350,13 @@ export const GetUserRequest = {
 
           message.key = reader.string();
           continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.value = reader.string();
+          continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -356,13 +367,19 @@ export const GetUserRequest = {
   },
 
   fromJSON(object: any): GetUserRequest {
-    return { key: isSet(object.key) ? globalThis.String(object.key) : "" };
+    return {
+      key: isSet(object.key) ? globalThis.String(object.key) : "",
+      value: isSet(object.value) ? globalThis.String(object.value) : "",
+    };
   },
 
   toJSON(message: GetUserRequest): unknown {
     const obj: any = {};
     if (message.key !== "") {
       obj.key = message.key;
+    }
+    if (message.value !== "") {
+      obj.value = message.value;
     }
     return obj;
   },
@@ -373,6 +390,7 @@ export const GetUserRequest = {
   fromPartial<I extends Exact<DeepPartial<GetUserRequest>, I>>(object: I): GetUserRequest {
     const message = createBaseGetUserRequest();
     message.key = object.key ?? "";
+    message.value = object.value ?? "";
     return message;
   },
 };

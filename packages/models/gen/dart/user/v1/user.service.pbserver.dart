@@ -25,6 +25,7 @@ export 'user.service.pb.dart';
 abstract class UserServicePortServiceBase extends $pb.GeneratedService {
   $async.Future<$6.UserModel> create($pb.ServerContext ctx, $7.CreateUserRequest request);
   $async.Future<$6.UserModel> get($pb.ServerContext ctx, $7.GetUserRequest request);
+  $async.Future<$6.UserModel> getByAuthId($pb.ServerContext ctx, $7.GetUserByAuthIdRequest request);
   $async.Future<$7.GetUsersPaginationResponse> getPagination($pb.ServerContext ctx, $7.GetUsersPaginationRequest request);
   $async.Future<$6.UserModel> update($pb.ServerContext ctx, $7.UpdateUserRequest request);
   $async.Future<$8.BoolValue> delete($pb.ServerContext ctx, $7.DeleteUserRequest request);
@@ -33,6 +34,7 @@ abstract class UserServicePortServiceBase extends $pb.GeneratedService {
     switch (methodName) {
       case 'Create': return $7.CreateUserRequest();
       case 'Get': return $7.GetUserRequest();
+      case 'GetByAuthId': return $7.GetUserByAuthIdRequest();
       case 'GetPagination': return $7.GetUsersPaginationRequest();
       case 'Update': return $7.UpdateUserRequest();
       case 'Delete': return $7.DeleteUserRequest();
@@ -44,6 +46,7 @@ abstract class UserServicePortServiceBase extends $pb.GeneratedService {
     switch (methodName) {
       case 'Create': return this.create(ctx, request as $7.CreateUserRequest);
       case 'Get': return this.get(ctx, request as $7.GetUserRequest);
+      case 'GetByAuthId': return this.getByAuthId(ctx, request as $7.GetUserByAuthIdRequest);
       case 'GetPagination': return this.getPagination(ctx, request as $7.GetUsersPaginationRequest);
       case 'Update': return this.update(ctx, request as $7.UpdateUserRequest);
       case 'Delete': return this.delete(ctx, request as $7.DeleteUserRequest);

@@ -240,10 +240,14 @@ class CreateUserRequest extends $pb.GeneratedMessage {
 class GetUserRequest extends $pb.GeneratedMessage {
   factory GetUserRequest({
     $core.String? key,
+    $core.String? value,
   }) {
     final $result = create();
     if (key != null) {
       $result.key = key;
+    }
+    if (value != null) {
+      $result.value = value;
     }
     return $result;
   }
@@ -253,6 +257,7 @@ class GetUserRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'key')
+    ..aOS(2, _omitFieldNames ? '' : 'value')
     ..hasRequiredFields = false
   ;
 
@@ -285,6 +290,15 @@ class GetUserRequest extends $pb.GeneratedMessage {
   $core.bool hasKey() => $_has(0);
   @$pb.TagNumber(1)
   void clearKey() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get value => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set value($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasValue() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearValue() => clearField(2);
 }
 
 class GetUserByAuthIdRequest extends $pb.GeneratedMessage {

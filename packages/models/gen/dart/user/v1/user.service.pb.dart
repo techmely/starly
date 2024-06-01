@@ -28,6 +28,9 @@ class UserServicePortApi {
   $async.Future<$6.UserModel> get($pb.ClientContext? ctx, $7.GetUserRequest request) =>
     _client.invoke<$6.UserModel>(ctx, 'UserServicePort', 'Get', request, $6.UserModel())
   ;
+  $async.Future<$6.UserModel> getByAuthId($pb.ClientContext? ctx, $7.GetUserByAuthIdRequest request) =>
+    _client.invoke<$6.UserModel>(ctx, 'UserServicePort', 'GetByAuthId', request, $6.UserModel())
+  ;
   $async.Future<$7.GetUsersPaginationResponse> getPagination($pb.ClientContext? ctx, $7.GetUsersPaginationRequest request) =>
     _client.invoke<$7.GetUsersPaginationResponse>(ctx, 'UserServicePort', 'GetPagination', request, $7.GetUsersPaginationResponse())
   ;

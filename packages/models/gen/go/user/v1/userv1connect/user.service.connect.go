@@ -38,6 +38,9 @@ const (
 	UserServicePortCreateProcedure = "/gen.go.user.v1.UserServicePort/Create"
 	// UserServicePortGetProcedure is the fully-qualified name of the UserServicePort's Get RPC.
 	UserServicePortGetProcedure = "/gen.go.user.v1.UserServicePort/Get"
+	// UserServicePortGetByAuthIdProcedure is the fully-qualified name of the UserServicePort's
+	// GetByAuthId RPC.
+	UserServicePortGetByAuthIdProcedure = "/gen.go.user.v1.UserServicePort/GetByAuthId"
 	// UserServicePortGetPaginationProcedure is the fully-qualified name of the UserServicePort's
 	// GetPagination RPC.
 	UserServicePortGetPaginationProcedure = "/gen.go.user.v1.UserServicePort/GetPagination"
@@ -52,6 +55,7 @@ var (
 	userServicePortServiceDescriptor             = v1.File_user_v1_user_service_proto.Services().ByName("UserServicePort")
 	userServicePortCreateMethodDescriptor        = userServicePortServiceDescriptor.Methods().ByName("Create")
 	userServicePortGetMethodDescriptor           = userServicePortServiceDescriptor.Methods().ByName("Get")
+	userServicePortGetByAuthIdMethodDescriptor   = userServicePortServiceDescriptor.Methods().ByName("GetByAuthId")
 	userServicePortGetPaginationMethodDescriptor = userServicePortServiceDescriptor.Methods().ByName("GetPagination")
 	userServicePortUpdateMethodDescriptor        = userServicePortServiceDescriptor.Methods().ByName("Update")
 	userServicePortDeleteMethodDescriptor        = userServicePortServiceDescriptor.Methods().ByName("Delete")
@@ -61,6 +65,7 @@ var (
 type UserServicePortClient interface {
 	Create(context.Context, *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.UserModel], error)
 	Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.UserModel], error)
+	GetByAuthId(context.Context, *connect.Request[v1.GetUserByAuthIdRequest]) (*connect.Response[v1.UserModel], error)
 	GetPagination(context.Context, *connect.Request[v1.GetUsersPaginationRequest]) (*connect.Response[v1.GetUsersPaginationResponse], error)
 	Update(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UserModel], error)
 	Delete(context.Context, *connect.Request[v1.DeleteUserRequest]) (*connect.Response[wrapperspb.BoolValue], error)
@@ -88,6 +93,12 @@ func NewUserServicePortClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(userServicePortGetMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
+		getByAuthId: connect.NewClient[v1.GetUserByAuthIdRequest, v1.UserModel](
+			httpClient,
+			baseURL+UserServicePortGetByAuthIdProcedure,
+			connect.WithSchema(userServicePortGetByAuthIdMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
 		getPagination: connect.NewClient[v1.GetUsersPaginationRequest, v1.GetUsersPaginationResponse](
 			httpClient,
 			baseURL+UserServicePortGetPaginationProcedure,
@@ -113,6 +124,7 @@ func NewUserServicePortClient(httpClient connect.HTTPClient, baseURL string, opt
 type userServicePortClient struct {
 	create        *connect.Client[v1.CreateUserRequest, v1.UserModel]
 	get           *connect.Client[v1.GetUserRequest, v1.UserModel]
+	getByAuthId   *connect.Client[v1.GetUserByAuthIdRequest, v1.UserModel]
 	getPagination *connect.Client[v1.GetUsersPaginationRequest, v1.GetUsersPaginationResponse]
 	update        *connect.Client[v1.UpdateUserRequest, v1.UserModel]
 	delete        *connect.Client[v1.DeleteUserRequest, wrapperspb.BoolValue]
@@ -126,6 +138,11 @@ func (c *userServicePortClient) Create(ctx context.Context, req *connect.Request
 // Get calls gen.go.user.v1.UserServicePort.Get.
 func (c *userServicePortClient) Get(ctx context.Context, req *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.UserModel], error) {
 	return c.get.CallUnary(ctx, req)
+}
+
+// GetByAuthId calls gen.go.user.v1.UserServicePort.GetByAuthId.
+func (c *userServicePortClient) GetByAuthId(ctx context.Context, req *connect.Request[v1.GetUserByAuthIdRequest]) (*connect.Response[v1.UserModel], error) {
+	return c.getByAuthId.CallUnary(ctx, req)
 }
 
 // GetPagination calls gen.go.user.v1.UserServicePort.GetPagination.
@@ -147,6 +164,7 @@ func (c *userServicePortClient) Delete(ctx context.Context, req *connect.Request
 type UserServicePortHandler interface {
 	Create(context.Context, *connect.Request[v1.CreateUserRequest]) (*connect.Response[v1.UserModel], error)
 	Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.UserModel], error)
+	GetByAuthId(context.Context, *connect.Request[v1.GetUserByAuthIdRequest]) (*connect.Response[v1.UserModel], error)
 	GetPagination(context.Context, *connect.Request[v1.GetUsersPaginationRequest]) (*connect.Response[v1.GetUsersPaginationResponse], error)
 	Update(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UserModel], error)
 	Delete(context.Context, *connect.Request[v1.DeleteUserRequest]) (*connect.Response[wrapperspb.BoolValue], error)
@@ -168,6 +186,12 @@ func NewUserServicePortHandler(svc UserServicePortHandler, opts ...connect.Handl
 		UserServicePortGetProcedure,
 		svc.Get,
 		connect.WithSchema(userServicePortGetMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	userServicePortGetByAuthIdHandler := connect.NewUnaryHandler(
+		UserServicePortGetByAuthIdProcedure,
+		svc.GetByAuthId,
+		connect.WithSchema(userServicePortGetByAuthIdMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
 	userServicePortGetPaginationHandler := connect.NewUnaryHandler(
@@ -194,6 +218,8 @@ func NewUserServicePortHandler(svc UserServicePortHandler, opts ...connect.Handl
 			userServicePortCreateHandler.ServeHTTP(w, r)
 		case UserServicePortGetProcedure:
 			userServicePortGetHandler.ServeHTTP(w, r)
+		case UserServicePortGetByAuthIdProcedure:
+			userServicePortGetByAuthIdHandler.ServeHTTP(w, r)
 		case UserServicePortGetPaginationProcedure:
 			userServicePortGetPaginationHandler.ServeHTTP(w, r)
 		case UserServicePortUpdateProcedure:
@@ -215,6 +241,10 @@ func (UnimplementedUserServicePortHandler) Create(context.Context, *connect.Requ
 
 func (UnimplementedUserServicePortHandler) Get(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.UserModel], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.Get is not implemented"))
+}
+
+func (UnimplementedUserServicePortHandler) GetByAuthId(context.Context, *connect.Request[v1.GetUserByAuthIdRequest]) (*connect.Response[v1.UserModel], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.user.v1.UserServicePort.GetByAuthId is not implemented"))
 }
 
 func (UnimplementedUserServicePortHandler) GetPagination(context.Context, *connect.Request[v1.GetUsersPaginationRequest]) (*connect.Response[v1.GetUsersPaginationResponse], error) {
