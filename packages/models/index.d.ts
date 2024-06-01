@@ -3,6 +3,11 @@ export * from "./gen/ts/account/v1/account.model";
 export * from "./gen/ts/account/v1/account.service";
 
 export * from "./gen/ts/common/common.model";
+export * from "./gen/ts/error/v1/response.error.model";
+
+export * from "./gen/ts/google/protobuf/any";
+export * from "./gen/ts/google/protobuf/empty";
+export * from "./gen/ts/google/protobuf/wrappers";
 
 export * from "./gen/ts/preferences/v1/preferences.event";
 export * from "./gen/ts/preferences/v1/preferences.model";
