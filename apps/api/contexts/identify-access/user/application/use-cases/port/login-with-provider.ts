@@ -7,12 +7,12 @@ import type {
 
 export interface LoginCommand extends LoginRequest {}
 
-export abstract class LoginEmailPasswordInPort
+export abstract class LoginWithProviderInPort
   implements UseCase<LoginCommand, AuthGoogleIdentityResponse>
 {
   abstract execute(loginCommand: LoginCommand): Promise<AuthGoogleIdentityResponse>;
 }
 
-export abstract class LoginEmailPasswordOutPort {
+export abstract class LoginWithProviderOutPort {
   abstract signinBasic(): Promise<AuthGoogleIdentityRequest>;
 }
