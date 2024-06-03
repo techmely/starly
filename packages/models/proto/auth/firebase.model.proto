@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package gen.go.auth;
+option go_package="github.com/techmely/techmely/gen/go/auth;auth_model";
+
+
+message AuthGoogleIdentityResponse {
+    string idToken = 1;
+    string email = 2;
+    string refreshToken = 3;
+    string expiresIn = 4;
+    string localId = 5;
+    bool registered = 6;
+}
+
+message FirebaseAuthConfig {
+    string apiKey = 1;
+    string projectId = 2;
+}
+
+message AuthGoogleIdentityRequestOptions {
+    /**
+    * @default true
+    */
+    bool returnSecureToken = 1;
+}
+
+message AuthGoogleIdentityRequest {
+  FirebaseAuthConfig config = 1;
+  optional AuthGoogleIdentityRequestOptions options = 2;
+};

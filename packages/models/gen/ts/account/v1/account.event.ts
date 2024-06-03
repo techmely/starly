@@ -10,7 +10,8 @@ import * as _m0 from "protobufjs/minimal";
 export const protobufPackage = "gen.go.auth.v1";
 
 export interface LoginRequest {
-  id: string;
+  email: string;
+  password: string;
 }
 
 export interface LoginResponse {
@@ -86,13 +87,16 @@ export interface ForgotPasswordResponse {
 }
 
 function createBaseLoginRequest(): LoginRequest {
-  return { id: "" };
+  return { email: "", password: "" };
 }
 
 export const LoginRequest = {
   encode(message: LoginRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== "") {
-      writer.uint32(10).string(message.id);
+    if (message.email !== "") {
+      writer.uint32(10).string(message.email);
+    }
+    if (message.password !== "") {
+      writer.uint32(18).string(message.password);
     }
     return writer;
   },
@@ -109,7 +113,14 @@ export const LoginRequest = {
             break;
           }
 
-          message.id = reader.string();
+          message.email = reader.string();
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.password = reader.string();
           continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
@@ -121,13 +132,19 @@ export const LoginRequest = {
   },
 
   fromJSON(object: any): LoginRequest {
-    return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
+    return {
+      email: isSet(object.email) ? globalThis.String(object.email) : "",
+      password: isSet(object.password) ? globalThis.String(object.password) : "",
+    };
   },
 
   toJSON(message: LoginRequest): unknown {
     const obj: any = {};
-    if (message.id !== "") {
-      obj.id = message.id;
+    if (message.email !== "") {
+      obj.email = message.email;
+    }
+    if (message.password !== "") {
+      obj.password = message.password;
     }
     return obj;
   },
@@ -137,7 +154,8 @@ export const LoginRequest = {
   },
   fromPartial<I extends Exact<DeepPartial<LoginRequest>, I>>(object: I): LoginRequest {
     const message = createBaseLoginRequest();
-    message.id = object.id ?? "";
+    message.email = object.email ?? "";
+    message.password = object.password ?? "";
     return message;
   },
 };

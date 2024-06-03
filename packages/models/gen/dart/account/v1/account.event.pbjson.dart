@@ -17,13 +17,15 @@ import 'dart:typed_data' as $typed_data;
 const LoginRequest$json = {
   '1': 'LoginRequest',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'email', '3': 1, '4': 1, '5': 9, '10': 'email'},
+    {'1': 'password', '3': 2, '4': 1, '5': 9, '10': 'password'},
   ],
 };
 
 /// Descriptor for `LoginRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List loginRequestDescriptor = $convert.base64Decode(
-    'CgxMb2dpblJlcXVlc3QSDgoCaWQYASABKAlSAmlk');
+    'CgxMb2dpblJlcXVlc3QSFAoFZW1haWwYASABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAIgASgJUg'
+    'hwYXNzd29yZA==');
 
 @$core.Deprecated('Use loginResponseDescriptor instead')
 const LoginResponse$json = {

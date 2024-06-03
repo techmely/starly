@@ -15,11 +15,15 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 class LoginRequest extends $pb.GeneratedMessage {
   factory LoginRequest({
-    $core.String? id,
+    $core.String? email,
+    $core.String? password,
   }) {
     final $result = create();
-    if (id != null) {
-      $result.id = id;
+    if (email != null) {
+      $result.email = email;
+    }
+    if (password != null) {
+      $result.password = password;
     }
     return $result;
   }
@@ -28,7 +32,8 @@ class LoginRequest extends $pb.GeneratedMessage {
   factory LoginRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.auth.v1'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'email')
+    ..aOS(2, _omitFieldNames ? '' : 'password')
     ..hasRequiredFields = false
   ;
 
@@ -54,13 +59,22 @@ class LoginRequest extends $pb.GeneratedMessage {
   static LoginRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get email => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String v) { $_setString(0, v); }
+  set email($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasEmail() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearEmail() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get password => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set password($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPassword() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPassword() => clearField(2);
 }
 
 class LoginResponse extends $pb.GeneratedMessage {
