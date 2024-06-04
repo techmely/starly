@@ -13,10 +13,10 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import '../../google/protobuf/any.pbjson.dart' as $5;
-import '../../google/protobuf/wrappers.pbjson.dart' as $9;
-import 'user.event.pbjson.dart' as $8;
-import 'user.model.pbjson.dart' as $7;
+import '../../google/protobuf/any.pbjson.dart' as $6;
+import '../../google/protobuf/wrappers.pbjson.dart' as $10;
+import 'user.event.pbjson.dart' as $9;
+import 'user.model.pbjson.dart' as $8;
 
 const $core.Map<$core.String, $core.dynamic> UserServicePortServiceBase$json = {
   '1': 'UserServicePort',
@@ -32,16 +32,16 @@ const $core.Map<$core.String, $core.dynamic> UserServicePortServiceBase$json = {
 
 @$core.Deprecated('Use userServicePortServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> UserServicePortServiceBase$messageJson = {
-  '.gen.go.user.v1.CreateUserRequest': $8.CreateUserRequest$json,
-  '.google.protobuf.Any': $5.Any$json,
-  '.gen.go.user.v1.UserModel': $7.UserModel$json,
-  '.gen.go.user.v1.GetUserRequest': $8.GetUserRequest$json,
-  '.gen.go.user.v1.GetUserByAuthIdRequest': $8.GetUserByAuthIdRequest$json,
-  '.gen.go.user.v1.GetUsersPaginationRequest': $8.GetUsersPaginationRequest$json,
-  '.gen.go.user.v1.GetUsersPaginationResponse': $8.GetUsersPaginationResponse$json,
-  '.gen.go.user.v1.UpdateUserRequest': $8.UpdateUserRequest$json,
-  '.gen.go.user.v1.DeleteUserRequest': $8.DeleteUserRequest$json,
-  '.google.protobuf.BoolValue': $9.BoolValue$json,
+  '.gen.go.user.v1.CreateUserRequest': $9.CreateUserRequest$json,
+  '.google.protobuf.Any': $6.Any$json,
+  '.gen.go.user.v1.UserModel': $8.UserModel$json,
+  '.gen.go.user.v1.GetUserRequest': $9.GetUserRequest$json,
+  '.gen.go.user.v1.GetUserByAuthIdRequest': $9.GetUserByAuthIdRequest$json,
+  '.gen.go.user.v1.GetUsersPaginationRequest': $9.GetUsersPaginationRequest$json,
+  '.gen.go.user.v1.GetUsersPaginationResponse': $9.GetUsersPaginationResponse$json,
+  '.gen.go.user.v1.UpdateUserRequest': $9.UpdateUserRequest$json,
+  '.gen.go.user.v1.DeleteUserRequest': $9.DeleteUserRequest$json,
+  '.google.protobuf.BoolValue': $10.BoolValue$json,
 };
 
 /// Descriptor for `UserServicePort`. Decode as a `google.protobuf.ServiceDescriptorProto`.

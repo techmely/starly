@@ -13,8 +13,8 @@ message BaseErrorResponse {
 }
 
 message BaseResponse {
-    google.protobuf.Value data = 1;
-    string code = 2;
-    string message = 3;
-    google.protobuf.Value metadata = 4;
+    optional google.protobuf.Value data = 1;
+    optional string code = 2;
+    optional string message = 3;
+    optional google.protobuf.Value metadata = 4;
 }

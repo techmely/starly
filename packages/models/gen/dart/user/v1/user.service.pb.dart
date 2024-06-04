@@ -14,31 +14,31 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $9;
-import 'user.event.pb.dart' as $8;
-import 'user.model.pb.dart' as $7;
+import '../../google/protobuf/wrappers.pb.dart' as $10;
+import 'user.event.pb.dart' as $9;
+import 'user.model.pb.dart' as $8;
 
 class UserServicePortApi {
   $pb.RpcClient _client;
   UserServicePortApi(this._client);
 
-  $async.Future<$7.UserModel> create_($pb.ClientContext? ctx, $8.CreateUserRequest request) =>
-    _client.invoke<$7.UserModel>(ctx, 'UserServicePort', 'Create', request, $7.UserModel())
+  $async.Future<$8.UserModel> create_($pb.ClientContext? ctx, $9.CreateUserRequest request) =>
+    _client.invoke<$8.UserModel>(ctx, 'UserServicePort', 'Create', request, $8.UserModel())
   ;
-  $async.Future<$7.UserModel> get($pb.ClientContext? ctx, $8.GetUserRequest request) =>
-    _client.invoke<$7.UserModel>(ctx, 'UserServicePort', 'Get', request, $7.UserModel())
+  $async.Future<$8.UserModel> get($pb.ClientContext? ctx, $9.GetUserRequest request) =>
+    _client.invoke<$8.UserModel>(ctx, 'UserServicePort', 'Get', request, $8.UserModel())
   ;
-  $async.Future<$7.UserModel> getByAuthId($pb.ClientContext? ctx, $8.GetUserByAuthIdRequest request) =>
-    _client.invoke<$7.UserModel>(ctx, 'UserServicePort', 'GetByAuthId', request, $7.UserModel())
+  $async.Future<$8.UserModel> getByAuthId($pb.ClientContext? ctx, $9.GetUserByAuthIdRequest request) =>
+    _client.invoke<$8.UserModel>(ctx, 'UserServicePort', 'GetByAuthId', request, $8.UserModel())
   ;
-  $async.Future<$8.GetUsersPaginationResponse> getPagination($pb.ClientContext? ctx, $8.GetUsersPaginationRequest request) =>
-    _client.invoke<$8.GetUsersPaginationResponse>(ctx, 'UserServicePort', 'GetPagination', request, $8.GetUsersPaginationResponse())
+  $async.Future<$9.GetUsersPaginationResponse> getPagination($pb.ClientContext? ctx, $9.GetUsersPaginationRequest request) =>
+    _client.invoke<$9.GetUsersPaginationResponse>(ctx, 'UserServicePort', 'GetPagination', request, $9.GetUsersPaginationResponse())
   ;
-  $async.Future<$7.UserModel> update($pb.ClientContext? ctx, $8.UpdateUserRequest request) =>
-    _client.invoke<$7.UserModel>(ctx, 'UserServicePort', 'Update', request, $7.UserModel())
+  $async.Future<$8.UserModel> update($pb.ClientContext? ctx, $9.UpdateUserRequest request) =>
+    _client.invoke<$8.UserModel>(ctx, 'UserServicePort', 'Update', request, $8.UserModel())
   ;
-  $async.Future<$9.BoolValue> delete($pb.ClientContext? ctx, $8.DeleteUserRequest request) =>
-    _client.invoke<$9.BoolValue>(ctx, 'UserServicePort', 'Delete', request, $9.BoolValue())
+  $async.Future<$10.BoolValue> delete($pb.ClientContext? ctx, $9.DeleteUserRequest request) =>
+    _client.invoke<$10.BoolValue>(ctx, 'UserServicePort', 'Delete', request, $10.BoolValue())
   ;
 }
 

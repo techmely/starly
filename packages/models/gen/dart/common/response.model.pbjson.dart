@@ -37,16 +37,23 @@ final $typed_data.Uint8List baseErrorResponseDescriptor = $convert.base64Decode(
 const BaseResponse$json = {
   '1': 'BaseResponse',
   '2': [
-    {'1': 'data', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Value', '10': 'data'},
-    {'1': 'code', '3': 2, '4': 1, '5': 9, '10': 'code'},
-    {'1': 'message', '3': 3, '4': 1, '5': 9, '10': 'message'},
-    {'1': 'metadata', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Value', '10': 'metadata'},
+    {'1': 'data', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Value', '9': 0, '10': 'data', '17': true},
+    {'1': 'code', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'code', '17': true},
+    {'1': 'message', '3': 3, '4': 1, '5': 9, '9': 2, '10': 'message', '17': true},
+    {'1': 'metadata', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Value', '9': 3, '10': 'metadata', '17': true},
+  ],
+  '8': [
+    {'1': '_data'},
+    {'1': '_code'},
+    {'1': '_message'},
+    {'1': '_metadata'},
   ],
 };
 
 /// Descriptor for `BaseResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List baseResponseDescriptor = $convert.base64Decode(
-    'CgxCYXNlUmVzcG9uc2USKgoEZGF0YRgBIAEoCzIWLmdvb2dsZS5wcm90b2J1Zi5WYWx1ZVIEZG'
-    'F0YRISCgRjb2RlGAIgASgJUgRjb2RlEhgKB21lc3NhZ2UYAyABKAlSB21lc3NhZ2USMgoIbWV0'
-    'YWRhdGEYBCABKAsyFi5nb29nbGUucHJvdG9idWYuVmFsdWVSCG1ldGFkYXRh');
+    'CgxCYXNlUmVzcG9uc2USLwoEZGF0YRgBIAEoCzIWLmdvb2dsZS5wcm90b2J1Zi5WYWx1ZUgAUg'
+    'RkYXRhiAEBEhcKBGNvZGUYAiABKAlIAVIEY29kZYgBARIdCgdtZXNzYWdlGAMgASgJSAJSB21l'
+    'c3NhZ2WIAQESNwoIbWV0YWRhdGEYBCABKAsyFi5nb29nbGUucHJvdG9idWYuVmFsdWVIA1IIbW'
+    'V0YWRhdGGIAQFCBwoFX2RhdGFCBwoFX2NvZGVCCgoIX21lc3NhZ2VCCwoJX21ldGFkYXRh');
 

@@ -14,29 +14,29 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'tenant.event.pb.dart' as $6;
+import 'tenant.event.pb.dart' as $7;
 
 class TenantServicePortApi {
   $pb.RpcClient _client;
   TenantServicePortApi(this._client);
 
-  $async.Future<$6.CreateTenantResponse> create_($pb.ClientContext? ctx, $6.CreateTenantRequest request) =>
-    _client.invoke<$6.CreateTenantResponse>(ctx, 'TenantServicePort', 'create', request, $6.CreateTenantResponse())
+  $async.Future<$7.CreateTenantResponse> create_($pb.ClientContext? ctx, $7.CreateTenantRequest request) =>
+    _client.invoke<$7.CreateTenantResponse>(ctx, 'TenantServicePort', 'create', request, $7.CreateTenantResponse())
   ;
-  $async.Future<$6.GetTenantResponse> get($pb.ClientContext? ctx, $6.GetTenantRequest request) =>
-    _client.invoke<$6.GetTenantResponse>(ctx, 'TenantServicePort', 'get', request, $6.GetTenantResponse())
+  $async.Future<$7.GetTenantResponse> get($pb.ClientContext? ctx, $7.GetTenantRequest request) =>
+    _client.invoke<$7.GetTenantResponse>(ctx, 'TenantServicePort', 'get', request, $7.GetTenantResponse())
   ;
-  $async.Future<$6.GetTenantsResponse> getAll($pb.ClientContext? ctx, $6.GetTenantsRequest request) =>
-    _client.invoke<$6.GetTenantsResponse>(ctx, 'TenantServicePort', 'getAll', request, $6.GetTenantsResponse())
+  $async.Future<$7.GetTenantsResponse> getAll($pb.ClientContext? ctx, $7.GetTenantsRequest request) =>
+    _client.invoke<$7.GetTenantsResponse>(ctx, 'TenantServicePort', 'getAll', request, $7.GetTenantsResponse())
   ;
-  $async.Future<$6.GetAvailableTenantsResponse> getAvailable($pb.ClientContext? ctx, $6.GetAvailableTenantsRequest request) =>
-    _client.invoke<$6.GetAvailableTenantsResponse>(ctx, 'TenantServicePort', 'getAvailable', request, $6.GetAvailableTenantsResponse())
+  $async.Future<$7.GetAvailableTenantsResponse> getAvailable($pb.ClientContext? ctx, $7.GetAvailableTenantsRequest request) =>
+    _client.invoke<$7.GetAvailableTenantsResponse>(ctx, 'TenantServicePort', 'getAvailable', request, $7.GetAvailableTenantsResponse())
   ;
-  $async.Future<$6.UpdateTenantResponse> update($pb.ClientContext? ctx, $6.UpdateTenantRequest request) =>
-    _client.invoke<$6.UpdateTenantResponse>(ctx, 'TenantServicePort', 'update', request, $6.UpdateTenantResponse())
+  $async.Future<$7.UpdateTenantResponse> update($pb.ClientContext? ctx, $7.UpdateTenantRequest request) =>
+    _client.invoke<$7.UpdateTenantResponse>(ctx, 'TenantServicePort', 'update', request, $7.UpdateTenantResponse())
   ;
-  $async.Future<$6.DeleteTenantResponse> delete($pb.ClientContext? ctx, $6.DeleteTenantRequest request) =>
-    _client.invoke<$6.DeleteTenantResponse>(ctx, 'TenantServicePort', 'delete', request, $6.DeleteTenantResponse())
+  $async.Future<$7.DeleteTenantResponse> delete($pb.ClientContext? ctx, $7.DeleteTenantRequest request) =>
+    _client.invoke<$7.DeleteTenantResponse>(ctx, 'TenantServicePort', 'delete', request, $7.DeleteTenantResponse())
   ;
 }
 

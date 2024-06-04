@@ -13,7 +13,7 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import 'tenant.event.pbjson.dart' as $6;
+import 'tenant.event.pbjson.dart' as $7;
 
 const $core.Map<$core.String, $core.dynamic> TenantServicePortServiceBase$json = {
   '1': 'TenantServicePort',
@@ -29,18 +29,18 @@ const $core.Map<$core.String, $core.dynamic> TenantServicePortServiceBase$json =
 
 @$core.Deprecated('Use tenantServicePortServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> TenantServicePortServiceBase$messageJson = {
-  '.gen.go.tenant.v1.CreateTenantRequest': $6.CreateTenantRequest$json,
-  '.gen.go.tenant.v1.CreateTenantResponse': $6.CreateTenantResponse$json,
-  '.gen.go.tenant.v1.GetTenantRequest': $6.GetTenantRequest$json,
-  '.gen.go.tenant.v1.GetTenantResponse': $6.GetTenantResponse$json,
-  '.gen.go.tenant.v1.GetTenantsRequest': $6.GetTenantsRequest$json,
-  '.gen.go.tenant.v1.GetTenantsResponse': $6.GetTenantsResponse$json,
-  '.gen.go.tenant.v1.GetAvailableTenantsRequest': $6.GetAvailableTenantsRequest$json,
-  '.gen.go.tenant.v1.GetAvailableTenantsResponse': $6.GetAvailableTenantsResponse$json,
-  '.gen.go.tenant.v1.UpdateTenantRequest': $6.UpdateTenantRequest$json,
-  '.gen.go.tenant.v1.UpdateTenantResponse': $6.UpdateTenantResponse$json,
-  '.gen.go.tenant.v1.DeleteTenantRequest': $6.DeleteTenantRequest$json,
-  '.gen.go.tenant.v1.DeleteTenantResponse': $6.DeleteTenantResponse$json,
+  '.gen.go.tenant.v1.CreateTenantRequest': $7.CreateTenantRequest$json,
+  '.gen.go.tenant.v1.CreateTenantResponse': $7.CreateTenantResponse$json,
+  '.gen.go.tenant.v1.GetTenantRequest': $7.GetTenantRequest$json,
+  '.gen.go.tenant.v1.GetTenantResponse': $7.GetTenantResponse$json,
+  '.gen.go.tenant.v1.GetTenantsRequest': $7.GetTenantsRequest$json,
+  '.gen.go.tenant.v1.GetTenantsResponse': $7.GetTenantsResponse$json,
+  '.gen.go.tenant.v1.GetAvailableTenantsRequest': $7.GetAvailableTenantsRequest$json,
+  '.gen.go.tenant.v1.GetAvailableTenantsResponse': $7.GetAvailableTenantsResponse$json,
+  '.gen.go.tenant.v1.UpdateTenantRequest': $7.UpdateTenantRequest$json,
+  '.gen.go.tenant.v1.UpdateTenantResponse': $7.UpdateTenantResponse$json,
+  '.gen.go.tenant.v1.DeleteTenantRequest': $7.DeleteTenantRequest$json,
+  '.gen.go.tenant.v1.DeleteTenantResponse': $7.DeleteTenantResponse$json,
 };
 
 /// Descriptor for `TenantServicePort`. Decode as a `google.protobuf.ServiceDescriptorProto`.

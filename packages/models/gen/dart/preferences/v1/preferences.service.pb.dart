@@ -14,14 +14,14 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'preferences.event.pb.dart' as $4;
+import 'preferences.event.pb.dart' as $5;
 
 class PreferencesServiceApi {
   $pb.RpcClient _client;
   PreferencesServiceApi(this._client);
 
-  $async.Future<$4.GetPreferencesResponse> get($pb.ClientContext? ctx, $4.GetPreferencesRequest request) =>
-    _client.invoke<$4.GetPreferencesResponse>(ctx, 'PreferencesService', 'Get', request, $4.GetPreferencesResponse())
+  $async.Future<$5.GetPreferencesResponse> get($pb.ClientContext? ctx, $5.GetPreferencesRequest request) =>
+    _client.invoke<$5.GetPreferencesResponse>(ctx, 'PreferencesService', 'Get', request, $5.GetPreferencesResponse())
   ;
 }
 

@@ -13,7 +13,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../google/protobuf/struct.pb.dart' as $2;
+import '../google/protobuf/struct.pb.dart' as $3;
 
 class BaseErrorResponse extends $pb.GeneratedMessage {
   factory BaseErrorResponse({
@@ -109,10 +109,10 @@ class BaseErrorResponse extends $pb.GeneratedMessage {
 
 class BaseResponse extends $pb.GeneratedMessage {
   factory BaseResponse({
-    $2.Value? data,
+    $3.Value? data,
     $core.String? code,
     $core.String? message,
-    $2.Value? metadata,
+    $3.Value? metadata,
   }) {
     final $result = create();
     if (data != null) {
@@ -134,10 +134,10 @@ class BaseResponse extends $pb.GeneratedMessage {
   factory BaseResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BaseResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.common'), createEmptyInstance: create)
-    ..aOM<$2.Value>(1, _omitFieldNames ? '' : 'data', subBuilder: $2.Value.create)
+    ..aOM<$3.Value>(1, _omitFieldNames ? '' : 'data', subBuilder: $3.Value.create)
     ..aOS(2, _omitFieldNames ? '' : 'code')
     ..aOS(3, _omitFieldNames ? '' : 'message')
-    ..aOM<$2.Value>(4, _omitFieldNames ? '' : 'metadata', subBuilder: $2.Value.create)
+    ..aOM<$3.Value>(4, _omitFieldNames ? '' : 'metadata', subBuilder: $3.Value.create)
     ..hasRequiredFields = false
   ;
 
@@ -163,15 +163,15 @@ class BaseResponse extends $pb.GeneratedMessage {
   static BaseResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $2.Value get data => $_getN(0);
+  $3.Value get data => $_getN(0);
   @$pb.TagNumber(1)
-  set data($2.Value v) { setField(1, v); }
+  set data($3.Value v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasData() => $_has(0);
   @$pb.TagNumber(1)
   void clearData() => clearField(1);
   @$pb.TagNumber(1)
-  $2.Value ensureData() => $_ensure(0);
+  $3.Value ensureData() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get code => $_getSZ(1);
@@ -192,15 +192,15 @@ class BaseResponse extends $pb.GeneratedMessage {
   void clearMessage() => clearField(3);
 
   @$pb.TagNumber(4)
-  $2.Value get metadata => $_getN(3);
+  $3.Value get metadata => $_getN(3);
   @$pb.TagNumber(4)
-  set metadata($2.Value v) { setField(4, v); }
+  set metadata($3.Value v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasMetadata() => $_has(3);
   @$pb.TagNumber(4)
   void clearMetadata() => clearField(4);
   @$pb.TagNumber(4)
-  $2.Value ensureMetadata() => $_ensure(3);
+  $3.Value ensureMetadata() => $_ensure(3);
 }
 
 

@@ -14,14 +14,14 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'meta_schema.event.pb.dart' as $3;
+import 'meta_schema.event.pb.dart' as $4;
 
 class MetaSchemaServicePortApi {
   $pb.RpcClient _client;
   MetaSchemaServicePortApi(this._client);
 
-  $async.Future<$3.GetMetaSchemaResponse> get($pb.ClientContext? ctx, $3.GetMetaSchemaRequest request) =>
-    _client.invoke<$3.GetMetaSchemaResponse>(ctx, 'MetaSchemaServicePort', 'get', request, $3.GetMetaSchemaResponse())
+  $async.Future<$4.GetMetaSchemaResponse> get($pb.ClientContext? ctx, $4.GetMetaSchemaRequest request) =>
+    _client.invoke<$4.GetMetaSchemaResponse>(ctx, 'MetaSchemaServicePort', 'get', request, $4.GetMetaSchemaResponse())
   ;
 }
 
