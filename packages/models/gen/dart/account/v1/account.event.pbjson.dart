@@ -13,91 +13,69 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use loginRequestDescriptor instead')
-const LoginRequest$json = {
-  '1': 'LoginRequest',
+@$core.Deprecated('Use signInRequestDescriptor instead')
+const SignInRequest$json = {
+  '1': 'SignInRequest',
   '2': [
     {'1': 'email', '3': 1, '4': 1, '5': 9, '10': 'email'},
     {'1': 'password', '3': 2, '4': 1, '5': 9, '10': 'password'},
   ],
 };
 
-/// Descriptor for `LoginRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List loginRequestDescriptor = $convert.base64Decode(
-    'CgxMb2dpblJlcXVlc3QSFAoFZW1haWwYASABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAIgASgJUg'
-    'hwYXNzd29yZA==');
+/// Descriptor for `SignInRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List signInRequestDescriptor = $convert.base64Decode(
+    'Cg1TaWduSW5SZXF1ZXN0EhQKBWVtYWlsGAEgASgJUgVlbWFpbBIaCghwYXNzd29yZBgCIAEoCV'
+    'IIcGFzc3dvcmQ=');
 
-@$core.Deprecated('Use loginResponseDescriptor instead')
-const LoginResponse$json = {
-  '1': 'LoginResponse',
+@$core.Deprecated('Use signInWithProviderRequestDescriptor instead')
+const SignInWithProviderRequest$json = {
+  '1': 'SignInWithProviderRequest',
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
   ],
 };
 
-/// Descriptor for `LoginResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List loginResponseDescriptor = $convert.base64Decode(
-    'Cg1Mb2dpblJlc3BvbnNlEg4KAmlkGAEgASgJUgJpZA==');
+/// Descriptor for `SignInWithProviderRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List signInWithProviderRequestDescriptor = $convert.base64Decode(
+    'ChlTaWduSW5XaXRoUHJvdmlkZXJSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZA==');
 
-@$core.Deprecated('Use loginWithProviderRequestDescriptor instead')
-const LoginWithProviderRequest$json = {
-  '1': 'LoginWithProviderRequest',
+@$core.Deprecated('Use signUpRequestDescriptor instead')
+const SignUpRequest$json = {
+  '1': 'SignUpRequest',
+  '2': [
+    {'1': 'email', '3': 1, '4': 1, '5': 9, '10': 'email'},
+    {'1': 'password', '3': 2, '4': 1, '5': 9, '10': 'password'},
+  ],
+};
+
+/// Descriptor for `SignUpRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List signUpRequestDescriptor = $convert.base64Decode(
+    'Cg1TaWduVXBSZXF1ZXN0EhQKBWVtYWlsGAEgASgJUgVlbWFpbBIaCghwYXNzd29yZBgCIAEoCV'
+    'IIcGFzc3dvcmQ=');
+
+@$core.Deprecated('Use signOutRequestDescriptor instead')
+const SignOutRequest$json = {
+  '1': 'SignOutRequest',
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
   ],
 };
 
-/// Descriptor for `LoginWithProviderRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List loginWithProviderRequestDescriptor = $convert.base64Decode(
-    'ChhMb2dpbldpdGhQcm92aWRlclJlcXVlc3QSDgoCaWQYASABKAlSAmlk');
+/// Descriptor for `SignOutRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List signOutRequestDescriptor = $convert.base64Decode(
+    'Cg5TaWduT3V0UmVxdWVzdBIOCgJpZBgBIAEoCVICaWQ=');
 
-@$core.Deprecated('Use registerRequestDescriptor instead')
-const RegisterRequest$json = {
-  '1': 'RegisterRequest',
+@$core.Deprecated('Use signOutResponseDescriptor instead')
+const SignOutResponse$json = {
+  '1': 'SignOutResponse',
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
   ],
 };
 
-/// Descriptor for `RegisterRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List registerRequestDescriptor = $convert.base64Decode(
-    'Cg9SZWdpc3RlclJlcXVlc3QSDgoCaWQYASABKAlSAmlk');
-
-@$core.Deprecated('Use registerResponseDescriptor instead')
-const RegisterResponse$json = {
-  '1': 'RegisterResponse',
-  '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-  ],
-};
-
-/// Descriptor for `RegisterResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List registerResponseDescriptor = $convert.base64Decode(
-    'ChBSZWdpc3RlclJlc3BvbnNlEg4KAmlkGAEgASgJUgJpZA==');
-
-@$core.Deprecated('Use logoutRequestDescriptor instead')
-const LogoutRequest$json = {
-  '1': 'LogoutRequest',
-  '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-  ],
-};
-
-/// Descriptor for `LogoutRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List logoutRequestDescriptor = $convert.base64Decode(
-    'Cg1Mb2dvdXRSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZA==');
-
-@$core.Deprecated('Use logoutResponseDescriptor instead')
-const LogoutResponse$json = {
-  '1': 'LogoutResponse',
-  '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-  ],
-};
-
-/// Descriptor for `LogoutResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List logoutResponseDescriptor = $convert.base64Decode(
-    'Cg5Mb2dvdXRSZXNwb25zZRIOCgJpZBgBIAEoCVICaWQ=');
+/// Descriptor for `SignOutResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List signOutResponseDescriptor = $convert.base64Decode(
+    'Cg9TaWduT3V0UmVzcG9uc2USDgoCaWQYASABKAlSAmlk');
 
 @$core.Deprecated('Use resendVerificationCodeRequestDescriptor instead')
 const ResendVerificationCodeRequest$json = {

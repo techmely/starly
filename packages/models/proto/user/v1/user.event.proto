@@ -22,7 +22,6 @@ message CreateUserRequest {
   google.protobuf.Any metadata = 14;
 }
 
-
 message GetUserRequest {
     string key = 1;
     string value = 2;

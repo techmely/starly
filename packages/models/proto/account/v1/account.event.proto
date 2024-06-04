@@ -1,34 +1,27 @@
 syntax = "proto3";
 
-package gen.go.auth.v1;
-option go_package="github.com/techmely/techmely/gen/go/account/v1;account_event_v1";
+package gen.go.account.v1;
+option go_package="github.com/techmely/techmely/gen/go/account/v1/account_event_v1";
 
-message LoginRequest {
+message SignInRequest {
   string email = 1;
   string password = 2;
 }
 
-message LoginResponse {
+message SignInWithProviderRequest {
   string id = 1;
 }
 
-message LoginWithProviderRequest {
+message SignUpRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message SignOutRequest {
   string id = 1;
 }
 
-message RegisterRequest {
-  string id = 1;
-}
-
-message RegisterResponse {
-  string id = 1;
-}
-
-message LogoutRequest {
-  string id = 1;
-}
-
-message LogoutResponse {
+message SignOutResponse {
   string id = 1;
 }
 

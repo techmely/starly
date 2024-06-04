@@ -15,17 +15,17 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/empty.pb.dart' as $1;
+import '../firebase.model.pb.dart' as $1;
 import 'account.event.pb.dart' as $0;
 import 'account.service.pbjson.dart';
 
 export 'account.service.pb.dart';
 
 abstract class AccountServicePortServiceBase extends $pb.GeneratedService {
-  $async.Future<$0.LoginResponse> login($pb.ServerContext ctx, $0.LoginRequest request);
-  $async.Future<$1.Empty> loginWithProvider($pb.ServerContext ctx, $0.LoginWithProviderRequest request);
-  $async.Future<$0.RegisterResponse> register($pb.ServerContext ctx, $0.RegisterRequest request);
-  $async.Future<$0.LogoutResponse> logout($pb.ServerContext ctx, $0.LogoutRequest request);
+  $async.Future<$1.AuthGoogleIdentityResponse> signIn($pb.ServerContext ctx, $0.SignInRequest request);
+  $async.Future<$1.AuthGoogleIdentityResponse> signInWithProvider($pb.ServerContext ctx, $0.SignInWithProviderRequest request);
+  $async.Future<$1.AuthGoogleIdentityResponse> signUp($pb.ServerContext ctx, $0.SignUpRequest request);
+  $async.Future<$0.SignOutResponse> signOut($pb.ServerContext ctx, $0.SignOutRequest request);
   $async.Future<$0.ResendVerificationCodeResponse> resendVerificationCode($pb.ServerContext ctx, $0.ResendVerificationCodeRequest request);
   $async.Future<$0.UpdatePasswordResponse> updatePassword($pb.ServerContext ctx, $0.UpdatePasswordRequest request);
   $async.Future<$0.UpdateEmailResponse> updateEmail($pb.ServerContext ctx, $0.UpdateEmailRequest request);
@@ -35,32 +35,32 @@ abstract class AccountServicePortServiceBase extends $pb.GeneratedService {
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'login': return $0.LoginRequest();
-      case 'loginWithProvider': return $0.LoginWithProviderRequest();
-      case 'register': return $0.RegisterRequest();
-      case 'logout': return $0.LogoutRequest();
-      case 'resendVerificationCode': return $0.ResendVerificationCodeRequest();
-      case 'updatePassword': return $0.UpdatePasswordRequest();
-      case 'updateEmail': return $0.UpdateEmailRequest();
-      case 'verifyAccount': return $0.VerifyAccountRequest();
-      case 'verifyActivationLink': return $0.VerifyActivationLinkRequest();
-      case 'forgotPassword': return $0.ForgotPasswordRequest();
+      case 'SignIn': return $0.SignInRequest();
+      case 'SignInWithProvider': return $0.SignInWithProviderRequest();
+      case 'SignUp': return $0.SignUpRequest();
+      case 'SignOut': return $0.SignOutRequest();
+      case 'ResendVerificationCode': return $0.ResendVerificationCodeRequest();
+      case 'UpdatePassword': return $0.UpdatePasswordRequest();
+      case 'UpdateEmail': return $0.UpdateEmailRequest();
+      case 'VerifyAccount': return $0.VerifyAccountRequest();
+      case 'VerifyActivationLink': return $0.VerifyActivationLinkRequest();
+      case 'ForgotPassword': return $0.ForgotPasswordRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'login': return this.login(ctx, request as $0.LoginRequest);
-      case 'loginWithProvider': return this.loginWithProvider(ctx, request as $0.LoginWithProviderRequest);
-      case 'register': return this.register(ctx, request as $0.RegisterRequest);
-      case 'logout': return this.logout(ctx, request as $0.LogoutRequest);
-      case 'resendVerificationCode': return this.resendVerificationCode(ctx, request as $0.ResendVerificationCodeRequest);
-      case 'updatePassword': return this.updatePassword(ctx, request as $0.UpdatePasswordRequest);
-      case 'updateEmail': return this.updateEmail(ctx, request as $0.UpdateEmailRequest);
-      case 'verifyAccount': return this.verifyAccount(ctx, request as $0.VerifyAccountRequest);
-      case 'verifyActivationLink': return this.verifyActivationLink(ctx, request as $0.VerifyActivationLinkRequest);
-      case 'forgotPassword': return this.forgotPassword(ctx, request as $0.ForgotPasswordRequest);
+      case 'SignIn': return this.signIn(ctx, request as $0.SignInRequest);
+      case 'SignInWithProvider': return this.signInWithProvider(ctx, request as $0.SignInWithProviderRequest);
+      case 'SignUp': return this.signUp(ctx, request as $0.SignUpRequest);
+      case 'SignOut': return this.signOut(ctx, request as $0.SignOutRequest);
+      case 'ResendVerificationCode': return this.resendVerificationCode(ctx, request as $0.ResendVerificationCodeRequest);
+      case 'UpdatePassword': return this.updatePassword(ctx, request as $0.UpdatePasswordRequest);
+      case 'UpdateEmail': return this.updateEmail(ctx, request as $0.UpdateEmailRequest);
+      case 'VerifyAccount': return this.verifyAccount(ctx, request as $0.VerifyAccountRequest);
+      case 'VerifyActivationLink': return this.verifyActivationLink(ctx, request as $0.VerifyActivationLinkRequest);
+      case 'ForgotPassword': return this.forgotPassword(ctx, request as $0.ForgotPasswordRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }

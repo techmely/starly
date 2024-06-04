@@ -14,42 +14,42 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/empty.pb.dart' as $1;
+import '../firebase.model.pb.dart' as $1;
 import 'account.event.pb.dart' as $0;
 
 class AccountServicePortApi {
   $pb.RpcClient _client;
   AccountServicePortApi(this._client);
 
-  $async.Future<$0.LoginResponse> login($pb.ClientContext? ctx, $0.LoginRequest request) =>
-    _client.invoke<$0.LoginResponse>(ctx, 'AccountServicePort', 'login', request, $0.LoginResponse())
+  $async.Future<$1.AuthGoogleIdentityResponse> signIn($pb.ClientContext? ctx, $0.SignInRequest request) =>
+    _client.invoke<$1.AuthGoogleIdentityResponse>(ctx, 'AccountServicePort', 'SignIn', request, $1.AuthGoogleIdentityResponse())
   ;
-  $async.Future<$1.Empty> loginWithProvider($pb.ClientContext? ctx, $0.LoginWithProviderRequest request) =>
-    _client.invoke<$1.Empty>(ctx, 'AccountServicePort', 'loginWithProvider', request, $1.Empty())
+  $async.Future<$1.AuthGoogleIdentityResponse> signInWithProvider($pb.ClientContext? ctx, $0.SignInWithProviderRequest request) =>
+    _client.invoke<$1.AuthGoogleIdentityResponse>(ctx, 'AccountServicePort', 'SignInWithProvider', request, $1.AuthGoogleIdentityResponse())
   ;
-  $async.Future<$0.RegisterResponse> register($pb.ClientContext? ctx, $0.RegisterRequest request) =>
-    _client.invoke<$0.RegisterResponse>(ctx, 'AccountServicePort', 'register', request, $0.RegisterResponse())
+  $async.Future<$1.AuthGoogleIdentityResponse> signUp($pb.ClientContext? ctx, $0.SignUpRequest request) =>
+    _client.invoke<$1.AuthGoogleIdentityResponse>(ctx, 'AccountServicePort', 'SignUp', request, $1.AuthGoogleIdentityResponse())
   ;
-  $async.Future<$0.LogoutResponse> logout($pb.ClientContext? ctx, $0.LogoutRequest request) =>
-    _client.invoke<$0.LogoutResponse>(ctx, 'AccountServicePort', 'logout', request, $0.LogoutResponse())
+  $async.Future<$0.SignOutResponse> signOut($pb.ClientContext? ctx, $0.SignOutRequest request) =>
+    _client.invoke<$0.SignOutResponse>(ctx, 'AccountServicePort', 'SignOut', request, $0.SignOutResponse())
   ;
   $async.Future<$0.ResendVerificationCodeResponse> resendVerificationCode($pb.ClientContext? ctx, $0.ResendVerificationCodeRequest request) =>
-    _client.invoke<$0.ResendVerificationCodeResponse>(ctx, 'AccountServicePort', 'resendVerificationCode', request, $0.ResendVerificationCodeResponse())
+    _client.invoke<$0.ResendVerificationCodeResponse>(ctx, 'AccountServicePort', 'ResendVerificationCode', request, $0.ResendVerificationCodeResponse())
   ;
   $async.Future<$0.UpdatePasswordResponse> updatePassword($pb.ClientContext? ctx, $0.UpdatePasswordRequest request) =>
-    _client.invoke<$0.UpdatePasswordResponse>(ctx, 'AccountServicePort', 'updatePassword', request, $0.UpdatePasswordResponse())
+    _client.invoke<$0.UpdatePasswordResponse>(ctx, 'AccountServicePort', 'UpdatePassword', request, $0.UpdatePasswordResponse())
   ;
   $async.Future<$0.UpdateEmailResponse> updateEmail($pb.ClientContext? ctx, $0.UpdateEmailRequest request) =>
-    _client.invoke<$0.UpdateEmailResponse>(ctx, 'AccountServicePort', 'updateEmail', request, $0.UpdateEmailResponse())
+    _client.invoke<$0.UpdateEmailResponse>(ctx, 'AccountServicePort', 'UpdateEmail', request, $0.UpdateEmailResponse())
   ;
   $async.Future<$0.VerifyAccountResponse> verifyAccount($pb.ClientContext? ctx, $0.VerifyAccountRequest request) =>
-    _client.invoke<$0.VerifyAccountResponse>(ctx, 'AccountServicePort', 'verifyAccount', request, $0.VerifyAccountResponse())
+    _client.invoke<$0.VerifyAccountResponse>(ctx, 'AccountServicePort', 'VerifyAccount', request, $0.VerifyAccountResponse())
   ;
   $async.Future<$0.VerifyActivationLinkResponse> verifyActivationLink($pb.ClientContext? ctx, $0.VerifyActivationLinkRequest request) =>
-    _client.invoke<$0.VerifyActivationLinkResponse>(ctx, 'AccountServicePort', 'verifyActivationLink', request, $0.VerifyActivationLinkResponse())
+    _client.invoke<$0.VerifyActivationLinkResponse>(ctx, 'AccountServicePort', 'VerifyActivationLink', request, $0.VerifyActivationLinkResponse())
   ;
   $async.Future<$0.ForgotPasswordResponse> forgotPassword($pb.ClientContext? ctx, $0.ForgotPasswordRequest request) =>
-    _client.invoke<$0.ForgotPasswordResponse>(ctx, 'AccountServicePort', 'forgotPassword', request, $0.ForgotPasswordResponse())
+    _client.invoke<$0.ForgotPasswordResponse>(ctx, 'AccountServicePort', 'ForgotPassword', request, $0.ForgotPasswordResponse())
   ;
 }
 

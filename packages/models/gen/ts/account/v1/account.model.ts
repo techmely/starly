@@ -8,7 +8,7 @@
 import * as _m0 from "protobufjs/minimal";
 import Long = require("long");
 
-export const protobufPackage = "gen.go.auth.v1";
+export const protobufPackage = "gen.go.account.v1";
 
 export interface AccountModel {
   id: number;

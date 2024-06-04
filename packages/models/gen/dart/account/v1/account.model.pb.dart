@@ -28,7 +28,7 @@ class AccountModel extends $pb.GeneratedMessage {
   factory AccountModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory AccountModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AccountModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.auth.v1'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AccountModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.account.v1'), createEmptyInstance: create)
     ..aInt64(1, _omitFieldNames ? '' : 'id')
     ..hasRequiredFields = false
   ;

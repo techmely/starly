@@ -7,34 +7,27 @@
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = "gen.go.auth.v1";
+export const protobufPackage = "gen.go.account.v1";
 
-export interface LoginRequest {
+export interface SignInRequest {
   email: string;
   password: string;
 }
 
-export interface LoginResponse {
+export interface SignInWithProviderRequest {
   id: string;
 }
 
-export interface LoginWithProviderRequest {
+export interface SignUpRequest {
+  email: string;
+  password: string;
+}
+
+export interface SignOutRequest {
   id: string;
 }
 
-export interface RegisterRequest {
-  id: string;
-}
-
-export interface RegisterResponse {
-  id: string;
-}
-
-export interface LogoutRequest {
-  id: string;
-}
-
-export interface LogoutResponse {
+export interface SignOutResponse {
   id: string;
 }
 
@@ -86,12 +79,12 @@ export interface ForgotPasswordResponse {
   id: string;
 }
 
-function createBaseLoginRequest(): LoginRequest {
+function createBaseSignInRequest(): SignInRequest {
   return { email: "", password: "" };
 }
 
-export const LoginRequest = {
-  encode(message: LoginRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const SignInRequest = {
+  encode(message: SignInRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.email !== "") {
       writer.uint32(10).string(message.email);
     }
@@ -101,10 +94,10 @@ export const LoginRequest = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): LoginRequest {
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignInRequest {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseLoginRequest();
+    const message = createBaseSignInRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -131,14 +124,14 @@ export const LoginRequest = {
     return message;
   },
 
-  fromJSON(object: any): LoginRequest {
+  fromJSON(object: any): SignInRequest {
     return {
       email: isSet(object.email) ? globalThis.String(object.email) : "",
       password: isSet(object.password) ? globalThis.String(object.password) : "",
     };
   },
 
-  toJSON(message: LoginRequest): unknown {
+  toJSON(message: SignInRequest): unknown {
     const obj: any = {};
     if (message.email !== "") {
       obj.email = message.email;
@@ -149,33 +142,33 @@ export const LoginRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<LoginRequest>, I>>(base?: I): LoginRequest {
-    return LoginRequest.fromPartial(base ?? ({} as any));
+  create<I extends Exact<DeepPartial<SignInRequest>, I>>(base?: I): SignInRequest {
+    return SignInRequest.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<LoginRequest>, I>>(object: I): LoginRequest {
-    const message = createBaseLoginRequest();
+  fromPartial<I extends Exact<DeepPartial<SignInRequest>, I>>(object: I): SignInRequest {
+    const message = createBaseSignInRequest();
     message.email = object.email ?? "";
     message.password = object.password ?? "";
     return message;
   },
 };
 
-function createBaseLoginResponse(): LoginResponse {
+function createBaseSignInWithProviderRequest(): SignInWithProviderRequest {
   return { id: "" };
 }
 
-export const LoginResponse = {
-  encode(message: LoginResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const SignInWithProviderRequest = {
+  encode(message: SignInWithProviderRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): LoginResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignInWithProviderRequest {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseLoginResponse();
+    const message = createBaseSignInWithProviderRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -195,11 +188,11 @@ export const LoginResponse = {
     return message;
   },
 
-  fromJSON(object: any): LoginResponse {
+  fromJSON(object: any): SignInWithProviderRequest {
     return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
   },
 
-  toJSON(message: LoginResponse): unknown {
+  toJSON(message: SignInWithProviderRequest): unknown {
     const obj: any = {};
     if (message.id !== "") {
       obj.id = message.id;
@@ -207,32 +200,106 @@ export const LoginResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<LoginResponse>, I>>(base?: I): LoginResponse {
-    return LoginResponse.fromPartial(base ?? ({} as any));
+  create<I extends Exact<DeepPartial<SignInWithProviderRequest>, I>>(base?: I): SignInWithProviderRequest {
+    return SignInWithProviderRequest.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<LoginResponse>, I>>(object: I): LoginResponse {
-    const message = createBaseLoginResponse();
+  fromPartial<I extends Exact<DeepPartial<SignInWithProviderRequest>, I>>(object: I): SignInWithProviderRequest {
+    const message = createBaseSignInWithProviderRequest();
     message.id = object.id ?? "";
     return message;
   },
 };
 
-function createBaseLoginWithProviderRequest(): LoginWithProviderRequest {
+function createBaseSignUpRequest(): SignUpRequest {
+  return { email: "", password: "" };
+}
+
+export const SignUpRequest = {
+  encode(message: SignUpRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.email !== "") {
+      writer.uint32(10).string(message.email);
+    }
+    if (message.password !== "") {
+      writer.uint32(18).string(message.password);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignUpRequest {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSignUpRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 10) {
+            break;
+          }
+
+          message.email = reader.string();
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.password = reader.string();
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SignUpRequest {
+    return {
+      email: isSet(object.email) ? globalThis.String(object.email) : "",
+      password: isSet(object.password) ? globalThis.String(object.password) : "",
+    };
+  },
+
+  toJSON(message: SignUpRequest): unknown {
+    const obj: any = {};
+    if (message.email !== "") {
+      obj.email = message.email;
+    }
+    if (message.password !== "") {
+      obj.password = message.password;
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<SignUpRequest>, I>>(base?: I): SignUpRequest {
+    return SignUpRequest.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<SignUpRequest>, I>>(object: I): SignUpRequest {
+    const message = createBaseSignUpRequest();
+    message.email = object.email ?? "";
+    message.password = object.password ?? "";
+    return message;
+  },
+};
+
+function createBaseSignOutRequest(): SignOutRequest {
   return { id: "" };
 }
 
-export const LoginWithProviderRequest = {
-  encode(message: LoginWithProviderRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const SignOutRequest = {
+  encode(message: SignOutRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): LoginWithProviderRequest {
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignOutRequest {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseLoginWithProviderRequest();
+    const message = createBaseSignOutRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -252,11 +319,11 @@ export const LoginWithProviderRequest = {
     return message;
   },
 
-  fromJSON(object: any): LoginWithProviderRequest {
+  fromJSON(object: any): SignOutRequest {
     return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
   },
 
-  toJSON(message: LoginWithProviderRequest): unknown {
+  toJSON(message: SignOutRequest): unknown {
     const obj: any = {};
     if (message.id !== "") {
       obj.id = message.id;
@@ -264,32 +331,32 @@ export const LoginWithProviderRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<LoginWithProviderRequest>, I>>(base?: I): LoginWithProviderRequest {
-    return LoginWithProviderRequest.fromPartial(base ?? ({} as any));
+  create<I extends Exact<DeepPartial<SignOutRequest>, I>>(base?: I): SignOutRequest {
+    return SignOutRequest.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<LoginWithProviderRequest>, I>>(object: I): LoginWithProviderRequest {
-    const message = createBaseLoginWithProviderRequest();
+  fromPartial<I extends Exact<DeepPartial<SignOutRequest>, I>>(object: I): SignOutRequest {
+    const message = createBaseSignOutRequest();
     message.id = object.id ?? "";
     return message;
   },
 };
 
-function createBaseRegisterRequest(): RegisterRequest {
+function createBaseSignOutResponse(): SignOutResponse {
   return { id: "" };
 }
 
-export const RegisterRequest = {
-  encode(message: RegisterRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const SignOutResponse = {
+  encode(message: SignOutResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): RegisterRequest {
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignOutResponse {
     const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseRegisterRequest();
+    const message = createBaseSignOutResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -309,11 +376,11 @@ export const RegisterRequest = {
     return message;
   },
 
-  fromJSON(object: any): RegisterRequest {
+  fromJSON(object: any): SignOutResponse {
     return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
   },
 
-  toJSON(message: RegisterRequest): unknown {
+  toJSON(message: SignOutResponse): unknown {
     const obj: any = {};
     if (message.id !== "") {
       obj.id = message.id;
@@ -321,182 +388,11 @@ export const RegisterRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<RegisterRequest>, I>>(base?: I): RegisterRequest {
-    return RegisterRequest.fromPartial(base ?? ({} as any));
+  create<I extends Exact<DeepPartial<SignOutResponse>, I>>(base?: I): SignOutResponse {
+    return SignOutResponse.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<RegisterRequest>, I>>(object: I): RegisterRequest {
-    const message = createBaseRegisterRequest();
-    message.id = object.id ?? "";
-    return message;
-  },
-};
-
-function createBaseRegisterResponse(): RegisterResponse {
-  return { id: "" };
-}
-
-export const RegisterResponse = {
-  encode(message: RegisterResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== "") {
-      writer.uint32(10).string(message.id);
-    }
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): RegisterResponse {
-    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseRegisterResponse();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          if (tag !== 10) {
-            break;
-          }
-
-          message.id = reader.string();
-          continue;
-      }
-      if ((tag & 7) === 4 || tag === 0) {
-        break;
-      }
-      reader.skipType(tag & 7);
-    }
-    return message;
-  },
-
-  fromJSON(object: any): RegisterResponse {
-    return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
-  },
-
-  toJSON(message: RegisterResponse): unknown {
-    const obj: any = {};
-    if (message.id !== "") {
-      obj.id = message.id;
-    }
-    return obj;
-  },
-
-  create<I extends Exact<DeepPartial<RegisterResponse>, I>>(base?: I): RegisterResponse {
-    return RegisterResponse.fromPartial(base ?? ({} as any));
-  },
-  fromPartial<I extends Exact<DeepPartial<RegisterResponse>, I>>(object: I): RegisterResponse {
-    const message = createBaseRegisterResponse();
-    message.id = object.id ?? "";
-    return message;
-  },
-};
-
-function createBaseLogoutRequest(): LogoutRequest {
-  return { id: "" };
-}
-
-export const LogoutRequest = {
-  encode(message: LogoutRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== "") {
-      writer.uint32(10).string(message.id);
-    }
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): LogoutRequest {
-    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseLogoutRequest();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          if (tag !== 10) {
-            break;
-          }
-
-          message.id = reader.string();
-          continue;
-      }
-      if ((tag & 7) === 4 || tag === 0) {
-        break;
-      }
-      reader.skipType(tag & 7);
-    }
-    return message;
-  },
-
-  fromJSON(object: any): LogoutRequest {
-    return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
-  },
-
-  toJSON(message: LogoutRequest): unknown {
-    const obj: any = {};
-    if (message.id !== "") {
-      obj.id = message.id;
-    }
-    return obj;
-  },
-
-  create<I extends Exact<DeepPartial<LogoutRequest>, I>>(base?: I): LogoutRequest {
-    return LogoutRequest.fromPartial(base ?? ({} as any));
-  },
-  fromPartial<I extends Exact<DeepPartial<LogoutRequest>, I>>(object: I): LogoutRequest {
-    const message = createBaseLogoutRequest();
-    message.id = object.id ?? "";
-    return message;
-  },
-};
-
-function createBaseLogoutResponse(): LogoutResponse {
-  return { id: "" };
-}
-
-export const LogoutResponse = {
-  encode(message: LogoutResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== "") {
-      writer.uint32(10).string(message.id);
-    }
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): LogoutResponse {
-    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseLogoutResponse();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          if (tag !== 10) {
-            break;
-          }
-
-          message.id = reader.string();
-          continue;
-      }
-      if ((tag & 7) === 4 || tag === 0) {
-        break;
-      }
-      reader.skipType(tag & 7);
-    }
-    return message;
-  },
-
-  fromJSON(object: any): LogoutResponse {
-    return { id: isSet(object.id) ? globalThis.String(object.id) : "" };
-  },
-
-  toJSON(message: LogoutResponse): unknown {
-    const obj: any = {};
-    if (message.id !== "") {
-      obj.id = message.id;
-    }
-    return obj;
-  },
-
-  create<I extends Exact<DeepPartial<LogoutResponse>, I>>(base?: I): LogoutResponse {
-    return LogoutResponse.fromPartial(base ?? ({} as any));
-  },
-  fromPartial<I extends Exact<DeepPartial<LogoutResponse>, I>>(object: I): LogoutResponse {
-    const message = createBaseLogoutResponse();
+  fromPartial<I extends Exact<DeepPartial<SignOutResponse>, I>>(object: I): SignOutResponse {
+    const message = createBaseSignOutResponse();
     message.id = object.id ?? "";
     return message;
   },

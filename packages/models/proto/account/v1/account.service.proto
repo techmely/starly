@@ -1,21 +1,21 @@
 syntax = "proto3";
 
 
-package gen.go.auth.v1;
-option go_package="github.com/techmely/techmely/gen/go/account/v1;account_service_v1";
+package gen.go.account.v1;
+option go_package="github.com/techmely/techmely/gen/go/account/v1/account_service_v1";
 
 import "account/v1/account.event.proto";
-import "google/protobuf/empty.proto";
+import "account/firebase.model.proto";
 
 service AccountServicePort {
-  rpc login(auth.v1.LoginRequest) returns (auth.v1.LoginResponse) {}
-  rpc loginWithProvider(auth.v1.LoginWithProviderRequest) returns (google.protobuf.Empty) {}
-  rpc register(auth.v1.RegisterRequest) returns (auth.v1.RegisterResponse) {}
-  rpc logout(auth.v1.LogoutRequest) returns (auth.v1.LogoutResponse) {}
-  rpc resendVerificationCode(auth.v1.ResendVerificationCodeRequest) returns (auth.v1.ResendVerificationCodeResponse) {}
-  rpc updatePassword(auth.v1.UpdatePasswordRequest) returns (auth.v1.UpdatePasswordResponse) {}
-  rpc updateEmail(auth.v1.UpdateEmailRequest) returns (auth.v1.UpdateEmailResponse) {}
-  rpc verifyAccount(auth.v1.VerifyAccountRequest) returns (auth.v1.VerifyAccountResponse) {}
-  rpc verifyActivationLink(auth.v1.VerifyActivationLinkRequest) returns (auth.v1.VerifyActivationLinkResponse) {}
-  rpc forgotPassword(auth.v1.ForgotPasswordRequest) returns (auth.v1.ForgotPasswordResponse) {}
+  rpc SignIn(account.v1.SignInRequest) returns (account.AuthGoogleIdentityResponse) {}
+  rpc SignInWithProvider(account.v1.SignInWithProviderRequest) returns (account.AuthGoogleIdentityResponse) {}
+  rpc SignUp(account.v1.SignUpRequest) returns (account.AuthGoogleIdentityResponse) {}
+  rpc SignOut(account.v1.SignOutRequest) returns (account.v1.SignOutResponse) {}
+  rpc ResendVerificationCode(account.v1.ResendVerificationCodeRequest) returns (account.v1.ResendVerificationCodeResponse) {}
+  rpc UpdatePassword(account.v1.UpdatePasswordRequest) returns (account.v1.UpdatePasswordResponse) {}
+  rpc UpdateEmail(account.v1.UpdateEmailRequest) returns (account.v1.UpdateEmailResponse) {}
+  rpc VerifyAccount(account.v1.VerifyAccountRequest) returns (account.v1.VerifyAccountResponse) {}
+  rpc VerifyActivationLink(account.v1.VerifyActivationLinkRequest) returns (account.v1.VerifyActivationLinkResponse) {}
+  rpc ForgotPassword(account.v1.ForgotPasswordRequest) returns (account.v1.ForgotPasswordResponse) {}
 }

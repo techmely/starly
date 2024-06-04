@@ -1,8 +1,7 @@
 export * from "./gen/ts/account/v1/account.event";
 export * from "./gen/ts/account/v1/account.model";
 export * from "./gen/ts/account/v1/account.service";
-
-export * from "./gen/ts/auth/firebase.model";
+export * from "./gen/ts/account/firebase.model";
 
 export * from "./gen/ts/common/common.model";
 export * from "./gen/ts/common/response.model";
