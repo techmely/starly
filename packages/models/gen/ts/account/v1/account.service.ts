@@ -6,6 +6,7 @@
 
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
+import { Empty } from "../../google/protobuf/empty";
 import { AuthGoogleIdentityResponse } from "../firebase.model";
 import {
   ForgotPasswordRequest,
@@ -14,8 +15,6 @@ import {
   ResendVerificationCodeResponse,
   SignInRequest,
   SignInWithProviderRequest,
-  SignOutRequest,
-  SignOutResponse,
   SignUpRequest,
   UpdateEmailRequest,
   UpdateEmailResponse,
@@ -33,7 +32,7 @@ export interface AccountServicePort {
   SignIn(request: SignInRequest): Promise<AuthGoogleIdentityResponse>;
   SignInWithProvider(request: SignInWithProviderRequest): Promise<AuthGoogleIdentityResponse>;
   SignUp(request: SignUpRequest): Promise<AuthGoogleIdentityResponse>;
-  SignOut(request: SignOutRequest): Promise<SignOutResponse>;
+  SignOut(request: Empty): Promise<Empty>;
   ResendVerificationCode(request: ResendVerificationCodeRequest): Promise<ResendVerificationCodeResponse>;
   UpdatePassword(request: UpdatePasswordRequest): Promise<UpdatePasswordResponse>;
   UpdateEmail(request: UpdateEmailRequest): Promise<UpdateEmailResponse>;
@@ -78,10 +77,10 @@ export class AccountServicePortClientImpl implements AccountServicePort {
     return promise.then((data) => AuthGoogleIdentityResponse.decode(_m0.Reader.create(data)));
   }
 
-  SignOut(request: SignOutRequest): Promise<SignOutResponse> {
-    const data = SignOutRequest.encode(request).finish();
+  SignOut(request: Empty): Promise<Empty> {
+    const data = Empty.encode(request).finish();
     const promise = this.rpc.request(this.service, "SignOut", data);
-    return promise.then((data) => SignOutResponse.decode(_m0.Reader.create(data)));
+    return promise.then((data) => Empty.decode(_m0.Reader.create(data)));
   }
 
   ResendVerificationCode(request: ResendVerificationCodeRequest): Promise<ResendVerificationCodeResponse> {

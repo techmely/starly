@@ -1,17 +1,18 @@
 syntax = "proto3";
 
+import "account/v1/account.event.proto";
+import "account/firebase.model.proto";
+import "google/protobuf/empty.proto";
 
 package gen.go.account.v1;
 option go_package="github.com/techmely/techmely/gen/go/account/v1/account_service_v1";
 
-import "account/v1/account.event.proto";
-import "account/firebase.model.proto";
 
 service AccountServicePort {
   rpc SignIn(account.v1.SignInRequest) returns (account.AuthGoogleIdentityResponse) {}
   rpc SignInWithProvider(account.v1.SignInWithProviderRequest) returns (account.AuthGoogleIdentityResponse) {}
   rpc SignUp(account.v1.SignUpRequest) returns (account.AuthGoogleIdentityResponse) {}
-  rpc SignOut(account.v1.SignOutRequest) returns (account.v1.SignOutResponse) {}
+  rpc SignOut(google.protobuf.Empty) returns (google.protobuf.Empty) {}
   rpc ResendVerificationCode(account.v1.ResendVerificationCodeRequest) returns (account.v1.ResendVerificationCodeResponse) {}
   rpc UpdatePassword(account.v1.UpdatePasswordRequest) returns (account.v1.UpdatePasswordResponse) {}
   rpc UpdateEmail(account.v1.UpdateEmailRequest) returns (account.v1.UpdateEmailResponse) {}

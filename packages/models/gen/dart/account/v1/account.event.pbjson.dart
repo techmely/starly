@@ -65,18 +65,6 @@ const SignOutRequest$json = {
 final $typed_data.Uint8List signOutRequestDescriptor = $convert.base64Decode(
     'Cg5TaWduT3V0UmVxdWVzdBIOCgJpZBgBIAEoCVICaWQ=');
 
-@$core.Deprecated('Use signOutResponseDescriptor instead')
-const SignOutResponse$json = {
-  '1': 'SignOutResponse',
-  '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-  ],
-};
-
-/// Descriptor for `SignOutResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List signOutResponseDescriptor = $convert.base64Decode(
-    'Cg9TaWduT3V0UmVzcG9uc2USDgoCaWQYASABKAlSAmlk');
-
 @$core.Deprecated('Use resendVerificationCodeRequestDescriptor instead')
 const ResendVerificationCodeRequest$json = {
   '1': 'ResendVerificationCodeRequest',

@@ -10,6 +10,7 @@ import (
 	errors "errors"
 	account "github.com/techmely/models/account"
 	v1 "github.com/techmely/models/account/v1"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	http "net/http"
 	strings "strings"
 )
@@ -86,7 +87,7 @@ type AccountServicePortClient interface {
 	SignIn(context.Context, *connect.Request[v1.SignInRequest]) (*connect.Response[account.AuthGoogleIdentityResponse], error)
 	SignInWithProvider(context.Context, *connect.Request[v1.SignInWithProviderRequest]) (*connect.Response[account.AuthGoogleIdentityResponse], error)
 	SignUp(context.Context, *connect.Request[v1.SignUpRequest]) (*connect.Response[account.AuthGoogleIdentityResponse], error)
-	SignOut(context.Context, *connect.Request[v1.SignOutRequest]) (*connect.Response[v1.SignOutResponse], error)
+	SignOut(context.Context, *connect.Request[emptypb.Empty]) (*connect.Response[emptypb.Empty], error)
 	ResendVerificationCode(context.Context, *connect.Request[v1.ResendVerificationCodeRequest]) (*connect.Response[v1.ResendVerificationCodeResponse], error)
 	UpdatePassword(context.Context, *connect.Request[v1.UpdatePasswordRequest]) (*connect.Response[v1.UpdatePasswordResponse], error)
 	UpdateEmail(context.Context, *connect.Request[v1.UpdateEmailRequest]) (*connect.Response[v1.UpdateEmailResponse], error)
@@ -123,7 +124,7 @@ func NewAccountServicePortClient(httpClient connect.HTTPClient, baseURL string, 
 			connect.WithSchema(accountServicePortSignUpMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		signOut: connect.NewClient[v1.SignOutRequest, v1.SignOutResponse](
+		signOut: connect.NewClient[emptypb.Empty, emptypb.Empty](
 			httpClient,
 			baseURL+AccountServicePortSignOutProcedure,
 			connect.WithSchema(accountServicePortSignOutMethodDescriptor),
@@ -173,7 +174,7 @@ type accountServicePortClient struct {
 	signIn                 *connect.Client[v1.SignInRequest, account.AuthGoogleIdentityResponse]
 	signInWithProvider     *connect.Client[v1.SignInWithProviderRequest, account.AuthGoogleIdentityResponse]
 	signUp                 *connect.Client[v1.SignUpRequest, account.AuthGoogleIdentityResponse]
-	signOut                *connect.Client[v1.SignOutRequest, v1.SignOutResponse]
+	signOut                *connect.Client[emptypb.Empty, emptypb.Empty]
 	resendVerificationCode *connect.Client[v1.ResendVerificationCodeRequest, v1.ResendVerificationCodeResponse]
 	updatePassword         *connect.Client[v1.UpdatePasswordRequest, v1.UpdatePasswordResponse]
 	updateEmail            *connect.Client[v1.UpdateEmailRequest, v1.UpdateEmailResponse]
@@ -198,7 +199,7 @@ func (c *accountServicePortClient) SignUp(ctx context.Context, req *connect.Requ
 }
 
 // SignOut calls gen.go.account.v1.AccountServicePort.SignOut.
-func (c *accountServicePortClient) SignOut(ctx context.Context, req *connect.Request[v1.SignOutRequest]) (*connect.Response[v1.SignOutResponse], error) {
+func (c *accountServicePortClient) SignOut(ctx context.Context, req *connect.Request[emptypb.Empty]) (*connect.Response[emptypb.Empty], error) {
 	return c.signOut.CallUnary(ctx, req)
 }
 
@@ -238,7 +239,7 @@ type AccountServicePortHandler interface {
 	SignIn(context.Context, *connect.Request[v1.SignInRequest]) (*connect.Response[account.AuthGoogleIdentityResponse], error)
 	SignInWithProvider(context.Context, *connect.Request[v1.SignInWithProviderRequest]) (*connect.Response[account.AuthGoogleIdentityResponse], error)
 	SignUp(context.Context, *connect.Request[v1.SignUpRequest]) (*connect.Response[account.AuthGoogleIdentityResponse], error)
-	SignOut(context.Context, *connect.Request[v1.SignOutRequest]) (*connect.Response[v1.SignOutResponse], error)
+	SignOut(context.Context, *connect.Request[emptypb.Empty]) (*connect.Response[emptypb.Empty], error)
 	ResendVerificationCode(context.Context, *connect.Request[v1.ResendVerificationCodeRequest]) (*connect.Response[v1.ResendVerificationCodeResponse], error)
 	UpdatePassword(context.Context, *connect.Request[v1.UpdatePasswordRequest]) (*connect.Response[v1.UpdatePasswordResponse], error)
 	UpdateEmail(context.Context, *connect.Request[v1.UpdateEmailRequest]) (*connect.Response[v1.UpdateEmailResponse], error)
@@ -356,7 +357,7 @@ func (UnimplementedAccountServicePortHandler) SignUp(context.Context, *connect.R
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.account.v1.AccountServicePort.SignUp is not implemented"))
 }
 
-func (UnimplementedAccountServicePortHandler) SignOut(context.Context, *connect.Request[v1.SignOutRequest]) (*connect.Response[v1.SignOutResponse], error) {
+func (UnimplementedAccountServicePortHandler) SignOut(context.Context, *connect.Request[emptypb.Empty]) (*connect.Response[emptypb.Empty], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("gen.go.account.v1.AccountServicePort.SignOut is not implemented"))
 }
 

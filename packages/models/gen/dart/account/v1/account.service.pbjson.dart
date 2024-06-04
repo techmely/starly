@@ -13,6 +13,7 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+import '../../google/protobuf/empty.pbjson.dart' as $2;
 import '../firebase.model.pbjson.dart' as $1;
 import 'account.event.pbjson.dart' as $0;
 
@@ -22,7 +23,7 @@ const $core.Map<$core.String, $core.dynamic> AccountServicePortServiceBase$json 
     {'1': 'SignIn', '2': '.gen.go.account.v1.SignInRequest', '3': '.gen.go.account.AuthGoogleIdentityResponse', '4': {}},
     {'1': 'SignInWithProvider', '2': '.gen.go.account.v1.SignInWithProviderRequest', '3': '.gen.go.account.AuthGoogleIdentityResponse', '4': {}},
     {'1': 'SignUp', '2': '.gen.go.account.v1.SignUpRequest', '3': '.gen.go.account.AuthGoogleIdentityResponse', '4': {}},
-    {'1': 'SignOut', '2': '.gen.go.account.v1.SignOutRequest', '3': '.gen.go.account.v1.SignOutResponse', '4': {}},
+    {'1': 'SignOut', '2': '.google.protobuf.Empty', '3': '.google.protobuf.Empty', '4': {}},
     {'1': 'ResendVerificationCode', '2': '.gen.go.account.v1.ResendVerificationCodeRequest', '3': '.gen.go.account.v1.ResendVerificationCodeResponse', '4': {}},
     {'1': 'UpdatePassword', '2': '.gen.go.account.v1.UpdatePasswordRequest', '3': '.gen.go.account.v1.UpdatePasswordResponse', '4': {}},
     {'1': 'UpdateEmail', '2': '.gen.go.account.v1.UpdateEmailRequest', '3': '.gen.go.account.v1.UpdateEmailResponse', '4': {}},
@@ -38,8 +39,7 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> AccountSer
   '.gen.go.account.AuthGoogleIdentityResponse': $1.AuthGoogleIdentityResponse$json,
   '.gen.go.account.v1.SignInWithProviderRequest': $0.SignInWithProviderRequest$json,
   '.gen.go.account.v1.SignUpRequest': $0.SignUpRequest$json,
-  '.gen.go.account.v1.SignOutRequest': $0.SignOutRequest$json,
-  '.gen.go.account.v1.SignOutResponse': $0.SignOutResponse$json,
+  '.google.protobuf.Empty': $2.Empty$json,
   '.gen.go.account.v1.ResendVerificationCodeRequest': $0.ResendVerificationCodeRequest$json,
   '.gen.go.account.v1.ResendVerificationCodeResponse': $0.ResendVerificationCodeResponse$json,
   '.gen.go.account.v1.UpdatePasswordRequest': $0.UpdatePasswordRequest$json,
@@ -61,19 +61,18 @@ final $typed_data.Uint8List accountServicePortServiceDescriptor = $convert.base6
     'cAoSU2lnbkluV2l0aFByb3ZpZGVyEiwuZ2VuLmdvLmFjY291bnQudjEuU2lnbkluV2l0aFByb3'
     'ZpZGVyUmVxdWVzdBoqLmdlbi5nby5hY2NvdW50LkF1dGhHb29nbGVJZGVudGl0eVJlc3BvbnNl'
     'IgASWAoGU2lnblVwEiAuZ2VuLmdvLmFjY291bnQudjEuU2lnblVwUmVxdWVzdBoqLmdlbi5nby'
-    '5hY2NvdW50LkF1dGhHb29nbGVJZGVudGl0eVJlc3BvbnNlIgASUgoHU2lnbk91dBIhLmdlbi5n'
-    'by5hY2NvdW50LnYxLlNpZ25PdXRSZXF1ZXN0GiIuZ2VuLmdvLmFjY291bnQudjEuU2lnbk91dF'
-    'Jlc3BvbnNlIgASfwoWUmVzZW5kVmVyaWZpY2F0aW9uQ29kZRIwLmdlbi5nby5hY2NvdW50LnYx'
-    'LlJlc2VuZFZlcmlmaWNhdGlvbkNvZGVSZXF1ZXN0GjEuZ2VuLmdvLmFjY291bnQudjEuUmVzZW'
-    '5kVmVyaWZpY2F0aW9uQ29kZVJlc3BvbnNlIgASZwoOVXBkYXRlUGFzc3dvcmQSKC5nZW4uZ28u'
-    'YWNjb3VudC52MS5VcGRhdGVQYXNzd29yZFJlcXVlc3QaKS5nZW4uZ28uYWNjb3VudC52MS5VcG'
-    'RhdGVQYXNzd29yZFJlc3BvbnNlIgASXgoLVXBkYXRlRW1haWwSJS5nZW4uZ28uYWNjb3VudC52'
-    'MS5VcGRhdGVFbWFpbFJlcXVlc3QaJi5nZW4uZ28uYWNjb3VudC52MS5VcGRhdGVFbWFpbFJlc3'
-    'BvbnNlIgASZAoNVmVyaWZ5QWNjb3VudBInLmdlbi5nby5hY2NvdW50LnYxLlZlcmlmeUFjY291'
-    'bnRSZXF1ZXN0GiguZ2VuLmdvLmFjY291bnQudjEuVmVyaWZ5QWNjb3VudFJlc3BvbnNlIgASeQ'
-    'oUVmVyaWZ5QWN0aXZhdGlvbkxpbmsSLi5nZW4uZ28uYWNjb3VudC52MS5WZXJpZnlBY3RpdmF0'
-    'aW9uTGlua1JlcXVlc3QaLy5nZW4uZ28uYWNjb3VudC52MS5WZXJpZnlBY3RpdmF0aW9uTGlua1'
-    'Jlc3BvbnNlIgASZwoORm9yZ290UGFzc3dvcmQSKC5nZW4uZ28uYWNjb3VudC52MS5Gb3Jnb3RQ'
-    'YXNzd29yZFJlcXVlc3QaKS5nZW4uZ28uYWNjb3VudC52MS5Gb3Jnb3RQYXNzd29yZFJlc3Bvbn'
-    'NlIgA=');
+    '5hY2NvdW50LkF1dGhHb29nbGVJZGVudGl0eVJlc3BvbnNlIgASOwoHU2lnbk91dBIWLmdvb2ds'
+    'ZS5wcm90b2J1Zi5FbXB0eRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEn8KFlJlc2VuZFZlcm'
+    'lmaWNhdGlvbkNvZGUSMC5nZW4uZ28uYWNjb3VudC52MS5SZXNlbmRWZXJpZmljYXRpb25Db2Rl'
+    'UmVxdWVzdBoxLmdlbi5nby5hY2NvdW50LnYxLlJlc2VuZFZlcmlmaWNhdGlvbkNvZGVSZXNwb2'
+    '5zZSIAEmcKDlVwZGF0ZVBhc3N3b3JkEiguZ2VuLmdvLmFjY291bnQudjEuVXBkYXRlUGFzc3dv'
+    'cmRSZXF1ZXN0GikuZ2VuLmdvLmFjY291bnQudjEuVXBkYXRlUGFzc3dvcmRSZXNwb25zZSIAEl'
+    '4KC1VwZGF0ZUVtYWlsEiUuZ2VuLmdvLmFjY291bnQudjEuVXBkYXRlRW1haWxSZXF1ZXN0GiYu'
+    'Z2VuLmdvLmFjY291bnQudjEuVXBkYXRlRW1haWxSZXNwb25zZSIAEmQKDVZlcmlmeUFjY291bn'
+    'QSJy5nZW4uZ28uYWNjb3VudC52MS5WZXJpZnlBY2NvdW50UmVxdWVzdBooLmdlbi5nby5hY2Nv'
+    'dW50LnYxLlZlcmlmeUFjY291bnRSZXNwb25zZSIAEnkKFFZlcmlmeUFjdGl2YXRpb25MaW5rEi'
+    '4uZ2VuLmdvLmFjY291bnQudjEuVmVyaWZ5QWN0aXZhdGlvbkxpbmtSZXF1ZXN0Gi8uZ2VuLmdv'
+    'LmFjY291bnQudjEuVmVyaWZ5QWN0aXZhdGlvbkxpbmtSZXNwb25zZSIAEmcKDkZvcmdvdFBhc3'
+    'N3b3JkEiguZ2VuLmdvLmFjY291bnQudjEuRm9yZ290UGFzc3dvcmRSZXF1ZXN0GikuZ2VuLmdv'
+    'LmFjY291bnQudjEuRm9yZ290UGFzc3dvcmRSZXNwb25zZSIA');
 

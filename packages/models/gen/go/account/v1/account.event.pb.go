@@ -224,53 +224,6 @@ func (x *SignOutRequest) GetId() string {
 	return ""
 }
 
-type SignOutResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-}
-
-func (x *SignOutResponse) Reset() {
-	*x = SignOutResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *SignOutResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SignOutResponse) ProtoMessage() {}
-
-func (x *SignOutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SignOutResponse.ProtoReflect.Descriptor instead.
-func (*SignOutResponse) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *SignOutResponse) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
 type ResendVerificationCodeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -282,7 +235,7 @@ type ResendVerificationCodeRequest struct {
 func (x *ResendVerificationCodeRequest) Reset() {
 	*x = ResendVerificationCodeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[5]
+		mi := &file_account_v1_account_event_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -295,7 +248,7 @@ func (x *ResendVerificationCodeRequest) String() string {
 func (*ResendVerificationCodeRequest) ProtoMessage() {}
 
 func (x *ResendVerificationCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[5]
+	mi := &file_account_v1_account_event_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -308,7 +261,7 @@ func (x *ResendVerificationCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResendVerificationCodeRequest.ProtoReflect.Descriptor instead.
 func (*ResendVerificationCodeRequest) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{5}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ResendVerificationCodeRequest) GetId() string {
@@ -329,7 +282,7 @@ type ResendVerificationCodeResponse struct {
 func (x *ResendVerificationCodeResponse) Reset() {
 	*x = ResendVerificationCodeResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[6]
+		mi := &file_account_v1_account_event_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -342,7 +295,7 @@ func (x *ResendVerificationCodeResponse) String() string {
 func (*ResendVerificationCodeResponse) ProtoMessage() {}
 
 func (x *ResendVerificationCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[6]
+	mi := &file_account_v1_account_event_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -355,7 +308,7 @@ func (x *ResendVerificationCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResendVerificationCodeResponse.ProtoReflect.Descriptor instead.
 func (*ResendVerificationCodeResponse) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{6}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ResendVerificationCodeResponse) GetId() string {
@@ -376,7 +329,7 @@ type UpdatePasswordRequest struct {
 func (x *UpdatePasswordRequest) Reset() {
 	*x = UpdatePasswordRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[7]
+		mi := &file_account_v1_account_event_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -389,7 +342,7 @@ func (x *UpdatePasswordRequest) String() string {
 func (*UpdatePasswordRequest) ProtoMessage() {}
 
 func (x *UpdatePasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[7]
+	mi := &file_account_v1_account_event_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -402,7 +355,7 @@ func (x *UpdatePasswordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePasswordRequest.ProtoReflect.Descriptor instead.
 func (*UpdatePasswordRequest) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{7}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UpdatePasswordRequest) GetId() string {
@@ -423,7 +376,7 @@ type UpdatePasswordResponse struct {
 func (x *UpdatePasswordResponse) Reset() {
 	*x = UpdatePasswordResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[8]
+		mi := &file_account_v1_account_event_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -436,7 +389,7 @@ func (x *UpdatePasswordResponse) String() string {
 func (*UpdatePasswordResponse) ProtoMessage() {}
 
 func (x *UpdatePasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[8]
+	mi := &file_account_v1_account_event_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -449,7 +402,7 @@ func (x *UpdatePasswordResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePasswordResponse.ProtoReflect.Descriptor instead.
 func (*UpdatePasswordResponse) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{8}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UpdatePasswordResponse) GetId() string {
@@ -470,7 +423,7 @@ type UpdateEmailRequest struct {
 func (x *UpdateEmailRequest) Reset() {
 	*x = UpdateEmailRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[9]
+		mi := &file_account_v1_account_event_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -483,7 +436,7 @@ func (x *UpdateEmailRequest) String() string {
 func (*UpdateEmailRequest) ProtoMessage() {}
 
 func (x *UpdateEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[9]
+	mi := &file_account_v1_account_event_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -496,7 +449,7 @@ func (x *UpdateEmailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateEmailRequest.ProtoReflect.Descriptor instead.
 func (*UpdateEmailRequest) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{9}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateEmailRequest) GetId() string {
@@ -517,7 +470,7 @@ type UpdateEmailResponse struct {
 func (x *UpdateEmailResponse) Reset() {
 	*x = UpdateEmailResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[10]
+		mi := &file_account_v1_account_event_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -530,7 +483,7 @@ func (x *UpdateEmailResponse) String() string {
 func (*UpdateEmailResponse) ProtoMessage() {}
 
 func (x *UpdateEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[10]
+	mi := &file_account_v1_account_event_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -543,7 +496,7 @@ func (x *UpdateEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateEmailResponse.ProtoReflect.Descriptor instead.
 func (*UpdateEmailResponse) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{10}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateEmailResponse) GetId() string {
@@ -564,7 +517,7 @@ type VerifyAccountRequest struct {
 func (x *VerifyAccountRequest) Reset() {
 	*x = VerifyAccountRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[11]
+		mi := &file_account_v1_account_event_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -577,7 +530,7 @@ func (x *VerifyAccountRequest) String() string {
 func (*VerifyAccountRequest) ProtoMessage() {}
 
 func (x *VerifyAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[11]
+	mi := &file_account_v1_account_event_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -590,7 +543,7 @@ func (x *VerifyAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyAccountRequest.ProtoReflect.Descriptor instead.
 func (*VerifyAccountRequest) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{11}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *VerifyAccountRequest) GetId() string {
@@ -611,7 +564,7 @@ type VerifyAccountResponse struct {
 func (x *VerifyAccountResponse) Reset() {
 	*x = VerifyAccountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[12]
+		mi := &file_account_v1_account_event_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -624,7 +577,7 @@ func (x *VerifyAccountResponse) String() string {
 func (*VerifyAccountResponse) ProtoMessage() {}
 
 func (x *VerifyAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[12]
+	mi := &file_account_v1_account_event_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -637,7 +590,7 @@ func (x *VerifyAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyAccountResponse.ProtoReflect.Descriptor instead.
 func (*VerifyAccountResponse) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{12}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *VerifyAccountResponse) GetId() string {
@@ -658,7 +611,7 @@ type VerifyActivationLinkRequest struct {
 func (x *VerifyActivationLinkRequest) Reset() {
 	*x = VerifyActivationLinkRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[13]
+		mi := &file_account_v1_account_event_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -671,7 +624,7 @@ func (x *VerifyActivationLinkRequest) String() string {
 func (*VerifyActivationLinkRequest) ProtoMessage() {}
 
 func (x *VerifyActivationLinkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[13]
+	mi := &file_account_v1_account_event_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -684,7 +637,7 @@ func (x *VerifyActivationLinkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyActivationLinkRequest.ProtoReflect.Descriptor instead.
 func (*VerifyActivationLinkRequest) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{13}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *VerifyActivationLinkRequest) GetId() string {
@@ -705,7 +658,7 @@ type VerifyActivationLinkResponse struct {
 func (x *VerifyActivationLinkResponse) Reset() {
 	*x = VerifyActivationLinkResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[14]
+		mi := &file_account_v1_account_event_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -718,7 +671,7 @@ func (x *VerifyActivationLinkResponse) String() string {
 func (*VerifyActivationLinkResponse) ProtoMessage() {}
 
 func (x *VerifyActivationLinkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[14]
+	mi := &file_account_v1_account_event_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -731,7 +684,7 @@ func (x *VerifyActivationLinkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyActivationLinkResponse.ProtoReflect.Descriptor instead.
 func (*VerifyActivationLinkResponse) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{14}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *VerifyActivationLinkResponse) GetId() string {
@@ -752,7 +705,7 @@ type ForgotPasswordRequest struct {
 func (x *ForgotPasswordRequest) Reset() {
 	*x = ForgotPasswordRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[15]
+		mi := &file_account_v1_account_event_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -765,7 +718,7 @@ func (x *ForgotPasswordRequest) String() string {
 func (*ForgotPasswordRequest) ProtoMessage() {}
 
 func (x *ForgotPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[15]
+	mi := &file_account_v1_account_event_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -778,7 +731,7 @@ func (x *ForgotPasswordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForgotPasswordRequest.ProtoReflect.Descriptor instead.
 func (*ForgotPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{15}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ForgotPasswordRequest) GetId() string {
@@ -799,7 +752,7 @@ type ForgotPasswordResponse struct {
 func (x *ForgotPasswordResponse) Reset() {
 	*x = ForgotPasswordResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_account_v1_account_event_proto_msgTypes[16]
+		mi := &file_account_v1_account_event_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -812,7 +765,7 @@ func (x *ForgotPasswordResponse) String() string {
 func (*ForgotPasswordResponse) ProtoMessage() {}
 
 func (x *ForgotPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_account_v1_account_event_proto_msgTypes[16]
+	mi := &file_account_v1_account_event_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -825,7 +778,7 @@ func (x *ForgotPasswordResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForgotPasswordResponse.ProtoReflect.Descriptor instead.
 func (*ForgotPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_account_v1_account_event_proto_rawDescGZIP(), []int{16}
+	return file_account_v1_account_event_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *ForgotPasswordResponse) GetId() string {
@@ -854,54 +807,52 @@ var file_account_v1_account_event_proto_rawDesc = []byte{
 	0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61,
 	0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22, 0x20, 0x0a, 0x0e, 0x53, 0x69, 0x67, 0x6e, 0x4f, 0x75,
 	0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x21, 0x0a, 0x0f, 0x53, 0x69, 0x67, 0x6e,
-	0x4f, 0x75, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69,
-	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x2f, 0x0a, 0x1d, 0x52,
-	0x65, 0x73, 0x65, 0x6e, 0x64, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f,
-	0x6e, 0x43, 0x6f, 0x64, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02,
-	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x30, 0x0a, 0x1e,
-	0x52, 0x65, 0x73, 0x65, 0x6e, 0x64, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x43, 0x6f, 0x64, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e,
-	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x27,
-	0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x28, 0x0a, 0x16, 0x55, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69,
-	0x64, 0x22, 0x24, 0x0a, 0x12, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x45, 0x6d, 0x61, 0x69, 0x6c,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x25, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e,
-	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x26,
-	0x0a, 0x14, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x27, 0x0a, 0x15, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79,
-	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22,
-	0x2d, 0x0a, 0x1b, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x41, 0x63, 0x74, 0x69, 0x76, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x4c, 0x69, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e,
-	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x2e,
-	0x0a, 0x1c, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x41, 0x63, 0x74, 0x69, 0x76, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x4c, 0x69, 0x6e, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e,
-	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x27,
-	0x0a, 0x15, 0x46, 0x6f, 0x72, 0x67, 0x6f, 0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x28, 0x0a, 0x16, 0x46, 0x6f, 0x72, 0x67, 0x6f,
-	0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69,
-	0x64, 0x42, 0xc2, 0x01, 0x0a, 0x15, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x65, 0x6e, 0x2e, 0x67, 0x6f,
-	0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x42, 0x11, 0x41, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01,
-	0x5a, 0x2f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x74, 0x65, 0x63,
-	0x68, 0x6d, 0x65, 0x6c, 0x79, 0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x61, 0x63, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x76,
-	0x31, 0xa2, 0x02, 0x03, 0x47, 0x47, 0x41, 0xaa, 0x02, 0x11, 0x47, 0x65, 0x6e, 0x2e, 0x47, 0x6f,
-	0x2e, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x11, 0x47, 0x65,
-	0x6e, 0x5c, 0x47, 0x6f, 0x5c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0xe2,
-	0x02, 0x1d, 0x47, 0x65, 0x6e, 0x5c, 0x47, 0x6f, 0x5c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea,
-	0x02, 0x14, 0x47, 0x65, 0x6e, 0x3a, 0x3a, 0x47, 0x6f, 0x3a, 0x3a, 0x41, 0x63, 0x63, 0x6f, 0x75,
-	0x6e, 0x74, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x2f, 0x0a, 0x1d, 0x52, 0x65, 0x73, 0x65,
+	0x6e, 0x64, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x43, 0x6f,
+	0x64, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x30, 0x0a, 0x1e, 0x52, 0x65, 0x73,
+	0x65, 0x6e, 0x64, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x43,
+	0x6f, 0x64, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x27, 0x0a, 0x15, 0x55,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x02, 0x69, 0x64, 0x22, 0x28, 0x0a, 0x16, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61,
+	0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e,
+	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x24,
+	0x0a, 0x12, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x02, 0x69, 0x64, 0x22, 0x25, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x45, 0x6d,
+	0x61, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x26, 0x0a, 0x14, 0x56,
+	0x65, 0x72, 0x69, 0x66, 0x79, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x02, 0x69, 0x64, 0x22, 0x27, 0x0a, 0x15, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x41, 0x63, 0x63,
+	0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x2d, 0x0a, 0x1b,
+	0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x41, 0x63, 0x74, 0x69, 0x76, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x4c, 0x69, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x2e, 0x0a, 0x1c, 0x56,
+	0x65, 0x72, 0x69, 0x66, 0x79, 0x41, 0x63, 0x74, 0x69, 0x76, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4c,
+	0x69, 0x6e, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x27, 0x0a, 0x15, 0x46,
+	0x6f, 0x72, 0x67, 0x6f, 0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x02, 0x69, 0x64, 0x22, 0x28, 0x0a, 0x16, 0x46, 0x6f, 0x72, 0x67, 0x6f, 0x74, 0x50, 0x61,
+	0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e,
+	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x42, 0xc2,
+	0x01, 0x0a, 0x15, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x65, 0x6e, 0x2e, 0x67, 0x6f, 0x2e, 0x61, 0x63,
+	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x42, 0x11, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e,
+	0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x2f, 0x67,
+	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x74, 0x65, 0x63, 0x68, 0x6d, 0x65,
+	0x6c, 0x79, 0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e,
+	0x74, 0x2f, 0x76, 0x31, 0x3b, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x76, 0x31, 0xa2, 0x02,
+	0x03, 0x47, 0x47, 0x41, 0xaa, 0x02, 0x11, 0x47, 0x65, 0x6e, 0x2e, 0x47, 0x6f, 0x2e, 0x41, 0x63,
+	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x11, 0x47, 0x65, 0x6e, 0x5c, 0x47,
+	0x6f, 0x5c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1d, 0x47,
+	0x65, 0x6e, 0x5c, 0x47, 0x6f, 0x5c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x5c, 0x56, 0x31,
+	0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x14, 0x47,
+	0x65, 0x6e, 0x3a, 0x3a, 0x47, 0x6f, 0x3a, 0x3a, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x3a,
+	0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -916,25 +867,24 @@ func file_account_v1_account_event_proto_rawDescGZIP() []byte {
 	return file_account_v1_account_event_proto_rawDescData
 }
 
-var file_account_v1_account_event_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
+var file_account_v1_account_event_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_account_v1_account_event_proto_goTypes = []interface{}{
 	(*SignInRequest)(nil),                  // 0: gen.go.account.v1.SignInRequest
 	(*SignInWithProviderRequest)(nil),      // 1: gen.go.account.v1.SignInWithProviderRequest
 	(*SignUpRequest)(nil),                  // 2: gen.go.account.v1.SignUpRequest
 	(*SignOutRequest)(nil),                 // 3: gen.go.account.v1.SignOutRequest
-	(*SignOutResponse)(nil),                // 4: gen.go.account.v1.SignOutResponse
-	(*ResendVerificationCodeRequest)(nil),  // 5: gen.go.account.v1.ResendVerificationCodeRequest
-	(*ResendVerificationCodeResponse)(nil), // 6: gen.go.account.v1.ResendVerificationCodeResponse
-	(*UpdatePasswordRequest)(nil),          // 7: gen.go.account.v1.UpdatePasswordRequest
-	(*UpdatePasswordResponse)(nil),         // 8: gen.go.account.v1.UpdatePasswordResponse
-	(*UpdateEmailRequest)(nil),             // 9: gen.go.account.v1.UpdateEmailRequest
-	(*UpdateEmailResponse)(nil),            // 10: gen.go.account.v1.UpdateEmailResponse
-	(*VerifyAccountRequest)(nil),           // 11: gen.go.account.v1.VerifyAccountRequest
-	(*VerifyAccountResponse)(nil),          // 12: gen.go.account.v1.VerifyAccountResponse
-	(*VerifyActivationLinkRequest)(nil),    // 13: gen.go.account.v1.VerifyActivationLinkRequest
-	(*VerifyActivationLinkResponse)(nil),   // 14: gen.go.account.v1.VerifyActivationLinkResponse
-	(*ForgotPasswordRequest)(nil),          // 15: gen.go.account.v1.ForgotPasswordRequest
-	(*ForgotPasswordResponse)(nil),         // 16: gen.go.account.v1.ForgotPasswordResponse
+	(*ResendVerificationCodeRequest)(nil),  // 4: gen.go.account.v1.ResendVerificationCodeRequest
+	(*ResendVerificationCodeResponse)(nil), // 5: gen.go.account.v1.ResendVerificationCodeResponse
+	(*UpdatePasswordRequest)(nil),          // 6: gen.go.account.v1.UpdatePasswordRequest
+	(*UpdatePasswordResponse)(nil),         // 7: gen.go.account.v1.UpdatePasswordResponse
+	(*UpdateEmailRequest)(nil),             // 8: gen.go.account.v1.UpdateEmailRequest
+	(*UpdateEmailResponse)(nil),            // 9: gen.go.account.v1.UpdateEmailResponse
+	(*VerifyAccountRequest)(nil),           // 10: gen.go.account.v1.VerifyAccountRequest
+	(*VerifyAccountResponse)(nil),          // 11: gen.go.account.v1.VerifyAccountResponse
+	(*VerifyActivationLinkRequest)(nil),    // 12: gen.go.account.v1.VerifyActivationLinkRequest
+	(*VerifyActivationLinkResponse)(nil),   // 13: gen.go.account.v1.VerifyActivationLinkResponse
+	(*ForgotPasswordRequest)(nil),          // 14: gen.go.account.v1.ForgotPasswordRequest
+	(*ForgotPasswordResponse)(nil),         // 15: gen.go.account.v1.ForgotPasswordResponse
 }
 var file_account_v1_account_event_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -999,18 +949,6 @@ func file_account_v1_account_event_proto_init() {
 			}
 		}
 		file_account_v1_account_event_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SignOutResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_account_v1_account_event_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResendVerificationCodeRequest); i {
 			case 0:
 				return &v.state
@@ -1022,7 +960,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResendVerificationCodeResponse); i {
 			case 0:
 				return &v.state
@@ -1034,7 +972,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdatePasswordRequest); i {
 			case 0:
 				return &v.state
@@ -1046,7 +984,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdatePasswordResponse); i {
 			case 0:
 				return &v.state
@@ -1058,7 +996,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateEmailRequest); i {
 			case 0:
 				return &v.state
@@ -1070,7 +1008,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateEmailResponse); i {
 			case 0:
 				return &v.state
@@ -1082,7 +1020,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*VerifyAccountRequest); i {
 			case 0:
 				return &v.state
@@ -1094,7 +1032,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*VerifyAccountResponse); i {
 			case 0:
 				return &v.state
@@ -1106,7 +1044,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*VerifyActivationLinkRequest); i {
 			case 0:
 				return &v.state
@@ -1118,7 +1056,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*VerifyActivationLinkResponse); i {
 			case 0:
 				return &v.state
@@ -1130,7 +1068,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ForgotPasswordRequest); i {
 			case 0:
 				return &v.state
@@ -1142,7 +1080,7 @@ func file_account_v1_account_event_proto_init() {
 				return nil
 			}
 		}
-		file_account_v1_account_event_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_account_v1_account_event_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ForgotPasswordResponse); i {
 			case 0:
 				return &v.state
@@ -1161,7 +1099,7 @@ func file_account_v1_account_event_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_account_v1_account_event_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   17,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

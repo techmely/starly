@@ -21,10 +21,6 @@ message SignOutRequest {
   string id = 1;
 }
 
-message SignOutResponse {
-  string id = 1;
-}
-
 message ResendVerificationCodeRequest {
   string id = 1;
 }

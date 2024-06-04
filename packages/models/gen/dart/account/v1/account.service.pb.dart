@@ -14,6 +14,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/empty.pb.dart' as $2;
 import '../firebase.model.pb.dart' as $1;
 import 'account.event.pb.dart' as $0;
 
@@ -30,8 +31,8 @@ class AccountServicePortApi {
   $async.Future<$1.AuthGoogleIdentityResponse> signUp($pb.ClientContext? ctx, $0.SignUpRequest request) =>
     _client.invoke<$1.AuthGoogleIdentityResponse>(ctx, 'AccountServicePort', 'SignUp', request, $1.AuthGoogleIdentityResponse())
   ;
-  $async.Future<$0.SignOutResponse> signOut($pb.ClientContext? ctx, $0.SignOutRequest request) =>
-    _client.invoke<$0.SignOutResponse>(ctx, 'AccountServicePort', 'SignOut', request, $0.SignOutResponse())
+  $async.Future<$2.Empty> signOut($pb.ClientContext? ctx, $2.Empty request) =>
+    _client.invoke<$2.Empty>(ctx, 'AccountServicePort', 'SignOut', request, $2.Empty())
   ;
   $async.Future<$0.ResendVerificationCodeResponse> resendVerificationCode($pb.ClientContext? ctx, $0.ResendVerificationCodeRequest request) =>
     _client.invoke<$0.ResendVerificationCodeResponse>(ctx, 'AccountServicePort', 'ResendVerificationCode', request, $0.ResendVerificationCodeResponse())

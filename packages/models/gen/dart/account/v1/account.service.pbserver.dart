@@ -15,6 +15,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/empty.pb.dart' as $2;
 import '../firebase.model.pb.dart' as $1;
 import 'account.event.pb.dart' as $0;
 import 'account.service.pbjson.dart';
@@ -25,7 +26,7 @@ abstract class AccountServicePortServiceBase extends $pb.GeneratedService {
   $async.Future<$1.AuthGoogleIdentityResponse> signIn($pb.ServerContext ctx, $0.SignInRequest request);
   $async.Future<$1.AuthGoogleIdentityResponse> signInWithProvider($pb.ServerContext ctx, $0.SignInWithProviderRequest request);
   $async.Future<$1.AuthGoogleIdentityResponse> signUp($pb.ServerContext ctx, $0.SignUpRequest request);
-  $async.Future<$0.SignOutResponse> signOut($pb.ServerContext ctx, $0.SignOutRequest request);
+  $async.Future<$2.Empty> signOut($pb.ServerContext ctx, $2.Empty request);
   $async.Future<$0.ResendVerificationCodeResponse> resendVerificationCode($pb.ServerContext ctx, $0.ResendVerificationCodeRequest request);
   $async.Future<$0.UpdatePasswordResponse> updatePassword($pb.ServerContext ctx, $0.UpdatePasswordRequest request);
   $async.Future<$0.UpdateEmailResponse> updateEmail($pb.ServerContext ctx, $0.UpdateEmailRequest request);
@@ -38,7 +39,7 @@ abstract class AccountServicePortServiceBase extends $pb.GeneratedService {
       case 'SignIn': return $0.SignInRequest();
       case 'SignInWithProvider': return $0.SignInWithProviderRequest();
       case 'SignUp': return $0.SignUpRequest();
-      case 'SignOut': return $0.SignOutRequest();
+      case 'SignOut': return $2.Empty();
       case 'ResendVerificationCode': return $0.ResendVerificationCodeRequest();
       case 'UpdatePassword': return $0.UpdatePasswordRequest();
       case 'UpdateEmail': return $0.UpdateEmailRequest();
@@ -54,7 +55,7 @@ abstract class AccountServicePortServiceBase extends $pb.GeneratedService {
       case 'SignIn': return this.signIn(ctx, request as $0.SignInRequest);
       case 'SignInWithProvider': return this.signInWithProvider(ctx, request as $0.SignInWithProviderRequest);
       case 'SignUp': return this.signUp(ctx, request as $0.SignUpRequest);
-      case 'SignOut': return this.signOut(ctx, request as $0.SignOutRequest);
+      case 'SignOut': return this.signOut(ctx, request as $2.Empty);
       case 'ResendVerificationCode': return this.resendVerificationCode(ctx, request as $0.ResendVerificationCodeRequest);
       case 'UpdatePassword': return this.updatePassword(ctx, request as $0.UpdatePasswordRequest);
       case 'UpdateEmail': return this.updateEmail(ctx, request as $0.UpdateEmailRequest);
