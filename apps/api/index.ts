@@ -4,12 +4,12 @@ import { timing } from "hono/timing";
 
 import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
 import { safeParse } from "valibot";
-import { authRouter } from "./contexts/identify-access/user/infras/http/routers/auth.router";
+import { accountRouter } from "./contexts/identify-access/user/infras/http/routers/account.router";
 import { userRouter } from "./contexts/identify-access/user/infras/http/routers/user.router";
 import { globalHandleError } from "./libs/error/global.handle-error";
-import { initApp } from "./libs/middlewares/init";
-import type { HonoEnv } from "./libs/hono/hono.types";
 import { runtimeEnvSchema } from "./libs/hono/hono.schema";
+import type { HonoEnv } from "./libs/hono/hono.types";
+import { initApp } from "./libs/middlewares/init";
 
 const app = new Hono<HonoEnv>();
 app.use(initApp());
@@ -36,7 +36,7 @@ app.get("/routers", (c) => {
   );
 });
 
-app.route("/api/v1/auth", authRouter);
+app.route("/api/v1/auth", accountRouter);
 app.route("/api/v1/users", userRouter);
 
 app.onError(globalHandleError);

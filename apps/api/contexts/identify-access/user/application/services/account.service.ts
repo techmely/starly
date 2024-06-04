@@ -1,16 +1,14 @@
 import type {
   AccountServicePort,
+  AuthGoogleIdentityResponse,
+  Empty,
   ForgotPasswordRequest,
   ForgotPasswordResponse,
-  LoginRequest,
-  LoginResponse,
-  LoginWithProviderRequest,
-  LogoutRequest,
-  LogoutResponse,
-  RegisterRequest,
-  RegisterResponse,
   ResendVerificationCodeRequest,
   ResendVerificationCodeResponse,
+  SignInRequest,
+  SignInWithProviderRequest,
+  SignUpRequest,
   UpdateEmailRequest,
   UpdateEmailResponse,
   UpdatePasswordRequest,
@@ -22,38 +20,38 @@ import type {
 } from "@techmely/models";
 
 export class AccountService implements AccountServicePort {
-  login(request: LoginRequest): Promise<LoginResponse> {
+  SignOut(request: Empty): Promise<Empty> {
     throw new Error("Method not implemented.");
   }
-  loginWithProvider(request: LoginWithProviderRequest): Promise<{ a: number }> {
+  SignIn(request: SignInRequest): Promise<AuthGoogleIdentityResponse> {
     throw new Error("Method not implemented.");
   }
-  register(request: RegisterRequest): Promise<RegisterResponse> {
+  SignInWithProvider(request: SignInWithProviderRequest): Promise<AuthGoogleIdentityResponse> {
     throw new Error("Method not implemented.");
   }
-  logout(request: LogoutRequest): Promise<LogoutResponse> {
+  SignUp(request: SignUpRequest): Promise<AuthGoogleIdentityResponse> {
     throw new Error("Method not implemented.");
   }
-  resendVerificationCode(
+  ResendVerificationCode(
     request: ResendVerificationCodeRequest,
   ): Promise<ResendVerificationCodeResponse> {
     throw new Error("Method not implemented.");
   }
-  updatePassword(request: UpdatePasswordRequest): Promise<UpdatePasswordResponse> {
+  UpdatePassword(request: UpdatePasswordRequest): Promise<UpdatePasswordResponse> {
     throw new Error("Method not implemented.");
   }
-  updateEmail(request: UpdateEmailRequest): Promise<UpdateEmailResponse> {
+  UpdateEmail(request: UpdateEmailRequest): Promise<UpdateEmailResponse> {
     throw new Error("Method not implemented.");
   }
-  verifyAccount(request: VerifyAccountRequest): Promise<VerifyAccountResponse> {
+  VerifyAccount(request: VerifyAccountRequest): Promise<VerifyAccountResponse> {
     throw new Error("Method not implemented.");
   }
-  verifyActivationLink(
+  VerifyActivationLink(
     request: VerifyActivationLinkRequest,
   ): Promise<VerifyActivationLinkResponse> {
     throw new Error("Method not implemented.");
   }
-  forgotPassword(request: ForgotPasswordRequest): Promise<ForgotPasswordResponse> {
+  ForgotPassword(request: ForgotPasswordRequest): Promise<ForgotPasswordResponse> {
     throw new Error("Method not implemented.");
   }
 }
