@@ -4,7 +4,7 @@ import type {
   SignInEmailPasswordInPort,
 } from "../port/signin-email-password.port";
 
-export class LoginEmailPasswordInteractor implements SignInEmailPasswordInPort {
+export class SignInEmailPasswordInteractor implements SignInEmailPasswordInPort {
   constructor(private readonly authGoogleIdentify: AuthGoogleIdentifyOutPort) {}
 
   async execute({ config, email, password, options }: SignInEmailPasswordCommand) {
