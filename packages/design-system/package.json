@@ -46,7 +46,7 @@
     "react-hook-form": "^7.51.5"
   },
   "devDependencies": {
-    "tsup": "8.0.2"
+    "tsup": "8.1.0"
   },
   "publishConfig": {
     "access": "public",
