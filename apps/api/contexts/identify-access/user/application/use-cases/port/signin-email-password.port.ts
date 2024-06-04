@@ -2,17 +2,26 @@ import type { UseCase } from "@techmely/domain-driven";
 import type {
   AuthGoogleIdentityRequest,
   AuthGoogleIdentityResponse,
-  LoginRequest,
+  SignInRequest,
+  SignUpRequest,
 } from "@techmely/models";
 
-export interface LoginCommand extends LoginRequest {}
+export interface SignInEmailPasswordCommand extends SignInRequest, AuthGoogleIdentityRequest {}
 
-export abstract class LoginEmailPasswordInPort
-  implements UseCase<LoginCommand, AuthGoogleIdentityResponse>
+export abstract class SignInEmailPasswordInPort
+  implements UseCase<SignInEmailPasswordCommand, AuthGoogleIdentityResponse>
 {
-  abstract execute(loginCommand: LoginCommand): Promise<AuthGoogleIdentityResponse>;
+  abstract execute(command: SignInEmailPasswordCommand): Promise<AuthGoogleIdentityResponse>;
 }
 
-export abstract class LoginEmailPasswordOutPort {
-  abstract signInBasic(): Promise<AuthGoogleIdentityRequest>;
+export abstract class AuthGoogleIdentifyOutPort {
+  abstract signInEmailPassword(
+    request: AuthGoogleIdentityRequest,
+  ): Promise<(request: SignInRequest) => Promise<AuthGoogleIdentityResponse>>;
+  abstract signInWithProvider(
+    request: AuthGoogleIdentityRequest,
+  ): Promise<(request: SignInRequest) => Promise<AuthGoogleIdentityResponse>>;
+  abstract signUpEmailPassword(
+    request: AuthGoogleIdentityRequest,
+  ): Promise<(request: SignUpRequest) => Promise<AuthGoogleIdentityResponse>>;
 }

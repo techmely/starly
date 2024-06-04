@@ -1,10 +1,9 @@
 import type { UseCase } from "@techmely/domain-driven";
+import type { DeleteUserRequest } from "@techmely/models";
 import type { UserEntity } from "../../../domain/entities/user.entity";
 
-export interface DeleteUserCommand {
-  orderId: string;
-}
+export interface DeleteUserCommand extends DeleteUserRequest {}
 
 export abstract class DeleteUserInPort implements UseCase<DeleteUserCommand, UserEntity> {
-  abstract execute(deleteUserCommand: DeleteUserCommand): Promise<UserEntity>;
+  abstract execute(command: DeleteUserCommand): Promise<UserEntity>;
 }
