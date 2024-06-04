@@ -6,19 +6,23 @@ import userService from "../../user.injection";
 type Options = {
   required: boolean;
 };
-const defaultOptions: Options = {
-  required: false,
-};
 
-export const userGuard = (options: Options = defaultOptions): MiddlewareHandler<HonoEnv> => {
+export const useUserGuard = (
+  options: Options = { required: false },
+): MiddlewareHandler<HonoEnv> => {
   return async (c, next) => {
     const firebaseUser = c.get("firebaseUser");
     if (!firebaseUser) {
       throw new UserUnauthorizedException();
     }
-    const config = c.get("config");
-    const user = await userService.get(request);
-
+    const user = await userService.GetByAuthId({ id: firebaseUser.sub });
+    if (options.required && !user) {
+      throw new UserUnauthorizedException("Not found user on app database");
+    }
+    c.set("user", user);
     await next();
+    if (options.required) {
+      c.header("Cache-Control", "private");
+    }
   };
 };

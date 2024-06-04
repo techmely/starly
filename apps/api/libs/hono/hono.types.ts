@@ -1,10 +1,11 @@
+import type { UserService } from "#root/contexts/identify-access/user/application/services/user.service";
 import type { UserFromDecodedIdToken } from "@techmely/auth";
 import type { HttpInstance } from "@techmely/http";
+import type { UserModel } from "@techmely/models";
 import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import type { SocketAddress } from "bun";
 import type { Output } from "valibot";
 import type { runtimeEnvSchema } from "./hono.schema";
-import type { UserService } from "#root/contexts/identify-access/user/application/services/user.service";
 
 export type AppEnv = Output<typeof runtimeEnvSchema> & {
   IP: SocketAddress;
@@ -56,8 +57,12 @@ export type AppVariables = {
    */
   location?: string;
   userAgent: string;
-  firebaseUser: UserFromDecodedIdToken;
-  userService: UserService;
+  firebaseUser?: UserFromDecodedIdToken;
+  user?: UserModel;
+
+  services: {
+    user: UserService;
+  };
 };
 
 export type HonoEnv = {
