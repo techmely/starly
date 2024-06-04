@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+package gen.go.common;
+option go_package="github.com/techmely/techmely/gen/go/common/response_model";
+
+message BaseErrorResponse {
+    string code = 1;
+    string message = 2;
+    string requestId = 3;
+    optional string docs = 4;
+}
+
+message BaseResponse {
+    google.protobuf.Value data = 1;
+    string code = 2;
+    string message = 3;
+    google.protobuf.Value metadata = 4;
+}

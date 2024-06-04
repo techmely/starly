@@ -14,24 +14,24 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/any.pb.dart' as $4;
-import 'user.model.pbenum.dart' as $6;
+import '../../google/protobuf/any.pb.dart' as $5;
+import 'user.model.pbenum.dart' as $7;
 
 class CreateUserRequest extends $pb.GeneratedMessage {
   factory CreateUserRequest({
     $core.String? email,
     $core.String? nickname,
-    $6.UserStatus? status,
+    $7.UserStatus? status,
     $core.bool? isEmailVerified,
     $core.String? name,
     $core.String? avatarUrl,
     $core.String? firebaseUserId,
-    $6.AuthStrategy? authStrategy,
+    $7.AuthStrategy? authStrategy,
     $core.String? openPlatform,
     $core.String? utmCampaign,
     $core.String? utmMedium,
     $core.String? utmSource,
-    $4.Any? metadata,
+    $5.Any? metadata,
   }) {
     final $result = create();
     if (email != null) {
@@ -82,17 +82,17 @@ class CreateUserRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gen.go.user.v1'), createEmptyInstance: create)
     ..aOS(2, _omitFieldNames ? '' : 'email')
     ..aOS(3, _omitFieldNames ? '' : 'nickname')
-    ..e<$6.UserStatus>(4, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $6.UserStatus.INACTIVE, valueOf: $6.UserStatus.valueOf, enumValues: $6.UserStatus.values)
+    ..e<$7.UserStatus>(4, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $7.UserStatus.INACTIVE, valueOf: $7.UserStatus.valueOf, enumValues: $7.UserStatus.values)
     ..aOB(5, _omitFieldNames ? '' : 'isEmailVerified')
     ..aOS(6, _omitFieldNames ? '' : 'name')
     ..aOS(7, _omitFieldNames ? '' : 'avatarUrl')
     ..aOS(8, _omitFieldNames ? '' : 'firebaseUserId')
-    ..e<$6.AuthStrategy>(9, _omitFieldNames ? '' : 'authStrategy', $pb.PbFieldType.OE, defaultOrMaker: $6.AuthStrategy.BASIC, valueOf: $6.AuthStrategy.valueOf, enumValues: $6.AuthStrategy.values)
+    ..e<$7.AuthStrategy>(9, _omitFieldNames ? '' : 'authStrategy', $pb.PbFieldType.OE, defaultOrMaker: $7.AuthStrategy.BASIC, valueOf: $7.AuthStrategy.valueOf, enumValues: $7.AuthStrategy.values)
     ..aOS(10, _omitFieldNames ? '' : 'openPlatform')
     ..aOS(11, _omitFieldNames ? '' : 'utmCampaign')
     ..aOS(12, _omitFieldNames ? '' : 'utmMedium')
     ..aOS(13, _omitFieldNames ? '' : 'utmSource')
-    ..aOM<$4.Any>(14, _omitFieldNames ? '' : 'metadata', subBuilder: $4.Any.create)
+    ..aOM<$5.Any>(14, _omitFieldNames ? '' : 'metadata', subBuilder: $5.Any.create)
     ..hasRequiredFields = false
   ;
 
@@ -136,9 +136,9 @@ class CreateUserRequest extends $pb.GeneratedMessage {
   void clearNickname() => clearField(3);
 
   @$pb.TagNumber(4)
-  $6.UserStatus get status => $_getN(2);
+  $7.UserStatus get status => $_getN(2);
   @$pb.TagNumber(4)
-  set status($6.UserStatus v) { setField(4, v); }
+  set status($7.UserStatus v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasStatus() => $_has(2);
   @$pb.TagNumber(4)
@@ -181,9 +181,9 @@ class CreateUserRequest extends $pb.GeneratedMessage {
   void clearFirebaseUserId() => clearField(8);
 
   @$pb.TagNumber(9)
-  $6.AuthStrategy get authStrategy => $_getN(7);
+  $7.AuthStrategy get authStrategy => $_getN(7);
   @$pb.TagNumber(9)
-  set authStrategy($6.AuthStrategy v) { setField(9, v); }
+  set authStrategy($7.AuthStrategy v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasAuthStrategy() => $_has(7);
   @$pb.TagNumber(9)
@@ -226,15 +226,15 @@ class CreateUserRequest extends $pb.GeneratedMessage {
   void clearUtmSource() => clearField(13);
 
   @$pb.TagNumber(14)
-  $4.Any get metadata => $_getN(12);
+  $5.Any get metadata => $_getN(12);
   @$pb.TagNumber(14)
-  set metadata($4.Any v) { setField(14, v); }
+  set metadata($5.Any v) { setField(14, v); }
   @$pb.TagNumber(14)
   $core.bool hasMetadata() => $_has(12);
   @$pb.TagNumber(14)
   void clearMetadata() => clearField(14);
   @$pb.TagNumber(14)
-  $4.Any ensureMetadata() => $_ensure(12);
+  $5.Any ensureMetadata() => $_ensure(12);
 }
 
 class GetUserRequest extends $pb.GeneratedMessage {

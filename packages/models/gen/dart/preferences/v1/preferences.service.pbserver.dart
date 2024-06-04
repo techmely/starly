@@ -15,24 +15,24 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'preferences.event.pb.dart' as $3;
+import 'preferences.event.pb.dart' as $4;
 import 'preferences.service.pbjson.dart';
 
 export 'preferences.service.pb.dart';
 
 abstract class PreferencesServiceBase extends $pb.GeneratedService {
-  $async.Future<$3.GetPreferencesResponse> get($pb.ServerContext ctx, $3.GetPreferencesRequest request);
+  $async.Future<$4.GetPreferencesResponse> get($pb.ServerContext ctx, $4.GetPreferencesRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'Get': return $3.GetPreferencesRequest();
+      case 'Get': return $4.GetPreferencesRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'Get': return this.get(ctx, request as $3.GetPreferencesRequest);
+      case 'Get': return this.get(ctx, request as $4.GetPreferencesRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }

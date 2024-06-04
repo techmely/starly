@@ -13,7 +13,7 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import 'meta_schema.event.pbjson.dart' as $2;
+import 'meta_schema.event.pbjson.dart' as $3;
 
 const $core.Map<$core.String, $core.dynamic> MetaSchemaServicePortServiceBase$json = {
   '1': 'MetaSchemaServicePort',
@@ -24,8 +24,8 @@ const $core.Map<$core.String, $core.dynamic> MetaSchemaServicePortServiceBase$js
 
 @$core.Deprecated('Use metaSchemaServicePortServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> MetaSchemaServicePortServiceBase$messageJson = {
-  '.gen.go.meta_schema.v1.GetMetaSchemaRequest': $2.GetMetaSchemaRequest$json,
-  '.gen.go.meta_schema.v1.GetMetaSchemaResponse': $2.GetMetaSchemaResponse$json,
+  '.gen.go.meta_schema.v1.GetMetaSchemaRequest': $3.GetMetaSchemaRequest$json,
+  '.gen.go.meta_schema.v1.GetMetaSchemaResponse': $3.GetMetaSchemaResponse$json,
 };
 
 /// Descriptor for `MetaSchemaServicePort`. Decode as a `google.protobuf.ServiceDescriptorProto`.

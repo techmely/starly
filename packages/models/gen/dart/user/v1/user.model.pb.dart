@@ -13,7 +13,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/any.pb.dart' as $4;
+import '../../google/protobuf/any.pb.dart' as $5;
 import 'user.model.pbenum.dart';
 
 export 'user.model.pbenum.dart';
@@ -33,7 +33,7 @@ class UserModel extends $pb.GeneratedMessage {
     $core.String? utmCampaign,
     $core.String? utmMedium,
     $core.String? utmSource,
-    $4.Any? metadata,
+    $5.Any? metadata,
     $core.String? createdAt,
     $core.String? updatedAt,
   }) {
@@ -106,7 +106,7 @@ class UserModel extends $pb.GeneratedMessage {
     ..aOS(11, _omitFieldNames ? '' : 'utmCampaign')
     ..aOS(12, _omitFieldNames ? '' : 'utmMedium')
     ..aOS(13, _omitFieldNames ? '' : 'utmSource')
-    ..aOM<$4.Any>(14, _omitFieldNames ? '' : 'metadata', subBuilder: $4.Any.create)
+    ..aOM<$5.Any>(14, _omitFieldNames ? '' : 'metadata', subBuilder: $5.Any.create)
     ..aOS(15, _omitFieldNames ? '' : 'createdAt')
     ..aOS(16, _omitFieldNames ? '' : 'updatedAt')
     ..hasRequiredFields = false
@@ -251,15 +251,15 @@ class UserModel extends $pb.GeneratedMessage {
   void clearUtmSource() => clearField(13);
 
   @$pb.TagNumber(14)
-  $4.Any get metadata => $_getN(13);
+  $5.Any get metadata => $_getN(13);
   @$pb.TagNumber(14)
-  set metadata($4.Any v) { setField(14, v); }
+  set metadata($5.Any v) { setField(14, v); }
   @$pb.TagNumber(14)
   $core.bool hasMetadata() => $_has(13);
   @$pb.TagNumber(14)
   void clearMetadata() => clearField(14);
   @$pb.TagNumber(14)
-  $4.Any ensureMetadata() => $_ensure(13);
+  $5.Any ensureMetadata() => $_ensure(13);
 
   @$pb.TagNumber(15)
   $core.String get createdAt => $_getSZ(14);

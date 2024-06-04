@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/any.proto";
 
 package gen.go.common;
-option go_package="github.com/techmely/techmely/gen/go/common;common_model";
+option go_package="github.com/techmely/techmely/gen/go/common/common_model";
 
 enum OrderDirection {
   ASC = 0;
@@ -17,3 +17,4 @@ message RequestFilter {
   repeated string sort_fields = 4;
   OrderDirection order_direction = 5;
 }
+

@@ -13,7 +13,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/any.pb.dart' as $4;
+import '../../google/protobuf/any.pb.dart' as $5;
 
 class TenantTable extends $pb.GeneratedMessage {
   factory TenantTable({
@@ -23,7 +23,7 @@ class TenantTable extends $pb.GeneratedMessage {
     $core.String? description,
     $core.bool? isVerified,
     $core.String? ownerId,
-    $4.Any? metadata,
+    $5.Any? metadata,
     $core.String? createdAt,
     $core.String? updatedAt,
   }) {
@@ -68,7 +68,7 @@ class TenantTable extends $pb.GeneratedMessage {
     ..aOS(4, _omitFieldNames ? '' : 'description')
     ..aOB(5, _omitFieldNames ? '' : 'isVerified')
     ..aOS(6, _omitFieldNames ? '' : 'ownerId')
-    ..aOM<$4.Any>(7, _omitFieldNames ? '' : 'metadata', subBuilder: $4.Any.create)
+    ..aOM<$5.Any>(7, _omitFieldNames ? '' : 'metadata', subBuilder: $5.Any.create)
     ..aOS(8, _omitFieldNames ? '' : 'createdAt')
     ..aOS(9, _omitFieldNames ? '' : 'updatedAt')
     ..hasRequiredFields = false
@@ -150,15 +150,15 @@ class TenantTable extends $pb.GeneratedMessage {
   void clearOwnerId() => clearField(6);
 
   @$pb.TagNumber(7)
-  $4.Any get metadata => $_getN(6);
+  $5.Any get metadata => $_getN(6);
   @$pb.TagNumber(7)
-  set metadata($4.Any v) { setField(7, v); }
+  set metadata($5.Any v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasMetadata() => $_has(6);
   @$pb.TagNumber(7)
   void clearMetadata() => clearField(7);
   @$pb.TagNumber(7)
-  $4.Any ensureMetadata() => $_ensure(6);
+  $5.Any ensureMetadata() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.String get createdAt => $_getSZ(7);
