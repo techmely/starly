@@ -14,5 +14,5 @@ export abstract class LoginWithProviderInPort
 }
 
 export abstract class LoginWithProviderOutPort {
-  abstract signinBasic(): Promise<AuthGoogleIdentityRequest>;
+  abstract signInBasic(): Promise<AuthGoogleIdentityRequest>;
 }

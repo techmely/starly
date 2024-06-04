@@ -14,5 +14,5 @@ export abstract class LoginEmailPasswordInPort
 }
 
 export abstract class LoginEmailPasswordOutPort {
-  abstract signinBasic(): Promise<AuthGoogleIdentityRequest>;
+  abstract signInBasic(): Promise<AuthGoogleIdentityRequest>;
 }
