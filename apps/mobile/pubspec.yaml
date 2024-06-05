@@ -55,6 +55,7 @@ dependencies:
   ui:
     path: packages/ui
   build_runner: ^2.4.9
+  shared_preferences: ^2.2.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
