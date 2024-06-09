@@ -1,15 +1,21 @@
+import type { UserModel } from "@techmely/models";
 import { UserEntity } from "../../../domain/entities/user.entity";
 import type {
   CreateUserCommand,
   CreateUserInPort,
   CreateUserOutPort,
 } from "../port/create-user.port";
+import type { UserMapper } from "../../../infras/mappers/user.mapper";
 
 export class CreateUserInteractor implements CreateUserInPort {
-  constructor(private readonly createUserPort: CreateUserOutPort) {}
+  constructor(
+    private readonly createUserPort: CreateUserOutPort,
+    private readonly mapper: UserMapper,
+  ) {}
 
-  execute(command: CreateUserCommand): Promise<UserEntity> {
+  execute(command: CreateUserCommand): Promise<UserModel> {
     const user = UserEntity.create(command);
-    return this.createUserPort.insert(user.value());
+    const model = this.mapper.toPersistence(user.value());
+    return this.createUserPort.insert(model);
   }
 }

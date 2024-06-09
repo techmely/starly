@@ -1,13 +1,12 @@
 import type { UseCase } from "@techmely/domain-driven";
-import type { GetUserByAuthIdRequest } from "@techmely/models";
-import type { UserEntity } from "../../../domain/entities/user.entity";
+import type { GetUserByAuthIdRequest, UserModel } from "@techmely/models";
 
 export abstract class FindUserByAuthIdOutPort {
-  abstract findUserByAuthId(authId: string): Promise<UserEntity>;
+  abstract findUserByAuthId(authId: string): Promise<UserModel>;
 }
 
 export interface FindUserAuthIdCommand extends GetUserByAuthIdRequest {}
 
-export abstract class FindUserByAuthIdInPort implements UseCase<FindUserAuthIdCommand, UserEntity> {
-  abstract execute(command: FindUserAuthIdCommand): Promise<UserEntity>;
+export abstract class FindUserByAuthIdInPort implements UseCase<FindUserAuthIdCommand, UserModel> {
+  abstract execute(command: FindUserAuthIdCommand): Promise<UserModel>;
 }
