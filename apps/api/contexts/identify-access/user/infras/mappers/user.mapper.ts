@@ -26,40 +26,12 @@ export class UserMapper implements DomainMapper<any, UserModel, UserEntity> {
     return record;
   }
   toDomain(record: UserModel): UserEntity {
-    const provider = new UserProvider({
-      githubId: record.githubId,
-      googleId: record.githubId,
-      facebookId: record.githubId,
-      appleId: record.githubId,
-    });
-    const metadata = new UserMetadata({
-      openPlatform: record.openPlatform,
-      utmCampaign: record.utmCampaign,
-      utmMedium: record.utmMedium,
-      utmSource: record.utmSource,
-    });
     const entity = new UserEntity({
       id: new UniqueEntityID(record.id),
       createdAt: record.createdAt,
       updatedAt: record.createdAt,
-      props: {
-        email: record.email,
-        unverifiedEmail: record.unverifiedEmail,
-        isEmailVerified: record.isEmailVerified,
-        nickname: record.nickname,
-        mobile: record.mobile,
-        birthday: record.birthday,
-        name: record.name,
-        avatarUrl: record.avatarUrl,
-        role: record.role,
-        status: record.status,
-        locale: record.locale,
-        gender: record.gender,
-        provider,
-        metadata,
-      },
     });
     return entity;
   }
-  toResponse() {}
+  toResponse(entity: UserEntity) {}
 }
