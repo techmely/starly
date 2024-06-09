@@ -5,8 +5,8 @@ import { UserPgRepository } from "./persistence/pg/user.repository.pg.impl";
 import { pgDatabase } from "#root/libs/db/pg.db";
 
 export const userMapper = new UserMapper();
-const userRepo = new UserPgRepository(userMapper, pgDatabase);
-const createUserUseCases = new CreateUserInteractor(userRepo);
-const userService = new UserService(userMapper, createUserUseCases);
+const userRepo = new UserPgRepository(pgDatabase);
+const createUserUseCases = new CreateUserInteractor(userRepo, userMapper);
+const userService = new UserService(createUserUseCases);
 
 export default userService;

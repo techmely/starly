@@ -1,4 +1,4 @@
 import type { RepositoryPort } from "@techmely/domain-driven";
-import type { UserEntity } from "../entities/user.entity";
+import type { UserModel } from "@techmely/models";
 
-export interface IUserRepository extends RepositoryPort<UserEntity> {}
+export interface IUserRepository extends RepositoryPort<UserModel> {}
