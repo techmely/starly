@@ -1,24 +1,15 @@
-import type {
-  Entity as BaseEntity,
-  DomainMapper,
-  Paginated,
-  PaginatedQueryParams,
-  RepositoryPort,
-} from "@techmely/domain-driven";
+import type { Paginated, PaginatedQueryParams, RepositoryPort } from "@techmely/domain-driven";
 import type { StringEnum } from "@techmely/types";
 import type { Kysely } from "kysely";
 
-export abstract class PgRepositoryBase<Entity extends BaseEntity<any>, DbModel, DbTables = any>
-  implements RepositoryPort<Entity>
+export abstract class PgRepositoryBase<DbModel = any, DbTables = any>
+  implements RepositoryPort<DbModel>
 {
   protected abstract tableName: StringEnum<keyof DbTables>;
 
-  protected constructor(
-    protected readonly mapper: DomainMapper<any, DbModel, Entity>,
-    protected readonly db: Kysely<DbTables>,
-  ) {}
+  protected constructor(protected readonly db: Kysely<DbTables>) {}
 
-  async findById(id: string): Promise<Entity> {
+  async findById(id: string): Promise<DbModel> {
     const record = await this.db
       // @ts-expect-error I knew
       .selectFrom(table)
@@ -27,16 +18,18 @@ export abstract class PgRepositoryBase<Entity extends BaseEntity<any>, DbModel, 
       .where("id", "=", id)
       .executeTakeFirstOrThrow();
     // @ts-expect-error I knew
-    return this.mapper.toDomain(record);
+    return record;
   }
-  // @ts-expect-error I knew
-  findByKey(key: StringEnum<keyof DbModel>): Promise<Entity> {
+
+  async findByKey(key: StringEnum<keyof DbModel>): Promise<DbModel> {
     throw new Error("Method not implemented.");
   }
-  findAll(): Promise<Entity[]> {
+
+  async findAll(): Promise<DbModel[]> {
     throw new Error("Method not implemented.");
   }
-  async findAllByIds(ids: string[]): Promise<Entity[]> {
+
+  async findAllByIds(ids: string[]): Promise<DbModel[]> {
     // const _x = await this.db
     //   // @ts-expect-error I knew
     //   .selectFrom(this.tableName)
@@ -47,17 +40,20 @@ export abstract class PgRepositoryBase<Entity extends BaseEntity<any>, DbModel, 
     // return [];
     throw new Error("Method not implemented.");
   }
-  findAllPaginated(params: PaginatedQueryParams): Promise<Paginated<Entity>> {
+
+  async findAllPaginated(params: PaginatedQueryParams): Promise<Paginated<DbModel>> {
     throw new Error("Method not implemented.");
   }
-  existsById(id: string): Promise<boolean> {
+
+  async existsById(id: string): Promise<boolean> {
     throw new Error("Method not implemented.");
   }
-  count(): Promise<number | bigint> {
+
+  async count(): Promise<number | bigint> {
     throw new Error("Method not implemented.");
   }
-  async insert(entity: Entity) {
-    const record = this.mapper.toPersistence(entity);
+
+  async insert(record: DbModel) {
     // @ts-expect-error I knew
     const { id } = await this.db
       // @ts-expect-error I knew
@@ -68,37 +64,47 @@ export abstract class PgRepositoryBase<Entity extends BaseEntity<any>, DbModel, 
       .executeTakeFirstOrThrow();
     return this.findById(id);
   }
-  insertMany(entities: Entity[]): Promise<void> {
+
+  async insertMany(model: DbModel[]): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  insertBulk(entity: Entity): Promise<void> {
+
+  async insertBulk(model: DbModel): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  insertBulkMany(entities: Entity[]): Promise<void> {
+
+  async insertBulkMany(models: DbModel[]): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  async update(entity: Entity): Promise<Entity> {
-    const id = entity.id.toString();
+
+  async update(model: DbModel): Promise<DbModel> {
+    // @ts-expect-error I knew
+    const id = model.id;
     await this.db
       // @ts-expect-error I knew
       .updateTable(this.tableName)
-      .set(entity.getProps())
+      .set(model as any)
       // @ts-expect-error I knew
-      .where("id", "=", entity.id.toString())
+      .where("id", "=", id)
       .executeTakeFirstOrThrow();
     return this.findById(id);
   }
-  updateBulk(entity: Entity): Promise<void> {
+
+  async updateBulk(model: DbModel): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  updateMany(entities: Entity[]): Promise<void> {
+
+  async updateMany(models: DbModel[]): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  updateBulkMany(entities: Entity[]): Promise<void> {
+
+  async updateBulkMany(models: DbModel[]): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  async delete(entity: Entity): Promise<boolean> {
-    const id = entity.id.toString();
+
+  async delete(model: DbModel): Promise<boolean> {
+    // @ts-expect-error I knew
+    const id = model.id;
     const { numDeletedRows } = await this.db
       // @ts-expect-error I knew
       .deleteFrom(this.tableName)
@@ -107,18 +113,22 @@ export abstract class PgRepositoryBase<Entity extends BaseEntity<any>, DbModel, 
       .executeTakeFirstOrThrow();
     return numDeletedRows > 0;
   }
-  deleteById(id: string): Promise<boolean> {
+
+  async deleteById(id: string): Promise<boolean> {
     throw new Error("Method not implemented.");
   }
-  deleteAllByIds(ids: string[]): Promise<boolean> {
+
+  async deleteAllByIds(ids: string[]): Promise<boolean> {
     throw new Error("Method not implemented.");
   }
+
   async deleteBulk(ids: string[]): Promise<boolean> {
     // @ts-expect-error I knew
     await this.db.deleteFrom(this.tableName).where("id", "in", ids).executeTakeFirstOrThrow();
     return true;
   }
-  transaction<T>(handler: () => Promise<T>): Promise<T> {
+
+  async transaction<T>(handler: () => Promise<T>): Promise<T> {
     throw new Error("Method not implemented.");
   }
 }

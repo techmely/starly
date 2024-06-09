@@ -1,6 +1,6 @@
-import type { UserTable } from "@techmely/models";
+import type { UserModel } from "@techmely/models";
 
 export type AppDatabase = {
   tenants: any;
-  users: UserTable;
+  users: UserModel;
 };
