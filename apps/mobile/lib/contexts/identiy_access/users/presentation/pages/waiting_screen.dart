@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/waiting_page_widget.dart';
+
 class WaitingScreen extends StatefulWidget {
   const WaitingScreen({super.key});
   @override
@@ -12,6 +14,7 @@ class _WaitingScreenState extends State<WaitingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final PageController _pageController = PageController();
     return Scaffold(
       body: PageView(
         controller: _pageController,
@@ -21,66 +24,31 @@ class _WaitingScreenState extends State<WaitingScreen> {
           });
         },
         children: [
-          _buildSplashPage(
-            'Chào mừng đến với ứng dụng của chúng tôi!',
-            Icons.emoji_emotions,
+          WaitingPageWidget(
+            text: 'Chào mừng đến với ứng dụng của chúng tôi!',
+            icon: Icons.emoji_emotions,
             showNextButton: true,
+            showBackButton: false,
+            showFinalButton: false,
+            pageController: _pageController,
           ),
-          _buildSplashPage(
-            'Khám phá các tính năng tuyệt vời!',
-            Icons.explore,
+          WaitingPageWidget(
+            text: 'Khám phá các tính năng tuyệt vời!',
+            icon: Icons.explore,
             showNextButton: true,
             showBackButton: true,
+            showFinalButton: false,
+            pageController: _pageController,
           ),
-          _buildSplashPage(
-            'Bắt đầu hành trình của bạn ngay bây giờ!',
-            Icons.rocket_launch,
+          WaitingPageWidget(
+            text: 'Bắt đầu hành trình của bạn ngay bây giờ!',
+            icon: Icons.rocket_launch,
+            showNextButton: false,
             showBackButton: true,
+            showFinalButton: true,
+            pageController: _pageController,
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildSplashPage(String text, IconData icon,
-      {bool showNextButton = false, bool showBackButton = false}) {
-    return Container(
-      color: Colors.blue, // Màu nền tùy chỉnh
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 100, color: Colors.white),
-            SizedBox(height: 20),
-            Text(
-              text,
-              style: TextStyle(fontSize: 24, color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (showBackButton)
-                  ElevatedButton(
-                    onPressed: () => _pageController.previousPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.ease,
-                    ),
-                    child: Text('Quay lại'),
-                  ),
-                if (showNextButton)
-                  ElevatedButton(
-                    onPressed: () => _pageController.nextPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.ease,
-                    ),
-                    child: Text('Tiếp theo'),
-                  ),
-              ],
-            ),
-          ],
-        ),
       ),
     );
   }
