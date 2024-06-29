@@ -60,6 +60,7 @@
       "apps/**/dist/*",
       "apps/web/locales/paraglide",
       "apps/web/typings",
+      "apps/mobile/babel.config.js",
       "packages/models/gen"
     ]
   }

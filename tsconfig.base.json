@@ -9,7 +9,6 @@
     "types": ["vite/client", "@types/bun"],
     "composite": true,
     "moduleDetection": "force",
-    "allowImportingTsExtensions": true,
     "noFallthroughCasesInSwitch": true,
     "noPropertyAccessFromIndexSignature": false,
     "useUnknownInCatchVariables": false,
