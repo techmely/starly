@@ -1,40 +1,25 @@
 type: "application"
-language: "dart"
+language: "typescript"
 
 fileGroups:
   app:
-    - "android/**/*"
-    - "ios/**/*"
-    - "lib/**/*"
-    - "linux/**/*"
-    - "web/**/*"
-    - "windows/**/*"
-    - "packages/**/*"
-    - "pubspec.*"
+    - "app/**/*"
+    - "assets/**/*"
+    - "modules/**/*"
+    - "scripts/**/*"
+    - "shared/**/*"
+    - "app.json"
+    - "eas.json"
+    - "metro.config.*"
+    - "babel.config.*"
 
 tasks:
-  clean:
-    command: "flutter"
-    args: "clean"
+  dev:
+    command: "expo start"
     local: true
-
-  pub.get:
-    command: "flutter"
-    args: "pub get"
-    inputs:
-      - "@group(app)"
+  dev.ios:
+    command: "expo start --ios"
     local: true
-
-  pub.outdated:
-    command: "melos"
-    args: "outdated"
-    inputs:
-      - "@group(app)"
-    local: true
-
-  test:
-    command: "melos"
-    args: "test"
-    inputs:
-      - "@group(app)"
+  dev.android:
+    command: "expo start --android"
     local: true
