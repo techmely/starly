@@ -12,7 +12,7 @@
     "@stripe/stripe-js": "4.0.0",
     "@tanstack/query-persist-client-core": "5.48.0",
     "@tanstack/query-sync-storage-persister": "5.48.0",
-    "@tanstack/react-query": "5.48.0",
+    "@tanstack/react-query": "5.49.2",
     "@tanstack/react-query-devtools": "5.48.0",
     "@tanstack/react-table": "8.17.3",
     "@techmely/cache": "1.0.9",
