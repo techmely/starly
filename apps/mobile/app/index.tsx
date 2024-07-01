@@ -9,7 +9,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Trung Yusaki</Text>
+      <Text>Trung Yusaki an cut</Text>
     </View>
   );
 }
