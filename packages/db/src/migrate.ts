@@ -6,7 +6,7 @@ import { Pool, type PoolConfig } from "pg";
 import { createDatabase } from "./create.ts";
 import { createMigrator } from "./migrator.ts";
 
-const apiEnvPath = `${appRoot.path}/apps/api/.env`;
+const apiEnvPath = `${appRoot.path}/apps/api/.env.decrypted`;
 dotenv.config({ path: apiEnvPath });
 
 const dbPoolConfig: PoolConfig = {

@@ -1,0 +1,37 @@
+name: starly-development
+services:
+  postgresql:
+    image: docker.io/bitnami/postgresql:16.3.0
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - "postgresql_data:/bitnami/postgresql"
+    environment:
+      - POSTGRESQL_USERNAME=${DB_USER}
+      - POSTGRESQL_DATABASE=${DB_DATABASE}
+      - POSTGRESQL_PASSWORD=${DB_PASSWORD}
+  minio:
+    image: bitnami/minio:latest
+    environment:
+      - MINIO_ROOT_USER=${S3_ACCESS_KEY_ID}
+      - MINIO_ROOT_PASSWORD=${S3_SECRET_ACCESS_KEY}
+    ports:
+      - "${S3_PORT}:${S3_PORT}"
+      - "9001:9001"
+    volumes:
+      - "minio_data:/data"
+
+  create_default_minio_bucket:
+    image: minio/mc
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc alias set starly_minio http://minio:${S3_PORT} minio_access_key minio_secret_key;
+      /usr/bin/mc mb starly_minio/starly;
+      /usr/bin/mc mc anonymous set public starly_minio/starly;
+      exit 0;
+      "
+volumes:
+  postgresql_data: {}
+  minio_data: {}

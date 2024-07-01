@@ -23,7 +23,7 @@ app.use(timing());
 app.use(secureHeadersMiddleware());
 
 app.get("/", (c) => {
-  return c.json({ data: "Welcome to the Techmely API" });
+  return c.json({ data: "Welcome to the Starly API" });
 });
 app.get("/ping", (c) => c.text("pong"));
 

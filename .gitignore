@@ -221,8 +221,6 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
 .local
 .*.local
 # parcel-bundler cache (https://parceljs.org/)
@@ -617,3 +615,9 @@ app.*.symbols
 *.pem
 
 .moon/cache
+
+# dotenv environment variables file
+.env.keys
+.env*.decrypted
+apps/web/.env
+packages/db/.env
