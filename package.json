@@ -22,7 +22,7 @@
     "@vitest/coverage-v8": "1.6.0",
     "app-root-path": "^3.1.0",
     "concurrently": "8.2.2",
-    "dependency-cruiser": "16.3.3",
+    "dependency-cruiser": "16.3.4",
     "dotenv": "16.4.5",
     "fast-glob": "3.3.2",
     "fs-extra": "11.2.0",
