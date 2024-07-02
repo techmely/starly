@@ -1,5 +1,5 @@
-import { vValidator } from "@techmely/hono";
-import type { BaseResponse } from "@techmely/models";
+import { vValidator } from "@starly/models";
+import type { BaseResponse } from "@starly/models";
 import { Hono } from "hono";
 import type { HonoEnv } from "#root/libs/hono/hono.types";
 import { createUserSchema } from "../../../domain/user.schema";

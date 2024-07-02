@@ -6,7 +6,13 @@ import { pgDatabase } from "#root/libs/db/pg.db";
 
 export const userMapper = new UserMapper();
 const userRepo = new UserPgRepository(pgDatabase);
-const createUserUseCases = new CreateUserInteractor(userRepo, userMapper);
-const userService = new UserService(createUserUseCases);
+const createUserUseCase = new CreateUserInteractor(userRepo, userMapper);
+const findUserByAuthIdUseCase = new FindUserByAuthIdInteractor(userRepo, userMapper);
+const findUserByKeyUseCase = new FindUserByKeyInteractor(userRepo, userMapper);
+const userService = new UserService(
+  createUserUseCase,
+  findUserByAuthIdUseCase,
+  findUserByKeyUseCase,
+);
 
 export default userService;
