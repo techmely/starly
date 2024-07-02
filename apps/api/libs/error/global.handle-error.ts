@@ -1,6 +1,6 @@
-import type { HonoEnv } from "@starly/models";
 import { CODE_INTERNAL_SERVER_ERROR } from "@techmely/http";
 import type { Context } from "hono";
+import type { HonoEnv } from "../hono/hono.types";
 
 export function globalHandleError(err: Error, c: Context<HonoEnv>) {
   const { logger } = c.get("container");
