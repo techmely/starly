@@ -28,7 +28,7 @@ async function injectDependencies(c: Context<HonoEnv>) {
     const cache = "cache";
     const _http = http.create({
       headers: {
-        "X-Powser-By": "Techmely",
+        "X-Power-By": "Techmely",
       },
     });
     c.set("container", {

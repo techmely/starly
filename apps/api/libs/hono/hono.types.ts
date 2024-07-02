@@ -6,6 +6,7 @@ import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from 
 import type { SocketAddress } from "bun";
 import type { Output } from "valibot";
 import type { runtimeEnvSchema } from "./hono.schema";
+import type { Context } from "hono";
 
 export type AppEnv = Output<typeof runtimeEnvSchema> & {
   IP: SocketAddress;
@@ -37,11 +38,12 @@ export type AppConfig = {
     };
   };
   cors: {
-    origin: string[];
-    allowHeaders: string[];
-    allowMethods: string[];
-    maxAge: number;
-    credentials: string;
+    origin: string | string[] | ((origin: string, c: Context) => string | undefined | null);
+    allowMethods?: string[];
+    allowHeaders?: string[];
+    maxAge?: number;
+    credentials?: boolean;
+    exposeHeaders?: string[];
   };
   admin: {
     authIds: string[];

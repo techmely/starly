@@ -3,7 +3,7 @@ import type { MiddlewareHandler } from "hono";
 import { UserIsNotAdminException } from "../../../domain/user.exceptions";
 import type { HonoEnv } from "#root/libs/hono/hono.types";
 
-export const adminGuard = (): MiddlewareHandler<HonoEnv> => {
+export const useAdminGuard = (): MiddlewareHandler<HonoEnv> => {
   return async (c, next) => {
     const config = c.get("config");
     const firebaseUser = c.get("firebaseUser");
