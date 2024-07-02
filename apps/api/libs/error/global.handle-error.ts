@@ -1,4 +1,4 @@
-import type { HonoEnv } from "@techmely/hono";
+import type { HonoEnv } from "@starly/models";
 import { CODE_INTERNAL_SERVER_ERROR } from "@techmely/http";
 import type { Context } from "hono";
 

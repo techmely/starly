@@ -1,4 +1,4 @@
-import type { HonoEnv } from "@techmely/hono";
+import type { HonoEnv } from "@starly/models";
 import type { MiddlewareHandler } from "hono";
 import { getCookie, setCookie } from "hono/cookie";
 import { renderPage } from "vike/server";

@@ -1,5 +1,5 @@
 import { html } from "@elysiajs/html";
-import type { HonoEnv } from "@techmely/hono";
+import type { HonoEnv } from "@starly/models";
 import type Elysia from "elysia";
 import type { Hono } from "hono";
 

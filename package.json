@@ -1,5 +1,5 @@
 {
-  "name": "techmely-monorepo",
+  "name": "starly-monorepo",
   "private": true,
   "license": "AGPLv3",
   "workspaces": ["apps/*", "packages/*", "docs/*"],
