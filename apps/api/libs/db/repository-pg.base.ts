@@ -1,20 +1,20 @@
 import type { Paginated, PaginatedQueryParams, RepositoryPort } from "@techmely/domain-driven";
 import type { StringEnum } from "@techmely/types";
 import type { Kysely } from "kysely";
+import type { AppDatabase } from "#root/libs/db/app-db.types";
 
-export abstract class PgRepositoryBase<DbModel = any, DbTables = any>
+export abstract class PgRepositoryBase<DbModel = any>
   implements RepositoryPort<DbModel>
 {
-  protected abstract tableName: StringEnum<keyof DbTables>;
+  protected abstract tableName: StringEnum<keyof AppDatabase>;
 
-  protected constructor(protected readonly db: Kysely<DbTables>) {}
+  protected constructor(protected readonly db: Kysely<AppDatabase>) {}
 
   async findById(id: string): Promise<DbModel> {
     const record = await this.db
-      // @ts-expect-error I knew
-      .selectFrom(table)
+      // @ts-expect-error I kne
+      .selectFrom(this.tableName)
       .selectAll()
-      // @ts-expect-error I knew
       .where("id", "=", id)
       .executeTakeFirstOrThrow();
     // @ts-expect-error I knew
@@ -54,12 +54,10 @@ export abstract class PgRepositoryBase<DbModel = any, DbTables = any>
   }
 
   async insert(record: DbModel) {
-    // @ts-expect-error I knew
     const { id } = await this.db
       // @ts-expect-error I knew
       .insertInto(this.tableName)
       .values(record as any)
-      // @ts-expect-error I knew
       .returning("id")
       .executeTakeFirstOrThrow();
     return this.findById(id);
@@ -84,7 +82,6 @@ export abstract class PgRepositoryBase<DbModel = any, DbTables = any>
       // @ts-expect-error I knew
       .updateTable(this.tableName)
       .set(model as any)
-      // @ts-expect-error I knew
       .where("id", "=", id)
       .executeTakeFirstOrThrow();
     return this.findById(id);
@@ -108,7 +105,6 @@ export abstract class PgRepositoryBase<DbModel = any, DbTables = any>
     const { numDeletedRows } = await this.db
       // @ts-expect-error I knew
       .deleteFrom(this.tableName)
-      // @ts-expect-error I knew
       .where("id", "=", id)
       .executeTakeFirstOrThrow();
     return numDeletedRows > 0;
