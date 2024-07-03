@@ -10,7 +10,7 @@ const pgDialect = new PostgresDialect({
     port: getEnvVar("DB_PORT") || 5432,
     user: getEnvVar("DB_USER"),
     password: getEnvVar("DB_PASSWORD"),
-    database: getEnvVar("DB_NAME"),
+    database: getEnvVar("DB_DATABASE"),
   }),
 });
 

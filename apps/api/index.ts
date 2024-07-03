@@ -12,7 +12,7 @@ import { globalHandleError } from "./libs/error/global.handle-error";
 import { runtimeEnvSchema } from "./libs/hono/hono.schema";
 import type { HonoEnv } from "./libs/hono/hono.types";
 import { initApp } from "./libs/middlewares/init";
-import {useAdminGuard} from "#root/contexts/identify-access/user/infras/http/middleware/admin.guard";
+import { useAdminGuard } from "#root/contexts/identify-access/user/infras/http/middleware/admin.guard";
 
 const app = new Hono<HonoEnv>();
 app.use(initApp());
@@ -28,7 +28,7 @@ app.use(secureHeadersMiddleware());
 app.use("*", (c, next) =>
   validateFirebaseAuth({
     projectId: c.get("config").firebase.projectId,
-  })(c, next)
+  })(c, next),
 );
 
 app.use("/api/*", (c, next) => cors(c.get("config").cors)(c, next));
@@ -39,7 +39,6 @@ app.get("/", (c) => {
 });
 
 // auth api
-
 app.route("/api/v1/auth", accountRouter);
 app.route("/api/v1/users", userRouter);
 
@@ -87,6 +86,7 @@ Bun.serve({
         { status: 500 },
       );
     }
+    console.log("App start in http://localhost:3000");
     return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
   },
 });

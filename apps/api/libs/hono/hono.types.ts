@@ -4,11 +4,11 @@ import type { HttpInstance } from "@techmely/http";
 import type { UserModel } from "@techmely/models";
 import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import type { SocketAddress } from "bun";
-import type { Output } from "valibot";
+import type { InferOutput } from "valibot";
 import type { runtimeEnvSchema } from "./hono.schema";
 import type { Context } from "hono";
 
-export type AppEnv = Output<typeof runtimeEnvSchema> & {
+export type AppEnv = InferOutput<typeof runtimeEnvSchema> & {
   IP: SocketAddress;
 };
 

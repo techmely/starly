@@ -1,9 +1,15 @@
 import type { Context, Env, Input as HonoInput, MiddlewareHandler, ValidationTargets } from "hono";
 import { validator } from "hono/validator";
-import type { BaseSchema, Input, Output, SafeParseResult } from "valibot";
-import { safeParse } from "valibot";
+import type {
+  GenericSchema,
+  GenericSchemaAsync,
+  InferInput,
+  InferOutput,
+  SafeParseResult,
+} from "valibot";
+import { safeParseAsync } from "valibot";
 
-type Hook<T extends BaseSchema, E extends Env, P extends string> = (
+type Hook<T extends GenericSchema | GenericSchemaAsync, E extends Env, P extends string> = (
   result: SafeParseResult<T>,
   c: Context<E, P>,
   // biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
@@ -12,12 +18,12 @@ type Hook<T extends BaseSchema, E extends Env, P extends string> = (
 type HasUndefined<T> = undefined extends T ? true : false;
 
 export const vValidator = <
-  T extends BaseSchema,
+  T extends GenericSchema | GenericSchemaAsync,
   Target extends keyof ValidationTargets,
   E extends Env,
   P extends string,
-  In = Input<T>,
-  Out = Output<T>,
+  In = InferInput<T>,
+  Out = InferOutput<T>,
   I extends HonoInput = {
     in: HasUndefined<In> extends true
       ? {
@@ -43,8 +49,8 @@ export const vValidator = <
   hook?: Hook<T, E, P>,
 ): MiddlewareHandler<E, P, V> =>
   // @ts-expect-error not typed well
-  validator(target, (value, c) => {
-    const result = safeParse(schema, value);
+  validator(target, async (value, c) => {
+    const result = await safeParseAsync(schema, value);
 
     if (hook) {
       const hookResult = hook(result, c);
@@ -57,6 +63,6 @@ export const vValidator = <
       return c.json(result, 400);
     }
 
-    const data = result.output as Output<T>;
+    const data = result.output as InferOutput<T>;
     return data;
   });

@@ -8,7 +8,7 @@ fileGroups:
 
 tasks:
   dev:
-    command: "bun run --hot index.ts"
+    command: "dotenvx run -- bun run --hot index.ts"
     env:
       NODE_ENV: "development"
   start:
