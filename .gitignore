@@ -619,5 +619,6 @@ app.*.symbols
 # dotenv environment variables file
 .env.keys
 .env*.decrypted
+.env*.encrypted
 apps/web/.env
 packages/db/.env

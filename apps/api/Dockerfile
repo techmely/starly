@@ -1,34 +1,34 @@
-ARG NODE_VERSION=20.12.2
-ARG PORT=4001
-ARG NEXT_PUBLIC_APP_VERSION
-ARG NODE_ENV
+FROM oven/bun:1 AS base
+WORKDIR /usr/starly
 
-RUN curl -sfS https://dotenvx.sh/install.sh | sh
+ARG API_ROOT=apps/api
 
-FROM node:${NODE_VERSION}-alpine as builder
+# install dependencies into temp directory
+# this will cache them and speed up future builds
+FROM base AS install
+RUN mkdir -p /temp/dev
+COPY . /temp/dev
+# COPY $API_ROOT/package.json bun.lockb /temp/dev/
+RUN cd /temp/dev && bun install --frozen-lockfile
 
-USER node
+# install with --production (exclude devDependencies)
+RUN mkdir -p /temp/prod
+COPY . /temp/prod
+# COPY $API_ROOT/package.json bun.lockb /temp/prod/
+RUN cd /temp/prod && bun install --frozen-lockfile --production
 
-WORKDIR /app/api
+# copy node_modules from temp directory
+# then copy all (non-ignored) project files into the image
+FROM base AS prerelease
+COPY --from=install /temp/dev/node_modules node_modules
+COPY . .
 
-COPY --chown=node . .
+# copy production dependencies and source code into final image
+FROM base AS release
+COPY --from=install /temp/prod/node_modules node_modules
+COPY --from=prerelease /usr/starly/apps/api .
 
-RUN yarn install --production --frozen-lockfile --no-progress
-
-FROM node:${NODE_VERSION}-alpine
-
-USER node
-
-WORKDIR /app/api
-
-ENV NEXT_TELEMETRY_DISABLED=true
-ENV PORT=$PORT
-ENV NEXT_PUBLIC_APP_VERSION=$NEXT_TELEMETRY_DISABLED
-ENV NODE_ENV=$NODE_ENV
-
-COPY --from=builder --chown=node /app/api/node_modules ./node_modules
-COPY --from=builder --chown=node /app/api/package.json ./package.json
-
-EXPOSE 4001
-
-CMD ["yarn", "start"]
+# run the app
+USER bun
+EXPOSE 3000/tcp
+ENTRYPOINT [ "dotenvx", "run", "--", "bun", "run", "index.ts" ]

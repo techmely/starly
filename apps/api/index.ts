@@ -49,8 +49,8 @@ app.route("/api/v1/users", userRouter);
 // app.route("/api/v1/my_files", myFileRouter);
 //
 // // post api
-// app.route("/api/v1/my_posts", myPostRouter);
-// app.route("/api/v1/posts", postRouter);
+// app.route("/api/v1/articles/me", myArticlesRouter);
+// app.route("/api/v1/articles", articlesRouter);
 //
 // // organizations api
 // app.route("/api/v1/organizations", organizationRouter);
@@ -89,4 +89,5 @@ Bun.serve({
     console.log("App start in http://localhost:3000");
     return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
   },
+  maxRequestBodySize: 200_000_000_000,
 });
