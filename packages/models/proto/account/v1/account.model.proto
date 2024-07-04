@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package gen.go.account.v1;
-option go_package="github.com/techmely/techmely/gen/go/account/v1/account_model_v1";
-
-message AccountModel {
-  int64 id = 1;
-}
