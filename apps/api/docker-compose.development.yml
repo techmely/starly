@@ -38,7 +38,7 @@ services:
     image: registry.gitlab.com/techmely/starly-api:0.0.0
     network_mode: bridge
     ports:
-      - "3000:3000"
+      - "${API_PORT}:${API_PORT}"
     healthcheck:
       test: "curl -f http://localhost:3000"
       interval: 5s

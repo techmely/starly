@@ -74,7 +74,7 @@ app.use("/admin/*", useAdminGuard());
 app.onError(globalHandleError);
 
 Bun.serve({
-  port: 3000,
+  port: Bun.env.API_PORT || 3000,
   fetch(req, server) {
     const parsedEnv = safeParse(runtimeEnvSchema, Bun.env);
     if (!parsedEnv.success) {
