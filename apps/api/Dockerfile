@@ -10,6 +10,5 @@ WORKDIR /usr/api
 COPY --from=builder /usr/api .
 
 USER bun
-ENV HOST 0.0.0.0
-EXPOSE 3000
+EXPOSE 3000/tcp
 CMD [ "dotenvx", "run", "--", "bun", "run", "index.ts" ]
