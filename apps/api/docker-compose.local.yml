@@ -43,7 +43,7 @@ services:
       context: .
       dockerfile: Dockerfile
       tags:
-        - "registry.gitlab.com/techmely/starly-api:0.0.0"
+        - "registry.gitlab.com/techmely/starly-api:0.0.1"
     ports:
       - "3000:3000"
     healthcheck:

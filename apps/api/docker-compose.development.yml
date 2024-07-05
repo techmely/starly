@@ -2,7 +2,6 @@ name: starly-development
 services:
   postgresql:
     image: docker.io/bitnami/postgresql:16.3.0
-    network_mode: bridge
     ports:
       - "${DB_PORT}:${DB_PORT}"
     volumes:
@@ -13,7 +12,6 @@ services:
       - POSTGRESQL_PASSWORD=${DB_PASSWORD}
   minio:
     image: bitnami/minio:latest
-    network_mode: bridge
     environment:
       - MINIO_ROOT_USER=${S3_ACCESS_KEY_ID}
       - MINIO_ROOT_PASSWORD=${S3_SECRET_ACCESS_KEY}
@@ -22,20 +20,16 @@ services:
       - "9001:9001"
     volumes:
       - "minio_data:/data"
-
-  create_default_minio_bucket:
-    image: minio/mc
-    depends_on:
-      - minio
-    entrypoint: >
+    command: >
       /bin/sh -c "
       /usr/bin/mc alias set starly_minio http://minio:${S3_PORT} minio_access_key minio_secret_key;
       /usr/bin/mc mb starly_minio/starly;
       /usr/bin/mc mc anonymous set public starly_minio/starly;
       exit 0;
       "
+
   api:
-    image: registry.gitlab.com/techmely/starly-api:0.0.0
+    image: registry.gitlab.com/techmely/starly-api:0.0.1
     network_mode: bridge
     ports:
       - "${API_PORT}:${API_PORT}"
