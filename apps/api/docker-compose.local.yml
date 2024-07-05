@@ -1,6 +1,8 @@
 name: starly-local
 services:
   postgresql:
+    env_file:
+      - .env.decrypted
     image: docker.io/bitnami/postgresql:16.3.0
     ports:
       - "${DB_PORT}:${DB_PORT}"
@@ -12,6 +14,8 @@ services:
       - POSTGRESQL_PASSWORD=${DB_PASSWORD}
   minio:
     image: bitnami/minio:latest
+    env_file:
+      - .env.decrypted
     environment:
       - MINIO_ROOT_USER=${S3_ACCESS_KEY_ID}
       - MINIO_ROOT_PASSWORD=${S3_SECRET_ACCESS_KEY}
@@ -33,9 +37,11 @@ services:
       exit 0;
       "
   api:
+    env_file:
+      - .env.decrypted
     build:
-      context: ../../
-      dockerfile: apps/api/Dockerfile
+      context: .
+      dockerfile: Dockerfile
       tags:
         - "registry.gitlab.com/techmely/starly-api:0.0.0"
     ports:
