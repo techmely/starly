@@ -17,7 +17,7 @@ import type {
   VerifyAccountResponse,
   VerifyActivationLinkRequest,
   VerifyActivationLinkResponse,
-} from "@techmely/models";
+} from "@techmely/starly-models";
 
 export class AccountService implements AccountServicePort {
   SignOut(request: Empty): Promise<Empty> {

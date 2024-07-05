@@ -1,5 +1,5 @@
 import { Aggregate, Result, UniqueEntityID } from "@techmely/domain-driven";
-import type { CreateUserRequest } from "@techmely/models";
+import type { CreateUserRequest } from "@techmely/starly-models";
 
 export class UserEntity extends Aggregate<UserProps> {
   static override create(request: CreateUserRequest) {

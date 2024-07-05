@@ -1,6 +1,6 @@
 import { type DomainMapper, UniqueEntityID } from "@techmely/domain-driven";
 import { UserEntity } from "../../domain/entities/user.entity";
-import type { UserModel } from "@techmely/models";
+import type { UserModel } from "@techmely/starly-models";
 
 export class UserMapper implements DomainMapper<any, UserModel, UserEntity> {
   toPersistence(entity: UserEntity): UserModel {

@@ -1,5 +1,5 @@
 import type { UseCase } from "@techmely/domain-driven";
-import type { GetUserRequest, UserModel } from "@techmely/models";
+import type { GetUserRequest, UserModel } from "@techmely/starly-models";
 import type { StringEnum } from "@techmely/types";
 
 export abstract class FindUserByKeyOutPort {

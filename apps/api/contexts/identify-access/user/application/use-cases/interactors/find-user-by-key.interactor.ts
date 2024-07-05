@@ -1,4 +1,4 @@
-import type { UserModel } from "@starly/models";
+import type { UserModel } from "@techmely/starly-models";
 import type {
   FindUserByKeyCommand,
   FindUserByKeyInPort,

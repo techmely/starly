@@ -1,4 +1,4 @@
-import type { FirebaseAuthConfig } from "@techmely/models";
+import type { FirebaseAuthConfig } from "@techmely/starly-models";
 import { AccountService } from "../application/services/account.service";
 import { SignInEmailPasswordInteractor } from "../application/use-cases/interactors/signin-email-password.interactor";
 import type { AuthGoogleIdentifyOutPort } from "../application/use-cases/port/signin-email-password.port";

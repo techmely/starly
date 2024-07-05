@@ -9,7 +9,7 @@ import type {
   UserServicePort,
   BoolValue,
   GetUserByAuthIdRequest,
-} from "@techmely/models";
+} from "@techmely/starly-models";
 import type { CreateUserInPort } from "../use-cases/port/create-user.port";
 import type { FindUserByAuthIdInPort } from "../use-cases/port/find-user-by-auth-id.port";
 import type { FindUserByKeyInPort } from "../use-cases/port/find-user-by-key";

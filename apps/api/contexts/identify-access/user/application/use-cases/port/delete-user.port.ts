@@ -1,5 +1,5 @@
 import type { UseCase } from "@techmely/domain-driven";
-import type { DeleteUserRequest } from "@techmely/models";
+import type { DeleteUserRequest } from "@techmely/starly-models";
 import type { UserEntity } from "../../../domain/entities/user.entity";
 
 export interface DeleteUserCommand extends DeleteUserRequest {}

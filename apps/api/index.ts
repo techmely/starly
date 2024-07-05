@@ -4,7 +4,7 @@ import { timing } from "hono/timing";
 import { cors } from "hono/cors";
 import { etag } from "hono/etag";
 
-import { commonContext, secureHeadersMiddleware, validateFirebaseAuth } from "@starly/hono";
+import { commonContext, secureHeadersMiddleware, validateFirebaseAuth } from "@techmely/hono";
 import { safeParse } from "valibot";
 import { accountRouter } from "./contexts/identify-access/user/infras/http/routers/account.router";
 import { userRouter } from "./contexts/identify-access/user/infras/http/routers/user.router";
@@ -12,7 +12,8 @@ import { globalHandleError } from "./libs/error/global.handle-error";
 import { runtimeEnvSchema } from "./libs/hono/hono.schema";
 import type { HonoEnv } from "./libs/hono/hono.types";
 import { initApp } from "./libs/middlewares/init";
-import { useAdminGuard } from "#root/contexts/identify-access/user/infras/http/middleware/admin.guard";
+import { useAdminGuard } from "./contexts/identify-access/user/infras/http/middleware/admin.guard";
+import { articleRouter } from "./contexts/collaboration/articles/infras/http/routers/article.router";
 
 const app = new Hono<HonoEnv>();
 app.use(initApp());
@@ -44,14 +45,14 @@ app.route("/api/v1/users", userRouter);
 
 // // meta schemas api
 // app.route("/api/v1/meta_schemas", metaSchemaRouter);
-//
+
 // // files api
 // app.route("/api/v1/my_files", myFileRouter);
-//
+
 // // post api
 // app.route("/api/v1/articles/me", myArticlesRouter);
-// app.route("/api/v1/articles", articlesRouter);
-//
+app.route("/api/v1/articles", articleRouter);
+
 // // organizations api
 // app.route("/api/v1/organizations", organizationRouter);
 // app.route("/api/v1/my_organizations", myOrganizationRouter);

@@ -1,4 +1,4 @@
-import { vValidator } from "@starly/hono";
+import { vValidator } from "@techmely/hono";
 import { Hono } from "hono";
 import type { HonoEnv } from "#root/libs/hono/hono.types";
 import { signInSchema, signUpSchema } from "../../../domain/user.schema";

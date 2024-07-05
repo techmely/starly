@@ -1,8 +1,7 @@
-import { createDatabase } from "@techmely/db";
 import { PostgresDialect } from "kysely";
 import { Pool } from "pg";
 import { getEnvVar } from "@techmely/utils";
-import type { AppDatabase } from "../db/app-db.types";
+import { createDatabase } from "#root/db";
 
 const pgDialect = new PostgresDialect({
   pool: new Pool({
@@ -14,4 +13,4 @@ const pgDialect = new PostgresDialect({
   }),
 });
 
-export const pgDatabase = createDatabase<AppDatabase>(pgDialect);
+export const pgDatabase = createDatabase(pgDialect);

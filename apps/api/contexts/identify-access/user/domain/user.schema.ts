@@ -1,4 +1,4 @@
-import { AuthStrategy, UserStatus } from "@techmely/models";
+import { AuthStrategy, UserStatus } from "@techmely/starly-models";
 import { any, boolean, enum_, object, string } from "valibot";
 
 export const createUserSchema = object({

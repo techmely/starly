@@ -4,7 +4,7 @@ import type {
   AuthGoogleIdentityResponse,
   SignInRequest,
   SignUpRequest,
-} from "@techmely/models";
+} from "@techmely/starly-models";
 
 export interface SignInEmailPasswordCommand extends SignInRequest, AuthGoogleIdentityRequest {}
 

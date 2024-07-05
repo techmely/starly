@@ -1,7 +1,7 @@
 import type { UserService } from "#root/contexts/identify-access/user/application/services/user.service";
 import type { UserFromDecodedIdToken } from "@techmely/auth";
 import type { HttpInstance } from "@techmely/http";
-import type { UserModel } from "@techmely/models";
+import type { UserModel } from "@techmely/starly-models";
 import type { LoggerPort, MetricsPort, RateLimiterPort, UsageLimiterPort } from "@techmely/types";
 import type { SocketAddress } from "bun";
 import type { InferOutput } from "valibot";

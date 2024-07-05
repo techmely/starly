@@ -1,5 +1,5 @@
 import type { UseCase } from "@techmely/domain-driven";
-import type { GetUserByAuthIdRequest, UserModel } from "@techmely/models";
+import type { GetUserByAuthIdRequest, UserModel } from "@techmely/starly-models";
 
 export abstract class FindUserByAuthIdOutPort {
   abstract findUserByAuthId(authId: string): Promise<UserModel>;

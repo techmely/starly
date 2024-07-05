@@ -1,5 +1,5 @@
 import type { UseCase } from "@techmely/domain-driven";
-import type { CreateUserRequest, UserModel } from "@techmely/models";
+import type { CreateUserRequest, UserModel } from "@techmely/starly-models";
 
 export interface CreateUserCommand extends CreateUserRequest {}
 

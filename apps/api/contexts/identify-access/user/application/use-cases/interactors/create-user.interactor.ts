@@ -1,4 +1,4 @@
-import type { UserModel } from "@techmely/models";
+import type { UserModel } from "@techmely/starly-models";
 import { UserEntity } from "../../../domain/entities/user.entity";
 import type {
   CreateUserCommand,

@@ -28,7 +28,7 @@
     "@techmely/http": "1.2.8",
     "@techmely/logger": "1.1.2",
     "@techmely/metrics": "1.0.9",
-    "@techmely/starly-models": "1.0.1",
+    "@techmely/starly-models": "1.0.2",
     "@techmely/rate-limit": "2.0.2",
     "@techmely/usage-limit": "2.0.2",
     "@techmely/utils": "^3.2.0",
