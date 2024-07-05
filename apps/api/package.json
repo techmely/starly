@@ -23,13 +23,12 @@
     "@dotenvx/dotenvx": "1.5.0",
     "@techmely/auth": "^1.0.1",
     "@techmely/cache": "1.0.9",
-    "@starly/db": "workspace:*",
     "@techmely/domain-driven": "1.1.2",
-    "@starly/hono": "workspace:*",
+    "@techmely/hono": "1.0.1",
     "@techmely/http": "1.2.8",
     "@techmely/logger": "1.1.2",
     "@techmely/metrics": "1.0.9",
-    "@starly/models": "workspace:*",
+    "@techmely/starly-models": "1.0.1",
     "@techmely/rate-limit": "2.0.2",
     "@techmely/usage-limit": "2.0.2",
     "@techmely/utils": "^3.2.0",
@@ -42,7 +41,7 @@
     "valibot": "^0.35.0"
   },
   "devDependencies": {
-    "@techmely/types": "1.6.9",
+    "@techmely/types": "1.8.0",
     "@types/bun": "1.1.6",
     "@types/pg": "8.11.6"
   }
