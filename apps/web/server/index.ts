@@ -1,8 +1,12 @@
 import { Hono } from "hono";
 import { timing } from "hono/timing";
 
-import type { HonoEnv } from "@starly/models";
-import { clientRuntimeEnvSchema, commonContext, secureHeadersMiddleware } from "@starly/models";
+import type { HonoEnv } from "@techmely/starly-models";
+import {
+  clientRuntimeEnvSchema,
+  commonContext,
+  secureHeadersMiddleware,
+} from "@techmely/starly-models";
 import vikeMiddleware from "./middleware/vike";
 
 const app = new Hono<HonoEnv>();
