@@ -1,8 +1,0 @@
-{
-  "$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["../../biome.json"],
-  "files": {
-    "include": ["apps", "components", "modules", "scripts", "shared", "typings"],
-    "ignore": ["locales/paraglide", "babel.config.js"]
-  }
-}
