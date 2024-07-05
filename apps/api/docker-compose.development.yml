@@ -32,6 +32,17 @@ services:
       /usr/bin/mc mc anonymous set public starly_minio/starly;
       exit 0;
       "
+  api:
+    image: registry.gitlab.com/techmely/starly-api:0.0.0
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: "curl -f http://localhost:3000"
+      interval: 5s
+      timeout: 5s
+      retries: 40
+    depends_on:
+      - postgresql
 volumes:
   postgresql_data: {}
   minio_data: {}
