@@ -16,15 +16,6 @@ fileGroups:
     - "**/__tests__/**/*"
 
 tasks:
-  build:
-    command: "tsup"
-    args: "src/index.ts --clean --format esm --dts --tsconfig tsconfig.build.json"
-    inputs:
-      - "@globs(sources)"
-      - "package.json"
-    outputs:
-      - "dist"
-
   clean:
     command:
       - "rm -rf dist"

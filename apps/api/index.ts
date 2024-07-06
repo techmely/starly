@@ -73,8 +73,10 @@ app.use("/admin/*", useAdminGuard());
 
 app.onError(globalHandleError);
 
+const PORT = Bun.env.API_PORT || 3000;
+
 Bun.serve({
-  port: Bun.env.API_PORT || 3000,
+  port: PORT,
   fetch(req, server) {
     const parsedEnv = safeParse(runtimeEnvSchema, Bun.env);
     if (!parsedEnv.success) {
@@ -87,7 +89,7 @@ Bun.serve({
         { status: 500 },
       );
     }
-    console.log("App start in http://localhost:3000");
+    console.log(`App start in http://localhost:${PORT}`);
     return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
   },
   maxRequestBodySize: 200_000_000_000,

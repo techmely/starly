@@ -9,11 +9,5 @@ fileGroups:
 tasks:
   dev:
     command: "dotenvx run -- bun run --hot index.ts"
-    env:
-      NODE_ENV: "development"
   start:
-    command: "bun run index.ts"
-    env:
-      NODE_ENV: "production"
-  build:
-    command: "bun build --target=bun --minify --outdir=./dist src/index.ts && bun build --target=bun --minify --outdir=./dist migrate.ts"
+    command: "bun --env-file=.env.decrypted index.ts"
