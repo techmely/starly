@@ -3,7 +3,7 @@ FROM debian:11.6-slim as builder
 WORKDIR /app
 
 RUN apt update
-RUN apt install curl unzip -y
+RUN apt install curl unzip bash -y
 
 RUN curl https://bun.sh/install | bash
 
