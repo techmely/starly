@@ -34,7 +34,7 @@ services:
       "
 
   api:
-    image: registry.gitlab.com/techmely/starly-api:0.0.2
+    image: registry.gitlab.com/techmely/starly-api:0.0.3
     network_mode: bridge
     ports:
       - "${API_PORT}:${API_PORT}"
