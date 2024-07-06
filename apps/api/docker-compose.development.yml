@@ -38,6 +38,11 @@ services:
     network_mode: bridge
     ports:
       - "${API_PORT}:${API_PORT}"
+    healthcheck:
+      test: "curl -f http://localhost:${API_PORT}"
+      interval: 5s
+      timeout: 5s
+      retries: 40
     depends_on:
       - postgresql
 volumes:
