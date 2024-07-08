@@ -8,6 +8,7 @@ declare global {
   const appConfig: typeof import('../shared/helpers/const')['appConfig']
   const baseSeo: typeof import("../../../shared/helpers/seo")["baseSeo"]
   const clientEnvs: typeof import('../shared/helpers/client-envs')['clientEnvs']
+  const clientRuntimeEnvSchema: typeof import('../shared/helpers/client-envs')['clientRuntimeEnvSchema']
   const configSWRHeaders: typeof import('../shared/helpers/cache')['configSWRHeaders']
   const copyTextToClipboard: typeof import('../shared/helpers/event')['copyTextToClipboard']
   const createRef: typeof import('react')['createRef']
