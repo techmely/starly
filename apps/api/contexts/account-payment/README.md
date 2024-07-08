@@ -1,1 +1,0 @@
-# Account Payment Bounded Context

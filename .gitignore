@@ -622,3 +622,4 @@ app.*.symbols
 .env*.encrypted
 apps/web/.env
 packages/db/.env
+firebase/

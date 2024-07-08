@@ -1,3 +1,5 @@
+import type _Sentry from "@sentry/browser";
+
 type GtagOptions = {
   page_path?: URL | string;
   page_location?: URL | string;
@@ -24,12 +26,32 @@ type AnalyticOptions = {
 declare global {
   type GtagCommand = "event" | "config" | "send" | "set";
   type GACommand = "event" | "send";
+  type MixPanelInitConfig = {
+    debug: boolean;
+    track_pageview: boolean;
+    persistence: "localStorage" | "cookie" | "memory";
+  };
+  type MixPanelConfig = {
+    init: (token: string, options?: MixPanelInitConfig) => void;
+    track: (eventName: string, params?: any) => void;
+  };
+  const mixpanel: MixPanelConfig;
+  const Sentry: typeof _Sentry;
 
   interface Window {
     gtag(command: GtagCommand, target?: string, options?: GtagOptions | number | string): void;
     gtag(command: GtagCommand, options?: GtagOptions): void;
     ga(command: GACommand, options?: AnalyticOptions): void;
     msMatchMedia(media: string): MediaQueryList;
+    trackEvent(eventName: string, params?: any): void;
+    google: {
+      accounts: {
+        id: {
+          initialize({ client_id: string, "data-itp_support": boolean, callback });
+          prompt();
+        };
+      };
+    };
   }
   // WICG Spec: https://wicg.github.io/ua-client-hints
 
@@ -74,5 +96,3 @@ interface NavigatorUAData extends UALowEntropyJSON {
   getHighEntropyValues(hints: string[]): Promise<UADataValues>;
   toJSON(): UALowEntropyJSON;
 }
-
-export type {};

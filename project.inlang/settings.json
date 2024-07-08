@@ -11,7 +11,7 @@
     "https://cdn.jsdelivr.net/npm/@inlang/plugin-m-function-matcher@latest/dist/index.js"
   ],
   "plugin.inlang.messageFormat": {
-    "pathPattern": "./apps/web/locales/{languageTag}.locale.json"
+    "pathPattern": "./locales/{languageTag}.locale.json"
   },
   "messageLintRuleLevels": {
     "messageLintRule.inlang.missingTranslation": "error",
