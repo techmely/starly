@@ -116,7 +116,7 @@ Discuss privacy, security, and legal concerns where relevant. What are the roles
 [To be filled]
 
 Alternative Designs
-What other approaches were considered? Describe the high level approach and tradeoffs compared with the proposed design. You may want to mention this section higher if there are a few plausible options or it’s important to help people understand why the design was chosen.
+What other approaches were considered? Describe the high level approach and tradeoffs compared with the proposed design. You may want to mention this section higher if there are a few plausible options, or it’s important to help people understand why the design was chosen.
 
 
 [To be filled]
