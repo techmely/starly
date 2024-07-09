@@ -1,7 +1,7 @@
 import { serializeCookie } from "@techmely/utils";
 import { getAuth } from "firebase-admin/auth";
 import type { Context } from "hono";
-import { firebaseAdmin } from "#root/modules/auth/authFirebaseAdmin";
+import { firebaseAdmin } from "#server/modules/auth/firebaseAdmin";
 
 export async function firebaseAuthSignInHandler(c: Context<HonoEnv>) {
   const body = await c.req.json();

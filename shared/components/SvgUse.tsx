@@ -1,12 +1,14 @@
-import React, { type FC, type SVGAttributes } from "react";
+import React, { useEffect, useState, type FC, type SVGAttributes } from "react";
 
 export const SvgUse: FC<SvgUseProps> = ({ role, customPath, id, label, ...rest }) => {
   const [svgPath, setSvgPath] = useState(`/svg/common.svg#${id}`);
+
   useEffect(() => {
     if (customPath) setSvgPath(`${customPath}#${id}`);
-  }, [customPath]);
+  }, [customPath, id]);
 
   return (
+    // biome-ignore lint/nursery/useSemanticElements: We don't need to use semantic elements here
     <svg role="img" aria-label={label || "Present Icon"} {...rest}>
       <use href={svgPath} />
     </svg>

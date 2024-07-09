@@ -1,24 +1,24 @@
-{
-  /* <template>
-  <section class="tml-container pt-8">
-    <div class="flex gap-4">
-      <div class="grow">
-        <h1 class="text-5xl leading-[1.25]">
-          {{ t.gsTitle() }}
-          <span>{{ t.gsTitle1() }}</span>
-        </h1>
-      </div>
-      <GetStartedForm />
-    </div>
-  </section>
-</template>
+// {
+//   /* <template>
+//   <section class="tml-container pt-8">
+//     <div class="flex gap-4">
+//       <div class="grow">
+//         <h1 class="text-5xl leading-[1.25]">
+//           {{ t.gsTitle() }}
+//           <span>{{ t.gsTitle1() }}</span>
+//         </h1>
+//       </div>
+//       <GetStartedForm />
+//     </div>
+//   </section>
+// </template>
 
-<script setup lang="ts">
-import * as t from '#modules/locales/paraglide/messages'
-import GetStartedForm from './components/GetStartedForm.vue';
+// <script setup lang="ts">
+// import * as t from '#modules/locales/paraglide/messages'
+// import GetStartedForm from './components/GetStartedForm.vue';
 
-</script> */
-}
+// </script> */
+// }
 
 import type React from "react";
 

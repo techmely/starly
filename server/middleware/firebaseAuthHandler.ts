@@ -1,7 +1,7 @@
 import { parseCookie } from "@techmely/utils";
 import { getAuth } from "firebase-admin/auth";
 import type { MiddlewareHandler } from "hono";
-import { firebaseAdmin } from "#root/modules/auth/authFirebaseAdmin";
+import { firebaseAdmin } from "#server/modules/auth/firebaseAdmin";
 
 export default function firebaseAuthMiddleware(): MiddlewareHandler<HonoEnv> {
   return async (c, next) => {

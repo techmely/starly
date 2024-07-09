@@ -1,44 +1,24 @@
-FROM docker.io/library/node:20-alpine AS builder
+FROM oven/bun:alpine as builder
+WORKDIR /app
 
-# Prepare work directory
-WORKDIR /techmely/web
+COPY . .
+# RUN which bun
+RUN bun install --production
 
-RUN corepack enable
+FROM oven/bun:alpine
+WORKDIR /app
+# RUN which bun
+COPY --from=builder app/dist ./dist
+COPY --from=builder app/.env ./.env
+COPY --from=builder app/package.json ./package.json
+COPY --from=builder app/tsconfig.json ./tsconfig.json
+COPY --from=builder app/locales ./locales
+COPY --from=builder app/firebase ./firebase
+COPY --from=builder app/server ./server
+COPY --from=builder app/bun.lockb ./bun.lockb
+COPY --from=builder app/node_modules ./node_modules
 
-# Prepare build deps ( ignore postinstall scripts for now )
-COPY package.json ./
-COPY ../patches ./patches
+ENV NODE_ENV production
+EXPOSE 3000
 
-# Copy all source files
-COPY . ./
-
-# Run full install with every postinstall script ( This needs project file )
-RUN bun install
-
-# Build
-RUN bun run build
-
-FROM gcr.io/distroless/nodejs:20 AS runner
-
-ARG UID=911
-ARG GID=911
-
-# Create a dedicated user and group
-RUN set -eux; \
-    addgroup -g $GID techmely; \
-    adduser -u $UID -D -G techmely techmely;
-
-USER techmely
-
-ENV NODE_ENV=production
-
-COPY --from=builder /techmely/web/.output ./.output
-
-EXPOSE 2023/tcp
-
-ENV PORT=2023
-
-# Persistent storage data
-VOLUME [ "/techmely/web/data" ]
-
-CMD ["node", ".output/server/index.mjs"]
+CMD [ "bun", "run", "start" ]

@@ -10,7 +10,6 @@ import ViteCompress from "vite-plugin-compression2";
 import viteAutoImport from "./modules/vite/vite.auto-import";
 
 const isProd = process.env.NODE_ENV === "production";
-console.log("isProd:", isProd);
 
 export default defineConfig({
   plugins: [
@@ -53,6 +52,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "#root": __dirname,
+      "#server": `${__dirname}/server`,
     },
   },
 });

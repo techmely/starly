@@ -1,10 +1,10 @@
+import type { appRuntimeEnvSchema } from "#root/server/helpers/runtimeEnv";
 import type { UserModel } from "@techmely/starly-models";
 import type { UserRecord } from "firebase-admin/auth";
 import type { InferOutput } from "valibot";
-import type { clientRuntimeEnvSchema } from "#root/shared/helpers/client-envs";
 
 declare global {
-  export type AppEnv = InferOutput<typeof clientRuntimeEnvSchema> & {
+  export type AppEnv = InferOutput<typeof appRuntimeEnvSchema> & {
     IP: SocketAddress;
   };
 

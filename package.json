@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "start": "dotenvx run -- bun run server/index.ts",
+    "build": "vite build --debug",
+    "start": "bun --env-file=.env run server/index.ts",
     "lint": "npm-run-all --parallel lint:*",
     "format": "bunx @biomejs/biome check . --write",
     "lint.circular": "madge",

@@ -1,5 +1,3 @@
-import { boolean, object, optional, picklist, string } from "valibot";
-
 export const clientEnvs = Object.freeze({
   isNodeDev: import.meta.env.DEV,
   isDev: import.meta.env.VITE_ENV === "development",
@@ -12,14 +10,4 @@ export const clientEnvs = Object.freeze({
     appId: import.meta.env.VITE_FIREBASE_APP_ID,
     messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   },
-});
-
-export const clientRuntimeEnvSchema = object({
-  VITE_ENV: optional(picklist(["development", "staging", "optional(production"]), "development"),
-  VITE_NODE_ENV: optional(picklist(["development", "test", "optional(production"], "development")),
-  VITE_DEBUG: optional(boolean(), false),
-  VITE_COOKIE_DOMAIN: string(),
-  VITE_VERSION: optional(string(), "1.0.0"),
-
-  NODE_ENV: optional(picklist(["development", "test", "optional(production"], "development")),
 });

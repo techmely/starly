@@ -6,9 +6,8 @@
 export {}
 declare global {
   const appConfig: typeof import('../shared/helpers/const')['appConfig']
-  const baseSeo: typeof import("../../../shared/helpers/seo")["baseSeo"]
+  const baseSeo: (typeof import("../../../shared/helpers/seo"))["baseSeo"]
   const clientEnvs: typeof import('../shared/helpers/client-envs')['clientEnvs']
-  const clientRuntimeEnvSchema: typeof import('../shared/helpers/client-envs')['clientRuntimeEnvSchema']
   const configSWRHeaders: typeof import('../shared/helpers/cache')['configSWRHeaders']
   const copyTextToClipboard: typeof import('../shared/helpers/event')['copyTextToClipboard']
   const createRef: typeof import('react')['createRef']
@@ -19,8 +18,8 @@ declare global {
   const getLanguage: typeof import('../shared/helpers/geometry')['getLanguage']
   const lazy: typeof import('react')['lazy']
   const memo: typeof import('react')['memo']
-  const seoLinkHead: typeof import("../../../shared/helpers/seo")["seoLinkHead"]
-  const seoMetaHead: typeof import("../../../shared/helpers/seo")["seoMetaHead"]
+  const seoLinkHead: (typeof import("../../../shared/helpers/seo"))["seoLinkHead"]
+  const seoMetaHead: (typeof import("../../../shared/helpers/seo"))["seoMetaHead"]
   const startTransition: typeof import('react')['startTransition']
   const useCallback: typeof import('react')['useCallback']
   const useContext: typeof import('react')['useContext']

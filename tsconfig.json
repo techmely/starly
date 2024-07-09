@@ -31,7 +31,8 @@
     "jsx": "preserve",
     "jsxImportSource": "react",
     "paths": {
-      "#root/*": ["./*"]
+      "#root/*": ["./*"],
+      "#server/*": ["./server/*"]
     }
   },
   "include": ["./typings/global.d.ts", "./typings/reset.d.ts", "**/*.ts"]

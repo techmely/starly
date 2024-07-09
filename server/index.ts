@@ -4,7 +4,7 @@ import { timing } from "hono/timing";
 
 import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
 import { safeParse } from "valibot";
-import { clientRuntimeEnvSchema } from "#root/shared/helpers/client-envs";
+import { appRuntimeEnvSchema } from "./helpers/runtimeEnv";
 import firebaseAuthMiddleware from "./middleware/firebaseAuthHandler";
 import { telefuncMiddleware } from "./middleware/telefuncHandler";
 import vikeMiddleware from "./middleware/vikeHandler";
@@ -41,22 +41,22 @@ app.get("/.well-know/security", (c) => {
   return c.text("well-know security");
 });
 
-// Bun.serve({
-//   port: 3000,
-//   fetch(req, server) {
-//     const parsedEnv = safeParse(clientRuntimeEnvSchema, Bun.env);
-//     if (!parsedEnv.success) {
-//       return Response.json(
-//         {
-//           code: "BAD_ENVIRONMENT",
-//           message: "Some environment variables are missing or are invalid",
-//           errors: parsedEnv.issues,
-//         },
-//         { status: 500 },
-//       );
-//     }
-//     return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
-//   },
-// });
+const port = Bun.env.PORT || 3000;
 
-export default app;
+export default {
+  port,
+  fetch(req, server) {
+    const parsedEnv = safeParse(appRuntimeEnvSchema, Bun.env);
+    if (!parsedEnv.success) {
+      return Response.json(
+        {
+          code: "BAD_ENVIRONMENT",
+          message: "Some environment variables are missing or are invalid",
+          errors: parsedEnv.issues,
+        },
+        { status: 500 },
+      );
+    }
+    return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
+  },
+};

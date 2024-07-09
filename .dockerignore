@@ -1,6 +1,9 @@
+.git
+.idea
+.github
+.vscode
 node_modules
 *.log
 .output
-#.env # Not ignoring this file because it can contain build-related settings.
 .DS_Store
 .vercel
