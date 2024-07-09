@@ -20,7 +20,7 @@ Introduce the current state of things, enough for the intended audience to under
 [To be filled]
 
 Problem Statement
-What are the problems with the current state and why is it important to do this project? What benefits will solving the problem provide?
+What are the problems with the current state, and why is it important to do this project? What benefits will solving the problem provide?
 
 
 [To be filled]
