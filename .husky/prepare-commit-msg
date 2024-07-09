@@ -1,8 +1,17 @@
-#!/bin/bash
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
 textBase='\033[0m'
 textInformation='\033[1;34m'
 textSuccess='\033[1;32m'
+
+protectedBranch='dev'
+currentBranch=$(git branch --show-current)
+
+if [[ $protectedBranch = $currentBranch ]]; then
+    echo "Awhh ahh, pushing to $textInformation$protectedBranch$textBase is a sin! Please create a PR and repent."
+    exit 1
+fi
 
 branchName=$(git rev-parse --abbrev-ref HEAD)
 techmelyTicketReg='^(TML-[A-Z0-9]{2,4}|merge|hotfix|release)'
