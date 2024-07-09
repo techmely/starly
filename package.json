@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --debug",
-    "start": "bun --env-file=.env run server/index.ts",
+    "start": "bun run server/index.ts",
     "lint": "npm-run-all --parallel lint:*",
     "format": "bunx @biomejs/biome check . --write",
     "lint.circular": "madge",
