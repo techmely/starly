@@ -69,7 +69,7 @@ Requirements that are not covered by this design, they could be rare scenarios t
 
 Proposed Design
 Architecture
-Architecture diagram that sketches the services and components within or leveraged by the system. Blocks can be used to denote services/components and arrows between them to represent flow of data. Additional diagrams can also be used, e.g. state transition diagram, sequence diagram, etc.
+Architecture diagram that sketches the services and components within or leveraged by the system. Blocks can be used to denote services/components and arrows between them to represent the flow of data. Additional diagrams can also be used, e.g. state transition diagram, sequence diagram, etc.
 
 
 [To be filled]
