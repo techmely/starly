@@ -1,28 +1,39 @@
 {
-  "extends": "./tsconfig.base.json",
-  "files": [],
-  "references": [
-    {
-      "path": "apps/api"
-    },
-    {
-      "path": "apps/web"
-    },
-    {
-      "path": "packages/db"
-    },
-    {
-      "path": "packages/design-system"
-    },
-    {
-      "path": "packages/hono"
-    },
-    {
-      "path": "packages/models"
-    },
-    {
-      "path": "packages/models"
+  "compilerOptions": {
+    "target": "ES2022",
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite/client", "@types/bun"],
+    "composite": true,
+    "moduleDetection": "force",
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "useUnknownInCatchVariables": false,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "noImplicitOverride": true,
+    "declaration": true,
+    "importHelpers": true,
+    "allowJs": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "strict": true,
+    "pretty": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxImportSource": "react",
+    "paths": {
+      "#root/*": ["./*"],
+      "#server/*": ["./server/*"]
     }
-  ],
-  "include": ["./typings/global.d.ts", "./typings/reset.d.ts"]
+  },
+  "include": ["./typings/global.d.ts", "./typings/reset.d.ts", "**/*.ts"]
 }

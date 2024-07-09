@@ -1,5 +1,0 @@
-# Observability
-
-## Incident Response
-
-## Monitoring

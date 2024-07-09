@@ -4,7 +4,6 @@
 extend = [
   # { path = "scripts/api.toml" },
   # { path = "scripts/generate.toml" },
-  # { path = "scripts/migration.toml" },
   # { path = "scripts/mobile.toml" },
   # { path = "scripts/protobuf.toml" },
   { path = "scripts/docker.toml" },

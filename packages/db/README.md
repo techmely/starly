@@ -1,1 +1,0 @@
-# All the things relate to Techmely's Hono version
