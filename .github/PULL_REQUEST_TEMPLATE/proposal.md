@@ -26,7 +26,7 @@ What are the problems with the current state and why is it important to do this 
 [To be filled]
 
 Goals & Metrics
-What metrics will be used to measure and determine success of this design?
+What metrics will be used to measure and determine the success of this design?
 
 
 [To be filled]
