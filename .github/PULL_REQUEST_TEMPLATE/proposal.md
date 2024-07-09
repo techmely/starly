@@ -167,7 +167,7 @@ What questions do we not have answers to? How can we get answers? Will the lack 
 [To be filled]
 
 Discussions
-Prefer leaving inline comments since if possible (most collaborative documents support this), but feel free to use this section to capture questions from reviewers.
+Prefer leaving inline comments since if possible (most collaborative documents support this), but you may use this section to capture questions from reviewers.
 
 
 [To be filled]
