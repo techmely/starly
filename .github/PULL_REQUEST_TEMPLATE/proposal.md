@@ -10,7 +10,6 @@ Overview
 Objective
 Describe at a high level the goals of the project.
 
-
 [To be filled]
 
 Background
