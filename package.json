@@ -13,7 +13,8 @@
     "lint.biome": "bunx @biomejs/biome check . ",
     "lint.typecheck": "tsc --noEmit",
     "test.unit": "vitest run --passWithNoTests --isolate",
-    "upgrade.deps": "npm-check-updates --dep dev,prod,peer -u -x react -x react-dom -x @types/react -x @types/react-dom"
+    "upgrade.deps": "npm-check-updates --dep dev,prod,peer -u -x react -x react-dom -x @types/react -x @types/react-dom",
+    "prepare": "husky"
   },
   "dependencies": {
     "@builder.io/partytown": "0.10.2",
@@ -107,6 +108,7 @@
     "fontaine": "0.5.0",
     "fs-extra": "11.2.0",
     "happy-dom": "14.12.3",
+    "husky": "^9.0.11",
     "knip": "5.24.2",
     "linkinator": "6.1.1",
     "multiple-cucumber-html-reporter": "3.6.2",
