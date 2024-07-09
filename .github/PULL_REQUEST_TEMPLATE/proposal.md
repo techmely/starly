@@ -62,7 +62,7 @@ Performance, reliability, availability, etc. Characteristics that don’t affect
 [To be filled]
 
 Not in Scope
-Requirements that are not covered by this design, they could be rare scenarios that have minor impact or things that aren’t important now and will be covered in future.
+Requirements that are not covered by this design, they could be rare scenarios that have minor impact or things that aren’t critical now and will be covered in the future.
 
 
 [To be filled]
