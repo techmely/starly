@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       tags:
-        - "registry.gitlab.com/techmely/starly:0.0.0"
+        - "registry.gitlab.com/techmely/starly:0.0.1"
     ports:
       - "${PORT}:${PORT}"
     healthcheck:

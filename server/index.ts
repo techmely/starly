@@ -43,6 +43,8 @@ app.get("/.well-know/security", (c) => {
 
 const port = Bun.env.PORT || 3000;
 
+console.log(`App running on http://localhost:${port}`);
+
 export default {
   port,
   fetch(req, server) {
