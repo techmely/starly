@@ -1,10 +1,10 @@
-import type React from "react";
+import type { FC } from "react";
 
 type Props = {
   locale: string;
 };
 
-const Page: React.FC<Props> = (props) => {
+const Page: FC<Props> = (props) => {
   return <div>Index Page</div>;
 };
 

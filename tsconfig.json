@@ -28,12 +28,16 @@
     "forceConsistentCasingInFileNames": true,
     "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "jsxImportSource": "react",
+    "jsx": "react-jsx",
     "paths": {
       "#root/*": ["./*"],
       "#server/*": ["./server/*"]
     }
   },
-  "include": ["./typings/global.d.ts", "./typings/reset.d.ts", "**/*.ts"]
+  "include": [
+    "./typings/global.d.ts",
+    "./typings/reset.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

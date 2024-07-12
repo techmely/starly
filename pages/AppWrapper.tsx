@@ -1,14 +1,13 @@
 import type { FC, PropsWithChildren } from "react";
 import type { PageContext } from "vike/types";
-import { handleAnalytics } from "#root/modules/analytics/vercel/vercel.utils";
+import { handleAnalytics } from "#root/shared/libs/analytics/vercel/vercel.utils";
 
-type Props = {
-  pageContext: PageContext;
-};
+import "#root/assets/styles/nprogress.css";
+
+type Props = {};
 
 const AppWrapper: FC<PropsWithChildren<Props>> = ({ children }) => {
   if (!import.meta.env.SSR) {
-    initActions();
   }
   return <>{children}</>;
 };

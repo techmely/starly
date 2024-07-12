@@ -7,7 +7,7 @@ import { telefunc as ViteTelefunc } from "telefunc/vite";
 import Vike from "vike/plugin";
 import { defineConfig } from "vite";
 import ViteCompress from "vite-plugin-compression2";
-import viteAutoImport from "./modules/vite/vite.auto-import";
+import viteAutoImport from "./shared/libs/vite-auto-import";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -33,7 +33,7 @@ export default defineConfig({
       }),
     !isProd &&
       ViteHonoDevServer({
-        entry: "hono-entry.ts",
+        entry: "server/index.ts",
         exclude: [
           /^\/@.+$/,
           /.*\.(ts|tsx)($|\?)/,
