@@ -8,6 +8,7 @@ import Vike from "vike/plugin";
 import { defineConfig } from "vite";
 import ViteCompress from "vite-plugin-compression2";
 import viteAutoImport from "./shared/libs/vite-auto-import";
+import { inspectorServer as ViteInspectorServer } from "@react-dev-inspector/vite-plugin";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -48,6 +49,7 @@ export default defineConfig({
       }),
     ViteReact(),
     ViteTelefunc(),
+    ViteInspectorServer(),
   ].filter(Boolean),
   resolve: {
     alias: {
