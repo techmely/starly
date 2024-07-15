@@ -1,15 +1,18 @@
 import type { FC, PropsWithChildren } from "react";
-import type { PageContext } from "vike/types";
 import { handleAnalytics } from "#root/shared/libs/analytics/vercel/vercel.utils";
+import { Inspector } from "react-dev-inspector";
 
 import "#root/assets/styles/nprogress.css";
 
-type Props = {};
-
-const AppWrapper: FC<PropsWithChildren<Props>> = ({ children }) => {
+const AppWrapper: FC<PropsWithChildren> = ({ children }) => {
   if (!import.meta.env.SSR) {
   }
-  return <>{children}</>;
+  return (
+    <>
+      <Inspector />
+      {children}
+    </>
+  );
 };
 
 function initActions() {

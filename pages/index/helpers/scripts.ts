@@ -1,0 +1,8 @@
+import type { Head } from "@techmely/head";
+
+export const scriptHandlerSwitchTheme: Head = {
+  script: {
+    id: "handler-light-mode",
+    innerHtml: `(()=>{function e(e){window.__theme=e,"dark"===e?document.documentElement.classList.add("dark"):"light"===e&&document.documentElement.classList.remove("dark")}let t;try{t=localStorage.getItem("theme")}catch(a){}window.__setPreferredTheme=a=>{t=a,e(a);try{localStorage.setItem("theme",a)}catch(r){}};let r=t,c=window.matchMedia("(prefers-color-scheme: dark)");r||(r=c.matches?"dark":"light"),e(r),c.addEventListener("change",a=>{t||e(a.matches?"dark":"light")})})()`,
+  },
+};
