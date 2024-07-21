@@ -1,6 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { withFallback } from "@techmely/vike-react-query";
-import React from "react";
+import { withFallback } from "@techmely/vike-react";
 import { navigate } from "vike/client/router";
 
 export const Movies = withFallback(
@@ -30,7 +29,8 @@ export const Movies = withFallback(
           ))}
         </ol>
         <p>
-          Source: <a href="https://star-wars.brillout.com">star-wars.brillout.com</a>.
+          Source:{" "}
+          <a href="https://star-wars.brillout.com">star-wars.brillout.com</a>.
         </p>
       </>
     );
