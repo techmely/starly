@@ -1,25 +1,73 @@
-FROM oven/bun:alpine as builder
+FROM oven/bun:alpine as base
 WORKDIR /app
+
+## Server/Client env
+ARG VITE_ENV
+ENV VITE_ENV ${VITE_ENV}
+
+ARG VITE_BASE_URL
+ENV VITE_BASE_URL ${VITE_BASE_URL}
+
+ARG VITE_BASE_API_URL
+ENV VITE_BASE_API_URL ${VITE_BASE_API_URL}
+
+ARG VITE_APP_VERSION
+ENV VITE_APP_VERSION ${VITE_APP_VERSION}
+
+ARG VITE_COOKIE_DOMAIN
+ENV VITE_COOKIE_DOMAIN ${VITE_COOKIE_DOMAIN}
+
+ARG VITE_POSTHOG_KEY
+ENV VITE_POSTHOG_KEY ${VITE_POSTHOG_KEY}
+
+ARG VITE_POSTHOG_HOST
+ENV VITE_POSTHOG_HOST ${VITE_POSTHOG_HOST}
+
+ARG VITE_FIREBASE_API_KEY
+ENV VITE_FIREBASE_API_KEY ${VITE_FIREBASE_API_KEY}
+ARG VITE_FIREBASE_AUTH_DOMAIN
+ENV VITE_FIREBASE_AUTH_DOMAIN ${VITE_FIREBASE_AUTH_DOMAIN}
+ARG VITE_FIREBASE_PROJECT_ID
+ENV VITE_FIREBASE_PROJECT_ID ${VITE_FIREBASE_PROJECT_ID}
+ARG VITE_FIREBASE_STORAGE_BUCKET
+ENV VITE_FIREBASE_STORAGE_BUCKET ${VITE_FIREBASE_STORAGE_BUCKET}
+ARG VITE_FIREBASE_MESSAGING_SENDER_ID
+ENV VITE_FIREBASE_MESSAGING_SENDER_ID ${VITE_FIREBASE_MESSAGING_SENDER_ID}
+ARG VITE_FIREBASE_APP_ID
+ENV VITE_FIREBASE_APP_ID ${VITE_FIREBASE_APP_ID}
+
+## Server env
+ARG PORT
+ENV PORT ${PORT}
+ARG NODE_ENV=production
+ENV NODE_ENV ${NODE_ENV}
+
+ARG PEXELS_API_KEY
+ENV PEXELS_API_KEY ${PEXELS_API_KEY}
+
+ARG GOOGLE_APPLICATION_CREDENTIALS
+ENV GOOGLE_APPLICATION_CREDENTIALS ${GOOGLE_APPLICATION_CREDENTIALS}
+
+FROM base as builder
 
 COPY . .
-# RUN which bun
-RUN bun install --production
 
-FROM oven/bun:alpine
-WORKDIR /app
-# RUN which bun
+RUN bun install --frozen-lockfile
+RUN NODE_OPTIONS=--max_old_space_size=8192 bun run build
+
+FROM base as release
+
 COPY --from=builder app/dist ./dist
-# Open this comment in case you want to deploy locally
-# COPY --from=builder app/.env ./.env
+
 COPY --from=builder app/package.json ./package.json
 COPY --from=builder app/tsconfig.json ./tsconfig.json
 COPY --from=builder app/locales ./locales
 COPY --from=builder app/firebase ./firebase
 COPY --from=builder app/server ./server
 COPY --from=builder app/bun.lockb ./bun.lockb
-COPY --from=builder app/node_modules ./node_modules
 
-ENV NODE_ENV production
-EXPOSE 3000
+RUN bun install --production --frozen-lockfile-dry-run
+
+EXPOSE ${PORT}
 
 CMD [ "bun", "run", "start" ]

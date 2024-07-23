@@ -1,4 +1,4 @@
-import { serializeCookie } from "@techmely/utils";
+import { serializeCookie } from "@techmely/es-toolkit";
 import type { Context } from "hono";
 
 export async function firebaseAuthSignOutHandler(_c: Context<HonoEnv>) {

@@ -1,4 +1,4 @@
-import { serializeCookie } from "@techmely/utils";
+import { serializeCookie } from "@techmely/es-toolkit";
 import { getAuth } from "firebase-admin/auth";
 import type { Context } from "hono";
 import { firebaseAdmin } from "#server/modules/auth/firebaseAdmin";
@@ -10,9 +10,17 @@ export async function firebaseAuthSignInHandler(c: Context<HonoEnv>) {
   const expiresIn = 60 * 60 * 24 * 15 * 1000; // 15 days
 
   try {
-    const sessionCookie = await getAuth(firebaseAdmin).createSessionCookie(idToken, { expiresIn });
+    const sessionCookie = await getAuth(firebaseAdmin).createSessionCookie(
+      idToken,
+      { expiresIn }
+    );
 
-    const options = { maxAge: expiresIn / 1000, httpOnly: true, secure: true, path: "/" };
+    const options = {
+      maxAge: expiresIn / 1000,
+      httpOnly: true,
+      secure: true,
+      path: "/",
+    };
 
     return new Response(JSON.stringify({ status: "success" }), {
       status: 200,

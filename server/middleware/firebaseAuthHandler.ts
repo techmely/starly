@@ -1,4 +1,4 @@
-import { parseCookie } from "@techmely/utils";
+import { parseCookie } from "@techmely/es-toolkit";
 import { getAuth } from "firebase-admin/auth";
 import type { MiddlewareHandler } from "hono";
 import { firebaseAdmin } from "#server/modules/auth/firebaseAdmin";
@@ -14,7 +14,10 @@ export default function firebaseAuthMiddleware(): MiddlewareHandler<HonoEnv> {
 
     try {
       const auth = getAuth(firebaseAdmin);
-      const decodedIdToken = await auth.verifySessionCookie(sessionCookie, true);
+      const decodedIdToken = await auth.verifySessionCookie(
+        sessionCookie,
+        true
+      );
       const firebaseUser = await auth.getUser(decodedIdToken.sub);
       c.set("firebaseUser", firebaseUser);
     } catch (error) {

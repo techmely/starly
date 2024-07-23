@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-// import { serveStatic } from "hono/bun";
 import { timing } from "hono/timing";
 
 import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
@@ -16,6 +15,12 @@ app.use(commonContext());
 app.use(timing());
 app.use(secureHeadersMiddleware());
 app.use(firebaseAuthMiddleware());
+// app.use(
+//   "*",
+//   ipRestriction(getConnInfo, {
+//     denyList: [],
+//   })
+// );
 
 // if (isProd) {
 //   app.use("/assets/*", serveStatic({ root: "dist/client/" }));
@@ -56,9 +61,9 @@ export default {
           message: "Some environment variables are missing or are invalid",
           errors: parsedEnv.issues,
         },
-        { status: 500 },
+        { status: 500 }
       );
     }
-    return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
+    return app.fetch(req, { ...parsedEnv.output });
   },
 };

@@ -1,4 +1,4 @@
-import { invariant } from "@techmely/utils";
+import { invariant } from "@techmely/es-toolkit";
 import { ensureInitFirebaseAuth } from "../providers";
 import type { SignInOptions, SignInOutput } from "./auth.types";
 
@@ -9,13 +9,17 @@ export function headerWithToken(token: string) {
   };
 }
 
-export async function signInWithGithub(options: SignInOptions): Promise<SignInOutput> {
+export async function signInWithGithub(
+  options: SignInOptions
+): Promise<SignInOutput> {
   const { signInWithPopup, GithubAuthProvider } = await import("firebase/auth");
   const auth = await ensureInitFirebaseAuth(options.locale);
   const provider = new GithubAuthProvider();
   provider.addScope("user");
 
-  const [popupRes] = await Promise.allSettled([signInWithPopup(auth, provider)]);
+  const [popupRes] = await Promise.allSettled([
+    signInWithPopup(auth, provider),
+  ]);
   const error = popupRes.status === "rejected" ? popupRes.reason : undefined;
   if (error) {
     return error?.code;
@@ -43,14 +47,18 @@ export async function signInWithGithub(options: SignInOptions): Promise<SignInOu
   return { user, token, idToken };
 }
 
-export async function signInWithGoogle(options: SignInOptions): Promise<SignInOutput> {
+export async function signInWithGoogle(
+  options: SignInOptions
+): Promise<SignInOutput> {
   const { signInWithPopup, GoogleAuthProvider } = await import("firebase/auth");
   const fbAuth = await ensureInitFirebaseAuth(options.locale);
   const provider = new GoogleAuthProvider();
 
   provider.addScope("https://www.googleapis.com/auth/userinfo.profile");
 
-  const [popupRes] = await Promise.allSettled([signInWithPopup(fbAuth, provider)]);
+  const [popupRes] = await Promise.allSettled([
+    signInWithPopup(fbAuth, provider),
+  ]);
 
   const error = popupRes.status === "rejected" ? popupRes.reason : undefined;
   if (error) {
@@ -64,14 +72,20 @@ export async function signInWithGoogle(options: SignInOptions): Promise<SignInOu
   return { user, token, idToken };
 }
 
-export async function signInWithFacebook(options: SignInOptions): Promise<SignInOutput> {
-  const { signInWithPopup, FacebookAuthProvider } = await import("firebase/auth");
+export async function signInWithFacebook(
+  options: SignInOptions
+): Promise<SignInOutput> {
+  const { signInWithPopup, FacebookAuthProvider } = await import(
+    "firebase/auth"
+  );
   const auth = await ensureInitFirebaseAuth(options.locale);
   const provider = new FacebookAuthProvider();
 
   provider.addScope("email");
 
-  const [popupRes] = await Promise.allSettled([signInWithPopup(auth, provider)]);
+  const [popupRes] = await Promise.allSettled([
+    signInWithPopup(auth, provider),
+  ]);
   const error = popupRes.status === "rejected" ? popupRes.reason : undefined;
   if (error) {
     return error?.code;

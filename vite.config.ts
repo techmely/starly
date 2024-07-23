@@ -57,4 +57,7 @@ export default defineConfig({
       "#server": `${__dirname}/server`,
     },
   },
+  ssr: {
+    noExternal: ["@techmely/es-toolkit"],
+  },
 });
