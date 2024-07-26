@@ -6,7 +6,8 @@ import Wrapper from "./AppWrapper";
 
 const config: Config = {
   Wrapper,
-  headMetadata: {
+  stream: true,
+  metadata: {
     title: "Starly",
     description: "Empower Your Portfolio Fun & Effortlessly",
     canonical: "https://starly.techmely.com",
