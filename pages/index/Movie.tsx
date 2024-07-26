@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { withFallback } from "@techmely/vike-react";
+import { withFallback } from "@techmely/vike-react-query";
 import { navigate } from "vike/client/router";
 
 export const Movies = withFallback(
@@ -35,7 +35,7 @@ export const Movies = withFallback(
       </>
     );
   },
-  { Loading: "Loading movies..." },
+  { Loading: "Loading movies..." }
 );
 
 async function getStarWarsMovies(): Promise<any[]> {
