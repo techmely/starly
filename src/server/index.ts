@@ -1,6 +1,5 @@
 import { Hono } from "hono";
-import { getConnInfo, serveStatic } from "hono/bun";
-import { ipRestriction } from "hono/ip-restriction";
+import { compress } from "hono/compress";
 import { timing } from "hono/timing";
 
 import { commonContext } from "@techmely/hono";
@@ -19,16 +18,10 @@ app.use(commonContext());
 app.use(timing());
 app.use(secureHeadersMiddleware());
 app.use(firebaseAuthMiddleware());
-app.use(
-  "*",
-  ipRestriction(getConnInfo, {
-    denyList: [],
-  }),
-);
 
-if (isProd) {
-  app.use("/assets/*", serveStatic({ root: "dist/client/" }));
-}
+// if (isProd) {
+//   app.use("/assets/*", serveStatic({ root: "dist/client/" }));
+// }
 
 app.post("/_telefunc", telefuncMiddleware());
 
@@ -41,7 +34,7 @@ app.all("*", vikeMiddleware());
  * Bun currently not support CompressionStream yet
  * @see https://github.com/oven-sh/bun/issues/159
  */
-// app.use(compress());
+app.use(compress());
 
 app.get("/.well-know/security", (c) => {
   // const appPath = isProd ? rootPath : path.resolve(dirname, "..");
@@ -57,6 +50,7 @@ console.log(`App running on http://localhost:${port}`);
 export default {
   port,
   fetch(req, server) {
+    // const IP = server.requestIP(req),
     const parsedEnv = safeParse(appRuntimeEnvSchema, process.env);
     if (!parsedEnv.success) {
       return Response.json(
@@ -68,6 +62,6 @@ export default {
         { status: 500 },
       );
     }
-    return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
+    return app.fetch(req, { ...parsedEnv.output });
   },
 };
