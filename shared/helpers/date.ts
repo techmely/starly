@@ -1,4 +1,4 @@
-import { dayjs, formatDate, getUnixTime } from "@techmely/utils/dayjs";
+import { dayjs, formatDate, getUnixTime } from "@techmely/es-toolkit/dayjs";
 // timestamp is UTC
 const ONE_MINUTE = 60;
 const ONE_HOUR = 3600;
