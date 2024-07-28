@@ -30,13 +30,15 @@
     "resolveJsonModule": true,
     "jsx": "react-jsx",
     "paths": {
-      "#root/*": ["./*"],
-      "#server/*": ["./server/*"]
+      "#root/*": ["./src/*"],
+      "#server/*": ["./src/server/*"],
+      "$paraglide/*": ["./src/locales/paraglide/*"]
     }
   },
   "include": [
     "./typings/global.d.ts",
     "./typings/reset.d.ts",
+    "./src/locales/paraglide/**/*.js",
     "**/*.ts",
     "**/*.tsx"
   ]
