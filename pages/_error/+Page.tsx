@@ -1,7 +1,7 @@
 // {
 //   /* <template>
 //   <div class="grid w-full h-100vh items-center justify-center">
-//     <div class="tml-container space-y-xl">
+//     <div class="starly-container space-y-xl">
 //       <h1 class="text-center text-3xl text-red-6">Oops! ERROR DURING RENDERING</h1>
 //       <div class="flex justify-center">
 //         <a class="text-center underline text-xl text-blue-500" target="_blank"

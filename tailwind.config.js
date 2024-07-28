@@ -31,7 +31,7 @@ export default {
   plugins: [
     plugin(({ addComponents, theme }) => {
       addComponents({
-        ".tml-container": {
+        ".starly-container": {
           marginInline: "max(0px, 50% - 360px / 2)",
           [`@media (min-width: ${theme("screens.sm")})`]: {
             marginInline: "max(0px, 50% - 640px / 2)",

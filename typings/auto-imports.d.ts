@@ -18,6 +18,7 @@ declare global {
   const getLanguage: typeof import('../shared/helpers/geometry')['getLanguage']
   const lazy: typeof import('react')['lazy']
   const memo: typeof import('react')['memo']
+  const request: typeof import('../shared/helpers/request')['default']
   const seoLinkHead: (typeof import("../../../shared/helpers/seo"))["seoLinkHead"]
   const seoMetaHead: (typeof import("../../../shared/helpers/seo"))["seoMetaHead"]
   const startTransition: typeof import('react')['startTransition']

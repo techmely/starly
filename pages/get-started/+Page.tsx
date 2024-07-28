@@ -1,6 +1,6 @@
 // {
 //   /* <template>
-//   <section class="tml-container pt-8">
+//   <section class="starly-container pt-8">
 //     <div class="flex gap-4">
 //       <div class="grow">
 //         <h1 class="text-5xl leading-[1.25]">
