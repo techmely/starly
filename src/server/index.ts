@@ -1,7 +1,11 @@
 import { Hono } from "hono";
+import { getConnInfo, serveStatic } from "hono/bun";
+import { ipRestriction } from "hono/ip-restriction";
 import { timing } from "hono/timing";
 
-import { commonContext, secureHeadersMiddleware } from "@techmely/hono";
+import { commonContext } from "@techmely/hono";
+import { secureHeadersMiddleware } from "@techmely/hono/secure-header";
+
 import { safeParse } from "valibot";
 import { appRuntimeEnvSchema } from "./helpers/runtimeEnv";
 import firebaseAuthMiddleware from "./middleware/firebaseAuthHandler";
@@ -15,16 +19,16 @@ app.use(commonContext());
 app.use(timing());
 app.use(secureHeadersMiddleware());
 app.use(firebaseAuthMiddleware());
-// app.use(
-//   "*",
-//   ipRestriction(getConnInfo, {
-//     denyList: [],
-//   })
-// );
+app.use(
+  "*",
+  ipRestriction(getConnInfo, {
+    denyList: [],
+  }),
+);
 
-// if (isProd) {
-//   app.use("/assets/*", serveStatic({ root: "dist/client/" }));
-// }
+if (isProd) {
+  app.use("/assets/*", serveStatic({ root: "dist/client/" }));
+}
 
 app.post("/_telefunc", telefuncMiddleware());
 
@@ -61,9 +65,9 @@ export default {
           message: "Some environment variables are missing or are invalid",
           errors: parsedEnv.issues,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
-    return app.fetch(req, { ...parsedEnv.output });
+    return app.fetch(req, { IP: server.requestIP(req), ...parsedEnv.output });
   },
 };

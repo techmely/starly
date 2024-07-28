@@ -8,7 +8,7 @@ import type {
   UpdateQueryBuilder,
   UpdateResult,
 } from "kysely";
-import type { AppDatabase } from "../../../server/utils/planet-scale";
+import type { AppDatabase } from "../../../src/server/utils/planet-scale";
 
 export type PrimaryKey = string | number;
 

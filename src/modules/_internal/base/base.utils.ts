@@ -1,4 +1,4 @@
-import type { AppDatabase } from "../../../server/utils/planet-scale";
+import type { AppDatabase } from "../../../src/server/utils/planet-scale";
 
 import type {
   DbFilter,

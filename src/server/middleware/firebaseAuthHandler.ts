@@ -14,10 +14,7 @@ export default function firebaseAuthMiddleware(): MiddlewareHandler<HonoEnv> {
 
     try {
       const auth = getAuth(firebaseAdmin);
-      const decodedIdToken = await auth.verifySessionCookie(
-        sessionCookie,
-        true
-      );
+      const decodedIdToken = await auth.verifySessionCookie(sessionCookie, true);
       const firebaseUser = await auth.getUser(decodedIdToken.sub);
       c.set("firebaseUser", firebaseUser);
     } catch (error) {

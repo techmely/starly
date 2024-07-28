@@ -1,6 +1,6 @@
 import type { FC, PropsWithChildren } from "react";
-import { handleAnalytics } from "#root/shared/libs/analytics/vercel/vercel.utils";
 import { Inspector } from "react-dev-inspector";
+import { handleAnalytics } from "#root/shared/libs/analytics/vercel/vercel.utils";
 
 import "#root/assets/styles/nprogress.css";
 

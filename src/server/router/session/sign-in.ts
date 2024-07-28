@@ -10,10 +10,7 @@ export async function firebaseAuthSignInHandler(c: Context<HonoEnv>) {
   const expiresIn = 60 * 60 * 24 * 15 * 1000; // 15 days
 
   try {
-    const sessionCookie = await getAuth(firebaseAdmin).createSessionCookie(
-      idToken,
-      { expiresIn }
-    );
+    const sessionCookie = await getAuth(firebaseAdmin).createSessionCookie(idToken, { expiresIn });
 
     const options = {
       maxAge: expiresIn / 1000,

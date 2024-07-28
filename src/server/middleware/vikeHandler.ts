@@ -1,10 +1,10 @@
+import { isMobileUserAgent } from "@techmely/es-toolkit";
+import { getLastGitCommitHash } from "@techmely/es-toolkit/getGitLastCommitHash";
 import type { MiddlewareHandler } from "hono";
 import { getCookie, setCookie } from "hono/cookie";
 import { renderPage } from "vike/server";
 import { localeKey, localeMaxAge } from "#root/locales/locales.utils";
-import { isMobileUserAgent } from "@techmely/es-toolkit";
-import pkg from "../../package.json";
-import { getLastGitCommitHash } from "@techmely/es-toolkit/getGitLastCommitHash";
+import pkg from "../../../package.json";
 
 export default function vikeMiddleware(): MiddlewareHandler<HonoEnv> {
   return async (c, next) => {
@@ -16,8 +16,6 @@ export default function vikeMiddleware(): MiddlewareHandler<HonoEnv> {
       userAgent,
       [localeKey]: locale,
       isMobile: isMobileUserAgent(userAgent),
-      ssr: true,
-      stream: true,
       dataHeadHtml: {
         appVersion: pkg.version,
         appEnv: c.env.VITE_NODE_ENV || "development",
@@ -47,13 +45,6 @@ export default function vikeMiddleware(): MiddlewareHandler<HonoEnv> {
         link: earlyHints.map((e) => e.earlyHintLink),
       });
 
-    // const { readable, writable } = new TransformStream();
-    // pipe(writable);
-
-    // return new Response(readable, {
-    //   status: statusCode,
-    //   headers: headers,
-    // });
     for (const [name, value] of headers) {
       c.header(name, value);
     }

@@ -30,14 +30,9 @@
     "resolveJsonModule": true,
     "jsx": "react-jsx",
     "paths": {
-      "#root/*": ["./*"],
-      "#server/*": ["./server/*"]
+      "#root/*": ["./src/*"],
+      "#server/*": ["./src/server/*"]
     }
   },
-  "include": [
-    "./typings/global.d.ts",
-    "./typings/reset.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "include": ["./typings/global.d.ts", "./typings/reset.d.ts", "**/*.ts", "**/*.tsx"]
 }
