@@ -62,6 +62,7 @@ export default defineConfig({
     alias: {
       "#root": resolve(root, "src"),
       "#server": resolve(root, "src/server"),
+      $paraglide: resolve(root, "src/locales/paraglide"),
     },
   },
 });
