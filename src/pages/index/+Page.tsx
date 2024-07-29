@@ -1,19 +1,10 @@
-import * as t from "$paraglide/messages.js";
-import type { FC } from "react";
-import { Movies } from "./Movie";
+import './index.scss'
+import HomeHero from "#root/pages/index/components/HomeHero";
 
-type Props = {
-  locale: string;
-};
-
-const IndexPage: FC<Props> = (props) => {
-  return (
-    <div>
-      Index Page
-      <h1>{t.seoTitle()}</h1>
-      <Movies />
-    </div>
-  );
+const IndexPage = () => {
+  return <>
+    <HomeHero />
+  </>;
 };
 
 export default IndexPage;

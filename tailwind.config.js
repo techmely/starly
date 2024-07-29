@@ -4,6 +4,9 @@ const plugin = require("tailwindcss/plugin");
 export default {
   darkMode: ['class', '[data-theme="dark"]'],
   content: ["./src/pages/**/*.{ts,tsx}", "./src/shared/components/**/*.tsx", "./src/shared/layouts/**/*.tsx"],
+  corePlugins: {
+    preflight: false,
+  },
   theme: {
     extend: {
       colors: {

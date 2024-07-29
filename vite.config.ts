@@ -65,4 +65,7 @@ export default defineConfig({
       $paraglide: resolve(root, "src/locales/paraglide"),
     },
   },
+  ssr: {
+    noExternal: ['react-use']
+  }
 });
