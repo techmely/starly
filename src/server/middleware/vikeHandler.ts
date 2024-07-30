@@ -14,7 +14,7 @@ export default function vikeMiddleware(): MiddlewareHandler<HonoEnv> {
 
     const metadata: Partial<VikeMetadata> = {
       userAgent,
-      [localeKey]: locale,
+      locale,
       isMobile: isMobileUserAgent(userAgent),
       dataHeadHtml: {
         appVersion: pkg.version,

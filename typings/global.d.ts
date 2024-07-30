@@ -1,3 +1,4 @@
+import type { AppRuntimeEnv } from "#root/server/helpers/runtimeEnv";
 import type _Sentry from "@sentry/browser";
 
 type GtagOptions = {
@@ -38,6 +39,8 @@ declare global {
   const mixpanel: MixPanelConfig;
   const Sentry: typeof _Sentry;
 
+  var runtimeEnv: AppRuntimeEnv
+
   interface Window {
     gtag(command: GtagCommand, target?: string, options?: GtagOptions | number | string): void;
     gtag(command: GtagCommand, options?: GtagOptions): void;
@@ -53,12 +56,9 @@ declare global {
       };
     };
   }
-  // WICG Spec: https://wicg.github.io/ua-client-hints
-
   type Navigator = NavigatorUA;
   type WorkerNavigator = NavigatorUA;
 
-  // https://wicg.github.io/ua-client-hints/#navigatorua
   interface NavigatorUA {
     readonly userLanguage?: string;
     readonly browserLanguage?: string;
