@@ -12,7 +12,6 @@ import { telefuncMiddleware } from "./middleware/telefuncHandler";
 import vikeMiddleware from "./middleware/vikeHandler";
 import { sessionRouter } from "./router/session";
 
-const isProd = process.env.NODE_ENV === "production";
 const app = new Hono<HonoEnv>();
 app.use(commonContext());
 app.use(timing());
@@ -29,11 +28,6 @@ app.route("/api/session", sessionRouter);
 
 app.all("*", vikeMiddleware());
 
-/*
-
- * Bun currently not support CompressionStream yet
- * @see https://github.com/oven-sh/bun/issues/159
- */
 app.use(compress());
 
 app.get("/.well-know/security", (c) => {
@@ -62,6 +56,7 @@ export default {
         { status: 500 },
       );
     }
+    globalThis.runtimeEnv = parsedEnv.output;
     return app.fetch(req, { ...parsedEnv.output });
   },
 };

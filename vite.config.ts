@@ -37,7 +37,7 @@ export default defineConfig({
       project: "./project.inlang",
       outdir: "./src/locales/paraglide",
     }),
-    ViteMillion.vite({ auto: true }),
+    isProd && ViteMillion.vite({ telemetry: false, auto: true }),
     FontaineTransform.vite({
       fallbacks: [
         "Be Vietnam Pro,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
@@ -64,5 +64,8 @@ export default defineConfig({
       "#server": resolve(root, "src/server"),
       $paraglide: resolve(root, "src/locales/paraglide"),
     },
+  },
+  ssr: {
+    noExternal: ["react-use"],
   },
 });

@@ -1,11 +1,13 @@
-import VikeReact from "@techmely/vike-react/config";
 import VikeReactQuery from "@techmely/vike-react-query/config";
+import VikeReact from "@techmely/vike-react/config";
 
 import type { Config } from "vike/types";
 import Wrapper from "./AppWrapper";
+import DefaultLayout from "#root/shared/layouts/default";
 
 const config: Config = {
   Wrapper,
+  Layout: DefaultLayout,
   stream: true,
   metadata: {
     title: "Starly",
@@ -15,12 +17,11 @@ const config: Config = {
     thumbnail: "https://starly.techmely.com/thumbnail.webp",
     color: {
       supportedColorSchemes: "dark light",
-      colorScheme: "dark",
+      colorScheme: "light",
       themeColor: "#00000",
     },
     hint: {
-      viewport:
-        "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+      viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
       acceptCh: "Accept, DPR, Viewport-Width, ECT, Width, Save-Data",
     },
     favicon: {
