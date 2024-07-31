@@ -28,7 +28,7 @@ const TheHeader = () => {
         <div
           className={clsx(
             "mx-auto flex h-18 w-[calc(100%-20px)] max-w-[1172px] items-center justify-between whitespace-nowrap px-22 transition-all sm:px-48 md:w-[calc(100%-120px)]",
-            isScrolling ? "md:h-28" : "md:h-16",
+            isScrolling ? "md:h-16" : "md:h-28",
           )}
         >
           <Link href="/" className="">
