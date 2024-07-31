@@ -1,13 +1,19 @@
 const plugin = require("tailwindcss/plugin");
+import fluidPlugin, { extract, screens, fontSize } from 'fluid-tailwind'
 
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class', '[data-theme="dark"]'],
-  content: ["./src/pages/**/*.{ts,tsx}", "./src/shared/components/**/*.tsx", "./src/shared/layouts/**/*.tsx"],
+  content: {
+    files: ["./src/pages/**/*.{ts,tsx}", "./src/shared/components/**/*.tsx", "./src/shared/layouts/**/*.tsx"],
+    extract
+  },
   corePlugins: {
     preflight: false,
   },
   theme: {
+    screens,
+    fontSize,
     extend: {
       colors: {
         primary: {
@@ -55,6 +61,8 @@ export default {
     },
   },
   plugins: [
+    fluidPlugin,
+    require("tailwindcss-inner-border"),
     plugin(({ addComponents, theme }) => {
       addComponents({
         ".starly-container": {

@@ -8,7 +8,7 @@ const NavHeader = ({ isScrolling }: Props) => {
   return (
     <nav
       className={clsx(
-        "header-nav !fixed z-[2000] transition-all md:z-[2001] md:center-x md-max:pointer-events-none md-max:inset-0 md-max:top-0 md-max:flex md-max:w-[100vw] md-max:scale-105 md-max:flex-col md-max:p-20 md-max:pt-96 md-max:opacity-0 md-max:blur-[5px] md-max:bg-background",
+        "header-nav !fixed z-[2000] transition-all md:z-[2001] center-x md-max:pointer-events-none md-max:inset-0 md-max:top-0 md-max:flex md-max:w-[100vw] md-max:scale-105 md-max:flex-col md-max:p-20 md-max:pt-96 md-max:opacity-0 md-max:blur-[5px] md-max:bg-background",
         isScrolling ? "top-4" : "top-[42px]",
       )}
     >
