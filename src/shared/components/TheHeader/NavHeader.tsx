@@ -14,7 +14,7 @@ const NavHeader = ({ isScrolling }: Props) => {
     >
       <ul
         className={clsx(
-          "items-center gap-16 md:flex md:text-body-small-medium md-max:flex-1 md-max:text-title-h3",
+          "flex items-center gap-4 md:flex md:text-body-small-medium md-max:flex-1 md-max:text-title-h3",
           isScrolling && "lg-max:[&>*:nth-child(n+3)]:hidden",
         )}
       >
@@ -22,12 +22,18 @@ const NavHeader = ({ isScrolling }: Props) => {
           <a href="#products" className="hover:text-primary">
             Products
           </a>
+        </li>
+        <li className="relative block rounded-6 px-12 py-6 before:scale-90 before:opacity-0 before:transition-all before:overlay hover:before:scale-100 hover:before:opacity-100 before:bg-neutral-opaque-8">
           <a href="#solutions" className="hover:text-primary">
             Solutions
           </a>
+        </li>
+        <li className="relative block rounded-6 px-12 py-6 before:scale-90 before:opacity-0 before:transition-all before:overlay hover:before:scale-100 hover:before:opacity-100 before:bg-neutral-opaque-8">
           <a href="/feeds" className="hover:text-primary">
             Community Feeds
           </a>
+        </li>
+        <li className="relative block rounded-6 px-12 py-6 before:scale-90 before:opacity-0 before:transition-all before:overlay hover:before:scale-100 hover:before:opacity-100 before:bg-neutral-opaque-8">
           <a href="#resources" className="hover:text-primary">
             Resources
           </a>
