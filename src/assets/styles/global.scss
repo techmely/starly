@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --primary-50:  117 67% 94%;
+    --primary-50: 117 67% 94%;
     --primary-100: 116 65% 88%;
     --primary-200: 116 66% 76%;
     --primary-300: 115 65% 64%;
@@ -17,11 +17,69 @@
     --primary-700: 115 100% 24%;
     --primary-800: 116 100% 16%;
     --primary-900: 116 100% 8%;
+    --background: #FBFBFC;
+    --background-light: #FBFBFC;
+    --background-dark: #090B16;
+    --neutral-loud: #1F2632;
+    --neutral-mute: #464D5C;
+    --neutral-white: #FFFFFF;
+    --neutral-normal: #9CA5B4;
+    --neutral-alpha-loud-alpha: #030815E0;
+    --neutral-alpha-muted-alpha: #020E2B94;
+    --neutral-alpha-mute-alpha: #000B21BB;
+    --neutral-alpha-normal-alpha: #01163F63;
+    --white-24: #FFFFFF3D;
+    --white-48: #FFFFFF7A;
+    --white-64: #FFFFFFA3;
+    --white-72: #FFFFFFB8;
+    --white-80: #FFFFFFCC;
+    --neutral-opaque-2: #1D3E7A05;
+    --neutral-opaque-4: #1D3E7A0A;
+    --neutral-opaque-6: #1D3E7A0F;
+    --neutral-opaque-8: #1D3E7A14;
+    --neutral-opaque-10: #1D3E7A1A
+  }
+
+
+  @supports (color: color(display-p3 1 1 1)) {
+    :root {
+      --primary-50: color(display-p3 0.9179 0.9778 0.9059);
+      --primary-100: color(display-p3 0.8404 0.9539 0.8144);
+      --primary-200: color(display-p3 0.6883 0.9103 0.6328);
+      --primary-300: color(display-p3 0.5545 0.864 0.4627);
+      --primary-400: color(display-p3 0.4402 0.8252 0.3148);
+      --primary-500: color(display-p3 0.3684 0.7882 0.2316);
+      --primary-600: color(display-p3 0.2906 0.6304 0.178);
+      --primary-700: color(display-p3 0.2131 0.4726 0.1244);
+      --primary-800: color(display-p3 0.135 0.3147 0.0721);
+      --primary-900: color(display-p3 0.0569 0.1571 0.0207);
+      --background: color(display-p3 0.9843 0.9843 0.9882);
+      --background-light: color(display-p3 0.9843 0.9843 0.9882);
+      --background-dark: color(display-p3 0.036 0.0424 0.084);
+      --neutral-loud: color(display-p3 0.128 0.1498 0.192);
+      --neutral-mute: color(display-p3 0.2764 0.3029 0.3612);
+      --neutral-white: color(display-p3 1 1 1);
+      --neutral-normal: color(display-p3 0.6192 0.6447 0.7008);
+      --neutral-alpha-loud-alpha: color(display-p3 0.0118 0.0314 0.0824 / 0.88);
+      --neutral-alpha-muted-alpha: color(display-p3 0.0078 0.0549 0.1686 / 0.58);
+      --neutral-alpha-mute-alpha: color(display-p3 0.0078 0.0431 0.1255 / 0.73);
+      --neutral-alpha-normal-alpha: color(display-p3 0.0235 0.0863 0.2353 / 0.39);
+      --white-24: color(display-p3 1 1 1 / 0.24);
+      --white-48: color(display-p3 1 1 1 / 0.48);
+      --white-64: color(display-p3 1 1 1 / 0.64);
+      --white-72: color(display-p3 1 1 1 / 0.72);
+      --white-80: color(display-p3 1 1 1 / 0.80);
+      --neutral-opaque-2: color(display-p3 0.1137 0.2431 0.4784 / 0.02);
+      --neutral-opaque-4: color(display-p3 0.1137 0.2431 0.4784 / 0.04);
+      --neutral-opaque-6: color(display-p3 0.1137 0.2431 0.4784 / 0.06);
+      --neutral-opaque-8: color(display-p3 0.1137 0.2431 0.4784 / 0.08);
+      --neutral-opaque-10: color(display-p3 0.1137 0.2431 0.4784 / 0.10)
+    }
   }
 }
 
 [data-theme="dreams"] {
-  --primary-50:  267 100% 96%;
+  --primary-50: 267 100% 96%;
   --primary-100: 268 100% 93%;
   --primary-200: 268 100% 85%;
   --primary-300: 267 100% 78%;
@@ -36,7 +94,7 @@
 body {
   background-color: white;
   color: theme('colors.gray.900');
-  font-family:Be Vietnam Pro,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: Be Vietnam Pro, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   overflow-wrap: break-word;
 }
 
@@ -67,15 +125,19 @@ body::-webkit-scrollbar-track {
 
 .starly-container {
   margin-inline: max(0px, 50% - 360px / 2);
+
   @screen sm {
     margin-inline: max(0px, 50% - 640px / 2);
   }
+
   @screen md {
     margin-inline: max(0px, 50% - 720px / 2);
   }
+
   @screen lg {
     margin-inline: max(0px, 50% - 900px / 2);
   }
+
   @screen xl {
     margin-inline: max(0px, 50% - 1120px / 2);
   }
@@ -95,7 +157,26 @@ body::-webkit-scrollbar-track {
   justify-items: center;
 }
 
+.center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
 @keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 100%; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }

@@ -1,27 +1,33 @@
 const plugin = require("tailwindcss/plugin");
+import fluidPlugin, { extract, screens, fontSize } from 'fluid-tailwind'
 
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class', '[data-theme="dark"]'],
-  content: ["./src/pages/**/*.{ts,tsx}", "./src/shared/components/**/*.tsx", "./src/shared/layouts/**/*.tsx"],
+  content: {
+    files: ["./src/pages/**/*.{ts,tsx}", "./src/shared/components/**/*.tsx", "./src/shared/layouts/**/*.tsx"],
+    extract
+  },
   corePlugins: {
     preflight: false,
   },
   theme: {
+    screens,
+    fontSize,
     extend: {
       colors: {
         primary: {
-          50: "hsl(var(--primary-50) / <alpha-value>)",
-          100: "hsl(var(--primary-100) / <alpha-value>)",
-          200: "hsl(var(--primary-200) / <alpha-value>)",
-          300: "hsl(var(--primary-300) / <alpha-value>)",
-          400: "hsl(var(--primary-400) / <alpha-value>)",
-          500: "hsl(var(--primary-500) / <alpha-value>)",
-          600: "hsl(var(--primary-600) / <alpha-value>)",
-          700: "hsl(var(--primary-700) / <alpha-value>)",
-          800: "hsl(var(--primary-800) / <alpha-value>)",
-          900: "hsl(var(--primary-900) / <alpha-value>)",
-          950: "hsl(var(--primary-950) / <alpha-value>)",
+          50: "var(--primary-50) <alpha-value>",
+          100: "var(--primary-100) <alpha-value>",
+          200: "var(--primary-200) <alpha-value>",
+          300: "var(--primary-300) <alpha-value>",
+          400: "var(--primary-400) <alpha-value>",
+          500: "var(--primary-500) <alpha-value>",
+          600: "var(--primary-600) <alpha-value>",
+          700: "var(--primary-700) <alpha-value>",
+          800: "var(--primary-800) <alpha-value>",
+          900: "var(--primary-900) <alpha-value>",
+          950: "var(--primary-950) <alpha-value>",
         },
       },
       keyframes: {
@@ -55,6 +61,8 @@ export default {
     },
   },
   plugins: [
+    fluidPlugin,
+    require("tailwindcss-inner-border"),
     plugin(({ addComponents, theme }) => {
       addComponents({
         ".starly-container": {

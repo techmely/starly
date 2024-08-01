@@ -27,28 +27,44 @@ const TheHeader = () => {
       >
         <div
           className={clsx(
-            "mx-auto flex h-18 w-[calc(100%-20px)] max-w-[1172px] items-center justify-between whitespace-nowrap px-22 transition-all sm:px-48 md:w-[calc(100%-120px)]",
-            isScrolling ? "md:h-28" : "md:h-16",
+            "mx-auto flex h-18 w-[calc(100%-20px)] max-w-[1172px] items-center justify-between whitespace-nowrap px-[22px] transition-all sm:px-12 md:w-[calc(100%-120px)]",
+            isScrolling ? "md:h-16" : "md:h-28",
           )}
         >
           <Link href="/" className="">
             <div data-block-logo>Logo</div>
           </Link>
           <div data-block-actions className="flex gap-8 md:gap-16">
-            <div className="headers-action-buttons">
-              <div className="flex gap-12 transition-all sm:translate-x-120">
-                <a
+            <div className="headers-action-buttons relative left-8 overflow-hidden pr-8">
+              <div
+                className={clsx(
+                  "flex gap-3 transition-all",
+                  isScrolling ? "" : "sm:translate-x-[120px]",
+                )}
+              >
+                <Link
+                  href="/sales/take-a-tour"
+                  className={clsx(
+                    "relative rounded-md px-3 py-2.5 text-base transition-colors inner-border inner-border-slate-400 active:translate-y-[0.5px] hover:bg-green-200",
+                  )}
+                >
+                  Take a Tour
+                </Link>
+                <Link
                   href="/pricing"
-                  className="relative cursor-pointer rounded-6 bg-[#212631] px-12 py-6 text-body-small-medium text-white transition-all hover:bg-[#1B1F29] active:translate-y-[0.5px] active:bg-[#171B24] sm-max:hidden opacity-0 grayscale"
+                  className={clsx(
+                    "relative cursor-pointer rounded-md bg-slate-800 px-3 py-2.5 text-base text-white transition-all hover:bg-slate-500 active:translate-y-[0.5px] active:bg-[#171B24] sm-max:hidden grayscale",
+                    !isScrolling && "opacity-0",
+                  )}
                 >
                   Pricing+ Sign Up
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </header>
-      <NavHeader />
+      <NavHeader isScrolling={isScrolling} />
     </>
   );
 };
