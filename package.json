@@ -48,7 +48,7 @@
     "@techmely/vike-react": "3.1.10",
     "@techmely/vike-react-query": "4.3.11",
     "@upstash/ratelimit": "2.0.1",
-    "@upstash/redis": "1.33.0",
+    "@upstash/redis": "1.34.0",
     "@wasmer/sdk": "0.6.0",
     "beanheads": "0.3.3",
     "bentocache": "1.0.0-beta.9",
