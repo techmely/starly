@@ -25,11 +25,11 @@ const NavHeader = ({ isScrolling }: Props) => {
           <a href="#solutions" className="hover:text-primary">
             Solutions
           </a>
-          <a href="#feeds" className="hover:text-primary">
+          <a href="/feeds" className="hover:text-primary">
             Community Feeds
           </a>
           <a href="#resources" className="hover:text-primary">
-            Community Feeds
+            Resources
           </a>
         </li>
       </ul>
