@@ -132,7 +132,7 @@
     "tsx": "4.16.2",
     "typescript": "^5.5.4",
     "unplugin-auto-import": "0.18.2",
-    "vike": "0.4.181",
+    "vike": "0.4.182",
     "vite": "5.3.5",
     "vite-plugin-cjs-interop": "2.1.1",
     "vite-plugin-compression2": "1.1.3",
