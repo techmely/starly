@@ -57,7 +57,7 @@
     "clsx": "2.1.1",
     "firebase": "10.12.4",
     "firebase-admin": "12.3.0",
-    "framer-motion": "11.3.19",
+    "framer-motion": "11.3.20",
     "fuse.js": "7.0.0",
     "gsap": "3.12.5",
     "hono": "^4.5.3",
