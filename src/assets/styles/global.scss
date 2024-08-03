@@ -43,37 +43,33 @@
 
   @supports (color: color(display-p3 1 1 1)) {
     :root {
-      --primary-50: color(display-p3 0.9179 0.9778 0.9059);
-      --primary-100: color(display-p3 0.8404 0.9539 0.8144);
-      --primary-200: color(display-p3 0.6883 0.9103 0.6328);
-      --primary-300: color(display-p3 0.5545 0.864 0.4627);
-      --primary-400: color(display-p3 0.4402 0.8252 0.3148);
-      --primary-500: color(display-p3 0.3684 0.7882 0.2316);
-      --primary-600: color(display-p3 0.2906 0.6304 0.178);
-      --primary-700: color(display-p3 0.2131 0.4726 0.1244);
-      --primary-800: color(display-p3 0.135 0.3147 0.0721);
-      --primary-900: color(display-p3 0.0569 0.1571 0.0207);
-      --background: color(display-p3 0.9843 0.9843 0.9882);
-      --background-light: color(display-p3 0.9843 0.9843 0.9882);
-      --background-dark: color(display-p3 0.036 0.0424 0.084);
-      --neutral-loud: color(display-p3 0.128 0.1498 0.192);
-      --neutral-mute: color(display-p3 0.2764 0.3029 0.3612);
-      --neutral-white: color(display-p3 1 1 1);
-      --neutral-normal: color(display-p3 0.6192 0.6447 0.7008);
-      --neutral-alpha-loud-alpha: color(display-p3 0.0118 0.0314 0.0824 / 0.88);
-      --neutral-alpha-muted-alpha: color(display-p3 0.0078 0.0549 0.1686 / 0.58);
-      --neutral-alpha-mute-alpha: color(display-p3 0.0078 0.0431 0.1255 / 0.73);
-      --neutral-alpha-normal-alpha: color(display-p3 0.0235 0.0863 0.2353 / 0.39);
-      --white-24: color(display-p3 1 1 1 / 0.24);
-      --white-48: color(display-p3 1 1 1 / 0.48);
-      --white-64: color(display-p3 1 1 1 / 0.64);
-      --white-72: color(display-p3 1 1 1 / 0.72);
-      --white-80: color(display-p3 1 1 1 / 0.80);
-      --neutral-opaque-2: color(display-p3 0.1137 0.2431 0.4784 / 0.02);
-      --neutral-opaque-4: color(display-p3 0.1137 0.2431 0.4784 / 0.04);
-      --neutral-opaque-6: color(display-p3 0.1137 0.2431 0.4784 / 0.06);
-      --neutral-opaque-8: color(display-p3 0.1137 0.2431 0.4784 / 0.08);
-      --neutral-opaque-10: color(display-p3 0.1137 0.2431 0.4784 / 0.10)
+      --primary-50: 0.9179 0.9778 0.9059;
+      --primary-100: 0.8404 0.9539 0.8144;
+      --primary-200: 0.6883 0.9103 0.6328;
+      --primary-300: 0.5545 0.864 0.4627;
+      --primary-400: 0.4402 0.8252 0.3148;
+      --primary-500: 0.3684 0.7882 0.2316;
+      --primary-600: 0.2906 0.6304 0.178;
+      --primary-700: 0.2131 0.4726 0.1244;
+      --primary-800: 0.135 0.3147 0.0721;
+      --primary-900: 0.0569 0.1571 0.0207;
+      --background: 0.9843 0.9843 0.9882;
+      --background-light: 0.9843 0.9843 0.9882;
+      --background-dark: 0.036 0.0424 0.084;
+
+      --neutral-loud: 0.128 0.1498 0.192;
+      --neutral-mute: 0.2764 0.3029 0.3612;
+      --neutral-white: 1 1 1;
+      --neutral-normal: 0.6192 0.6447 0.7008;
+      --neutral-alpha-loud-alpha: 0.0118 0.0314 0.0824 / 0.88;
+      --neutral-alpha-muted-alpha: 0.0078 0.0549 0.1686 / 0.58;
+      --neutral-alpha-mute-alpha: 0.0078 0.0431 0.1255 / 0.73;
+      --neutral-alpha-normal-alpha: 0.0235 0.0863 0.2353 / 0.39;
+      --neutral-opaque-2: 0.1137 0.2431 0.4784 / 0.02;
+      --neutral-opaque-4: 0.1137 0.2431 0.4784 / 0.04;
+      --neutral-opaque-6: 0.1137 0.2431 0.4784 / 0.06;
+      --neutral-opaque-8: 0.1137 0.2431 0.4784 / 0.08;
+      --neutral-opaque-10: 0.1137 0.2431 0.4784 / 0.10;
     }
   }
 }

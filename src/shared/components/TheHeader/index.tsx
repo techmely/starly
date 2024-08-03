@@ -45,7 +45,7 @@ const TheHeader = () => {
                 <Link
                   href="/sales/take-a-tour"
                   className={clsx(
-                    "relative rounded-md px-3 py-2.5 text-base transition-colors inner-border inner-border-slate-400 active:translate-y-[0.5px] hover:bg-green-200",
+                    "relative rounded-md px-3 py-2.5 text-base transition-colors inner-border inner-border-slate-400 active:translate-y-[0.5px] hover:bg-primary-100",
                   )}
                 >
                   Take a Tour
@@ -53,7 +53,7 @@ const TheHeader = () => {
                 <Link
                   href="/pricing"
                   className={clsx(
-                    "relative cursor-pointer rounded-md bg-slate-800 px-3 py-2.5 text-base text-white transition-all hover:bg-slate-500 active:translate-y-[0.5px] active:bg-[#171B24] sm-max:hidden grayscale",
+                    "relative cursor-pointer rounded-md bg-slate-800 px-3 py-2.5 text-base text-white transition-all hover:bg-slate-700 active:translate-y-[0.5px] active:bg-[#171B24] sm-max:hidden grayscale",
                     !isScrolling && "opacity-0",
                   )}
                 >
