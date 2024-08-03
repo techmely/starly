@@ -1,6 +1,6 @@
 import { usePageContext } from "@techmely/vike-react/usePageContext";
 import type { AnchorHTMLAttributes, DetailedHTMLProps, FC } from "react";
-import { type Locale, baseLocale } from "#root/locales/locales.utils";
+import { type Locale, baseLocale } from "../libs/i18n/i18n.utils";
 
 type Props = DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
   locale?: Locale;
