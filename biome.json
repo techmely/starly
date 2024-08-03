@@ -54,7 +54,7 @@
       ".output",
       ".vercel",
       "dist",
-      "locales/paraglide",
+      "src/paraglide",
       "typings"
     ]
   }
