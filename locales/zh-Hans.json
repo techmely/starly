@@ -1,6 +1,7 @@
 {
-  "seoTitle": "Make your dream come true - Techmely",
-  "seoDescription": "Create the talents - To the path of liberation",
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "title1": "Make your dream come true - Techmely",
+  "description": "满足宣传您作品集的现代标准。开箱即用，简洁美观，易于使用，并针对用户参与度进行了优化。",
   "seoAuthor": "Techmely Team",
   "headerNav0": "Flex Feed",
   "headerNav1": "Discussion",
