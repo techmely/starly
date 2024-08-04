@@ -3,8 +3,9 @@ import { getLastGitCommitHash } from "@techmely/es-toolkit/getGitLastCommitHash"
 import type { MiddlewareHandler } from "hono";
 import { getCookie, setCookie } from "hono/cookie";
 import { renderPage } from "vike/server";
+import { sourceLanguageTag } from "#root/paraglide/runtime";
 import pkg from "../../../package.json";
-import { baseLocale, localeKey, localeMaxAge } from "../../shared/libs/i18n/i18n.utils";
+import { localeKey, localeMaxAge } from "../../shared/libs/i18n/i18n.utils";
 
 export default function vikeMiddleware(): MiddlewareHandler<HonoEnv> {
   return async (c, next) => {
@@ -28,7 +29,7 @@ export default function vikeMiddleware(): MiddlewareHandler<HonoEnv> {
     };
 
     if (!locale) {
-      setCookie(c, localeKey, baseLocale, {
+      setCookie(c, localeKey, sourceLanguageTag, {
         domain: c.env.VITE_COOKIE_DOMAIN,
         secure: true,
         httpOnly: true,
