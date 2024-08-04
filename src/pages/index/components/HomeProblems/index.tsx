@@ -60,7 +60,7 @@ const HomeProblems: FC<Props> = (props) => {
       <div className="starly-container text-center mb-8">
         <h2 className="~text-2xl/4xl font-semibold">
           {t.homeBuildPortfolio()}
-          <span className="text-complicated">{t.homeComplicated()}</span>
+          <span className="text-important">{t.homeComplicated()}</span>
         </h2>
       </div>
       <ul className="problems grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">

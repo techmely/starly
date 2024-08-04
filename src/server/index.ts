@@ -7,7 +7,6 @@ import { secureHeadersMiddleware } from "@techmely/hono/secure-header";
 
 import { safeParse } from "valibot";
 import { appRuntimeEnvSchema } from "./helpers/runtimeEnv";
-import firebaseAuthMiddleware from "./middleware/firebaseAuthHandler";
 import { telefuncMiddleware } from "./middleware/telefuncHandler";
 import vikeMiddleware from "./middleware/vikeHandler";
 import { sessionRouter } from "./router/session";
@@ -16,7 +15,7 @@ const app = new Hono<HonoEnv>();
 app.use(commonContext());
 app.use(timing());
 app.use(secureHeadersMiddleware());
-app.use(firebaseAuthMiddleware());
+// app.use(firebaseAuthMiddleware());
 
 // if (isProd) {
 //   app.use("/assets/*", serveStatic({ root: "dist/client/" }));
