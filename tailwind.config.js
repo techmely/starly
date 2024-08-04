@@ -1,12 +1,16 @@
 const plugin = require("tailwindcss/plugin");
-import fluidPlugin, { extract, screens, fontSize } from 'fluid-tailwind'
+import fluidPlugin, { extract, screens, fontSize } from "fluid-tailwind";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ['class', '[data-theme="dark"]'],
+  darkMode: ["class", '[data-theme="dark"]'],
   content: {
-    files: ["./src/pages/**/*.{ts,tsx}", "./src/shared/components/**/*.tsx", "./src/shared/layouts/**/*.tsx"],
-    extract
+    files: [
+      "./src/pages/**/*.{ts,tsx}",
+      "./src/shared/components/**/*.tsx",
+      "./src/shared/layouts/**/*.tsx",
+    ],
+    extract,
   },
   corePlugins: {
     preflight: false,
@@ -35,28 +39,38 @@ export default {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
         },
-        'accordion-down': {
+        "accordion-down": {
           from: { height: 0 },
-          to: { height: 'var(--kb-accordion-content-height)' },
+          to: { height: "var(--kb-accordion-content-height)" },
         },
-        'accordion-up': {
-          from: { height: 'var(--kb-accordion-content-height)' },
+        "accordion-up": {
+          from: { height: "var(--kb-accordion-content-height)" },
           to: { height: 0 },
         },
-        'content-show': {
-          from: { opacity: 0, transform: 'scale(0.96)' },
-          to: { opacity: 1, transform: 'scale(1)' },
+        "content-show": {
+          from: { opacity: 0, transform: "scale(0.96)" },
+          to: { opacity: 1, transform: "scale(1)" },
         },
-        'content-hide': {
-          from: { opacity: 1, transform: 'scale(1)' },
-          to: { opacity: 0, transform: 'scale(0.96)' },
+        "content-hide": {
+          from: { opacity: 1, transform: "scale(1)" },
+          to: { opacity: 0, transform: "scale(0.96)" },
+        },
+        "skew-scroll": {
+          "0%": {
+            transform: "rotatex(20deg) rotateZ(-20deg) skewX(20deg) translateZ(0) translateY(0)",
+          },
+          "100%": {
+            transform:
+              "rotatex(20deg) rotateZ(-20deg) skewX(20deg) translateZ(0) translateY(-100%)",
+          },
         },
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        'content-show': 'content-show 0.2s ease-out',
-        'content-hide': 'content-hide 0.2s ease-out',
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "content-show": "content-show 0.2s ease-out",
+        "content-hide": "content-hide 0.2s ease-out",
+        "skew-scroll": "skew-scroll 20s linear infinite",
       },
     },
   },
@@ -85,17 +99,17 @@ export default {
         },
       });
       addComponents({
-        '.no-scrollbar': {
+        ".no-scrollbar": {
           /* Hide scrollbar for Chrome, Safari and Opera */
-          '&::-webkit-scrollbar': {
-            display: 'none',
+          "&::-webkit-scrollbar": {
+            display: "none",
           },
           /* Hide scrollbar for IE, Edge and Firefox */
-          '-ms-overflow-style': 'none' /* IE and Edge */,
-          'scrollbar-width': 'none' /* Firefox */,
+          "-ms-overflow-style": "none" /* IE and Edge */,
+          "scrollbar-width": "none" /* Firefox */,
         },
       });
     }),
-    require('tailwindcss-animate'),
+    require("tailwindcss-animate"),
   ],
 };
