@@ -1,6 +1,6 @@
 import type { UserModel } from "@techmely/starly-models";
 import type { User } from "firebase/auth";
-import type { Locale } from "../../locales/locales.utils";
+import type { Locale } from "#root/shared/libs/i18n";
 
 export type AuthState = {
   user?: UserModel;

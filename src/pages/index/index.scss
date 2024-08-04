@@ -1,4 +1,85 @@
 .bg-home-hero {
   background: linear-gradient(to bottom, color(display-p3 .8624 .9244 .9776) 0%, color(display-p3 .9536 .9504 .9696) 50%, color(display-p3 .9843 .9843 .9882) 100%);
   height: 3000px;
+
+  --white-24: color(display-p3 1 1 1 / 0.24);
+  --white-48: color(display-p3 1 1 1 / 0.48);
+  --white-64: color(display-p3 1 1 1 / 0.64);
+  --white-72: color(display-p3 1 1 1 / 0.72);
+  --white-80: color(display-p3 1 1 1 / 0.80);
+}
+
+.main-features {
+  grid-template-columns: 1.7fr 0.5fr 0.8fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "cp rg rg"
+    "cp rg rg"
+    "cp nre nre"
+    "cp nre nre";
+
+  .cp {
+    grid-area: cp;
+  }
+
+  .rg {
+    grid-area: rg;
+  }
+
+  .nre {
+    grid-area: nre;
+  }
+}
+
+.text-complicated {
+  @apply text-primary-500
+}
+
+.home-problems {
+
+  position: relative;
+  --bg: hsl(0 0% 2%);
+
+  .problems {
+    margin-inline: max(0px, 50% - 1920px / 2);
+
+    &::after {
+      border-radius: 1rem;
+      content: "";
+      position: absolute;
+      background: hsl(0 0% 10%);
+      pointer-events: none;
+      z-index: -2;
+      inset: calc(var(--top)* 1px) calc(100% - (var(--right)* 1px)) calc(100% - (var(--bottom)* 1px)) calc(var(--left)* 1px);
+      transition: inset 0.2s;
+
+      @supports (anchor-name: --anchor) {
+        position-anchor: var(--anchor);
+        inset: anchor(top) anchor(right) anchor(bottom) anchor(left);
+        opacity: var(--active, 0);
+        transition: opacity 0.2s, inset 0.2s 0.2s;
+      }
+    }
+
+    li {
+      padding: 1rem;
+
+      &:hover {
+        --li-active: 1;
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px,
+      linear-gradient(90deg, var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px;
+    mask: linear-gradient(-35deg, var(--bg) 0%, transparent 45%);
+    z-index: -1;
+    opacity: var(--li-active, 0);
+    transition: opacity 0.2s;
+  }
 }

@@ -58,11 +58,11 @@
   "Export const component": {
     "prefix": "exconst",
     "body": [
-      "import React from 'react';",
+      "import type { FC } from 'react';",
       "",
       "type Props = {}",
       "",
-      "export const ${1:${TM_FILENAME_BASE}}: React.FC<Props> = props => {",
+      "export const ${1:${TM_FILENAME_BASE}}: FC<Props> = props => {",
       "",
       "  return <div>$2</div>;",
       "};"
@@ -72,11 +72,11 @@
   "Export default component": {
     "prefix": "exdef",
     "body": [
-      "import React from 'react';",
+      "import type { FC } from 'react';",
       "",
       "type Props = {}",
       "",
-      "const ${1:${TM_FILENAME_BASE}}: React.FC<Props> = props => {",
+      "const ${1:${TM_FILENAME_BASE}}: FC<Props> = props => {",
       "",
       "  return <div>$2</div>;",
       "};",

@@ -27,7 +27,7 @@ const TheHeader = () => {
       >
         <div
           className={clsx(
-            "mx-auto flex h-18 w-[calc(100%-20px)] max-w-[1172px] items-center justify-between whitespace-nowrap px-[22px] transition-all sm:px-12 md:w-[calc(100%-120px)]",
+            "mx-auto flex h-18 starly-container items-center justify-between whitespace-nowrap px-[22px] transition-all sm:px-12",
             isScrolling ? "md:h-16" : "md:h-28",
           )}
         >
@@ -45,7 +45,7 @@ const TheHeader = () => {
                 <Link
                   href="/sales/take-a-tour"
                   className={clsx(
-                    "relative rounded-md px-3 py-2.5 text-base transition-colors inner-border inner-border-slate-400 active:translate-y-[0.5px] hover:bg-green-200",
+                    "relative rounded-md px-3 py-2.5 text-base transition-colors inner-border inner-border-slate-400 active:translate-y-[0.5px] hover:bg-primary-100",
                   )}
                 >
                   Take a Tour
@@ -53,7 +53,7 @@ const TheHeader = () => {
                 <Link
                   href="/pricing"
                   className={clsx(
-                    "relative cursor-pointer rounded-md bg-slate-800 px-3 py-2.5 text-base text-white transition-all hover:bg-slate-500 active:translate-y-[0.5px] active:bg-[#171B24] sm-max:hidden grayscale",
+                    "relative cursor-pointer rounded-md bg-slate-800 px-3 py-2.5 text-base text-white transition-all hover:bg-slate-700 active:translate-y-[0.5px] active:bg-[#171B24] sm-max:hidden grayscale",
                     !isScrolling && "opacity-0",
                   )}
                 >

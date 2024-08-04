@@ -19,11 +19,15 @@ const root = resolve(__dirname, ".");
 
 export default defineConfig({
   plugins: [
+    ViteParaglide({
+      project: "./project.inlang",
+      outdir: "./src/paraglide",
+    }),
     ViteHonoDevServer({
       entry: "src/server/index.ts",
       exclude: [
         /^\/@.+$/,
-        /.*\.(ts|tsx)($|\?)/,
+        /.*\.(js|ts|tsx)($|\?)/,
         /.*\.(s?css|less)($|\?)/,
         /^\/favicon\.ico$/,
         /.*\.(svg|png)($|\?)/,
@@ -32,10 +36,6 @@ export default defineConfig({
         /^\/node_modules\/.*/,
       ],
       injectClientScript: false,
-    }),
-    ViteParaglide({
-      project: "./project.inlang",
-      outdir: "./src/locales/paraglide",
     }),
     isProd && ViteMillion.vite({ telemetry: false, auto: true }),
     FontaineTransform.vite({
@@ -62,7 +62,7 @@ export default defineConfig({
     alias: {
       "#root": resolve(root, "src"),
       "#server": resolve(root, "src/server"),
-      $paraglide: resolve(root, "src/locales/paraglide"),
+      $paraglide: resolve(root, "src/paraglide"),
     },
   },
   ssr: {

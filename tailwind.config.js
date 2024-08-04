@@ -17,17 +17,17 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: "var(--primary-50) <alpha-value>",
-          100: "var(--primary-100) <alpha-value>",
-          200: "var(--primary-200) <alpha-value>",
-          300: "var(--primary-300) <alpha-value>",
-          400: "var(--primary-400) <alpha-value>",
-          500: "var(--primary-500) <alpha-value>",
-          600: "var(--primary-600) <alpha-value>",
-          700: "var(--primary-700) <alpha-value>",
-          800: "var(--primary-800) <alpha-value>",
-          900: "var(--primary-900) <alpha-value>",
-          950: "var(--primary-950) <alpha-value>",
+          50: "color(display-p3 var(--primary-50) / <alpha-value>)",
+          100: "color(display-p3 var(--primary-100) / <alpha-value>)",
+          200: "color(display-p3 var(--primary-200) / <alpha-value>)",
+          300: "color(display-p3 var(--primary-300) / <alpha-value>)",
+          400: "color(display-p3 var(--primary-400) / <alpha-value>)",
+          500: "color(display-p3 var(--primary-500) / <alpha-value>)",
+          600: "color(display-p3 var(--primary-600) / <alpha-value>)",
+          700: "color(display-p3 var(--primary-700) / <alpha-value>)",
+          800: "color(display-p3 var(--primary-800) / <alpha-value>)",
+          900: "color(display-p3 var(--primary-900) / <alpha-value>)",
+          950: "color(display-p3 var(--primary-950) / <alpha-value>)",
         },
       },
       keyframes: {

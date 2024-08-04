@@ -1,18 +1,22 @@
-export const locales = ["en", "vi"] as const;
-export type Locale = (typeof locales)[number];
+import {
+  type AvailableLanguageTag,
+  availableLanguageTags,
+  sourceLanguageTag,
+} from "#root/paraglide/runtime";
 
-export const baseLocale: Locale = "en";
 export const localeMaxAge = 31536000; // 365 days
 export const localeKey = "tmlLocale";
 
 export function extractLocale(url: string) {
   const paths = url.split("/");
-  let locale: Locale | undefined;
+  let locale: AvailableLanguageTag | undefined;
   let urlLogical: string;
 
   // We get locale from URL, for example `/en/about` => `en`
-  const localePath = paths[1] as Locale;
-  const isMatchLocale = locales.filter((l) => l !== baseLocale)?.includes?.(localePath);
+  const localePath = paths[1] as AvailableLanguageTag;
+  const isMatchLocale = availableLanguageTags
+    .filter((l) => l !== sourceLanguageTag)
+    ?.includes?.(localePath);
   if (isMatchLocale) {
     locale = localePath;
     urlLogical = `/${paths.slice(2).join("/")}`;
