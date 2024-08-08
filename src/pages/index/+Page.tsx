@@ -2,7 +2,7 @@ import "./assets/home.scss";
 import HomeHero from "#root/pages/index/components/HomeHero";
 import HomeBuildFor from "./components/HomeBuildFor";
 import HomeProblems from "./components/HomeProblems";
-import HomeTestimonals from "./components/HomeTestimonials";
+import HomeTestimonials from "./components/HomeTestimonials";
 
 const IndexPage = () => {
   return (
@@ -12,7 +12,7 @@ const IndexPage = () => {
         <HomeProblems />
         <HomeBuildFor />
       </div>
-      <HomeTestimonals />
+      <HomeTestimonials />
     </>
   );
 };
