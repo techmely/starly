@@ -16,7 +16,13 @@ export default function TabSwitchPortfolio() {
 
         const clipLeft = offsetLeft;
         const clipRight = offsetLeft + offsetWidth;
-        container.style.clipPath = `inset(0 ${Number(100 - (clipRight / container.offsetWidth) * 100).toFixed()}% 0 ${Number((clipLeft / container.offsetWidth) * 100).toFixed()}% round 17px)`;
+        container.style.clipPath = getClipPath(clipLeft, clipRight, container.offsetWidth);
+
+function getClipPath(clipLeft, clipRight, containerWidth) {
+  const left = Number((clipLeft / containerWidth) * 100).toFixed();
+  const right = Number(100 - (clipRight / containerWidth) * 100).toFixed();
+  return `inset(0 ${right}% 0 ${left}% round 17px)`;
+}
       }
   }, [activeTab]);
 
