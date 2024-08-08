@@ -1,6 +1,6 @@
 import * as t from "$paraglide/messages.js";
-import CreativePortfolio from "./CreativePortfolio";
 import NewReadingExperiences from "./NewReadingExperiences";
+import Portfolio from "./Portfolio";
 import ReputationGame from "./ReputationGame";
 
 export default function HomeHero() {
@@ -35,7 +35,7 @@ export default function HomeHero() {
         </div>
       </section>
       <section className="main-features starly-container grid gap-4 h-[600px]">
-        <CreativePortfolio />
+        <Portfolio />
         <ReputationGame />
         <NewReadingExperiences />
       </section>
