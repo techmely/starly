@@ -1,21 +1,19 @@
-import React, { useEffect, useState, type FC, type SVGAttributes } from "react";
+import type { FC, SVGAttributes } from "react";
+import type { HomeSvgId } from "#root/pages/index/assets/svg/svg.id";
 
 export const SvgUse: FC<SvgUseProps> = ({ role, customPath, id, label, ...rest }) => {
-  const [svgPath, setSvgPath] = useState(`/svg/common.svg#${id}`);
-
-  useEffect(() => {
-    if (customPath) setSvgPath(`${customPath}#${id}`);
-  }, [customPath, id]);
+  const svgPath = customPath ? `${customPath}#${id}` : `/svg/common.svg#${id}`;
 
   return (
     // biome-ignore lint/nursery/useSemanticElements: We don't need to use semantic elements here
-    <svg role="img" aria-label={label || "Present Icon"} {...rest}>
+    <svg role="img" aria-label={label || `${id} icon`} {...rest}>
       <use href={svgPath} />
     </svg>
   );
 };
 
 type SvgId =
+  | HomeSvgId
   | "brand-twitter"
   | "brand-linkedin"
   | "brand-facebook"

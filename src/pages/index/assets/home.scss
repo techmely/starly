@@ -51,8 +51,19 @@
       padding: 16px;
       font-size: 14px;
       font-weight: 500;
-      color: #000;
       text-decoration: none;
+
+      &.creative {
+        color: theme('colors.yellow.500');
+      }
+
+      &.trust {
+        color: theme('colors.blue.400');
+      }
+
+      &.calm {
+        color: theme('colors.violet.400');
+      }
     }
 
     .button.button-overlay {
