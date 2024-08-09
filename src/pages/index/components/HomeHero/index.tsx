@@ -34,7 +34,7 @@ export default function HomeHero() {
           </div>
         </div>
       </section>
-      <section className="main-features starly-container grid gap-4 h-[600px]">
+      <section className="main-features">
         <Portfolio />
         <ReputationGame />
         <NewReadingExperiences />

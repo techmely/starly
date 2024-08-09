@@ -30,7 +30,7 @@ export default defineConfig({
         /.*\.(js|ts|tsx)($|\?)/,
         /.*\.(s?css|less)($|\?)/,
         /^\/favicon\.ico$/,
-        /.*\.(svg|png)($|\?)/,
+        /.*\.(svg|png|avif|webp|jpe?g|gif)($|\?)/,
         /.*\.webmanifest($|\?)/,
         /^\/(public|assets|static)\/.+/,
         /^\/node_modules\/.*/,
@@ -67,5 +67,8 @@ export default defineConfig({
   },
   ssr: {
     noExternal: ["react-use"],
+  },
+  server: {
+    port: +(process.env.PORT || 0) || 3000,
   },
 });
