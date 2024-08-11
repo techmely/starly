@@ -2,10 +2,10 @@ import * as t from "$paraglide/messages.js";
 import type { FC } from "react";
 import ProLabel from "./ProLabel";
 
-import HomeCreator from "../../assets/images/Creator.png";
-import HomeDesigner from "../../assets/images/Designer.png";
-import HomeDeveloper from "../../assets/images/Developer.png";
-import HomeManager from "../../assets/images/Manager.png";
+import HomeCreator from "#root/pages/index/assets/images/Creator.png";
+import HomeDesigner from "#root/pages/index/assets/images/Designer.png";
+import HomeDeveloper from "#root/pages/index/assets/images/Developer.png";
+import HomeManager from "#root/pages/index/assets/images/Manager.png";
 
 type Props = {};
 
