@@ -1,7 +1,8 @@
+import type { Collaborator, FileModel } from "@techmely/starly-models";
 import type { FC } from "react";
 import Link from "#root/shared/components/Link";
 
-type Props = {
+export type CardCraftProps = {
   id: string;
   isPublish: boolean;
   link?: string;
@@ -10,12 +11,14 @@ type Props = {
   /**
    * Can be a link of image, gift or video
    */
-  assetLink: string;
+  file: Partial<FileModel>;
   actionText?: string;
   createdAt: string;
+  authorName?: string;
+  collaborators?: Collaborator[];
 };
 
-const CardCraft: FC<Props> = (props) => {
+const CardCraft: FC<CardCraftProps> = (props) => {
   return (
     <li data-testid={`p-item-${props.id}`}>
       {props.isPublish ? <PublicCraft {...props} /> : <PrivateCraft {...props} />}
@@ -23,28 +26,37 @@ const CardCraft: FC<Props> = (props) => {
   );
 };
 
-const PublicCraft: FC<Props> = ({
+const PublicCraft: FC<CardCraftProps> = ({
   id,
   title,
   description,
   link,
   actionText,
-  assetLink,
+  file,
+  authorName,
   createdAt,
 }) => {
   return (
-    <Link href={assetLink} aria-label={title}>
-      Public
+    <Link href={link} aria-label={title}>
+      <div className="relative overflow-hidden rounded-lg">
+        {/* <img src={file} alt={title} className="relative" /> */}
+        <div className="absolute bottom-0 z-[1] w-full flex justify-between items-center">
+          <h3>{title}</h3>
+          {/* <p>{description}</p> */}
+          {authorName ? <p>{authorName}</p> : <time>{createdAt}</time>}
+        </div>
+      </div>
     </Link>
   );
 };
 
-const PrivateCraft: FC<Props> = ({
+const PrivateCraft: FC<CardCraftProps> = ({
+  id,
   title,
   description,
   link,
   actionText,
-  assetLink,
+  file,
   createdAt,
 }) => {
   return <div aria-label={title}>Private</div>;
