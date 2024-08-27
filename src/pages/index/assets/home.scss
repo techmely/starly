@@ -95,49 +95,62 @@
 
 .home-problems {
 
-  position: relative;
-  --bg: hsl(0 0% 2%);
-
-  .problems {
-    margin-inline: max(0px, 50% - 1920px / 2);
-
-    &::after {
-      border-radius: 1rem;
-      content: "";
-      position: absolute;
-      background: hsl(0 0% 10%);
-      pointer-events: none;
-      z-index: -2;
-      inset: calc(var(--top)* 1px) calc(100% - (var(--right)* 1px)) calc(100% - (var(--bottom)* 1px)) calc(var(--left)* 1px);
-      transition: inset 0.2s;
-
-      @supports (anchor-name: --anchor) {
-        position-anchor: var(--anchor);
-        inset: anchor(top) anchor(right) anchor(bottom) anchor(left);
-        opacity: var(--active, 0);
-        transition: opacity 0.2s, inset 0.2s 0.2s;
-      }
-    }
-
-    li {
-      padding: 1rem;
-
-      &:hover {
-        --li-active: 1;
-      }
-    }
-  }
-
   &::before {
+    --size: 120px;
+    --line: color-mix(in lch, canvasText, transparent 70%);
     content: "";
     position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px,
-      linear-gradient(90deg, var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px;
-    mask: linear-gradient(-35deg, var(--bg) 0%, transparent 45%);
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size), linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+    mask: linear-gradient(-35deg, transparent 50%, white);
+    top: 0;
+    pointer-events: none;
     z-index: -1;
-    opacity: var(--li-active, 0);
-    transition: opacity 0.2s;
+    transform-style: flat;
   }
+
+
+  // .problems {
+  //   margin-inline: max(0px, 50% - 1920px / 2);
+
+  //   &::after {
+  //     border-radius: 1rem;
+  //     content: "";
+  //     position: absolute;
+  //     background: hsl(0 0% 10%);
+  //     pointer-events: none;
+  //     z-index: -2;
+  //     inset: calc(var(--top)* 1px) calc(100% - (var(--right)* 1px)) calc(100% - (var(--bottom)* 1px)) calc(var(--left)* 1px);
+  //     transition: inset 0.2s;
+
+  //     @supports (anchor-name: --anchor) {
+  //       position-anchor: var(--anchor);
+  //       inset: anchor(top) anchor(right) anchor(bottom) anchor(left);
+  //       opacity: var(--active, 0);
+  //       transition: opacity 0.2s, inset 0.2s 0.2s;
+  //     }
+  //   }
+
+  //   li {
+  //     padding: 1rem;
+
+  //     &:hover {
+  //       --li-active: 1;
+  //     }
+  //   }
+  // }
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   inset: 0;
+  //   background:
+  //     linear-gradient(var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px,
+  //     linear-gradient(90deg, var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px;
+  //   mask: linear-gradient(-35deg, var(--bg) 0%, transparent 45%);
+  //   z-index: -1;
+  //   opacity: var(--li-active, 0);
+  //   transition: opacity 0.2s;
+  // }
 }
