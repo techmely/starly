@@ -7,7 +7,7 @@ import HomeTestimonials from "./components/HomeTestimonials";
 const IndexPage = () => {
   return (
     <>
-      <div className="bg-home-hero space-y-8">
+      <div className="bg-home-hero space-y-8 relative">
         <HomeHero />
         <HomeProblems />
         <HomeBuildFor />
