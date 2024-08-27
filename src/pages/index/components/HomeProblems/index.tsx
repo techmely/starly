@@ -56,7 +56,7 @@ const problems = [
 
 const HomeProblems: FC<Props> = (props) => {
   return (
-    <section className="home-problems my-8">
+    <section className="home-problems relative grid place-items-center my-8 z-[1">
       <div className="starly-container text-center mb-8">
         <h2 className="~text-2xl/4xl font-semibold">
           {t.homeBuildPortfolio()}
