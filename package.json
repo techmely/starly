@@ -138,7 +138,7 @@
     "vike": "0.4.183",
     "vite": "5.4.2",
     "vite-plugin-compression2": "1.2.0",
-    "vite-plugin-pwa": "0.20.1",
+    "vite-plugin-pwa": "0.20.2",
     "vitest": "2.0.5",
     "vitest-axe": "^0.1.0",
     "zx": "8.1.4"
