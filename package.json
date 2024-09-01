@@ -102,7 +102,7 @@
     "@techmely/types": "1.9.0",
     "@types/bun": "1.1.8",
     "@types/fs-extra": "11.0.4",
-    "@types/mixpanel-browser": "2.49.1",
+    "@types/mixpanel-browser": "2.50.0",
     "@types/node": "^22.5.0",
     "@types/nprogress": "0.2.3",
     "@types/react": "18.2.0",
