@@ -80,7 +80,7 @@
     "simdjson": "0.9.2",
     "sitemap": "8.0.0",
     "splitting": "^1.1.0",
-    "stripe": "16.8.0",
+    "stripe": "16.12.0",
     "swup": "4.7.0",
     "tailwindcss-animate": "^1.0.7",
     "telefunc": "0.1.78",
